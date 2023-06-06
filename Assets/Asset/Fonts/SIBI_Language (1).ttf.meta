@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 574dbba4da649024d876355c266f6f3e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - SIBI Language
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 688126e809ac1504aa7aac100e0795f6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
