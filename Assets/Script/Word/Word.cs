@@ -17,6 +17,9 @@ public class Word
     public char GetLetter(){
         return word[no_Letter];
     }
+    // public void RightGiveColor(){
+    //     no_Letter 
+    // }
     public void TypeOutLetter(){
         no_Letter++;
         display.RemoveLetterUI();
