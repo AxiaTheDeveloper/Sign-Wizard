@@ -6,10 +6,10 @@ public class GameInput : MonoBehaviour
 {
     public static GameInput Instance {get; private set;}
 
-    private Vector2 keyInput, lastKeyInput, lastKeyInputAnimation, lastDiagonalInput;
-    private bool wasDiagonal;
-    [SerializeField]private float diagonalCheckerMaxTime;
-    private float diagonalChecker;
+    private Vector2 keyInput, lastKeyInput, lastKeyInputAnimation, lastDiagonalInput, keyArrowInputUI;
+    private bool wasDiagonal, wasUsingArrowKeys;
+    [SerializeField]private float diagonalCheckerMaxTime, arrowKeyCooldownMaxTime;
+    private float diagonalChecker, arrowKeyCooldown;
 
 
 
@@ -20,6 +20,9 @@ public class GameInput : MonoBehaviour
     private void Start() {
         wasDiagonal = false;
         diagonalChecker = diagonalCheckerMaxTime;
+
+        wasUsingArrowKeys = false;
+        arrowKeyCooldown = arrowKeyCooldownMaxTime;
     }
 
     //Ini Buat word
@@ -144,6 +147,38 @@ public class GameInput : MonoBehaviour
     }
     public bool GetInputOpenInventory(){
         return Input.GetKeyDown(KeyCode.E);
+    }
+
+    public Vector2 GetInputArrow(){
+        keyArrowInputUI.Set(0,0);
+        if(wasUsingArrowKeys){
+            arrowKeyCooldown -= Time.deltaTime;
+            if(arrowKeyCooldown <= 0){
+                arrowKeyCooldown = arrowKeyCooldownMaxTime;
+                wasUsingArrowKeys = false;
+            }
+        }
+        else{
+            if(Input.GetKey(KeyCode.UpArrow)){
+                keyArrowInputUI.y = 1;
+                wasUsingArrowKeys = true;
+            } 
+            else if(Input.GetKey(KeyCode.DownArrow)){
+                keyArrowInputUI.y = -1;
+                wasUsingArrowKeys = true;
+            } 
+            else if(Input.GetKey(KeyCode.LeftArrow)){
+                keyArrowInputUI.x = -1;
+                wasUsingArrowKeys = true;
+            }
+            
+            else if(Input.GetKey(KeyCode.RightArrow)){
+                keyArrowInputUI.x = 1;
+                wasUsingArrowKeys = true;
+            }
+        }
+        
+        return keyArrowInputUI;
     }
 
     

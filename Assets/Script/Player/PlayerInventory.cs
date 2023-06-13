@@ -7,38 +7,41 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance;
     [SerializeField]private InventoryUI inventoryUI;
-    public event EventHandler OnQuitInventory;
-    private bool isInventoryOpen;
+    [SerializeField]private InventoryScriptableObject inventory;
 
-    [SerializeField]private int inventorySize;
+    private int inventorySize;
 
+    public event EventHandler OnUpdateUI;
+    
 
     private void Awake() {
         Instance = this;
+        inventorySize = inventory.size;
     }
-    private void Start() {
-        isInventoryOpen = false;
+    private void Start(){
+        
+        if(inventory.inventSlot.Count != inventorySize){
+            inventory.CreateInventory();
+        }
 
+        inventory.OnItemAdd += inventory_OnItemAdd;
     }
+
+    private void inventory_OnItemAdd(object sender, InventoryScriptableObject.OnItemAddEventArgs e)
+    {
+        inventoryUI.UpdateVisualInventorySlot(e.position,inventory.inventSlot[e.position]);
+    }
+
     void Update()
     {
-        //buka invent
-        if(WitchGameManager.Instance.IsInGame()){
-            
-            if(GameInput.Instance.GetInputOpenInventory() && !isInventoryOpen){
-                // Debug.Log("Hi Open");
-                inventoryUI.ShowUI();
-                isInventoryOpen = true;
-            }
-        }
-        else if(WitchGameManager.Instance.IsInterfaceType() == 3){
-            if(isInventoryOpen && (GameInput.Instance.GetInputEscape() || GameInput.Instance.GetInputOpenInventory())){
-                // Debug.Log("Hi Close");
-                OnQuitInventory?.Invoke(this,EventArgs.Empty);
-                isInventoryOpen = false;
-            }
-        }
         
+        
+    }
+    public void GiveData_To_UI(){
+        //updet semua
+        for(int i=0;i<inventorySize;i++){
+            inventoryUI.UpdateVisualInventorySlot(i,inventory.inventSlot[i]);
+        }
     }
     public int GetInventorySize(){
         return inventorySize;
