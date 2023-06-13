@@ -142,6 +142,9 @@ public class GameInput : MonoBehaviour
     public bool GetInputInteract(){
         return Input.GetKeyDown(KeyCode.F);
     }
+    public bool GetInputOpenInventory(){
+        return Input.GetKeyDown(KeyCode.E);
+    }
 
     
 

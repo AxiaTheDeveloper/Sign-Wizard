@@ -15,21 +15,61 @@ public class WitchGameManager : MonoBehaviour
     private enum gameLevelQuest{
         lvl1, lvl2 // ini trgantung ntr mo brp lvl - ntr di save di scriptable object aja
     }
+    private gameLevelQuest level;
+
+    private enum InterfaceType{
+        writingTime, selectTime, InventoryTime // misal kek oh skrg tu lg interface time yg writing brarti input cuma nyala buat write aja, kalo select ya gabakal ke writing
+    }
+    private InterfaceType interfaceType;
     private void Awake() {
         Instance = this;
     }
     private void Start() {
         state = gameState.InGame; // ini tergantung sih mo drmn dl
+        //baca save 
 
-    }
-
-    public void ChangeToInterface(){
-        state = gameState.InterfaceTime;
     }
 
     public void ChangeToInGame(){
         state = gameState.InGame;
     }
+
+    //bagian urusan interface
+
+    // public void ChangeToInterface(){
+    //     state = gameState.InterfaceTime;
+    // }
+    public void ChangeInterfaceType(int nomor){
+        state = gameState.InterfaceTime;
+        if(nomor == 0){
+            interfaceType = InterfaceType.writingTime;
+        }
+        else if(nomor == 1){
+            interfaceType = InterfaceType.selectTime;
+        }
+        else if(nomor == 2){
+            interfaceType = InterfaceType.InventoryTime;
+        }
+    }
+    public int IsInterfaceType(){
+        //1 - write, 2 - select, 3 - Inventory +1 dr atas
+        if(state != gameState.InterfaceTime) return 0;
+        else if(state == gameState.InterfaceTime){
+            if(interfaceType == InterfaceType.writingTime){
+                return 1;
+            }
+            else if(interfaceType == InterfaceType.selectTime){
+                return 2;
+            }
+            else if(interfaceType == InterfaceType.InventoryTime){
+                return 3;
+            }
+        }
+        return 0;
+
+    }
+
+    
 
     public void PauseGame(){
         pauseState = !pauseState;
@@ -45,8 +85,8 @@ public class WitchGameManager : MonoBehaviour
     public bool IsInGame(){
         return state == gameState.InGame;
     }
-    public bool IsInterfaceTime(){
-        return state == gameState.InterfaceTime;
-    }
+    // public bool IsInterfaceTime(){
+    //     return state == gameState.InterfaceTime;
+    // }
     
 }

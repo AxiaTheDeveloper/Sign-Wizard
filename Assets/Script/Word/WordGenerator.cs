@@ -9,9 +9,10 @@ public class WordGenerator : MonoBehaviour
     
     private static int randChecker, sameChecker;
     private static bool firstTime = true;
+    private static bool firstRandom = false;
     public static string GetRandomWord(){
         int random = Random.Range(0,wordArray.Length);
-
+        
         //ngecek biar random ga dapet huruf sama lagi sebanyak sameChecker (2 kali utk skrg)
         if(firstTime){
             firstTime = false;
@@ -19,19 +20,21 @@ public class WordGenerator : MonoBehaviour
             sameChecker = 0;
         }
         else{
-            if(random == randChecker){
-                random += Random.Range(1,wordArray.Length/2);
-                if(random > wordArray.Length){
-                    random = Random.Range(0,wordArray.Length);
+            firstRandom = true;
+            while(random == randChecker){
+                random = Random.Range(0,wordArray.Length);
+                if(firstRandom){
+                    sameChecker++;
+                    firstRandom = false;
                 }
-                sameChecker++;
+                
             }
         }
-        if(sameChecker == 10){
+        if(sameChecker == 2){
             randChecker = random;
             sameChecker = 0;
         }
-        Debug.Log(random);
+        // Debug.Log(random);
         string chosenWord = wordArray[random];
 
         return chosenWord;

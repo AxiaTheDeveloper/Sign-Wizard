@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WordInput : MonoBehaviour
 {
+    public static WordInput Instance;
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private List<int> chosenWordsList;
+    public event EventHandler OnQuitInterface;
+
+    private WitchGameManager gameManager;
+    [SerializeField]private GameInput gameInput;
+
+    
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
+    
+    
+    private void Awake() {
+        Instance = this;
+        gameManager = WitchGameManager.Instance;
+
+    }
 
     private void Start() {
         hasChosenWords = false;
@@ -14,7 +29,7 @@ public class WordInput : MonoBehaviour
         YesWordSame = false;
     }
     private void Update() {
-        if(WitchGameManager.Instance.IsInterfaceTime()){
+        if(gameManager.IsInterfaceType() == 1){
             foreach(char letter in Input.inputString){
                 // Debug.Log(letter);
                 // Debug.Log(hasChosenWords);
@@ -73,8 +88,12 @@ public class WordInput : MonoBehaviour
                     
                 }
             }
-            if(GameInput.Instance.GetInputCancelInputLetter() || GameInput.Instance.GetInputEscape()){
+            if(gameInput.GetInputCancelInputLetter()){
                 UndoInputLettter();
+            }
+            if(gameInput.GetInputEscape()){
+                UndoInputLettter();
+                OnQuitInterface?.Invoke(this,EventArgs.Empty);
             }
         }
         
