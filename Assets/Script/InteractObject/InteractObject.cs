@@ -2,28 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IInteractCauldron{
-    public void Interact();
-}
-public interface IInteractChest
-{
-    public void OpenUI(ExampleChest example);
-}
-public class Cauldron : IInteractCauldron
+public class Cauldron
 {
     public void Interact(){
         Debug.Log("This is Cauldron");
     }
 }
 
-public class Kyaaa : IInteractCauldron
+public class Kyaaa
 {
     public void Interact(){
         Debug.Log("This is Kyaa");
     }
 }
-public class Chest : IInteractChest
+public class Chest
 {
     public void OpenUI(ExampleChest example){
         example.ShowUI();
@@ -47,9 +39,18 @@ public class InteractObject : MonoBehaviour
 
 
     private void Start() {
-        cauldron = new Cauldron();
-        throws = new Kyaaa();
-        chest = new Chest();
+        
+        
+        
+        if(type == ObjectType.Cauldron){
+            cauldron = new Cauldron();
+        }
+        if(type == ObjectType.Chest){
+            chest = new Chest();
+        }
+        if(type == ObjectType.Kyaa){
+            throws = new Kyaaa();
+        }
     }
     public void Interacts(){
         if(type == ObjectType.Cauldron){

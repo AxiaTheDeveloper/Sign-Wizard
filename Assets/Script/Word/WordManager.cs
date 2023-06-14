@@ -25,35 +25,6 @@ public class WordManager : MonoBehaviour
         // wordList.Add(word); 
     }
 
-    // public void InputLetter(char letter){
-    //     if(hasChooseWord){
-    //         //cuma si letter itu aja, mungkin di sini bisa ditaro syarat teken backspace gitu untuk cancel(?) we still dont know mo pake yg mn  
-            
-    //         //check letter selanjutnya
-    //         if(chosenWord.GetLetter() == letter){
-    //             chosenWord.TypeOutLetter();
-    //         }
-    //     }  
-    //     else{
-    //         foreach(Word word in wordList){
-    //             if(word.GetLetter() == letter){
-    //                 //kalo huruf pertama sama kita pilih kata itu
-    //                 hasChooseWord = true;
-    //                 chosenWord = word;
-    //                 word.TypeOutLetter();
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     if(hasChooseWord && chosenWord.AllTyped()){
-    //         hasChooseWord = false;
-    //         wordList.Remove(chosenWord);
-    //         //kalo mo itu palingan haschoosword diapus trus tinggal kek abis yg ini abis, chosenword = word selanjutnya d list, ato pake queue kali ya hem, jd tiap create word tuh, create gituh, apa kita gameobject d tmpt lain poolnya hem, hem, well ga si ribet mending d sini 
-    //         createWord();
-    //     }
-    //     //mungkin di sini kirim kalo, haschooseword false brarti lsg false, tp kalo haschoosword true tp itu false, tp berarti perlu tanda apakah yglain ada haschooseword ato ga
-    // }
-
     public bool InputFirstLetter(char letter){
         if(hasWord && chosenWord.GetLetter() == letter){
 
@@ -79,6 +50,7 @@ public class WordManager : MonoBehaviour
             chosenWord.TypeOutLetter();
             return true;
         }
+        chosenWord.WrongLetter();
         return false;
     }
 
@@ -87,6 +59,9 @@ public class WordManager : MonoBehaviour
         
         if(hasChooseWord && chosenWord.GetLetter() == letter){
             chosenWord.TypeOutLetter();
+        }
+        else{
+            chosenWord.WrongLetter();
         }
         if(hasChooseWord && chosenWord.AllTyped()){
             // wordList.Remove(chosenWord);

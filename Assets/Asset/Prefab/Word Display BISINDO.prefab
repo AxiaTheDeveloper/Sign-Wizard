@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textNow: {fileID: 5840200537624124120}
+  colorText: <color=yellow>
+  wrongColorText: <color=red>
 --- !u!114 &5840200537624124120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +85,7 @@ MonoBehaviour:
   m_text: abcdefghijklmnopqrstuvwxyz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da2665057905a6a43a48cd9a0c1ebb6a, type: 2}
-  m_sharedMaterial: {fileID: 7690955677073089396, guid: b6d984e3ddbb75047ac537ec0419c53d, type: 2}
+  m_sharedMaterial: {fileID: -6747990700643050541, guid: da2665057905a6a43a48cd9a0c1ebb6a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

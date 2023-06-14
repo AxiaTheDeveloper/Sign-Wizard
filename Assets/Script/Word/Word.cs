@@ -21,9 +21,13 @@ public class Word
     //     no_Letter 
     // }
     public void TypeOutLetter(){
+        display.ChangeColorLetterUI(no_Letter);
         no_Letter++;
-        display.RemoveLetterUI();
+        
         //hilangin kata di screen atau nanti katanya berubah warna aja kali
+    }
+    public void WrongLetter(){
+        display.ChangeWrongColorUI(no_Letter);
     }
     public void CancelTypedOut(){
         no_Letter = 0;

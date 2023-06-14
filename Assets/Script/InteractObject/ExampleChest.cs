@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class ExampleChest : MonoBehaviour
 {
-    [SerializeField]private GameObject UI;
-    [SerializeField]private GameObject wordThings;
+    [SerializeField]private GameObject wordUI;
+    [SerializeField]private WordInput wordInput;
+    [SerializeField]private WordManager[] wordManager;
     private WitchGameManager gameManager;
 
     private void Awake() {
@@ -24,14 +25,14 @@ public class ExampleChest : MonoBehaviour
 
 
     public void ShowUI(){
-        UI.SetActive(true);
-        wordThings.SetActive(true);
+        wordInput.GetWordManager(wordManager);
+        wordInput.ChangeisOnlyOneWord(false);
+        wordUI.SetActive(true);
         gameManager.ChangeInterfaceType(0);
         // change game state
     }
     public void CloseUI(){
-        UI.SetActive(false);
-        wordThings.SetActive(false);
+        wordUI.SetActive(false);
         gameManager.ChangeToInGame();
         //change game state
         //di sini delete semua gameobject ???

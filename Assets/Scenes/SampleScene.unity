@@ -1728,7 +1728,6 @@ GameObject:
   - component: {fileID: 1253066115}
   - component: {fileID: 1253066114}
   - component: {fileID: 1253066116}
-  - component: {fileID: 1253066117}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1782,21 +1781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diagonalCheckerMaxTime: 1
   arrowKeyCooldownMaxTime: 0.2
---- !u!114 &1253066117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253066113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d788575175083d48908581fc618280a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameInput: {fileID: 1253066116}
-  gameManager: {fileID: 594276696}
-  inventoryUI: {fileID: 1646422126}
 --- !u!1 &1296767716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2225,7 @@ MonoBehaviour:
   gameManager: {fileID: 594276696}
   totalRow: 4
   totalColumn: 5
+  tipeInventory: 1
 --- !u!1 &1655174068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1808933498
 Transform:
   m_ObjectHideFlags: 0
@@ -2988,6 +2973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  playerInventory: {fileID: 0}
+  itemYangNambah: {fileID: 0}
+  quantity: 0
 --- !u!1 &2041611262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,8 +3065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2b024e8f3eeb947a023f062d6d498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 1675014924}
-  wordThings: {fileID: 1808933497}
+  wordUI: {fileID: 1675014924}
 --- !u!1 &2053634325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  playerInventory: {fileID: 4812652835541765473}
+  itemYangNambah: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+  quantity: 5
 --- !u!1001 &4812652835541765471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3225,3 +3215,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1646422126}
   inventory: {fileID: 11400000, guid: fa8077cf64c9f1e4190c7b1fb21ca5df, type: 2}
+  gameInput: {fileID: 1253066116}
+  gameManager: {fileID: 594276696}

@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IAddObject{
-    public void WordFinished(string contohObject){
-        //ntr di sini add yg diminta object ke inventory(list)
-        //ato bikin code baru aja ? hmm, keknya baru aja, ya ini nanti interfacenya dblg use void function dr code siapa
-    }
-}
-
 public class AddObject{
     public void WordFinished(string contohObject){
         Debug.Log(contohObject);
     }
 }
 public class AddObjects{
-    public void WordFinished(string contohObject){
-        Debug.Log(contohObject+"hiyaaaaaaaaaaa");
+    public void WordFinished(InventoryScriptableObject inventory, ItemScriptableObject item, int quantity){
+        inventory.AddItemToSlot(item,quantity);
     }
 }
 public class FinishWordDoFunction : MonoBehaviour
@@ -30,17 +22,27 @@ public class FinishWordDoFunction : MonoBehaviour
     private AddObject add;
     private AddObjects adds;
 
+    [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private ItemScriptableObject itemYangNambah;
+    [SerializeField]private int quantity;
+
 
     private void Start() {
-        add = new AddObject();
-        adds = new AddObjects();
+        if(type == FunctionType.AddObject){
+            add = new AddObject();
+        }
+        else if(type == FunctionType.Adds){
+             adds = new AddObjects();
+        }
+        
+       
     }
     public void WordFinisheds(){
         if(type == FunctionType.AddObject){
             add.WordFinished("blaba");
         }
         if(type == FunctionType.Adds){
-            adds.WordFinished("blabass");
+            adds.WordFinished(playerInventory.GetPlayerInventory(), itemYangNambah, quantity);
         }
     }
 }
