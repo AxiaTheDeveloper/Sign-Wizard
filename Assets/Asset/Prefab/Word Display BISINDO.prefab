@@ -60,6 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textNow: {fileID: 5840200537624124120}
+  textBISINDO: {fileID: 11400000, guid: da2665057905a6a43a48cd9a0c1ebb6a, type: 2}
+  textSIBI: {fileID: 11400000, guid: b6d984e3ddbb75047ac537ec0419c53d, type: 2}
+  pilihanBahasa: 0
   colorText: <color=yellow>
   wrongColorText: <color=red>
 --- !u!114 &5840200537624124120
@@ -148,6 +151,6 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 //ngurusin per 1-1 kotak
 
 public class InventoryItemUI : MonoBehaviour
@@ -13,6 +14,7 @@ public class InventoryItemUI : MonoBehaviour
     [SerializeField]private Image itemImage;
     [SerializeField]private TextMeshProUGUI quantity_Text;
     [SerializeField]private Image borderSelect;
+    [SerializeField]private Transform posisiWord;
 
     
     private bool empty = true;
@@ -60,5 +62,8 @@ public class InventoryItemUI : MonoBehaviour
     }
     public ItemScriptableObject GetItemData(){
         return itemSO;
+    }
+    public Transform GetPosisiWord(){
+        return posisiWord;
     }
 }

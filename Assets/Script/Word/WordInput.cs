@@ -15,7 +15,7 @@ public class WordInput : MonoBehaviour
 
     
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
-    private bool isOnlyOneWord;
+    private bool isOnlyOneWord, hasSelectedWord;
     private int choice;
 
     
@@ -27,14 +27,15 @@ public class WordInput : MonoBehaviour
     
     private void Start() {
         hasChosenWords = false;
-        isOnlyOneWord = false;
-        YesWordSame = false;
+        // isOnlyOneWord = false;
+        // hasSelectedWord = false;
+        // YesWordSame = false;
     }
     private void Update() {
-        if(gameManager.IsInterfaceType() == 1){
+        if(gameManager.IsInterfaceType() == 5){
             if(Input.anyKeyDown){
                 foreach(char letter in Input.inputString){
-                    //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih
+                    //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
                     if(!hasChosenWords){
                         for(int i=0;i<wordManager.Length;i++){     
                             if(wordManager[i].InputFirstLetter(letter)){
@@ -117,6 +118,9 @@ public class WordInput : MonoBehaviour
     }
     public void ChangeisOnlyOneWord(bool choice){
         isOnlyOneWord = choice;
+    }
+    public void HasSelectedWord(int selectItem){
+        choice = selectItem;
     }
     public void GetWordManager(WordManager[] wordManagers){
         wordManager = wordManagers;

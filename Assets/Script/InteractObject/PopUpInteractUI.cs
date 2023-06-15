@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//pop up yg muncul kalo misal si player ud deket dn bs interact misal - press z to interact
 public class PopUpInteractUI : MonoBehaviour
 {
     [SerializeField]private InteractObject interactObject;

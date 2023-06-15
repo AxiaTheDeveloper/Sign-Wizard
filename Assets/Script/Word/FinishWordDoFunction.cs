@@ -10,6 +10,7 @@ public class AddObject{
 public class AddObjects{
     public void WordFinished(InventoryScriptableObject inventory, ItemScriptableObject item, int quantity){
         inventory.AddItemToSlot(item,quantity);
+        // i guess jg manggil ke chest?
     }
 }
 public class FinishWordDoFunction : MonoBehaviour

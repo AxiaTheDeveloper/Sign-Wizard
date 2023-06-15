@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//game manageerrr, level, game state, interfacetype lalalalalala
 public class WitchGameManager : MonoBehaviour
 {
     public static WitchGameManager Instance{get;private set;}
@@ -18,7 +20,7 @@ public class WitchGameManager : MonoBehaviour
     private gameLevelQuest level;
 
     private enum InterfaceType{
-        writingTime, selectTime, InventoryTime // misal kek oh skrg tu lg interface time yg writing brarti input cuma nyala buat write aja, kalo select ya gabakal ke writing
+        writingTime, selectTime, InventoryTime, InventoryAndCauldron, InventoryAndChest, QuantityTime
     }
     private InterfaceType interfaceType;
     private void Awake() {
@@ -39,6 +41,7 @@ public class WitchGameManager : MonoBehaviour
     // public void ChangeToInterface(){
     //     state = gameState.InterfaceTime;
     // }
+
     public void ChangeInterfaceType(int nomor){
         state = gameState.InterfaceTime;
         if(nomor == 0){
@@ -49,6 +52,15 @@ public class WitchGameManager : MonoBehaviour
         }
         else if(nomor == 2){
             interfaceType = InterfaceType.InventoryTime;
+        }
+        else if(nomor == 3){
+            interfaceType = InterfaceType.InventoryAndCauldron;
+        }
+        else if(nomor == 4){
+            interfaceType = InterfaceType.InventoryAndChest;
+        }
+        else if(nomor == 5){
+            interfaceType = InterfaceType.QuantityTime;
         }
     }
     public int IsInterfaceType(){
@@ -63,6 +75,15 @@ public class WitchGameManager : MonoBehaviour
             }
             else if(interfaceType == InterfaceType.InventoryTime){
                 return 3;
+            }
+            else if(interfaceType == InterfaceType.InventoryAndCauldron){
+                return 4;
+            }
+            else if(interfaceType == InterfaceType.InventoryAndChest){
+                return 5;
+            }
+            else if(interfaceType == InterfaceType.QuantityTime){
+                return 6;
             }
         }
         return 0;

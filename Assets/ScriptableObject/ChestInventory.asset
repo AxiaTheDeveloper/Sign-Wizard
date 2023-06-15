@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c524f9e60efc0d4299bd3aa1be4bcbf, type: 3}
+  m_Name: ChestInventory
+  m_EditorClassIdentifier: 
+  size: 28
+  inventSlot:
+  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
+    quantity: 1
+  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+    quantity: 5
+  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+    quantity: 5
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0
+  - itemSO: {fileID: 0}
+    quantity: 0

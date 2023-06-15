@@ -3,37 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Contoh salah satu anakkan interact object~~~
 public class ExampleChest : MonoBehaviour
 {
-    [SerializeField]private GameObject wordUI;
     [SerializeField]private WordInput wordInput;
+    [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private InventoryUI ChestUI;
+    [SerializeField]private GameObject wordUI;
+    // private List<GameObject>
+    private int chosenWord;
+    
     [SerializeField]private WordManager[] wordManager;
     private WitchGameManager gameManager;
 
-    private void Awake() {
+    private void Awake(){
         gameManager = WitchGameManager.Instance;
     }
 
-    private void Start() {
-        WordInput.Instance.OnQuitInterface += wordInput_OnQuitInterface;
+    private void Start(){
+        playerInventory.OnQuitChest += playerInventory_OnQuitChest;
     }
 
-    private void wordInput_OnQuitInterface(object sender, EventArgs e)
+    private void playerInventory_OnQuitChest(object sender, EventArgs e)
     {
-        CloseUI();
+        CloseWholeUI();
     }
 
+    
 
-    public void ShowUI(){
+
+    public void ShowWholeUI(){
+        //nyalain UI yg isinya kek gambar doang blm tulisan
         wordInput.GetWordManager(wordManager);
         wordInput.ChangeisOnlyOneWord(false);
-        wordUI.SetActive(true);
-        gameManager.ChangeInterfaceType(0);
+        ChestUI.ShowInventoryUI();
+        // wordUI.SetActive(true);
+        gameManager.ChangeInterfaceType(4);
         // change game state
     }
-    public void CloseUI(){
-        wordUI.SetActive(false);
+    public void CloseWholeUI(){
         gameManager.ChangeToInGame();
+        ChestUI.HideInventoryUI();
+        // wordUI.SetActive(true);
         //change game state
         //di sini delete semua gameobject ???
     }

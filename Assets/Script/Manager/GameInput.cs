@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//semua gameinput maksudnya kek input.getkey lalalala
 public class GameInput : MonoBehaviour
 {
     public static GameInput Instance {get; private set;}
@@ -179,6 +180,10 @@ public class GameInput : MonoBehaviour
         }
         
         return keyArrowInputUI;
+    }
+
+    public bool InputGetKeyTabDown(){
+        return Input.GetKeyDown(KeyCode.Tab);
     }
 
     

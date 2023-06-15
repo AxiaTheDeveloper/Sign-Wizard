@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//ini buat hubungin interact object dengan cauldron ato chest ato dll gitu
 public class Cauldron
 {
     public void Interact(){
@@ -18,7 +20,7 @@ public class Kyaaa
 public class Chest
 {
     public void OpenUI(ExampleChest example){
-        example.ShowUI();
+        example.ShowWholeUI();
     }
 }
 

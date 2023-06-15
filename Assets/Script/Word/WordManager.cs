@@ -9,21 +9,66 @@ public class WordManager : MonoBehaviour
     private bool hasChooseWord, hasWord;//udah ada kata yang dipilih, has word buat ngecek chosenWord ud ada isi ato blom sbnrnya biar ga crash aja pas input pertama dn blm create word
     [SerializeField]private FinishWordDoFunction function;
     [SerializeField]private Word chosenWord;
+    private enum WordType{
+        SameWord, DifferentWord
+    }
+    [SerializeField]private WordType wordType;
+    
+    private enum TemplateType{
+        SameTemplate, SpawnTemplate
+    } 
+    [SerializeField]private TemplateType templateType;
+    
+    // private enum SpawnType{
+    //     OnlyOneTemplate, DifferentTemplate // ini per manager semua cuma 1 template jd spawnnya pas dipanggil aja, kalo different template di spawnya lsg pas start aja
+    // } 
+    // [SerializeField]private SpawnType spawnType;
+
+
+    [SerializeField]private string theWord;
+    private string choseWord;
+    [SerializeField]private WordUI wordDisplay;
     private void Start() {
         hasWord = false;
         hasChooseWord = false;
+        
+        
         createWord();
         
-        
-        // createWord();
     }
 
     public void createWord(){
         // Word word = new Word(WordGenerator.GetRandomWord(), spawner.SpawnWord());
         hasWord = true;
-        chosenWord = new Word(WordGenerator.GetRandomWord(), spawner.SpawnWord());
+        
+        if(wordType == WordType.SameWord){
+            choseWord = theWord;
+        }
+        else if(wordType == WordType.DifferentWord){
+            choseWord = WordGenerator.GetRandomWord();
+        }
+
+        if(templateType == TemplateType.SameTemplate){
+            if(wordDisplay == null){
+                wordDisplay =  spawner.SpawnWord();
+            }
+            else{
+                chosenWord = new Word(choseWord, wordDisplay, true);
+            }
+        }
+        else if(templateType == TemplateType.SpawnTemplate){
+            chosenWord = new Word(choseWord, spawner.SpawnWord(), false);
+        }
         // wordList.Add(word); 
     }
+    public void changeTheWord(string Word){
+        if(theWord != Word){
+            theWord = Word;
+            createWord();
+        }
+        
+    }
+
 
     public bool InputFirstLetter(char letter){
         if(hasWord && chosenWord.GetLetter() == letter){

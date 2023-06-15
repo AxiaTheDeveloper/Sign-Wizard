@@ -14,6 +14,7 @@ public class WordUI : MonoBehaviour
         textNow.text = word;
         textFull = word;
         textNow.color = Color.white;
+        
     }
     public void ChangeColorLetterUI(int position){
         // saveTextA += textFull[position];

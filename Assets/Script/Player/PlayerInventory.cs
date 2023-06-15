@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//ngatur inventory intinya
+
 public class PlayerInventory : MonoBehaviour
 {
     [Header("This is for Player Inventory")]
     public static PlayerInventory Instance;
     [SerializeField]private InventoryUI inventoryUI;
-    [SerializeField]private InventoryUI otherInventoryUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
+    [SerializeField]private InventoryUI ChestInventoryUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
     [SerializeField]private InventoryScriptableObject inventory;
 
     private int inventorySize;
@@ -17,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory;// ini buat dikirim ke InventoryUI buat kasih tau suruh hide canvasnya
+    public event EventHandler OnQuitInventory, OnQuitChest; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest
     private bool isInventoryOpen;
 
     private Vector2 keyInputArrowUI;
@@ -35,13 +37,8 @@ public class PlayerInventory : MonoBehaviour
             inventory.CreateInventory();
         }
 
-        inventory.OnItemUpdate += inventory_OnItemUpdate;
     }
 
-    private void inventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
-    {
-        inventoryUI.UpdateVisualInventorySlot(e.position,inventory.inventSlot[e.position]);
-    }
 
     private void Update()
     {
@@ -65,35 +62,55 @@ public class PlayerInventory : MonoBehaviour
                 OnQuitInventory?.Invoke(this,EventArgs.Empty);
                 isInventoryOpen = false;
             }
-            else if(otherInventoryUI){
-                // if()
+            InputArrowInventory(inventoryUI);
+        }
+        else if(gameManager.IsInterfaceType() == 5){
+            if(gameInput.GetInputEscape()){
+                OnQuitChest?.Invoke(this,EventArgs.Empty);
             }
-            InputArrowInventory();
+            InputArrowInventory(ChestInventoryUI);
+            if(gameInput.InputGetKeyTabDown()){
+                gameManager.ChangeInterfaceType(5);
+            }
+            if(gameInput.GetInputOpenInventory() && !isInventoryOpen){
+                inventoryUI.ShowInventoryUI();
+                isInventoryOpen = true;
+            }
+        }
+        else if(gameManager.IsInterfaceType() == 6){
+            InputArrowInventory_AddQuantity(ChestInventoryUI);
+            if(gameInput.InputGetKeyTabDown()){
+                gameManager.ChangeInterfaceType(4);
+            }
         }
     }
-    private void InputArrowInventory(){
+    private void InputArrowInventory(InventoryUI theInventoryUI){
         keyInputArrowUI = gameInput.GetInputArrow();
         if(keyInputArrowUI.y == 1){
-            inventoryUI.SelectItemUp();
+            theInventoryUI.SelectItemUp();
         }
         else if(keyInputArrowUI.y == -1){
-            inventoryUI.SelectItemDown();
+            theInventoryUI.SelectItemDown();
         }
         else if(keyInputArrowUI.x == -1){
-            inventoryUI.SelectItemLeft();
+            theInventoryUI.SelectItemLeft();
         }
         else if(keyInputArrowUI.x == 1){
-            inventoryUI.SelectItemRight();
+            theInventoryUI.SelectItemRight();
         }
+    }
+    private void InputArrowInventory_AddQuantity(InventoryUI theInventoryUI){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        if(keyInputArrowUI.y == 1){
+            theInventoryUI.ChangeQuantityWant(1);
+        }
+        else if(keyInputArrowUI.y == -1){
+            theInventoryUI.ChangeQuantityWant(-1);
+        }
+
     }
 
     
-    public void GiveData_To_UI(){
-        //updet semua
-        for(int i=0;i<inventorySize;i++){
-            inventoryUI.UpdateVisualInventorySlot(i,inventory.inventSlot[i]);
-        }
-    }
     public InventoryScriptableObject GetPlayerInventory(){
         return inventory;
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//inventoryyy
 [CreateAssetMenu]
 public class InventoryScriptableObject : ScriptableObject
 {

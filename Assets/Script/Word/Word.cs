@@ -8,11 +8,13 @@ public class Word
     public string word;
     private int no_Letter;
     private WordUI display;
-    public Word (string chosenWord, WordUI freeDisplay){
+    private bool isSameTemplate;
+    public Word (string chosenWord, WordUI freeDisplay, bool GetisSameTemplate){
         word = chosenWord;
         no_Letter = 0;
         display = freeDisplay;
         display.SetWord(chosenWord);
+        isSameTemplate = GetisSameTemplate;
     }
     public char GetLetter(){
         return word[no_Letter];
@@ -36,7 +38,10 @@ public class Word
     }
     public bool AllTyped(){
         if(no_Letter >= word.Length){
-            display.RemoveWord();
+            if(!isSameTemplate){
+                display.RemoveWord();
+            }   
+            
         }
         return no_Letter >= word.Length;
     }

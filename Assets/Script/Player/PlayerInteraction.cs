@@ -37,11 +37,14 @@ public class PlayerInteraction : MonoBehaviour
     private void Update() {
         
         HandleSelectObjectInteractions();
-        if(GameInput.Instance.GetInputInteract() && selectedObject){
-            // HandleInteractions();
-            selectedObject.Interacts();
+        if(WitchGameManager.Instance.IsInGame()){
+            if(GameInput.Instance.GetInputInteract() && selectedObject){
+                // HandleInteractions();
+                selectedObject.Interacts();
 
+            }
         }
+        
         
     }
 
