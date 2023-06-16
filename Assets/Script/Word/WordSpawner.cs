@@ -12,6 +12,9 @@ public class WordSpawner : MonoBehaviour
         BISINDO, SIBI
     }
     [SerializeField]private bahasa pilihanBahasa;
+
+    [SerializeField]private int fontSize;
+    [SerializeField]private Color32 colorFont;
     private void Start() {
         if(pilihanBahasa == bahasa.BISINDO){
             displayPrefab = displayPrefab_BISINDO;
@@ -24,6 +27,8 @@ public class WordSpawner : MonoBehaviour
         
         GameObject displayObj = Instantiate(displayPrefab, parentCanvas);
         WordUI wordDisplay = displayObj.GetComponent<WordUI>();
+        wordDisplay.ChangeFontSize(fontSize);
+        wordDisplay.ChangeFontColor(colorFont);
         return wordDisplay;
     }
 }

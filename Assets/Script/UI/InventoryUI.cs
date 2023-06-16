@@ -157,8 +157,9 @@ public class InventoryWithDesc : InventoryOnly{
         else{
             
             ItemScriptableObject item = UI_ItemList[selectItem].GetItemData();
-            // Debug.Log(item);
-            inventUIDesc.SetItemDataDesc(item.itemSprite,item.name,item.Desc,quantity_Want);
+            
+            inventUIDesc.SetItemDataDesc(item.itemSprite,item.itemName,item.Desc,quantity_Want, UI_ItemList[selectItem].GetPosisiWord());
+            // Debug.Log(UI_ItemList[selectItem].GetPosisiWord().position);
         }
     }
     public void UpdateVisual_InventQuantity(InventoryUIDesc inventUIDesc, int quantity_Want){
@@ -185,20 +186,23 @@ public class InventoryUI : MonoBehaviour
 
     [SerializeField]private TipeInventory tipeInventory;
     private enum OwnerShip{
-        Player, Others
+        Player, Chest
     }
     [SerializeField]private OwnerShip owner;
     private InventoryOnly inventOnly;
     private InventoryWithDesc invent_Desc;
 
-    [SerializeField]private GameObject wordPlace;
+
     private WordManager wordManager;
 
 
     //kalo owner bukan player maka ditaro di sini
-    [SerializeField]private InventoryScriptableObject otherInventory;
+    private InventoryScriptableObject chestInventory;
+    [SerializeField]private Chest chest;
 
     private int quantity_Want, maxQuantityNow;
+
+    [SerializeField]private GameObject wordPlaceShow_InventDesc;
     
     private void Awake() {
         if(tipeInventory == TipeInventory.inventoryWithDesc){
@@ -213,7 +217,7 @@ public class InventoryUI : MonoBehaviour
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
             invent_Desc = new InventoryWithDesc();
-            quantity_Want = 0;
+            quantity_Want = 1;
             maxQuantityNow = 0;
         }
         UI_ItemList = new List<InventoryItemUI>();
@@ -221,35 +225,44 @@ public class InventoryUI : MonoBehaviour
             playerInventory.OnQuitInventory += playerInventory_OnQuitInventory;
             inventorySize = playerInventory.GetInventorySize();
         }
-        else if(owner == OwnerShip.Others){
-            inventorySize = otherInventory.inventSlot.Count;
+        else if(owner == OwnerShip.Chest){
+            chestInventory = chest.GetChestInventory();
+            inventorySize = chestInventory.inventSlot.Count;
         }
         
         selectItem = 0;
         CreateInventoryUI(inventorySize);
         if(owner == OwnerShip.Player){
             GiveData_To_UI(playerInventory.GetPlayerInventory());
+            // Debug.Log(playerInventory.GetPlayerInventory());
             playerInventory.GetPlayerInventory().OnItemUpdate += inventory_OnItemUpdate;
         }
-        else if(owner == OwnerShip.Others){
-            GiveData_To_UI(otherInventory);
-            otherInventory.OnItemUpdate += otherInventory_OnItemUpdate;
+        else if(owner == OwnerShip.Chest){
+            GiveData_To_UI(chestInventory);
+            chestInventory.OnItemUpdate += otherInventory_OnItemUpdate;
         }
         
         
 
         
-        gameObject.SetActive(false);
+        StartCoroutine(DeactivateGameObjectDelayed());
     }
-
-    private void otherInventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
+    private IEnumerator DeactivateGameObjectDelayed()
     {
-        UpdateVisualInventorySlot(e.position,playerInventory.GetPlayerInventory().inventSlot[e.position]);
+        yield return null; // Wait for the next frame update
+        gameObject.SetActive(false);
     }
 
     private void inventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
     {
-        UpdateVisualInventorySlot(e.position,otherInventory.inventSlot[e.position]);
+        
+        UpdateVisualInventorySlot(e.position,playerInventory.GetPlayerInventory().inventSlot[e.position]);
+    }
+
+    private void otherInventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
+    {
+        // Debug.Log("masuk sini");
+        UpdateVisualInventorySlot(e.position,chestInventory.inventSlot[e.position]);
     }
 
     //bikin function baru lg aja yg kek bakal munculin misal ui angka trus masuk ke mode interface itu aja, abis itu trus yg di sana dblg aja oh lg mode interface itu, jd d player inventory semua diaturnya, lg mode interface itu trus ya gitu, trus kalo teken start kirim datanya ke example chest THE END, aman aman aja ditaro di sini ga siii ??? gbs de, inven ui nya beda
@@ -265,6 +278,7 @@ public class InventoryUI : MonoBehaviour
             UI_ItemList.Add(UI_Item);
         }
         UI_ItemList[selectItem].SelectItem();
+        // Debug.Log(UI_ItemList[selectItem].transform.position);
         
     }
     public void UpdateVisualInventorySlot(int position, InventorySlot item){
@@ -284,9 +298,9 @@ public class InventoryUI : MonoBehaviour
             selectItem = inventOnly.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            quantity_Want = 0;
+            quantity_Want = 1;
             selectItem = invent_Desc.SelectItemRight_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
-            maxQuantityNow = otherInventory.inventSlot[selectItem].quantity;
+            maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
     }
     public void SelectItemLeft(){
@@ -294,9 +308,9 @@ public class InventoryUI : MonoBehaviour
             selectItem = inventOnly.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            quantity_Want = 0;
+            quantity_Want = 1;
             selectItem = invent_Desc.SelectItemLeft_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
-            maxQuantityNow = otherInventory.inventSlot[selectItem].quantity;
+            maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
     }
     public void SelectItemDown(){
@@ -304,9 +318,9 @@ public class InventoryUI : MonoBehaviour
             selectItem = inventOnly.SelectItemDown(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            quantity_Want = 0;
+            quantity_Want = 1;
             selectItem = invent_Desc.SelectItemDown_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
-            maxQuantityNow = otherInventory.inventSlot[selectItem].quantity;
+            maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
     }
     public void SelectItemUp(){
@@ -315,9 +329,9 @@ public class InventoryUI : MonoBehaviour
             selectItem = inventOnly.SelectItemUp(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            quantity_Want = 0;
+            quantity_Want = 1;
             selectItem = invent_Desc.SelectItemUp_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
-            maxQuantityNow = otherInventory.inventSlot[selectItem].quantity;
+            maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
     }
     public void ShowInventoryUI(){
@@ -326,7 +340,7 @@ public class InventoryUI : MonoBehaviour
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
             invent_Desc.ShowInventoryUI_Desc(2, this.gameObject, inventUIDesc, UI_ItemList, selectItem, quantity_Want);
-            maxQuantityNow = otherInventory.inventSlot[selectItem].quantity;
+            maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
     }
     public void HideInventoryUI(){
@@ -334,8 +348,10 @@ public class InventoryUI : MonoBehaviour
             inventOnly.HideInventoryUI(this.gameObject);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            quantity_Want = 0;
+            quantity_Want = 1;
             invent_Desc.HideInventoryUI(this.gameObject);
+            wordPlaceShow_InventDesc.SetActive(false);
+            // Debug.Log(wordPlaceShow_InventDesc.activeSelf);
         }
     }
     public void ChangeQuantityWant(int change){
@@ -344,9 +360,10 @@ public class InventoryUI : MonoBehaviour
                 quantity_Want += change;
                 invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
             }
-            else if(change == -1 && quantity_Want > 0){
+            else if(change == -1 && quantity_Want > 1){
                 quantity_Want += change;
                 invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
+                wordPlaceShow_InventDesc.SetActive(false);
             }
         }
     }
@@ -354,7 +371,8 @@ public class InventoryUI : MonoBehaviour
         return quantity_Want;
     }
     public void ResetQuantityWant(){
-        quantity_Want = 0;
+        quantity_Want = 1;
+        maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
     }
 
@@ -363,6 +381,9 @@ public class InventoryUI : MonoBehaviour
         for(int i=0;i<inventorySize;i++){
             UpdateVisualInventorySlot(i,inventory.inventSlot[i]);
         }
+    }
+    public int GetSelectedItem(){
+        return selectItem;
     }
 
 }

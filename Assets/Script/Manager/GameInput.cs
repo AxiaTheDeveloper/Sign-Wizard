@@ -149,6 +149,9 @@ public class GameInput : MonoBehaviour
     public bool GetInputOpenInventory(){
         return Input.GetKeyDown(KeyCode.E);
     }
+    public bool GetInputOpenInventory_ChestOpen(){
+        return Input.GetKeyDown(KeyCode.Alpha1);
+    }
 
     public Vector2 GetInputArrow(){
         keyArrowInputUI.Set(0,0);
@@ -185,6 +188,11 @@ public class GameInput : MonoBehaviour
     public bool InputGetKeyTabDown(){
         return Input.GetKeyDown(KeyCode.Tab);
     }
+
+    public bool InputClearInventoryPlayer(){
+        return (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift)) && Input.GetKey(KeyCode.Return);
+    }
+    
 
     
 

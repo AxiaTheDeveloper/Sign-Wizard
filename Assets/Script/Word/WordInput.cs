@@ -15,7 +15,7 @@ public class WordInput : MonoBehaviour
 
     
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
-    private bool isOnlyOneWord, hasSelectedWord;
+    private bool isUIFirstTimeShowing;
     private int choice;
 
     
@@ -27,6 +27,7 @@ public class WordInput : MonoBehaviour
     
     private void Start() {
         hasChosenWords = false;
+        isUIFirstTimeShowing = true;
         // isOnlyOneWord = false;
         // hasSelectedWord = false;
         // YesWordSame = false;
@@ -35,8 +36,11 @@ public class WordInput : MonoBehaviour
         if(gameManager.IsInterfaceType() == 5){
             if(Input.anyKeyDown){
                 foreach(char letter in Input.inputString){
+
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
-                    if(!hasChosenWords){
+                    // Debug.Log(letter);
+                    
+                    if(!hasChosenWords && !isUIFirstTimeShowing){
                         for(int i=0;i<wordManager.Length;i++){     
                             if(wordManager[i].InputFirstLetter(letter)){
 
@@ -92,7 +96,9 @@ public class WordInput : MonoBehaviour
                     }
                 }
             }
-            
+            if(isUIFirstTimeShowing){
+                isUIFirstTimeShowing = false; // biar input buat nyalain invent dkk ga masuk;
+            }
             if(gameInput.GetInputCancelInputLetter()){
                 UndoInputLetterManyWords();
             }
@@ -104,25 +110,20 @@ public class WordInput : MonoBehaviour
         
     }
 
-    private void UndoInputLetterManyWords(){
+    public void UndoInputLetterManyWords(){
         foreach(WordManager wordMn in wordManager){
             wordMn.CancelInputLetter();
             chosenWordsList.Clear();
             hasChosenWords = false;
         }
     }
-    private void UndoInputLetterOneWord(int choice){
-        wordManager[choice].CancelInputLetter();
-        // chosenWordsList.Clear();
-        hasChosenWords = false;
-    }
-    public void ChangeisOnlyOneWord(bool choice){
-        isOnlyOneWord = choice;
-    }
-    public void HasSelectedWord(int selectItem){
-        choice = selectItem;
-    }
+
+
     public void GetWordManager(WordManager[] wordManagers){
+        // Debug.Log(wordManagers[0]);
         wordManager = wordManagers;
+    }
+    public void OpenUI(){
+        isUIFirstTimeShowing = true;
     }
 }

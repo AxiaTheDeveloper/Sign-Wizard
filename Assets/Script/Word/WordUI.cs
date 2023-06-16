@@ -13,7 +13,7 @@ public class WordUI : MonoBehaviour
     public void SetWord(string word){
         textNow.text = word;
         textFull = word;
-        textNow.color = Color.white;
+        // textNow.color = Color.white;
         
     }
     public void ChangeColorLetterUI(int position){
@@ -26,7 +26,6 @@ public class WordUI : MonoBehaviour
         for(int i=position+1;i<textFull.Length;i++){
             saveTextB += textFull[i];
         }
-        // Debug.Log(saveTextB);
         
         saveText = colorText + saveTextA + "</color>" + saveTextB;
         textNow.text = saveText;
@@ -39,17 +38,23 @@ public class WordUI : MonoBehaviour
             saveTextA += textFull[i];
         }
         saveWrongText += textFull[position];
-        Debug.Log(saveTextA);
+        // Debug.Log(saveTextA);
         for(int i=position+1;i<textFull.Length;i++){
             saveTextB += textFull[i];
         }
-        Debug.Log(saveWrongText);
-        Debug.Log(saveTextB);
+        // Debug.Log(saveWrongText);
+        // Debug.Log(saveTextB);
         
         saveText = colorText + saveTextA + wrongColorText + saveWrongText + "</color>" + "</color>" + saveTextB;
         textNow.text = saveText;
     }
     public void RemoveWord(){
         Destroy(gameObject);
+    }
+    public void ChangeFontSize(int fontSize){
+        textNow.fontSize = fontSize;
+    }
+    public void ChangeFontColor(Color32 fontColor){
+        textNow.color = fontColor;
     }
 }

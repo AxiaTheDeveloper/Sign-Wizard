@@ -19,8 +19,8 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest
-    private bool isInventoryOpen;
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest
+    private bool isInventoryOpen, isChestOpen;
 
     private Vector2 keyInputArrowUI;
     
@@ -57,24 +57,43 @@ public class PlayerInventory : MonoBehaviour
             }
         }
         else if(gameManager.IsInterfaceType() == 3){
-            if(isInventoryOpen && (gameInput.GetInputEscape() || gameInput.GetInputOpenInventory())){
-                // Debug.Log("Hi Close");
-                OnQuitInventory?.Invoke(this,EventArgs.Empty);
-                isInventoryOpen = false;
+            if(isInventoryOpen){
+                if(isChestOpen){
+                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen()){
+                        OnQuitInventory?.Invoke(this,EventArgs.Empty);
+                        isInventoryOpen = false;
+                        gameManager.ChangeInterfaceType(4);
+                    }
+                    
+                    else if(gameInput.InputClearInventoryPlayer()){
+                        OnClearPlayerInventory?.Invoke(this,EventArgs.Empty);
+                    }
+                    // Debug.Log(gameInput.InputClearInventoryPlayer());
+                }
+                else{
+                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()){
+                        OnQuitInventory?.Invoke(this,EventArgs.Empty);
+                        isInventoryOpen = false;
+                    }
+                }
             }
             InputArrowInventory(inventoryUI);
         }
         else if(gameManager.IsInterfaceType() == 5){
+            isChestOpen = true;
             if(gameInput.GetInputEscape()){
                 OnQuitChest?.Invoke(this,EventArgs.Empty);
+                isChestOpen = false;
             }
             InputArrowInventory(ChestInventoryUI);
             if(gameInput.InputGetKeyTabDown()){
                 gameManager.ChangeInterfaceType(5);
             }
-            if(gameInput.GetInputOpenInventory() && !isInventoryOpen){
+            if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen){
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;
+                WordInput.Instance.UndoInputLetterManyWords();
+                
             }
         }
         else if(gameManager.IsInterfaceType() == 6){

@@ -51,6 +51,7 @@ public class WordManager : MonoBehaviour
         if(templateType == TemplateType.SameTemplate){
             if(wordDisplay == null){
                 wordDisplay =  spawner.SpawnWord();
+                // Debug.Log("harusnya sekali aja");
             }
             else{
                 chosenWord = new Word(choseWord, wordDisplay, true);
@@ -65,12 +66,14 @@ public class WordManager : MonoBehaviour
         if(theWord != Word){
             theWord = Word;
             createWord();
+            
         }
         
     }
 
 
     public bool InputFirstLetter(char letter){
+        // Debug.Log(chosenWord.GetLetter() + " " + letter);
         if(hasWord && chosenWord.GetLetter() == letter){
 
             //kalo huruf pertama sama kita pilih kata itu
@@ -116,12 +119,18 @@ public class WordManager : MonoBehaviour
             //do this and this and this trgantung yg kepasang ini.
             function.WordFinisheds();
             hasChooseWord = false;
-            createWord();
+            hasWord = false;
+
+            StartCoroutine(DelayedCreateWord());
             //di sini suruh kerjain apa gitu
             return false;
         }
         return true;
 
+    }
+    private IEnumerator DelayedCreateWord(){
+        yield return new WaitForSeconds(0.2f);
+        createWord();
     }
 
     public void CancelInputLetter(){

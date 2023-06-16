@@ -8,6 +8,12 @@ using System;
 public class InventoryScriptableObject : ScriptableObject
 {
     public int size = 20;
+    public enum InventoryType{
+        ZeroGone, ZeroNotGone // kek misal di chest gitu ya gambar quantity tetep ada, ga diapus;
+    }
+    public InventoryType type;
+    public bool isFull = false;
+    public int isFullyEmpty = 0;
     public List<InventorySlot> inventSlot;
     public event EventHandler<OnItemUpdateEventArgs> OnItemUpdate; 
     public class OnItemUpdateEventArgs : EventArgs{
@@ -30,17 +36,18 @@ public class InventoryScriptableObject : ScriptableObject
         bool hasRemainder = false;//kshtau kalo ada remaindernya
         if(hasItem){
             for(int i=0;i<size;i++){
-                Debug.Log(i);
+                // Debug.Log(i);
                 if(firstTimeEmptySlot){
                     if(inventSlot[i].isEmpty){
                         firstTimeEmptySlot = false;
                         emptySpace = i;
-                        if(!newItem.isStackable){
-                            break;
-                        }
+                        // if(!newItem.isStackable){
+                        //     hasItem = false;
+                        //     break;
+                        // }
                     }
                 }
-                if(!inventSlot[i].isEmpty && newItem.isStackable){
+                if(!inventSlot[i].isEmpty){
                     // Debug.Log("masuk sini");
                     
                     if(inventSlot[i].itemSO == newItem){
@@ -84,7 +91,7 @@ public class InventoryScriptableObject : ScriptableObject
             }
         }
         if(!hasItem){
-            Debug.Log("Ga ada trnyata");
+            // Debug.Log("Ga ada trnyata");
             InventorySlot newInvent = new InventorySlot();
             if(!firstTimeEmptySlot){
                 if(hasRemainder){
@@ -94,11 +101,16 @@ public class InventoryScriptableObject : ScriptableObject
                     });
                 }
                 else{
+                    // Debug.Log(newItem.itemName);
                     inventSlot[emptySpace] = newInvent.ChangeQuantity(newItem,newQuantity);
                     OnItemUpdate?.Invoke(this, new OnItemUpdateEventArgs{
                         position = emptySpace
                     });
                 }
+                isFullyEmpty++;
+            }
+            else if(firstTimeEmptySlot){
+                isFull = true;
             }
 
             //kalo slot kosong ga mungkin brg yg didapet lebi besar dr max stack.
@@ -110,7 +122,19 @@ public class InventoryScriptableObject : ScriptableObject
             int remainderQuantity = inventSlot[position].quantity - quantityTake;
             //quantitytake dipastikan ga lebih dr quantity di inventslot
             if(remainderQuantity == 0){
-                inventSlot[position].EmptySlot();
+                if(type == InventoryType.ZeroGone){
+                    inventSlot[position] = inventSlot[position].EmptySlot();
+                    // Debug.Log("empty");
+                    // Debug.Log(inventSlot[position].quantity + " " + inventSlot[position].itemSO.itemName);
+                    if(isFull){
+                        isFull = false;
+                    }
+                    isFullyEmpty--;
+                }
+                else if(type == InventoryType.ZeroNotGone){
+                    inventSlot[position].quantity = remainderQuantity;
+                }
+                
             }
             else if(remainderQuantity > 0){
                 inventSlot[position].quantity = remainderQuantity;
@@ -119,6 +143,7 @@ public class InventoryScriptableObject : ScriptableObject
             OnItemUpdate?.Invoke(this, new OnItemUpdateEventArgs{
                 position = position
             });
+            
         }
     }
     
