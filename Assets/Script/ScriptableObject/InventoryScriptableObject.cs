@@ -13,7 +13,7 @@ public class InventoryScriptableObject : ScriptableObject
     }
     public InventoryType type;
     public bool isFull = false;
-    public int isFullyEmpty = 0;
+    public int isFullyEmpty = 0; // ini di cek pas mau clear inventory player biar kalo 0 ga jalan clear inventnya
     public List<InventorySlot> inventSlot;
     public event EventHandler<OnItemUpdateEventArgs> OnItemUpdate; 
     public class OnItemUpdateEventArgs : EventArgs{

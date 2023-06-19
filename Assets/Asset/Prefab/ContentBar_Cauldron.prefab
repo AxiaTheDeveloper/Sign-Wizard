@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3734872413798832241
+--- !u!1001 &1036218376279229876
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,19 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.5
       objectReference: {fileID: 0}
     - target: {fileID: 1932533550557271205, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMax.y
@@ -46,10 +46,6 @@ PrefabInstance:
     - target: {fileID: 1932533550557271205, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2444631982000940026, guid: e383e84083e9773479a35476200828ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 9079858160572258796, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_Pivot.x
@@ -81,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9079858160572258796, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9079858160572258796, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9079858160572258796, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -135,13 +131,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9079858160572258797, guid: e383e84083e9773479a35476200828ef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9079858160572258799, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_Name
-      value: ContentBar But Small
+      value: ContentBar_Cauldron
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e383e84083e9773479a35476200828ef, type: 3}

@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Inventory")]
     public static PlayerInventory Instance;
     [SerializeField]private InventoryUI inventoryUI;
-    [SerializeField]private InventoryUI ChestInventoryUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
+    [SerializeField]private InventoryUI ChestInventoryUI, CauldronUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
     [SerializeField]private InventoryScriptableObject inventory;
 
     private int inventorySize;
@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest
     private bool isInventoryOpen, isChestOpen;
 
     private Vector2 keyInputArrowUI;
@@ -65,7 +65,7 @@ public class PlayerInventory : MonoBehaviour
                         gameManager.ChangeInterfaceType(4);
                     }
                     
-                    else if(gameInput.InputClearInventoryPlayer()){
+                    else if(gameInput.GetInputClearInventoryPlayer()){
                         OnClearPlayerInventory?.Invoke(this,EventArgs.Empty);
                     }
                     // Debug.Log(gameInput.InputClearInventoryPlayer());
@@ -79,6 +79,16 @@ public class PlayerInventory : MonoBehaviour
             }
             InputArrowInventory(inventoryUI);
         }
+        else if(gameManager.IsInterfaceType() == 4){
+            if(gameInput.GetInputEscape()){
+                OnQuitCauldron?.Invoke(this,EventArgs.Empty);
+                // isChestOpen = false;
+            }
+            else if(gameInput.GetInputSelectItemForCauldron()){
+                CauldronUI.SelectItem_Cauldron();
+            }
+            InputArrowInventory(CauldronUI);
+        }
         else if(gameManager.IsInterfaceType() == 5){
             isChestOpen = true;
             if(gameInput.GetInputEscape()){
@@ -86,7 +96,7 @@ public class PlayerInventory : MonoBehaviour
                 isChestOpen = false;
             }
             InputArrowInventory(ChestInventoryUI);
-            if(gameInput.InputGetKeyTabDown()){
+            if(gameInput.GetInputGetKeyTabDown()){
                 gameManager.ChangeInterfaceType(5);
             }
             if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen){
@@ -98,8 +108,12 @@ public class PlayerInventory : MonoBehaviour
         }
         else if(gameManager.IsInterfaceType() == 6){
             InputArrowInventory_AddQuantity(ChestInventoryUI);
-            if(gameInput.InputGetKeyTabDown()){
+            if(gameInput.GetInputGetKeyTabDown()){
                 gameManager.ChangeInterfaceType(4);
+            }
+            if(gameInput.GetInputEscape()){
+                OnQuitChest?.Invoke(this,EventArgs.Empty);
+                isChestOpen = false;
             }
         }
     }

@@ -13,22 +13,18 @@ public class InventoryItemUI : MonoBehaviour
     private ItemScriptableObject itemSO;
     [SerializeField]private Image itemImage;
     [SerializeField]private TextMeshProUGUI quantity_Text;
-    [SerializeField]private Image borderSelect;
+    [SerializeField]private Image borderSelect, borderSelectCauldron;
     [SerializeField]private Transform posisiWord;
 
     
     private bool empty = true;
+    private bool selected_Cauldron = false;
     private void Awake() {
         ResetData();
         DeselectItem();
+        DeSelectItem_Cooking();
     }
-    private void Start() {
-        
-    }
-    private void Update() {
-        
 
-    }
 
     private void RefreshVisualUI(){
         if(empty){
@@ -57,8 +53,20 @@ public class InventoryItemUI : MonoBehaviour
         borderSelect.enabled = false;
     }
 
+    public void SelectItem_Cooking(){
+        borderSelectCauldron.enabled = true;
+        selected_Cauldron = true;
+    }
+    public void DeSelectItem_Cooking(){
+        borderSelectCauldron.enabled = false;
+        selected_Cauldron = false;
+    }
+
     public bool IsEmpty(){
         return empty;
+    }
+    public bool IsSelected_Cooking(){
+        return selected_Cauldron;
     }
     public ItemScriptableObject GetItemData(){
         return itemSO;

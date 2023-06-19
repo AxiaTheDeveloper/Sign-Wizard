@@ -185,14 +185,17 @@ public class GameInput : MonoBehaviour
         return keyArrowInputUI;
     }
 
-    public bool InputGetKeyTabDown(){
+    public bool GetInputGetKeyTabDown(){
         return Input.GetKeyDown(KeyCode.Tab);
     }
 
-    public bool InputClearInventoryPlayer(){
+    public bool GetInputClearInventoryPlayer(){
         return (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift)) && Input.GetKey(KeyCode.Return);
     }
     
+    public bool GetInputSelectItemForCauldron(){
+        return Input.GetKeyDown(KeyCode.A);
+    }
 
     
 

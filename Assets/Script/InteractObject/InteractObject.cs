@@ -4,10 +4,10 @@ using UnityEngine;
 
 
 //ini buat hubungin interact object dengan cauldron ato chest ato dll gitu
-public class Cauldron
+public class TheCauldron
 {
-    public void Interact(){
-        Debug.Log("This is Cauldron");
+    public void OpenUI(Cauldron cauldron){
+        cauldron.ShowWholeUI();
     }
 }
 
@@ -31,13 +31,13 @@ public class InteractObject : MonoBehaviour
         Cauldron, TheChest, Kyaa
     }
     public ObjectType type;
-    public int x;
 
-    private Cauldron cauldron;
+    private TheCauldron cauldron;
     private Kyaaa throws;
     private TheChest chest;
 
     [SerializeField]private Chest Chest;
+    [SerializeField]private Cauldron Cauldron;
 
 
     private void Start() {
@@ -45,7 +45,7 @@ public class InteractObject : MonoBehaviour
         
         
         if(type == ObjectType.Cauldron){
-            cauldron = new Cauldron();
+            cauldron = new TheCauldron();
         }
         if(type == ObjectType.TheChest){
             chest = new TheChest();
@@ -56,7 +56,7 @@ public class InteractObject : MonoBehaviour
     }
     public void Interacts(){
         if(type == ObjectType.Cauldron){
-            cauldron.Interact();
+            cauldron.OpenUI(Cauldron);
         }
         if(type == ObjectType.TheChest){
             chest.OpenUI(Chest);

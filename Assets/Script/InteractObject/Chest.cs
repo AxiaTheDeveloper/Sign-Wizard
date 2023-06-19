@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 //Contoh salah satu anakkan interact object~~~
 public class Chest : MonoBehaviour
@@ -16,10 +17,10 @@ public class Chest : MonoBehaviour
     
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private FinishWordDoFunction finishFunction;
-    private WitchGameManager gameManager;
+    [SerializeField]private WitchGameManager gameManager;
 
     private void Awake(){
-        gameManager = WitchGameManager.Instance;
+        // gameManager = WitchGameManager.Instance;
         chestInventorySize = chestInventory.size;
     }
 
@@ -44,6 +45,8 @@ public class Chest : MonoBehaviour
             else{
                 chestInventory.TakeItemFromSlot(selectItem, quantityWant);
                 playerInventory.GetPlayerInventory().AddItemToSlot(chestInventory.inventSlot[selectItem].itemSO, quantityWant);
+                EditorUtility.SetDirty(chestInventory);
+                EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
             }
         }
         ChestUI.ResetQuantityWant();
@@ -102,6 +105,8 @@ public class Chest : MonoBehaviour
                     playerInventory.GetPlayerInventory().TakeItemFromSlot(i, quantity);
                     playerInventory.GetPlayerInventory().TakeDataFromSlot(i);
                     chestInventory.AddItemToSlot(item, quantity);
+                    EditorUtility.SetDirty(chestInventory);
+                    EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
                 }
                 
             }

@@ -168,6 +168,64 @@ public class InventoryWithDesc : InventoryOnly{
     }
 }
 
+public class InventoryCauldron : InventoryOnly{
+    public event EventHandler<OnItemCauldronEventArgs> OnItemCauldron;// ini buat di cauldron nanti
+    public class OnItemCauldronEventArgs : EventArgs{
+        public int Position;
+        public bool isAdd;
+    }
+    
+    public void ShowInventoryUI_Cook(int pilihanInterface, GameObject UI){
+        // Debug.Log("show");
+        WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
+        
+        UI.SetActive(true);
+
+        //shownya dibedain dr yg atas biar kalo ada animasi tidak aneh, soalnya keluar brg UI lain
+    }
+
+    public void SelectItem_ForCauldron(int selectItem, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
+        if(UI_ItemList[selectItem].IsSelected_Cooking()){
+            UI_ItemList[selectItem].DeSelectItem_Cooking();
+            list_selected_Cauldron_Item.Remove(selectItem);
+            OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
+                Position = selectItem, isAdd = false
+            });
+        }
+        else{
+            if(list_selected_Cauldron_Item.Count == 3){
+                Debug.Log("Uda penuh");
+            }
+            else if(list_selected_Cauldron_Item.Count < 3 && !UI_ItemList[selectItem].IsEmpty()){
+                list_selected_Cauldron_Item.Add(selectItem);
+                UI_ItemList[selectItem].SelectItem_Cooking();
+                OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
+                    Position = selectItem, isAdd = true
+                });
+            }
+        }
+    }
+    public void Hide_Cauldron(GameObject UI, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
+        
+        DeselectItem_ForCauldron(list_selected_Cauldron_Item, UI_ItemList);
+        HideInventoryUI(UI);
+    }
+    public void DeselectItem_ForCauldron(List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
+        List<int> listCopy = new List<int>(list_selected_Cauldron_Item);
+        // listCopy = list_selected_Cauldron_Item;
+        foreach(int selectItem in listCopy){
+            UI_ItemList[selectItem].DeSelectItem_Cooking();
+            // Debug.Log("dari inventory ada di posisi " +selectItem);
+            list_selected_Cauldron_Item.Remove(selectItem);
+            OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
+                Position = selectItem, isAdd = false
+            });
+            
+        }
+    }
+
+}
+
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField]private InventoryItemUI inventItemUI; 
@@ -181,7 +239,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]private int totalRow, totalColumn;//kolom kanan, row bwh, atur ini biar select tidak aneh WKWKKW
 
     private enum TipeInventory{
-        inventoryOnly, inventoryWithDesc
+        inventoryOnly, inventoryWithDesc, inventoryCauldron
     }
 
     [SerializeField]private TipeInventory tipeInventory;
@@ -191,6 +249,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]private OwnerShip owner;
     private InventoryOnly inventOnly;
     private InventoryWithDesc invent_Desc;
+    private InventoryCauldron invent_Cauldron;
 
 
     private WordManager wordManager;
@@ -203,15 +262,17 @@ public class InventoryUI : MonoBehaviour
     private int quantity_Want, maxQuantityNow;
 
     [SerializeField]private GameObject wordPlaceShow_InventDesc;
+
+    [Header("This is for Invent with Cauldron")]
+
+    private List<int> list_selected_Cauldron_Item;
+    
+    // [SerializeField]private Cauldron cauldron;
     
     private void Awake() {
         if(tipeInventory == TipeInventory.inventoryWithDesc){
             inventUIDesc.EmptyDescUI();
         }
-        
-    }
-    private void Start() {
-        
         if(tipeInventory == TipeInventory.inventoryOnly){
             inventOnly = new InventoryOnly();
         }
@@ -220,6 +281,15 @@ public class InventoryUI : MonoBehaviour
             quantity_Want = 1;
             maxQuantityNow = 0;
         }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron = new InventoryCauldron();
+            list_selected_Cauldron_Item = new List<int>();
+        }
+        
+    }
+    private void Start() {
+        
+        
         UI_ItemList = new List<InventoryItemUI>();
         if(owner == OwnerShip.Player){
             playerInventory.OnQuitInventory += playerInventory_OnQuitInventory;
@@ -241,9 +311,6 @@ public class InventoryUI : MonoBehaviour
             GiveData_To_UI(chestInventory);
             chestInventory.OnItemUpdate += otherInventory_OnItemUpdate;
         }
-        
-        
-
         
         StartCoroutine(DeactivateGameObjectDelayed());
     }
@@ -302,6 +369,10 @@ public class InventoryUI : MonoBehaviour
             selectItem = invent_Desc.SelectItemRight_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            selectItem = invent_Cauldron.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+        }
+        
     }
     public void SelectItemLeft(){
         if(tipeInventory == TipeInventory.inventoryOnly){
@@ -312,6 +383,9 @@ public class InventoryUI : MonoBehaviour
             selectItem = invent_Desc.SelectItemLeft_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            selectItem = invent_Cauldron.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+        }
     }
     public void SelectItemDown(){
         if(tipeInventory == TipeInventory.inventoryOnly){
@@ -321,6 +395,9 @@ public class InventoryUI : MonoBehaviour
             quantity_Want = 1;
             selectItem = invent_Desc.SelectItemDown_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
+        }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            selectItem = invent_Cauldron.SelectItemDown(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
     }
     public void SelectItemUp(){
@@ -333,14 +410,20 @@ public class InventoryUI : MonoBehaviour
             selectItem = invent_Desc.SelectItemUp_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            selectItem = invent_Cauldron.SelectItemUp(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
+        }
     }
     public void ShowInventoryUI(){
         if(tipeInventory == TipeInventory.inventoryOnly){
             inventOnly.ShowInventoryUI(2, this.gameObject);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            invent_Desc.ShowInventoryUI_Desc(2, this.gameObject, inventUIDesc, UI_ItemList, selectItem, quantity_Want);
+            invent_Desc.ShowInventoryUI_Desc(4, this.gameObject, inventUIDesc, UI_ItemList, selectItem, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
+        }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron.ShowInventoryUI(3, this.gameObject);
         }
     }
     public void HideInventoryUI(){
@@ -352,6 +435,15 @@ public class InventoryUI : MonoBehaviour
             invent_Desc.HideInventoryUI(this.gameObject);
             wordPlaceShow_InventDesc.SetActive(false);
             // Debug.Log(wordPlaceShow_InventDesc.activeSelf);
+        }
+        else if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron.Hide_Cauldron(this.gameObject, list_selected_Cauldron_Item, UI_ItemList);
+        }
+    }
+
+    public void SelectItem_Cauldron(){
+        if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList);
         }
     }
     public void ChangeQuantityWant(int change){
@@ -385,5 +477,14 @@ public class InventoryUI : MonoBehaviour
     public int GetSelectedItem(){
         return selectItem;
     }
+    public InventoryCauldron GetInventoryCauldron(){
+        return invent_Cauldron;
+    }
+
+
+
+
+
+
 
 }
