@@ -6,6 +6,6 @@ using UnityEngine;
 public class PotionRecipeScriptableObject : ScriptableObject
 {
     public ItemScriptableObject[] Ingredients;
-    public float fireSize;
+    public int fireSizeLevel;
     public ItemScriptableObject output_Potion;
 }

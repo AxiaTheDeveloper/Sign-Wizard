@@ -33,12 +33,12 @@ public class WordInput : MonoBehaviour
         // YesWordSame = false;
     }
     private void Update() {
-        if(gameManager.IsInterfaceType() == 5){
+        if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire){
             if(Input.anyKeyDown){
                 foreach(char letter in Input.inputString){
 
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
-                    // Debug.Log(letter);
+                    Debug.Log(letter);
                     
                     if(!hasChosenWords && !isUIFirstTimeShowing){
                         for(int i=0;i<wordManager.Length;i++){     
@@ -113,9 +113,9 @@ public class WordInput : MonoBehaviour
     public void UndoInputLetterManyWords(){
         foreach(WordManager wordMn in wordManager){
             wordMn.CancelInputLetter();
-            chosenWordsList.Clear();
-            hasChosenWords = false;
         }
+        chosenWordsList.Clear();
+        hasChosenWords = false;
     }
 
 

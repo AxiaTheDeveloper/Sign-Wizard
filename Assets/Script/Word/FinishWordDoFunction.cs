@@ -3,23 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-// public class AddObject{
-//     public void WordFinished(string contohObject){
-//         Debug.Log(contohObject);
-//     }
-// }
-// public class AddObjects{
-//     public void WordFinished(InventoryScriptableObject inventory, ItemScriptableObject item, int quantity){
-//         inventory.AddItemToSlot(item,quantity);
-//         // i guess jg manggil ke chest?
-//     }
-// }
 public class FinishWordDoFunction : MonoBehaviour
 {
     //buat kirim sinyal aja kalo uda selesai tergantung mo ke siapa
-    public event EventHandler OnFinishChestWord;
+    public event EventHandler OnFinishChestWord, OnStopCauldronFire;//ke chest, ke cauldron
     public enum Type{
-        AddObject, Adds, Chest
+        AddObject, Cauldron, Chest
     }
     public Type type;
 
@@ -36,9 +25,12 @@ public class FinishWordDoFunction : MonoBehaviour
         if(type == Type.AddObject){
             Debug.Log("yey");
         }
-        if(type == Type.Chest){
+        else if(type == Type.Chest){
             OnFinishChestWord?.Invoke(this,EventArgs.Empty);
             // adds.WordFinished(playerInventory.GetPlayerInventory(), itemYangNambah, quantity);
+        }
+        else if(type == Type.Cauldron){
+            OnStopCauldronFire?.Invoke(this,EventArgs.Empty);
         }
     }
 }

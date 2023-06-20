@@ -4,7 +4,7 @@ using UnityEngine;
 
 //item
 public enum ItemType{
-    langsung, craft
+    bahanPotion, bahanHarusDigerus, potion
 }
 [CreateAssetMenu]
 
@@ -14,7 +14,7 @@ public class ItemScriptableObject : ScriptableObject
     public string itemName;
     public ItemType type;
     public Sprite itemSprite;
-    public bool isStackable;
+    public bool isFromChest;
     public int maxStack = 1;
     [field : TextArea]
     public string Desc;

@@ -196,6 +196,9 @@ public class GameInput : MonoBehaviour
     public bool GetInputSelectItemForCauldron(){
         return Input.GetKeyDown(KeyCode.A);
     }
+    public bool GetInputStartCookingForCauldron(){
+        return Input.GetKeyDown(KeyCode.F);
+    }
 
     
 

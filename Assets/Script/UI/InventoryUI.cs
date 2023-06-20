@@ -102,7 +102,7 @@ public class InventoryOnly{
         // inventUIDesc.SetItemDataDesc(); diisii~~~
         return selectItemHere;
     }
-    public void ShowInventoryUI(int pilihanInterface, GameObject UI){
+    public void ShowInventoryUI(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
         WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
 
         UI.SetActive(true);
@@ -141,7 +141,7 @@ public class InventoryWithDesc : InventoryOnly{
         return selectItemHere;
     }
     
-    public void ShowInventoryUI_Desc(int pilihanInterface, GameObject UI, InventoryUIDesc inventUIDesc, List<InventoryItemUI> UI_ItemList, int selectItem, int quantity_Want){
+    public void ShowInventoryUI_Desc(WitchGameManager.InterfaceType pilihanInterface, GameObject UI, InventoryUIDesc inventUIDesc, List<InventoryItemUI> UI_ItemList, int selectItem, int quantity_Want){
         // Debug.Log("show");
         ShowInventoryUI(pilihanInterface, UI);
         inventUIDesc.EmptyDescUI();
@@ -175,7 +175,7 @@ public class InventoryCauldron : InventoryOnly{
         public bool isAdd;
     }
     
-    public void ShowInventoryUI_Cook(int pilihanInterface, GameObject UI){
+    public void ShowInventoryUI_Cook(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
         // Debug.Log("show");
         WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
         
@@ -184,9 +184,10 @@ public class InventoryCauldron : InventoryOnly{
         //shownya dibedain dr yg atas biar kalo ada animasi tidak aneh, soalnya keluar brg UI lain
     }
 
-    public void SelectItem_ForCauldron(int selectItem, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
-        if(UI_ItemList[selectItem].IsSelected_Cooking()){
-            UI_ItemList[selectItem].DeSelectItem_Cooking();
+    public void SelectItem_ForCauldron(int selectItem, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList, bool isBahanPotion){
+        InventoryItemUI UI_item = UI_ItemList[selectItem];
+        if(UI_item.IsSelected_Cooking()){
+            UI_item.DeSelectItem_Cooking();
             list_selected_Cauldron_Item.Remove(selectItem);
             OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
                 Position = selectItem, isAdd = false
@@ -196,12 +197,18 @@ public class InventoryCauldron : InventoryOnly{
             if(list_selected_Cauldron_Item.Count == 3){
                 Debug.Log("Uda penuh");
             }
-            else if(list_selected_Cauldron_Item.Count < 3 && !UI_ItemList[selectItem].IsEmpty()){
-                list_selected_Cauldron_Item.Add(selectItem);
-                UI_ItemList[selectItem].SelectItem_Cooking();
-                OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
-                    Position = selectItem, isAdd = true
-                });
+            else if(list_selected_Cauldron_Item.Count < 3 && !UI_item.IsEmpty()){
+                if(isBahanPotion){
+                    list_selected_Cauldron_Item.Add(selectItem);
+                    UI_item.SelectItem_Cooking();
+                    OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
+                        Position = selectItem, isAdd = true
+                    });
+                }
+                else{
+                    Debug.Log("Bukan Bahan potion");
+                }
+                
             }
         }
     }
@@ -416,14 +423,14 @@ public class InventoryUI : MonoBehaviour
     }
     public void ShowInventoryUI(){
         if(tipeInventory == TipeInventory.inventoryOnly){
-            inventOnly.ShowInventoryUI(2, this.gameObject);
+            inventOnly.ShowInventoryUI(WitchGameManager.InterfaceType.InventoryTime, this.gameObject);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
-            invent_Desc.ShowInventoryUI_Desc(4, this.gameObject, inventUIDesc, UI_ItemList, selectItem, quantity_Want);
+            invent_Desc.ShowInventoryUI_Desc(WitchGameManager.InterfaceType.InventoryAndChest, this.gameObject, inventUIDesc, UI_ItemList, selectItem, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
         else if(tipeInventory == TipeInventory.inventoryCauldron){
-            invent_Cauldron.ShowInventoryUI(3, this.gameObject);
+            invent_Cauldron.ShowInventoryUI(WitchGameManager.InterfaceType.InventoryAndCauldron, this.gameObject);
         }
     }
     public void HideInventoryUI(){
@@ -443,7 +450,8 @@ public class InventoryUI : MonoBehaviour
 
     public void SelectItem_Cauldron(){
         if(tipeInventory == TipeInventory.inventoryCauldron){
-            invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList);
+            bool isBahanPotion = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO.type == ItemType.bahanPotion;
+            invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList,  isBahanPotion);
         }
     }
     public void ChangeQuantityWant(int change){

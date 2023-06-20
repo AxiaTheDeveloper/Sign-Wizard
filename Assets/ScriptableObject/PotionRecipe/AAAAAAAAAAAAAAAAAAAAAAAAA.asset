@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
   - {fileID: 11400000, guid: 9b639ace78719e6449e55dd6a0f9e306, type: 2}
   - {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
-  fireSize: 50
-  output_Potion: {fileID: 0}
+  fireSizeLevel: 2
+  output_Potion: {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}

@@ -7,13 +7,15 @@ using UnityEditor;
 //Contoh salah satu anakkan interact object~~~
 public class Chest : MonoBehaviour
 {
+    public enum ItemType{
+        bahanPotion, bahanHarusDigerus, potion
+    }
     [SerializeField]private WordInput wordInput;
     [SerializeField]private PlayerInventory playerInventory;
-    [SerializeField]private InventoryScriptableObject chestInventory;
+    [SerializeField]private InventoryScriptableObject chestInventory, chestMain;
     private int chestInventorySize;
     [SerializeField]private InventoryUI ChestUI;
     // private List<GameObject>
-    private int chosenWord;
     
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private FinishWordDoFunction finishFunction;
@@ -21,6 +23,8 @@ public class Chest : MonoBehaviour
 
     private void Awake(){
         // gameManager = WitchGameManager.Instance;
+        //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
+        chestInventory = chestMain;
         chestInventorySize = chestInventory.size;
     }
 
@@ -72,7 +76,7 @@ public class Chest : MonoBehaviour
         // wordInput.ChangeisOnlyOneWord(false);
         ChestUI.ShowInventoryUI();
         // wordUI.SetActive(true);
-        gameManager.ChangeInterfaceType(4);
+        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest);
         // change game state
     }
     public void CloseWholeUI(){
@@ -92,10 +96,17 @@ public class Chest : MonoBehaviour
     private void ClearInventoryPlayer(){
         if(playerInventory.GetPlayerInventory().isFullyEmpty > 0){
             for(int i=0;i<playerInventory.GetPlayerInventory().size;i++){
+                InventorySlot inventSlot = playerInventory.GetPlayerInventory().inventSlot[i];
+                if(inventSlot.isEmpty){
+                    continue;
+                }
+                else if(!inventSlot.itemSO.isFromChest){
+                    continue;
+                }
                 // Debug.Log(i);
-                int quantity = playerInventory.GetPlayerInventory().inventSlot[i].quantity;
+                int quantity = inventSlot.quantity;
                 // Debug.Log(quantity);
-                ItemScriptableObject item = playerInventory.GetPlayerInventory().inventSlot[i].itemSO;
+                ItemScriptableObject item = inventSlot.itemSO;
                 if(quantity == 0){
                     // Debug.Log("kosong");
                     continue;

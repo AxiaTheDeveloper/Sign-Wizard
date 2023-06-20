@@ -28,6 +28,8 @@ public class WordManager : MonoBehaviour
     [SerializeField]private string theWord;
     private string choseWord;
     [SerializeField]private WordUI wordDisplay;
+
+    [SerializeField]private float delayedSpawnWord_Time = 0.2f;
     private void Start() {
         hasWord = false;
         hasChooseWord = false;
@@ -55,6 +57,7 @@ public class WordManager : MonoBehaviour
             }
             else{
                 chosenWord = new Word(choseWord, wordDisplay, true);
+                // Debug.Log(chosenWord);
             }
         }
         else if(templateType == TemplateType.SpawnTemplate){
@@ -129,7 +132,7 @@ public class WordManager : MonoBehaviour
 
     }
     private IEnumerator DelayedCreateWord(){
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(delayedSpawnWord_Time);
         createWord();
     }
 
