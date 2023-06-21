@@ -18,10 +18,13 @@ public class WordInput : MonoBehaviour
     private bool isUIFirstTimeShowing;
     private int choice;
 
+    private bool adaWord;
+
     
     private void Awake() {
         Instance = this;
         gameManager = WitchGameManager.Instance;
+        adaWord = true;
 
     }
     
@@ -33,7 +36,7 @@ public class WordInput : MonoBehaviour
         // YesWordSame = false;
     }
     private void Update() {
-        if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire){
+        if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
             if(Input.anyKeyDown){
                 foreach(char letter in Input.inputString){
 
@@ -41,12 +44,17 @@ public class WordInput : MonoBehaviour
                     Debug.Log(letter);
                     
                     if(!hasChosenWords && !isUIFirstTimeShowing){
-                        for(int i=0;i<wordManager.Length;i++){     
-                            if(wordManager[i].InputFirstLetter(letter)){
+                        for(int i=0;i<wordManager.Length;i++){
+                            if(adaWord){
+                                if(wordManager[i].InputFirstLetter(letter)){
 
-                                chosenWordsList.Add(i);
-                                hasChosenWords = true;
+                                    chosenWordsList.Add(i);
+                                    hasChosenWords = true;
+                                }
                             }
+                                
+    
+                            
                         }
                     }
 
@@ -125,5 +133,10 @@ public class WordInput : MonoBehaviour
     }
     public void OpenUI(){
         isUIFirstTimeShowing = true;
+    }
+
+    //khusus chest doang
+    public void ChangeAdaWord(bool change){
+        adaWord = change;
     }
 }

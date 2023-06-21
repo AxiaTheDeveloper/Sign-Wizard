@@ -82,6 +82,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9865f6e51548be341ae3806530953dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CauldronUI: {fileID: 0}
+  recipeList:
+  - {fileID: 11400000, guid: 8537fa1251c17ee44a7a42e6d59333ca, type: 2}
+  cauldronUI_Inventory: {fileID: 0}
+  cauldronUI_Cook: {fileID: 0}
   gameManager: {fileID: 0}
   playerInventory: {fileID: 0}
+  CauldronSize: 3
+  maxRotation: -180
+  minRotation: 0
+  maxSpeed: 100
+  speed: 50
+  waitCloseUI: 0.2
+  wordInput: {fileID: 0}
+  wordManager:
+  - {fileID: 0}
+  finishFunction: {fileID: 0}
+  fireSizeMin:
+  - 1
+  - 61
+  - 121
+  fireSizeMax:
+  - 60
+  - 120
+  - 180

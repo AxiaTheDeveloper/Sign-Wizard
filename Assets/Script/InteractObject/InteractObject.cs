@@ -11,10 +11,10 @@ public class TheCauldron
     }
 }
 
-public class Kyaaa
+public class ThePenumbuk
 {
-    public void Interact(){
-        Debug.Log("This is Kyaa");
+    public void OpenUI(Penumbuk penumbuk){
+        penumbuk.ShowWholeUI();
     }
 }
 public class TheChest
@@ -28,41 +28,42 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        Cauldron, TheChest, Kyaa
+        TheCauldron, TheChest, ThePenumbuk
     }
     public ObjectType type;
 
     private TheCauldron cauldron;
-    private Kyaaa throws;
+    private ThePenumbuk penumbuk;
     private TheChest chest;
 
     [SerializeField]private Chest Chest;
     [SerializeField]private Cauldron Cauldron;
+    [SerializeField]private Penumbuk Penumbuk;
 
 
     private void Start() {
         
         
         
-        if(type == ObjectType.Cauldron){
+        if(type == ObjectType.TheCauldron){
             cauldron = new TheCauldron();
         }
         if(type == ObjectType.TheChest){
             chest = new TheChest();
         }
-        if(type == ObjectType.Kyaa){
-            throws = new Kyaaa();
+        if(type == ObjectType.ThePenumbuk){
+            penumbuk = new ThePenumbuk();
         }
     }
     public void Interacts(){
-        if(type == ObjectType.Cauldron){
+        if(type == ObjectType.TheCauldron){
             cauldron.OpenUI(Cauldron);
         }
         if(type == ObjectType.TheChest){
             chest.OpenUI(Chest);
         }
-        if(type == ObjectType.Kyaa){
-            throws.Interact();
+        if(type == ObjectType.ThePenumbuk){
+            penumbuk.OpenUI(Penumbuk);
         }
     }
 }

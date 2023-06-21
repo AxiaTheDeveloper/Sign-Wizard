@@ -18,13 +18,13 @@ MonoBehaviour:
   isFullyEmpty: 4
   inventSlot:
   - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
-    quantity: 1
+    quantity: 5
   - itemSO: {fileID: 11400000, guid: 9b639ace78719e6449e55dd6a0f9e306, type: 2}
     quantity: 5
   - itemSO: {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
     quantity: 1
-  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
-    quantity: 0
+  - itemSO: {fileID: 11400000, guid: 579fb7f58684f6f46940fd6916a8fe1f, type: 2}
+    quantity: 10
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}

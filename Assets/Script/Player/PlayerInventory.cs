@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Inventory")]
     public static PlayerInventory Instance;
     [SerializeField]private InventoryUI inventoryUI;
-    [SerializeField]private InventoryUI ChestInventoryUI, CauldronUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
+    [SerializeField]private InventoryUI ChestInventoryUI, CauldronUI, PenumbukUI; //ini misal buka di chest ato buka di mana gitu dr interactable object, trus dibuat code lg yg ngatur show hide nya, trus pas show dikasih ke sini, pas hide d null
     [SerializeField]private InventoryScriptableObject inventory;
 
     private int inventorySize;
@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk
     private bool isInventoryOpen, isChestOpen;
 
     private Vector2 keyInputArrowUI;
@@ -123,6 +123,28 @@ public class PlayerInventory : MonoBehaviour
             if(gameInput.GetInputEscape()){
                 OnQuitChest?.Invoke(this,EventArgs.Empty);
                 isChestOpen = false;
+            }
+        }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndPenumbuk){
+            if(gameInput.GetInputEscape()){
+                OnQuitPenumbuk?.Invoke(this,EventArgs.Empty);
+                // isChestOpen = false;
+            }
+            else if(gameInput.GetInputSelectItemForCauldron()){
+                PenumbukUI.SelectItem_Cauldron();
+            }
+            InputArrowInventory(PenumbukUI);
+        
+        }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
+            if(gameInput.GetInputEscape()){
+                OnQuitPenumbuk?.Invoke(this,EventArgs.Empty);
+                // isChestOpen = false;
+            }
+            if(gameInput.GetInputOpenInventory_ChestOpen()){
+                // PenumbukUI.ShowInventory_PenumbukIsOpen();
+                WordInput.Instance.UndoInputLetterManyWords();
+                OnStopTumbuk?.Invoke(this,EventArgs.Empty); // selanjutnya coba buka penumuk UI, trus bikin ui nya + word manager + progress bar etc etc
             }
         }
         

@@ -15,7 +15,7 @@ MonoBehaviour:
   size: 20
   type: 0
   isFull: 0
-  isFullyEmpty: 4
+  isFullyEmpty: 6
   inventSlot:
   - itemSO: {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}
     quantity: 1
@@ -25,10 +25,10 @@ MonoBehaviour:
     quantity: 5
   - itemSO: {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}
     quantity: 1
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
+  - itemSO: {fileID: 11400000, guid: 579fb7f58684f6f46940fd6916a8fe1f, type: 2}
+    quantity: 3
+  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+    quantity: 1
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}

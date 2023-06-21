@@ -175,7 +175,7 @@ public class InventoryCauldron : InventoryOnly{
         public bool isAdd;
     }
     
-    public void ShowInventoryUI_Cook(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
+    public void ShowInventoryUI_Cauldron(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
         // Debug.Log("show");
         WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
         
@@ -233,6 +233,76 @@ public class InventoryCauldron : InventoryOnly{
 
 }
 
+public class InventoryPenumbuk : InventoryOnly{
+    public event EventHandler<OnItemPenumbukEventArgs> OnItemPenumbuk;// ini buat di cauldron nanti
+    public class OnItemPenumbukEventArgs : EventArgs{
+        public int Position;
+        public bool isAdd;
+    }
+    private int penumbuk_SelectedItem;
+    private bool hasSelectItem;
+    public void ShowInventoryUI_Penumbuk(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
+        // Debug.Log("show");
+        WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
+        
+        UI.SetActive(true);
+        hasSelectItem = false;
+        Debug.Log("show" + UI.activeSelf);
+        
+        //shownya dibedain dr yg atas biar kalo ada animasi tidak aneh, soalnya keluar brg UI lain
+    }
+
+    public void SelectItem_Penumbuk(int selectItem, List<InventoryItemUI> UI_ItemList, bool isBahanTumbukkan){
+        InventoryItemUI UI_item = UI_ItemList[selectItem];
+        if(UI_item.IsSelected_Cooking() && hasSelectItem){
+            UI_item.DeSelectItem_Cooking();
+            hasSelectItem = false;
+            OnItemPenumbuk?.Invoke(this, new OnItemPenumbukEventArgs{
+                Position = selectItem, isAdd = false
+            });
+        }
+        else{
+            if(!UI_item.IsEmpty()){
+                if(isBahanTumbukkan){
+                    // Debug.Log("masuk sini ya ?");
+                    penumbuk_SelectedItem = selectItem;
+                    hasSelectItem = true;
+                    UI_item.SelectItem_Cooking();
+                    OnItemPenumbuk?.Invoke(this, new OnItemPenumbukEventArgs{
+                        Position = selectItem, isAdd = true
+                    });
+                    
+                    
+                }
+                else{
+                    Debug.Log("Bukan Bahan yang bisa tumbukan");
+                }
+                
+            }
+        }
+    }
+    public void Hide_Penumbuk(GameObject UI, List<InventoryItemUI> UI_ItemList){
+        Debug.Log("close");
+        if(hasSelectItem){
+            SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList, true);//deselect item
+        }
+        
+        HideInventoryUI(UI);
+    }
+
+    public void ShowUI_Penumbuk_Tapi_PenumbukIsOpen(WitchGameManager.InterfaceType pilihanInterface, GameObject UI, List<InventoryItemUI> UI_ItemList){
+        SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList, true);//deselect item terpilih
+        ShowInventoryUI_Penumbuk(pilihanInterface, UI);
+        Debug.Log("bukan mmasuk sini");
+
+    }
+    public void HideUI_Penumbuk_Tapi_PenumbukIsOpen(GameObject UI){
+        Debug.Log("close");
+        HideInventoryUI(UI);
+    }
+
+}
+
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField]private InventoryItemUI inventItemUI; 
@@ -246,7 +316,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]private int totalRow, totalColumn;//kolom kanan, row bwh, atur ini biar select tidak aneh WKWKKW
 
     private enum TipeInventory{
-        inventoryOnly, inventoryWithDesc, inventoryCauldron
+        inventoryOnly, inventoryWithDesc, inventoryCauldron, inventoryPenumbuk
     }
 
     [SerializeField]private TipeInventory tipeInventory;
@@ -257,6 +327,7 @@ public class InventoryUI : MonoBehaviour
     private InventoryOnly inventOnly;
     private InventoryWithDesc invent_Desc;
     private InventoryCauldron invent_Cauldron;
+    private InventoryPenumbuk invent_Penumbuk;
 
 
     private WordManager wordManager;
@@ -275,6 +346,9 @@ public class InventoryUI : MonoBehaviour
     private List<int> list_selected_Cauldron_Item;
     
     // [SerializeField]private Cauldron cauldron;
+
+    [Header("This is for Invent with Penumbuk")]
+    private int selectedItem_Penumbuk;
     
     private void Awake() {
         if(tipeInventory == TipeInventory.inventoryWithDesc){
@@ -291,6 +365,9 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             invent_Cauldron = new InventoryCauldron();
             list_selected_Cauldron_Item = new List<int>();
+        }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            invent_Penumbuk = new InventoryPenumbuk();
         }
         
     }
@@ -379,6 +456,9 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             selectItem = invent_Cauldron.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
         }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            selectItem = invent_Penumbuk.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+        }
         
     }
     public void SelectItemLeft(){
@@ -393,6 +473,9 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             selectItem = invent_Cauldron.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
         }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            selectItem = invent_Penumbuk.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+        }
     }
     public void SelectItemDown(){
         if(tipeInventory == TipeInventory.inventoryOnly){
@@ -405,6 +488,9 @@ public class InventoryUI : MonoBehaviour
         }
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             selectItem = invent_Cauldron.SelectItemDown(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
+        }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            selectItem = invent_Penumbuk.SelectItemDown(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
     }
     public void SelectItemUp(){
@@ -420,6 +506,9 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             selectItem = invent_Cauldron.SelectItemUp(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            selectItem = invent_Penumbuk.SelectItemUp(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
+        }
     }
     public void ShowInventoryUI(){
         if(tipeInventory == TipeInventory.inventoryOnly){
@@ -430,7 +519,12 @@ public class InventoryUI : MonoBehaviour
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
         else if(tipeInventory == TipeInventory.inventoryCauldron){
-            invent_Cauldron.ShowInventoryUI(WitchGameManager.InterfaceType.InventoryAndCauldron, this.gameObject);
+            invent_Cauldron.ShowInventoryUI_Cauldron(WitchGameManager.InterfaceType.InventoryAndCauldron, this.gameObject);
+        }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            
+            invent_Penumbuk.ShowInventoryUI_Penumbuk(WitchGameManager.InterfaceType.InventoryAndPenumbuk, this.gameObject);
+            Debug.Log(gameManager.IsInterfaceType());
         }
     }
     public void HideInventoryUI(){
@@ -446,12 +540,49 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryCauldron){
             invent_Cauldron.Hide_Cauldron(this.gameObject, list_selected_Cauldron_Item, UI_ItemList);
         }
+        else if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            
+            invent_Penumbuk.Hide_Penumbuk(this.gameObject, UI_ItemList);
+        }
+    }
+    public void ShowInventory_PenumbukIsOpen(){
+        if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            invent_Penumbuk.ShowUI_Penumbuk_Tapi_PenumbukIsOpen(WitchGameManager.InterfaceType.InventoryAndPenumbuk, this.gameObject, UI_ItemList);
+        }
+    }
+    public void HideInventory_PenumbukIsOpen(){
+        if(tipeInventory == TipeInventory.inventoryPenumbuk){
+            invent_Penumbuk.HideUI_Penumbuk_Tapi_PenumbukIsOpen(this.gameObject);
+            gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.TumbukTime); 
+        }
     }
 
     public void SelectItem_Cauldron(){
         if(tipeInventory == TipeInventory.inventoryCauldron){
-            bool isBahanPotion = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO.type == ItemType.bahanPotion;
+            ItemScriptableObject itemPlayer = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO;
+            bool isBahanPotion;
+            if(itemPlayer){
+                isBahanPotion = itemPlayer.type == ItemType.bahanPotion;
+            }
+            else{
+                isBahanPotion = false;
+            }
+            
             invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList,  isBahanPotion);
+        }
+        else if (tipeInventory == TipeInventory.inventoryPenumbuk){
+
+            ItemScriptableObject itemPlayer = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO;
+            bool isBahanTumbukkan;
+            if(itemPlayer){
+                isBahanTumbukkan = itemPlayer.type == ItemType.bahanHarusDigerus;
+            }
+            else{
+                isBahanTumbukkan = false;
+            }
+            invent_Penumbuk.SelectItem_Penumbuk(selectItem, UI_ItemList,  isBahanTumbukkan);
+            // Debug.Log(playerInventory);
+            
         }
     }
     public void ChangeQuantityWant(int change){
@@ -487,6 +618,9 @@ public class InventoryUI : MonoBehaviour
     }
     public InventoryCauldron GetInventoryCauldron(){
         return invent_Cauldron;
+    }
+    public InventoryPenumbuk GetInventoryPenumbuk(){
+        return invent_Penumbuk;
     }
 
 

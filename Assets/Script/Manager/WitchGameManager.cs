@@ -20,9 +20,9 @@ public class WitchGameManager : MonoBehaviour
     private gameLevelQuest level;
 
     public enum InterfaceType{
-        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none
+        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime
     }
-    private InterfaceType interfaceType;
+    private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {
         Instance = this;
     }

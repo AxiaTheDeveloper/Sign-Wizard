@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7540939490088404563}
   - component: {fileID: 7540939490088404564}
   m_Layer: 5
-  m_Name: CauldronUI
+  m_Name: CauldronUI_Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

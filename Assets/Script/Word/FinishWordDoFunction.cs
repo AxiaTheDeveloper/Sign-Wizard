@@ -6,9 +6,9 @@ using System;
 public class FinishWordDoFunction : MonoBehaviour
 {
     //buat kirim sinyal aja kalo uda selesai tergantung mo ke siapa
-    public event EventHandler OnFinishChestWord, OnStopCauldronFire;//ke chest, ke cauldron
+    public event EventHandler OnFinishChestWord, OnStopCauldronFire, OnTumbuk;//ke chest, ke cauldron, ke penumbuk
     public enum Type{
-        AddObject, Cauldron, Chest
+        AddObject, Cauldron, Chest, Penumbuk
     }
     public Type type;
 
@@ -31,6 +31,9 @@ public class FinishWordDoFunction : MonoBehaviour
         }
         else if(type == Type.Cauldron){
             OnStopCauldronFire?.Invoke(this,EventArgs.Empty);
+        }
+        else if(type == Type.Penumbuk){
+            OnTumbuk?.Invoke(this,EventArgs.Empty);
         }
     }
 }

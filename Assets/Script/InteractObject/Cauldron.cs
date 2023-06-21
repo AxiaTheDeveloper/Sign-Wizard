@@ -74,8 +74,10 @@ public class Cauldron : MonoBehaviour
             //kalo gamau di cek pas abis milih api, ceknya ya di atas sini
             
             gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.CauldronFire);
-            
+            wordInput.ChangeAdaWord(true);
             wordManager[0].createWord();
+            
+            
             cauldronUI_Cook.ShowWordUI();
         }
         else if(item_Counter == 0){

@@ -24,10 +24,20 @@ public class Chest : MonoBehaviour
     private void Awake(){
         // gameManager = WitchGameManager.Instance;
         //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
-        chestInventory = chestMain;
+        chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
         chestInventorySize = chestInventory.size;
+        EditorUtility.SetDirty(chestInventory);
     }
 
+    private List<InventorySlot> CopyInventorySlot(List<InventorySlot> source){
+        List<InventorySlot> newList = new List<InventorySlot>();
+        foreach(InventorySlot inventSlot in source){
+            InventorySlot newInvent = new InventorySlot();
+            newList.Add(newInvent.ChangeQuantity(inventSlot.itemSO,inventSlot.quantity));
+        }
+
+        return newList;
+    }
     private void Start(){
         playerInventory.OnQuitChest += playerInventory_OnQuitChest;
         playerInventory.OnClearPlayerInventory += playerInventory_OnClearPlayerInventory;

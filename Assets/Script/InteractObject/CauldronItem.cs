@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CauldronItem
+public class CauldronItem : InventorySlot
 {
     //ini cuma buat simpen aja di cauldronnya
-    public ItemScriptableObject itemSO;
-    public int quantity;
-    public bool isEmpty=> itemSO == null;
     public int position_InInventory;
     public CauldronItem EmptyItem(){
         return new CauldronItem{
