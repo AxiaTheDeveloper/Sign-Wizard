@@ -200,6 +200,10 @@ public class GameInput : MonoBehaviour
         return Input.GetKeyDown(KeyCode.F);
     }
 
+    public bool GetInputNextLine_Dialogue(){
+        return Input.GetKey(KeyCode.Space);
+    }
+
     
 
 

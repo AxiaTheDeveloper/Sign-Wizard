@@ -25,11 +25,20 @@ public class WitchGameManager : MonoBehaviour
     private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {
         Instance = this;
+        state = gameState.Cinematic;
+        // Debug.Log(state);
     }
     private void Start() {
-        state = gameState.InGame; // ini tergantung sih mo drmn dl
+        // state = gameState.InGame; // ini tergantung sih mo drmn dl
         //baca save 
 
+        //inicontoh doang...
+        // Debug.Log(state);
+        
+
+    }
+    private void Update() {
+        // Debug.Log(state);
     }
 
     public void ChangeToInGame(){
@@ -59,6 +68,7 @@ public class WitchGameManager : MonoBehaviour
 
     public void PauseGame(){
         pauseState = !pauseState;
+        //ga mungkin bs pause kalo lg d state interface
         if(pauseState){
             state = gameState.Pause;
         }
@@ -70,6 +80,13 @@ public class WitchGameManager : MonoBehaviour
     //ambil lg state apa
     public bool IsInGame(){
         return state == gameState.InGame;
+    }
+    public bool isCinematic(){
+        return state == gameState.Cinematic;
+    }
+    public void ChangeToCinematic(){
+        interfaceType = InterfaceType.none;
+        state = gameState.Cinematic;
     }
     // public bool IsInterfaceTime(){
     //     return state == gameState.InterfaceTime;

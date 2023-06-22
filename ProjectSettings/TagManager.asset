@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Depan
+  - name: Ground
+    uniqueID: 2644829107
+    locked: 0
+  - name: Player
     uniqueID: 1290179899
+    locked: 0
+  - name: Interact
+    uniqueID: 2004138877
     locked: 0

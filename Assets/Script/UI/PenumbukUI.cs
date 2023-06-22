@@ -24,7 +24,7 @@ public class PenumbukUI : MonoBehaviour
     private void penumbuk_OnChangeProgress(object sender, Penumbuk.OnChangeProgressEventArgs e)
     {
         slider.value = e.progressFill;
-        Debug.Log(e.progressFill + "sini lo");
+        // Debug.Log(e.progressFill + "sini lo");
         if(e.progressFill >= 0.6f){
             sliderImage.color = new Color32(50,255,50,255);
 

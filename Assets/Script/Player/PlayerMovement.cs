@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     
 
     private void Update() {
+        if(WitchGameManager.Instance.IsInGame()){
+            keyInput = gameInput.GetInputMovement();
+        }
         
-        keyInput = gameInput.GetInputMovement();
         
         
     }

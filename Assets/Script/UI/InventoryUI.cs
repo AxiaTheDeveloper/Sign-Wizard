@@ -282,7 +282,7 @@ public class InventoryPenumbuk : InventoryOnly{
         }
     }
     public void Hide_Penumbuk(GameObject UI, List<InventoryItemUI> UI_ItemList){
-        Debug.Log("close");
+        // Debug.Log("close");
         if(hasSelectItem){
             SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList, true);//deselect item
         }

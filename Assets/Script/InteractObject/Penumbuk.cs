@@ -38,7 +38,15 @@ public class Penumbuk : MonoBehaviour
         finishFunction1.OnTumbuk += finishFunction_OnTumbuk;
         finishFunction2.OnTumbuk += finishFunction_OnTumbuk;
         progressNow = 0;
-        CloseWholeUI();
+
+
+        itemTerpilih = new CauldronItem().EmptyItem();
+        PenumbukUI_Tumbuk.UpdateVisualInventorySlot(itemTerpilih);
+        chosenRecipe = null;
+        progressNow = 0; 
+        OnChangeProgress?.Invoke(this, new OnChangeProgressEventArgs{
+            progressFill = progressNow
+        });
     }
     private void finishFunction_OnTumbuk(object sender, EventArgs e)
     {
