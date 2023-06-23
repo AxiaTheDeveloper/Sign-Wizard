@@ -20,6 +20,7 @@ public class Chest : MonoBehaviour
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private FinishWordDoFunction finishFunction;
     [SerializeField]private WitchGameManager gameManager;
+    [SerializeField]private DialogueManager dialogueManager;
 
     private void Awake(){
         // gameManager = WitchGameManager.Instance;
@@ -47,13 +48,15 @@ public class Chest : MonoBehaviour
     {
         
         if(playerInventory.GetPlayerInventory().isFull){
-            Debug.Log("Keluarkan UI playerInventoryFull");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.playerInventoryFull_Chest);
+            // Debug.Log("Keluarkan UI playerInventoryFull");
         }
         else{
             int selectItem = ChestUI.GetSelectedItem();
             int quantityWant = ChestUI.GetQuantityWant();
             if(quantityWant == 1 && chestInventory.inventSlot[selectItem].quantity == 0){
-                    Debug.Log("Keluarkan UI barang habis, besok ambil kembali");
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.barangChestHabis_Chest);
+                    // Debug.Log("Keluarkan UI barang habis, besok ambil kembali");
                 
             }
             else{

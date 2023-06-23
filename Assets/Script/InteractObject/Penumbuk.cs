@@ -10,6 +10,8 @@ public class Penumbuk : MonoBehaviour
     private InventoryPenumbuk inventPenumbuk;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private Announcement_SuccesfullGetItem announcementUI;
+    [SerializeField]private DialogueManager dialogueManager;
 
     [Header("Buat di tumbuk")]
     private CauldronItem itemTerpilih;
@@ -117,7 +119,8 @@ public class Penumbuk : MonoBehaviour
             //hrsnya ini ga mungkin trjdi krn si player ga mungkin bs ambil item yg merupakan bahan tumbukkan yg resepnya sendiri blm kebuka
             PenumbukUI_Inventory.ShowInventory_PenumbukIsOpen();
             //ato play animasi gagal masak - yg semuanya diset di cauldronui
-            Debug.Log("Tidak ada resep dengan ingredient tersebut");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);
+            // Debug.Log("Tidak ada resep dengan ingredient tersebut");
         }
         
     }
@@ -147,7 +150,10 @@ public class Penumbuk : MonoBehaviour
             progressNow = maxProgress;
             playerInventory.GetPlayerInventory().TakeItemFromSlot(itemTerpilih.position_InInventory, 1);
             playerInventory.GetPlayerInventory().AddItemToSlot(chosenRecipe.output_Ingredient, 1);
+            announcementUI.AddData(chosenRecipe.output_Ingredient);
             CloseWholeUI();
+            gameManager.ChangeToCinematic();
+            announcementUI.Show();
         }
         OnChangeProgress?.Invoke(this, new OnChangeProgressEventArgs{
             progressFill = progressNow/maxProgress

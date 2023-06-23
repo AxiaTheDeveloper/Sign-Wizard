@@ -30,5 +30,8 @@ namespace DialogueSystem{
             yield return new WaitUntil(()=>GameInput.Instance.GetInputNextLine_Dialogue());
             finished = true;
         }
+        public void ChangeFinished_false(){
+            finished = false;
+        }
     }
 }

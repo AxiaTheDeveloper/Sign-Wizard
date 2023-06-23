@@ -203,6 +203,9 @@ public class GameInput : MonoBehaviour
     public bool GetInputNextLine_Dialogue(){
         return Input.GetKey(KeyCode.Space);
     }
+    public bool GetInputQuit_Announcement(){
+        return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape);
+    }
 
     
 

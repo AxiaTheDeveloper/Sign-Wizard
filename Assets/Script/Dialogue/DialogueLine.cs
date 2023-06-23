@@ -16,6 +16,7 @@ namespace DialogueSystem{
         [Header("All text")]
         private string inputText;
         private TextMeshProUGUI textHolder;
+        [SerializeField]private bool isInputText_FromOtherCode = false;
         
         // [SerializeField]private Color textColor;
         // [SerializeField]private Font textFont;
@@ -31,14 +32,22 @@ namespace DialogueSystem{
         [SerializeField]private Color bgColor;
         [SerializeField]private Image backGroundHolder;
 
+
         private void Awake() {
             textHolder = GetComponent<TextMeshProUGUI>();
         }
-        private void Start() {
-            inputText = textHolder.text;
-            textHolder.text = "";
-            IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines);
 
+        public void ChangeInputText(string inputTexts){
+            inputText = inputTexts;
+            // GoLineText();
+        }
+        public void GoLineText(){
+            // Debug.Log(inputText);
+            if(!isInputText_FromOtherCode){
+                inputText = textHolder.text;
+            }
+            textHolder.text = "";
+            // Debug.Log("lewat sini tiap start?");
             if(dialogueType == DialogueType.character){
                 if(isCharaHaveImage){
                     imageHolder.sprite = spriteCharacter;
@@ -49,12 +58,9 @@ namespace DialogueSystem{
                 }
                 backGroundHolder.color = bgColor;
             }
-            // else if(dialogueType == DialogueType.announcement){
-
-            // }
-
-
+            IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines);
             StartCoroutine(lineText);
+            // Debug.Log(finished);
         }
     }
 }

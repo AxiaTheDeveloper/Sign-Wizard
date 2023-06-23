@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
     public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk
-    private bool isInventoryOpen, isChestOpen;
+    private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
     
@@ -31,7 +31,7 @@ public class PlayerInventory : MonoBehaviour
     }
     private void Start(){
         isInventoryOpen = false;
-
+        isCauldronOpen = false;
 
         if(inventory.inventSlot.Count != inventorySize){
             inventory.CreateInventory();
@@ -80,17 +80,24 @@ public class PlayerInventory : MonoBehaviour
             InputArrowInventory(inventoryUI);
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndCauldron){
-            if(gameInput.GetInputEscape()){
-                OnQuitCauldron?.Invoke(this,EventArgs.Empty);
-                // isChestOpen = false;
+            if(!isCauldronOpen){
+                isCauldronOpen = true;
             }
-            else if(gameInput.GetInputSelectItemForCauldron()){
-                CauldronUI.SelectItem_Cauldron();
+            else if(isCauldronOpen){
+                if(gameInput.GetInputEscape()){
+                    OnQuitCauldron?.Invoke(this,EventArgs.Empty);
+                    // isChestOpen = false;
+                    isCauldronOpen = false;
+                }
+                else if(gameInput.GetInputSelectItemForCauldron()){
+                    CauldronUI.SelectItem_Cauldron();
+                }
+                else if(gameInput.GetInputStartCookingForCauldron()){
+                    OnStartCookingCauldron?.Invoke(this,EventArgs.Empty);
+                }
+                InputArrowInventory(CauldronUI);
             }
-            else if(gameInput.GetInputStartCookingForCauldron()){
-                OnStartCookingCauldron?.Invoke(this,EventArgs.Empty);
-            }
-            InputArrowInventory(CauldronUI);
+            
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire){
             if(gameInput.GetInputEscape()){
@@ -182,4 +189,5 @@ public class PlayerInventory : MonoBehaviour
     public int GetInventorySize(){
         return inventorySize;
     }
+
 }

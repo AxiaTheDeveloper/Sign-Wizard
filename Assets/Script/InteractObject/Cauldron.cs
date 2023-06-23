@@ -18,6 +18,8 @@ public class Cauldron : MonoBehaviour
     private List<CauldronItem> cauldronItems;
     private int item_Counter;
     [SerializeField]private int CauldronSize;
+    [SerializeField]private Announcement_SuccesfullGetItem announcementUI;
+    [SerializeField]private DialogueManager dialogueManager;
 
 
     [Header("This is for cooking part")]
@@ -81,10 +83,12 @@ public class Cauldron : MonoBehaviour
             cauldronUI_Cook.ShowWordUI();
         }
         else if(item_Counter == 0){
-            Debug.Log("Tidak ada ingredient yang masuk");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaIngredientMasuk_Cauldron);
+            // Debug.Log("Tidak ada ingredient yang masuk");
         }
         else if(playerInvent.isFull){
-            Debug.Log("Inventory penuh, tidak ada tempat untuk potion");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaTempatPotion_Cauldron);
+            // Debug.Log("Inventory penuh, tidak ada tempat untuk potion");
         }
     }
 
@@ -191,27 +195,28 @@ public class Cauldron : MonoBehaviour
         }
         if(recipeChosen){
             if(isFireSizeCorrect(recipeChosen)){
-                foreach(CauldronItem itemCauldron in cauldronItems){
-                    if(!itemCauldron.isEmpty){
-                        int position = itemCauldron.position_InInventory;                    
-                        playerInventory.GetPlayerInventory().TakeItemFromSlot(position, 1);
-                        
-                    }
-                }
-                playerInventory.GetPlayerInventory().AddItemToSlot(recipeChosen.output_Potion, 1);
-                EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
-                CloseWholeUI();
-                Debug.Log("Anda berhasil membuat potion " + recipeChosen.output_Potion);
+                
+
+                cauldronUI_Inventory.HideCauldronInventory_Only();
+                cauldronUI_Cook.HideCookUI();
+                gameManager.ChangeToCinematic();
+                TimelineManager.Instance.Start_CauldronSuccess();
+                announcementUI.AddData(recipeChosen.output_Potion);
+                //play the timeline or animation or anything,
             }
             else{
                 CloseWholeUI();
-                Debug.Log("Tidak berhasil jadi"); //ato kalo mo nanti sesuai quality ya disesuaiin di sini, itu semua tetep diambil item, tp pas mo kasih, nah kasih potion yg jeleknya, jd nanti di scriptableobject recipe bakal ada 2 macam potiuon, high quality, ama low quality plg gitu, trus ini penentu nanti ksh ke player yg high ato low
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBerhasilJadi_Cauldron);
+                // Debug.Log("Tidak berhasil jadi"); //ato kalo mo nanti sesuai quality ya disesuaiin di sini, itu semua tetep diambil item, tp pas mo kasih, nah kasih potion yg jeleknya, jd nanti di scriptableobject recipe bakal ada 2 macam potiuon, high quality, ama low quality plg gitu, trus ini penentu nanti ksh ke player yg high ato low
+
+                //ini kalo jd kek di atas, brarti ini ntr cuma kek if recipechosen != null semua yg di isfiresizecorrect itu dijalanin dl, br dicek isfiresizecorrect buat kasih tau mo keluarin potion yg mana
             }
         } 
         else{
             CloseWholeUI();
             //ato play animasi gagal masak - yg semuanya diset di cauldronui
-            Debug.Log("Tidak ada resep dengan ingredient tersebut");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);
+            // Debug.Log("Tidak ada resep dengan ingredient tersebut");
         }
         
     }
@@ -227,6 +232,25 @@ public class Cauldron : MonoBehaviour
         }
     }
 
+    public void CreatePotion(){
+        //ini bakal dipanggil pas timeline masak potion berakhir.
+        foreach(CauldronItem itemCauldron in cauldronItems){
+            if(!itemCauldron.isEmpty){
+                int position = itemCauldron.position_InInventory;                    
+                playerInventory.GetPlayerInventory().TakeItemFromSlot(position, 1);
+                        
+            }
+        }
+        playerInventory.GetPlayerInventory().AddItemToSlot(recipeChosen.output_Potion, 1);
+        EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+        cauldronUI_Inventory.DeselectItemCauldron_Only();
+        announcementUI.Show();
+        // Debug.Log("Anda berhasil membuat potion " + recipeChosen.output_Potion);
+    }
+
+
+
+
 
     
 
@@ -236,13 +260,13 @@ public class Cauldron : MonoBehaviour
         wordInput.GetWordManager(wordManager);
         cauldronUI_Inventory.ShowInventoryUI();
         cauldronUI_Cook.ShowCookUI();
+        // playerInventory.CauldronOpen();
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndCauldron);
     }
     public void CloseWholeUI(){
         gameManager.ChangeToInGame();
         cauldronUI_Cook.HideCookUI();
         cauldronUI_Inventory.HideInventoryUI();
-        //dan ui cauldronnya
         CountFireSpeed();
     }
     

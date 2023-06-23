@@ -184,7 +184,7 @@ public class InventoryCauldron : InventoryOnly{
         //shownya dibedain dr yg atas biar kalo ada animasi tidak aneh, soalnya keluar brg UI lain
     }
 
-    public void SelectItem_ForCauldron(int selectItem, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList, bool isBahanPotion){
+    public void SelectItem_ForCauldron(int selectItem, List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
         InventoryItemUI UI_item = UI_ItemList[selectItem];
         if(UI_item.IsSelected_Cooking()){
             UI_item.DeSelectItem_Cooking();
@@ -195,10 +195,11 @@ public class InventoryCauldron : InventoryOnly{
         }
         else{
             if(list_selected_Cauldron_Item.Count == 3){
-                Debug.Log("Uda penuh");
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahPenuh_Cauldron);
+                // Debug.Log("Uda penuh");
             }
             else if(list_selected_Cauldron_Item.Count < 3 && !UI_item.IsEmpty()){
-                if(isBahanPotion){
+                if(UI_item.GetItemData().type == ItemType.bahanPotion){
                     list_selected_Cauldron_Item.Add(selectItem);
                     UI_item.SelectItem_Cooking();
                     OnItemCauldron?.Invoke(this, new OnItemCauldronEventArgs{
@@ -206,7 +207,8 @@ public class InventoryCauldron : InventoryOnly{
                     });
                 }
                 else{
-                    Debug.Log("Bukan Bahan potion");
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.bukanBahanPotion_InventoryUI, UI_item.GetItemData().itemName);
+                    // Debug.Log("Bukan Bahan potion");
                 }
                 
             }
@@ -216,6 +218,12 @@ public class InventoryCauldron : InventoryOnly{
         
         DeselectItem_ForCauldron(list_selected_Cauldron_Item, UI_ItemList);
         HideInventoryUI(UI);
+    }
+    public void Hide_CauldronUIOnly(GameObject UI){
+        HideInventoryUI(UI);
+    }
+    public void DeselectItemFromCauldron_Only(List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
+        DeselectItem_ForCauldron(list_selected_Cauldron_Item, UI_ItemList);
     }
     public void DeselectItem_ForCauldron(List<int> list_selected_Cauldron_Item, List<InventoryItemUI> UI_ItemList){
         List<int> listCopy = new List<int>(list_selected_Cauldron_Item);
@@ -247,12 +255,12 @@ public class InventoryPenumbuk : InventoryOnly{
         
         UI.SetActive(true);
         hasSelectItem = false;
-        Debug.Log("show" + UI.activeSelf);
+        // Debug.Log("show" + UI.activeSelf);
         
         //shownya dibedain dr yg atas biar kalo ada animasi tidak aneh, soalnya keluar brg UI lain
     }
 
-    public void SelectItem_Penumbuk(int selectItem, List<InventoryItemUI> UI_ItemList, bool isBahanTumbukkan){
+    public void SelectItem_Penumbuk(int selectItem, List<InventoryItemUI> UI_ItemList){
         InventoryItemUI UI_item = UI_ItemList[selectItem];
         if(UI_item.IsSelected_Cooking() && hasSelectItem){
             UI_item.DeSelectItem_Cooking();
@@ -263,7 +271,7 @@ public class InventoryPenumbuk : InventoryOnly{
         }
         else{
             if(!UI_item.IsEmpty()){
-                if(isBahanTumbukkan){
+                if(UI_item.GetItemData().type == ItemType.bahanHarusDigerus){
                     // Debug.Log("masuk sini ya ?");
                     penumbuk_SelectedItem = selectItem;
                     hasSelectItem = true;
@@ -275,7 +283,8 @@ public class InventoryPenumbuk : InventoryOnly{
                     
                 }
                 else{
-                    Debug.Log("Bukan Bahan yang bisa tumbukan");
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.bukanBahanTumbukan_InventoryUI, UI_item.GetItemData().itemName);
+                    // Debug.Log("Bukan Bahan yang bisa tumbukan");
                 }
                 
             }
@@ -284,20 +293,20 @@ public class InventoryPenumbuk : InventoryOnly{
     public void Hide_Penumbuk(GameObject UI, List<InventoryItemUI> UI_ItemList){
         // Debug.Log("close");
         if(hasSelectItem){
-            SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList, true);//deselect item
+            SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList);//deselect item
         }
         
         HideInventoryUI(UI);
     }
 
     public void ShowUI_Penumbuk_Tapi_PenumbukIsOpen(WitchGameManager.InterfaceType pilihanInterface, GameObject UI, List<InventoryItemUI> UI_ItemList){
-        SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList, true);//deselect item terpilih
+        SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList);//deselect item terpilih
         ShowInventoryUI_Penumbuk(pilihanInterface, UI);
-        Debug.Log("bukan mmasuk sini");
+        
 
     }
     public void HideUI_Penumbuk_Tapi_PenumbukIsOpen(GameObject UI){
-        Debug.Log("close");
+
         HideInventoryUI(UI);
     }
 
@@ -556,31 +565,23 @@ public class InventoryUI : MonoBehaviour
             gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.TumbukTime); 
         }
     }
+    public void HideCauldronInventory_Only(){
+        if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron.Hide_CauldronUIOnly(this.gameObject);
+        }
+    }
+    public void DeselectItemCauldron_Only(){
+        if(tipeInventory == TipeInventory.inventoryCauldron){
+            invent_Cauldron.DeselectItemFromCauldron_Only(list_selected_Cauldron_Item, UI_ItemList);
+        }
+    }
 
     public void SelectItem_Cauldron(){
         if(tipeInventory == TipeInventory.inventoryCauldron){
-            ItemScriptableObject itemPlayer = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO;
-            bool isBahanPotion;
-            if(itemPlayer){
-                isBahanPotion = itemPlayer.type == ItemType.bahanPotion;
-            }
-            else{
-                isBahanPotion = false;
-            }
-            
-            invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList,  isBahanPotion);
+            invent_Cauldron.SelectItem_ForCauldron(selectItem, list_selected_Cauldron_Item, UI_ItemList);
         }
         else if (tipeInventory == TipeInventory.inventoryPenumbuk){
-
-            ItemScriptableObject itemPlayer = playerInventory.GetPlayerInventory().inventSlot[selectItem].itemSO;
-            bool isBahanTumbukkan;
-            if(itemPlayer){
-                isBahanTumbukkan = itemPlayer.type == ItemType.bahanHarusDigerus;
-            }
-            else{
-                isBahanTumbukkan = false;
-            }
-            invent_Penumbuk.SelectItem_Penumbuk(selectItem, UI_ItemList,  isBahanTumbukkan);
+            invent_Penumbuk.SelectItem_Penumbuk(selectItem, UI_ItemList);
             // Debug.Log(playerInventory);
             
         }

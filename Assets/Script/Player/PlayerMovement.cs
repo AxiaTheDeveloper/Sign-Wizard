@@ -10,11 +10,19 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("This is for Player Movement")]
     [SerializeField]private float speedMovement;
+
+
     
 
     private void Update() {
         if(WitchGameManager.Instance.IsInGame()){
             keyInput = gameInput.GetInputMovement();
+        }
+        else{
+            if(keyInput != Vector2.zero){
+                keyInput = gameInput.GetInputMovement();
+            }
+            
         }
         
         

@@ -5,6 +5,7 @@ using System;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    
 
     public static PlayerInteraction Instance{get;private set;}
 
