@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion di submitPotion
     private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
@@ -154,7 +154,23 @@ public class PlayerInventory : MonoBehaviour
                 OnStopTumbuk?.Invoke(this,EventArgs.Empty); // selanjutnya coba buka penumuk UI, trus bikin ui nya + word manager + progress bar etc etc
             }
         }
+        // else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
+        //     InputArrowInventory(inventoryUI);
+        //     if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()){
+        //         OnQuitInventory?.Invoke(this,EventArgs.Empty);
+        //         OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
+        //         isInventoryOpen = false;
+        //     }
+        //     else if(gameInput.GetInputSelectItemForCauldron()){
+        //         PenumbukUI.SelectItem_Cauldron();
+        //     }
+        // }
         
+    }
+
+    public void ShowPlayerInventory(){
+        inventoryUI.ShowInventoryUI();
+        isInventoryOpen = true;
     }
     private void InputArrowInventory(InventoryUI theInventoryUI){
         keyInputArrowUI = gameInput.GetInputArrow();

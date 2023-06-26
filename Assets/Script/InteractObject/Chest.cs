@@ -7,9 +7,7 @@ using UnityEditor;
 //Contoh salah satu anakkan interact object~~~
 public class Chest : MonoBehaviour
 {
-    public enum ItemType{
-        bahanPotion, bahanHarusDigerus, potion
-    }
+
     [SerializeField]private WordInput wordInput;
     [SerializeField]private PlayerInventory playerInventory;
     [SerializeField]private InventoryScriptableObject chestInventory, chestMain;

@@ -2434,6 +2434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Example_Text
       objectReference: {fileID: 0}
+    - target: {fileID: 536089217676254486, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 536089217676254487, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2827,6 +2831,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1704590199}
     m_Modifications:
+    - target: {fileID: 3766372067013400903, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766372068161530729, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766372068206178024, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3766372068415547932, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2917,7 +2933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3766372068415547933, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
@@ -10942,6 +10958,7 @@ MonoBehaviour:
   gameManager: {fileID: 594276696}
   dialogueHolder_Intro: {fileID: 1108561808}
   dialogueHolder_WrongChoice_Dialogue: {fileID: 870753134}
+  dialogueWrongChoice_GameObject: {fileID: 0}
   dialogue_playerInventoryFull_Chest: Inventoryku sudah full.
   dialogue_barangChestHabis_Chest: Barang ini sudah habis, besok baru akan restock.
   dialogue_tidakBerhasilJadi_Cauldron: Sepertinya ukuran apinya salah.
@@ -11120,6 +11137,10 @@ PrefabInstance:
       propertyPath: finishFunction
       value: 
       objectReference: {fileID: 2053634329}
+    - target: {fileID: 4900885255934440921, guid: b6208f20596d36e40812fcbdb7c8ca58, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1704590200}
     - target: {fileID: 4900885255934440921, guid: b6208f20596d36e40812fcbdb7c8ca58, type: 3}
       propertyPath: playerInventory
       value: 
@@ -11990,6 +12011,18 @@ PrefabInstance:
       propertyPath: wordPlaceShow_InventDesc
       value: 
       objectReference: {fileID: 1284429681}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 918253560137520884, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12047,6 +12080,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1704590199}
     m_Modifications:
+    - target: {fileID: 3766372068206178022, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
+      propertyPath: startOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3766372068415547932, guid: 147a31c87b66cce45af2c1935b9ed89a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12254,6 +12291,19 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: fa8077cf64c9f1e4190c7b1fb21ca5df, type: 2}
   gameInput: {fileID: 1253066116}
   gameManager: {fileID: 594276696}
+--- !u!114 &4812652835541765478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4812652835541765472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392b51d42b329d34ea20410046927170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSaveSO: {fileID: 11400000, guid: e941e1b9749bf9c4e81831e58f2d982e, type: 2}
 --- !u!1001 &5159099857185599220
 PrefabInstance:
   m_ObjectHideFlags: 0

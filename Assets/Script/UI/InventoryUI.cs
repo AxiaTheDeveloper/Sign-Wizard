@@ -358,6 +358,10 @@ public class InventoryUI : MonoBehaviour
 
     [Header("This is for Invent with Penumbuk")]
     private int selectedItem_Penumbuk;
+
+    [Header("This is for ChestInvent")]
+    [SerializeField]private int[] maxItemShown_PerLevel; // misal lvl 1 ya cuma muncul 3 ingredient prtm doang etc etc
+    private int chosen_MaxItem;
     
     private void Awake() {
         if(tipeInventory == TipeInventory.inventoryWithDesc){
@@ -379,6 +383,7 @@ public class InventoryUI : MonoBehaviour
             invent_Penumbuk = new InventoryPenumbuk();
         }
         
+        
     }
     private void Start() {
         
@@ -395,12 +400,17 @@ public class InventoryUI : MonoBehaviour
         
         selectItem = 0;
         CreateInventoryUI(inventorySize);
+
+        //di sini cek skrg player lvl brp, trus cek maxItemshownnya berapa
+        
         if(owner == OwnerShip.Player){
             GiveData_To_UI(playerInventory.GetPlayerInventory());
             // Debug.Log(playerInventory.GetPlayerInventory());
             playerInventory.GetPlayerInventory().OnItemUpdate += inventory_OnItemUpdate;
         }
         else if(owner == OwnerShip.Chest){
+            int level = PlayerSaveManager.Instance.GetPlayerLevel();
+            chosen_MaxItem = maxItemShown_PerLevel[level];
             GiveData_To_UI(chestInventory);
             chestInventory.OnItemUpdate += otherInventory_OnItemUpdate;
         }
@@ -447,7 +457,18 @@ public class InventoryUI : MonoBehaviour
             UI_ItemList[position].ResetData();
         }
         else{
-            UI_ItemList[position].SetItemData(item.itemSO,item.quantity);
+            if(tipeInventory == TipeInventory.inventoryWithDesc){
+                if(position < chosen_MaxItem){
+                    UI_ItemList[position].SetItemData(item.itemSO,item.quantity);
+                }
+                else{
+                    UI_ItemList[position].ResetData();
+                }
+            }
+            else{
+                UI_ItemList[position].SetItemData(item.itemSO,item.quantity);
+            }
+            
         }
         
     }
@@ -612,6 +633,7 @@ public class InventoryUI : MonoBehaviour
         //updet semua
         for(int i=0;i<inventorySize;i++){
             UpdateVisualInventorySlot(i,inventory.inventSlot[i]);
+            
         }
     }
     public int GetSelectedItem(){

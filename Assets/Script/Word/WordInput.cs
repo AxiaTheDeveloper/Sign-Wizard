@@ -41,7 +41,7 @@ public class WordInput : MonoBehaviour
                 foreach(char letter in Input.inputString){
 
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
-                    Debug.Log(letter);
+                    // Debug.Log(letter);
                     
                     if(!hasChosenWords && !isUIFirstTimeShowing){
                         for(int i=0;i<wordManager.Length;i++){
@@ -111,6 +111,7 @@ public class WordInput : MonoBehaviour
                 UndoInputLetterManyWords();
             }
             if(gameInput.GetInputEscape()){
+                isUIFirstTimeShowing = true;
                 UndoInputLetterManyWords();
                 OnQuitInterface?.Invoke(this,EventArgs.Empty);
             }
