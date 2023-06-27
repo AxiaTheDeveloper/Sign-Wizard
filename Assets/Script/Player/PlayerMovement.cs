@@ -11,16 +11,25 @@ public class PlayerMovement : MonoBehaviour
     [Header("This is for Player Movement")]
     [SerializeField]private float speedMovement;
 
+    private bool wasFromOtherInterface = false;
 
     
 
     private void Update() {
         if(WitchGameManager.Instance.IsInGame()){
-            keyInput = gameInput.GetInputMovement();
+            if(wasFromOtherInterface){
+                wasFromOtherInterface = false;
+            }
+            else{
+                keyInput = gameInput.GetInputMovement();
+            }
+            
         }
         else{
             if(keyInput != Vector2.zero){
-                keyInput = gameInput.GetInputMovement();
+                keyInput = Vector2.zero;
+                PlayerWalk();
+                wasFromOtherInterface = true;
             }
             
         }

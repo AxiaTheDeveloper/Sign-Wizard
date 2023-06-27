@@ -24,7 +24,7 @@ public class Penumbuk : MonoBehaviour
 
     [SerializeField]private WordInput wordInput;
     [SerializeField]private WordManager[] wordManager;
-    [SerializeField]private FinishWordDoFunction finishFunction1, finishFunction2;
+    [SerializeField]private FinishWordDoFunction finishFunction1;
 
     public event EventHandler<OnChangeProgressEventArgs> OnChangeProgress;//kirim ke penumbukui
     public class OnChangeProgressEventArgs : EventArgs{
@@ -38,7 +38,6 @@ public class Penumbuk : MonoBehaviour
         inventPenumbuk.OnItemPenumbuk += inventPenumbuk_OnItemPenumbuk;
 
         finishFunction1.OnTumbuk += finishFunction_OnTumbuk;
-        finishFunction2.OnTumbuk += finishFunction_OnTumbuk;
         progressNow = 0;
 
 
@@ -82,7 +81,6 @@ public class Penumbuk : MonoBehaviour
             item = playerInventory.GetPlayerInventory().TakeDataFromSlot(e.Position);
             itemTerpilih = new CauldronItem().AddItem(item.itemSO, item.quantity, e.Position);
             PenumbukUI_Tumbuk.UpdateVisualInventorySlot(itemTerpilih);
-            //updet visual ui gambar
             PenumbukUI_Inventory.HideInventory_PenumbukIsOpen();
             CheckRecipe(item.itemSO);
         }
@@ -118,9 +116,7 @@ public class Penumbuk : MonoBehaviour
         else{
             //hrsnya ini ga mungkin trjdi krn si player ga mungkin bs ambil item yg merupakan bahan tumbukkan yg resepnya sendiri blm kebuka
             PenumbukUI_Inventory.ShowInventory_PenumbukIsOpen();
-            //ato play animasi gagal masak - yg semuanya diset di cauldronui
-            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);
-            // Debug.Log("Tidak ada resep dengan ingredient tersebut");
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);;
         }
         
     }
@@ -132,7 +128,6 @@ public class Penumbuk : MonoBehaviour
                 OnChangeProgress?.Invoke(this, new OnChangeProgressEventArgs{
                     progressFill = progressNow/maxProgress
                 });
-                //updet visual
             }
             if(progressNow < 0){
                 progressNow = 0;
@@ -140,7 +135,7 @@ public class Penumbuk : MonoBehaviour
                     progressFill = progressNow
                 });
             }
-            Debug.Log(progressNow);
+            // Debug.Log(progressNow);
         }   
     }
 

@@ -15,7 +15,7 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
     }
 
     private void Update() {
-        if(gameObject.activeSelf && GameInput.Instance.GetInputNextLine_Dialogue()){
+        if(gameObject.activeSelf && (GameInput.Instance.GetInputNextLine_Dialogue()||GameInput.Instance.GetInputEscape())){
             Hide();
         }
     }

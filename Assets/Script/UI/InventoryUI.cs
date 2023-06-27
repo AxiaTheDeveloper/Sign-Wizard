@@ -116,6 +116,56 @@ public class InventoryOnly{
         
         
     }
+    public event EventHandler<OnItemSubmitPotionkEventArgs> OnItemSubmitPotion;// ini buat di submitpotion
+    public class OnItemSubmitPotionkEventArgs : EventArgs{
+        public int Position;
+        public bool isAdd;
+    }
+    private int selectItem_SubmitPotion;
+    private bool hasSelectItem;
+    public void SelectItem_SubmitPotion(int selectItem, List<InventoryItemUI> UI_ItemList){
+        InventoryItemUI UI_item = UI_ItemList[selectItem];
+        if(UI_item.IsSelected_Cooking() && hasSelectItem){
+            UI_item.DeSelectItem_Cooking();
+            hasSelectItem = false;
+            OnItemSubmitPotion?.Invoke(this, new OnItemSubmitPotionkEventArgs{
+                Position = selectItem, isAdd = false
+            });
+        }
+        else{
+            if(!UI_item.IsEmpty()){
+                if(UI_item.GetItemData().type == ItemType.potion){
+                    // Debug.Log("masuk sini ya ?");
+                    selectItem_SubmitPotion = selectItem;
+                    hasSelectItem = true;
+                    UI_item.SelectItem_Cooking();
+                    OnItemSubmitPotion?.Invoke(this, new OnItemSubmitPotionkEventArgs{
+                        Position = selectItem, isAdd = true
+                    });
+                    
+                    
+                }
+                else{
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.bukanPotion_InventoryUI, UI_item.GetItemData().itemName);
+                    // Debug.Log("Bukan Bahan Potion");
+                    //debug.log bukan potion
+                }
+                
+            }
+        }
+    }
+    public void DeselectItem(List<InventoryItemUI> UI_ItemList){
+        if(hasSelectItem){
+            SelectItem_SubmitPotion(selectItem_SubmitPotion, UI_ItemList);//deselect item
+        }
+    }
+
+    public void Hide_SubmitPotion(GameObject UI, List<InventoryItemUI> UI_ItemList){
+        // Debug.Log("close");
+        DeselectItem(UI_ItemList);
+        
+        HideInventoryUI(UI);
+    }
 }
 public class InventoryWithDesc : InventoryOnly{
     public int SelectItemRight_Desc(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, InventoryUIDesc inventUIDesc, int quantity_Want)
@@ -554,7 +604,7 @@ public class InventoryUI : MonoBehaviour
         else if(tipeInventory == TipeInventory.inventoryPenumbuk){
             
             invent_Penumbuk.ShowInventoryUI_Penumbuk(WitchGameManager.InterfaceType.InventoryAndPenumbuk, this.gameObject);
-            Debug.Log(gameManager.IsInterfaceType());
+            // Debug.Log(gameManager.IsInterfaceType());
         }
     }
     public void HideInventoryUI(){
@@ -575,6 +625,12 @@ public class InventoryUI : MonoBehaviour
             invent_Penumbuk.Hide_Penumbuk(this.gameObject, UI_ItemList);
         }
     }
+    public void HideInventoryUI_SubmitPotion(){
+        if(tipeInventory == TipeInventory.inventoryOnly){
+            inventOnly.Hide_SubmitPotion(this.gameObject, UI_ItemList);
+        }
+    }
+
     public void ShowInventory_PenumbukIsOpen(){
         if(tipeInventory == TipeInventory.inventoryPenumbuk){
             invent_Penumbuk.ShowUI_Penumbuk_Tapi_PenumbukIsOpen(WitchGameManager.InterfaceType.InventoryAndPenumbuk, this.gameObject, UI_ItemList);
@@ -596,6 +652,11 @@ public class InventoryUI : MonoBehaviour
             invent_Cauldron.DeselectItemFromCauldron_Only(list_selected_Cauldron_Item, UI_ItemList);
         }
     }
+    public void DeselectItem_SubmitPotion(){
+        if(tipeInventory == TipeInventory.inventoryOnly){
+            inventOnly.DeselectItem(UI_ItemList);
+        }
+    }
 
     public void SelectItem_Cauldron(){
         if(tipeInventory == TipeInventory.inventoryCauldron){
@@ -604,7 +665,9 @@ public class InventoryUI : MonoBehaviour
         else if (tipeInventory == TipeInventory.inventoryPenumbuk){
             invent_Penumbuk.SelectItem_Penumbuk(selectItem, UI_ItemList);
             // Debug.Log(playerInventory);
-            
+        }
+        else if(tipeInventory == TipeInventory.inventoryOnly){
+            inventOnly.SelectItem_SubmitPotion(selectItem, UI_ItemList);
         }
     }
     public void ChangeQuantityWant(int change){
@@ -644,6 +707,9 @@ public class InventoryUI : MonoBehaviour
     }
     public InventoryPenumbuk GetInventoryPenumbuk(){
         return invent_Penumbuk;
+    }
+    public InventoryOnly GetInventoryOnly(){
+        return inventOnly;
     }
 
 

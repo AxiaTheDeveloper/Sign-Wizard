@@ -19,10 +19,12 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion di submitPotion
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion
     private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
+
+    [SerializeField]private SubmitPotionUI submitUI;
     
 
     private void Awake() {
@@ -154,17 +156,27 @@ public class PlayerInventory : MonoBehaviour
                 OnStopTumbuk?.Invoke(this,EventArgs.Empty); // selanjutnya coba buka penumuk UI, trus bikin ui nya + word manager + progress bar etc etc
             }
         }
-        // else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
-        //     InputArrowInventory(inventoryUI);
-        //     if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()){
-        //         OnQuitInventory?.Invoke(this,EventArgs.Empty);
-        //         OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
-        //         isInventoryOpen = false;
-        //     }
-        //     else if(gameInput.GetInputSelectItemForCauldron()){
-        //         PenumbukUI.SelectItem_Cauldron();
-        //     }
-        // }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
+            InputArrowInventory(inventoryUI);
+            if(gameInput.GetInputEscape()){
+                OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
+                isInventoryOpen = false;
+            }
+            else if(gameInput.GetInputSelectItemForCauldron()){
+                inventoryUI.SelectItem_Cauldron();
+            }
+        }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.SubmitPotion){
+            if(gameInput.GetInputEscape()){
+                OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
+                isInventoryOpen = false;
+            }
+            else if(gameInput.GetInputSelectItemForCauldron()){
+                OnSubmitPotionChoice?.Invoke(this,EventArgs.Empty);
+            }
+            InputArrowInventory_SubmitPotionChoice();
+            
+        }
         
     }
 
@@ -197,6 +209,20 @@ public class PlayerInventory : MonoBehaviour
         }
 
     }
+    private void InputArrowInventory_SubmitPotionChoice(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        if(keyInputArrowUI.x == 1){
+            if(submitUI.GetIsChosePotion()){
+                submitUI.Change_YesNo();
+            }
+        }
+        else if(keyInputArrowUI.x == -1){
+            if(!submitUI.GetIsChosePotion()){
+                submitUI.Change_YesNo();
+            }
+        }
+
+    }
 
     
     public InventoryScriptableObject GetPlayerInventory(){
@@ -204,6 +230,10 @@ public class PlayerInventory : MonoBehaviour
     }
     public int GetInventorySize(){
         return inventorySize;
+    }
+
+    public void ClosePlayerInventory(){
+        isInventoryOpen = false;
     }
 
 }
