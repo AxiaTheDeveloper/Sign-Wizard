@@ -30,7 +30,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake() {
         Instance = this;
         dialogueLines_WrongChoice = dialogueHolder_WrongChoice_Dialogue.GetComponentInChildren<DialogueSystem.DialogueLine>();
-        Debug.Log(dialogueLines_WrongChoice);
+        // Debug.Log(dialogueLines_WrongChoice);
     }
     
     private void Start() {

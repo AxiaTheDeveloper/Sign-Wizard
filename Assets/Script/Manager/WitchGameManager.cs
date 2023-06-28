@@ -14,13 +14,9 @@ public class WitchGameManager : MonoBehaviour
 
     private bool pauseState;
 
-    private enum gameLevelQuest{
-        lvl1, lvl2 // ini trgantung ntr mo brp lvl - ntr di save di scriptable object aja
-    }
-    private gameLevelQuest level;
 
     public enum InterfaceType{
-        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion
+        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime
     }
     private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {

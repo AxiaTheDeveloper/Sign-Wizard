@@ -11,22 +11,52 @@ public class SubmitPotion : MonoBehaviour
     [SerializeField]private SubmitPotionUI submitPotionUI;
     private InventoryOnly inventOnly;
 
+    [Header("Pengecekan potion")]
+
     private CauldronItem itemTerpilih;
+    private List<CauldronItem> ListItemTerpilih;
+    [SerializeField]private QuestManager questManager;
+    private int totalPotion;
+    private int item_Counter;
 
     private void Start() {
         playerInventory.OnQuitSubmitPotion += playerInventory_OnQuitSubmitPotion;
         playerInventory.OnSubmitPotionChoice += playerInventory_OnSubmitPotionChoice;
         inventOnly = submitPotionUI_Inventory.GetInventoryOnly();
         inventOnly.OnItemSubmitPotion += inventOnly_OnItemSubmitPotion;
+
+        totalPotion = questManager.GetTotalPotionNeed();
+        // Debug.Log(totalPotion);
+        ListItemTerpilih = new List<CauldronItem>();
+        item_Counter = 0;
+        for(int i=0;i<totalPotion;i++){
+            ListItemTerpilih.Add(new CauldronItem().EmptyItem());
+        }
     }
 
     private void playerInventory_OnSubmitPotionChoice(object sender, EventArgs e)
     {
         if(submitPotionUI.GetIsChosePotion()){
-            playerInventory.GetPlayerInventory().TakeItemFromSlot(itemTerpilih.position_InInventory, 1);
-            //quest manager ngecheck apakah potionnya bener ato salah.
+
+            // ini sebenarnya nunggu final gmn sih, kalo msl final tetep dikirim walopun salah ya, brarti playerinventory tetep dihapus tanpa nunggu hasil pengecekan, kalo ga dikirim ya brarti diapus trgantung hsl pengecekan
+
+            //utk skrg kalo bener dikirim, kalo ga ga dikirim aja dl
+            bool isPotionMatch = questManager.CheckPotion(ListItemTerpilih);
+            
+            if(isPotionMatch){
+                foreach(CauldronItem item in ListItemTerpilih){
+                    playerInventory.GetPlayerInventory().TakeItemFromSlot(item.position_InInventory, 1);
+                }
+                Debug.Log("Sukses kirim");
+            }
+            else{
+                Debug.Log("Sepertinya salah kirim");
+            }
             HideWHoleUI();
             playerInventory.ClosePlayerInventory();
+            
+            //quest manager ngecheck apakah potionnya bener ato salah.
+            
         }
         else{
             submitPotionUI_Inventory.DeselectItem_SubmitPotion();
@@ -40,16 +70,47 @@ public class SubmitPotion : MonoBehaviour
         
         
         if(e.isAdd){
-            gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.SubmitPotion);
-            InventorySlot item;
-            item = playerInventory.GetPlayerInventory().TakeDataFromSlot(e.Position);
-            itemTerpilih = new CauldronItem().AddItem(item.itemSO, item.quantity, e.Position);
-            submitPotionUI.Show_AreYouSure(itemTerpilih.itemSO.itemName);
+            
+            AddItemSubmit(e.Position);
+
+            if(item_Counter == totalPotion){
+                // Debug.Log("harusnya not here ?" + item_Counter + " " + totalPotion);
+                gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.SubmitPotion);
+                submitPotionUI.Show_AreYouSure(itemTerpilih.itemSO.itemName);
+            }
+            
         }
         else{
-            itemTerpilih = new CauldronItem().EmptyItem();
+            RemoveItemSubmit(e.Position);
         }
         
+    }
+
+    private void AddItemSubmit(int selectItem){
+        InventorySlot item;
+        for(int i=0;i<totalPotion;i++){
+            if(ListItemTerpilih[i].isEmpty){
+                item = playerInventory.GetPlayerInventory().TakeDataFromSlot(selectItem);
+                itemTerpilih = new CauldronItem().AddItem(item.itemSO, item.quantity, selectItem);
+                ListItemTerpilih[i] = itemTerpilih;
+                item_Counter++;
+                // Debug.Log("uda sampe sioni ?");
+                break;
+            }
+        }
+        
+    }
+
+    private void RemoveItemSubmit(int selectItem){
+        for(int i=0;i<totalPotion;i++){
+            if(!ListItemTerpilih[i].isEmpty && ListItemTerpilih[i].position_InInventory == selectItem){
+                itemTerpilih = new CauldronItem().EmptyItem();
+                ListItemTerpilih[i] = itemTerpilih;
+                item_Counter--;
+                break;
+            }
+        }
+
     }
 
 

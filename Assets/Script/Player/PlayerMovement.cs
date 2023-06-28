@@ -17,22 +17,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update() {
         if(WitchGameManager.Instance.IsInGame()){
-            if(wasFromOtherInterface){
-                wasFromOtherInterface = false;
-            }
-            else{
+            if(!wasFromOtherInterface){
+                
                 keyInput = gameInput.GetInputMovement();
             }
+            else if(wasFromOtherInterface && gameInput.GetInputMovement() != Vector2.zero){
+                wasFromOtherInterface = false;
+            }   
             
         }
         else{
             if(keyInput != Vector2.zero){
                 keyInput = Vector2.zero;
                 PlayerWalk();
+                
+            }
+            if(!wasFromOtherInterface){
                 wasFromOtherInterface = true;
             }
             
         }
+        // Debug.Log(keyInput + "dan" + wasFromOtherInterface);
         
         
         

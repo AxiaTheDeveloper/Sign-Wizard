@@ -17,6 +17,7 @@ public class PlayerAnimator : MonoBehaviour
     private float lastSaveHorizontal, lastSaveVertical;
 
     private void Update() {
+
         keyInput = GameInput.Instance.GetInputMovement();
         lastKeyInput = GameInput.Instance.GetLastInputMovementAnimation();
         

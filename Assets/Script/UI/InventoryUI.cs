@@ -121,13 +121,13 @@ public class InventoryOnly{
         public int Position;
         public bool isAdd;
     }
-    private int selectItem_SubmitPotion;
-    private bool hasSelectItem;
+    private List<int> selectItem_SubmitPotion = new List<int>();
+
     public void SelectItem_SubmitPotion(int selectItem, List<InventoryItemUI> UI_ItemList){
         InventoryItemUI UI_item = UI_ItemList[selectItem];
-        if(UI_item.IsSelected_Cooking() && hasSelectItem){
+        if(UI_item.IsSelected_Cooking() && selectItem_SubmitPotion.Count > 0){
             UI_item.DeSelectItem_Cooking();
-            hasSelectItem = false;
+            selectItem_SubmitPotion.Remove(selectItem);
             OnItemSubmitPotion?.Invoke(this, new OnItemSubmitPotionkEventArgs{
                 Position = selectItem, isAdd = false
             });
@@ -136,8 +136,7 @@ public class InventoryOnly{
             if(!UI_item.IsEmpty()){
                 if(UI_item.GetItemData().type == ItemType.potion){
                     // Debug.Log("masuk sini ya ?");
-                    selectItem_SubmitPotion = selectItem;
-                    hasSelectItem = true;
+                    selectItem_SubmitPotion.Add(selectItem);
                     UI_item.SelectItem_Cooking();
                     OnItemSubmitPotion?.Invoke(this, new OnItemSubmitPotionkEventArgs{
                         Position = selectItem, isAdd = true
@@ -155,9 +154,14 @@ public class InventoryOnly{
         }
     }
     public void DeselectItem(List<InventoryItemUI> UI_ItemList){
-        if(hasSelectItem){
-            SelectItem_SubmitPotion(selectItem_SubmitPotion, UI_ItemList);//deselect item
+        if(selectItem_SubmitPotion.Count > 0){
+            List<int> listCopy = new List<int>(selectItem_SubmitPotion);
+            foreach(int selectItem in listCopy){
+                SelectItem_SubmitPotion(selectItem, UI_ItemList);//deselect item
+            }
+            
         }
+        
     }
 
     public void Hide_SubmitPotion(GameObject UI, List<InventoryItemUI> UI_ItemList){

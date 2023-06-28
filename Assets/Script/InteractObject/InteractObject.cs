@@ -30,12 +30,18 @@ public class TheSubmit
         submit.ShowWholeUI();
     }
 }
+public class TheDictionary
+{
+    public void OpenUI(DictionaryUI dictionary){
+        dictionary.ShowUI();
+    }
+}
 
 public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary
     }
     public ObjectType type;
 
@@ -43,11 +49,13 @@ public class InteractObject : MonoBehaviour
     private ThePenumbuk penumbuk;
     private TheChest chest;
     private TheSubmit submit;
+    private TheDictionary dictionary;
 
     [SerializeField]private Chest Chest;
     [SerializeField]private Cauldron Cauldron;
     [SerializeField]private Penumbuk Penumbuk;
     [SerializeField]private SubmitPotion Submit;
+    [SerializeField]private DictionaryUI Dictionary;
 
 
     private void Start() {
@@ -66,6 +74,9 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheSubmitPotion){
             submit = new TheSubmit();
         }
+        if(type == ObjectType.TheDictionary){
+            dictionary = new TheDictionary();
+        }
     }
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
@@ -79,6 +90,9 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheSubmitPotion){
             submit.OpenUI(Submit);
+        }
+        if(type == ObjectType.TheDictionary){
+            dictionary.OpenUI(Dictionary);
         }
     }
 }

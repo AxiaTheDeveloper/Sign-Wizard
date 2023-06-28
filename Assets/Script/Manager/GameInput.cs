@@ -207,6 +207,13 @@ public class GameInput : MonoBehaviour
         return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape);
     }
 
+    public bool GetInputShowQuestLog(){
+        return Input.GetKeyDown(KeyCode.Tab);
+    }
+    public bool GetInputHideQuestLog(){
+        return Input.GetKeyUp(KeyCode.Tab);
+    }
+
     
 
 
