@@ -13,6 +13,7 @@ public class WitchGameManager : MonoBehaviour
     private gameState state;
 
     private bool pauseState;
+    private gameState saveState_WhilePause;
 
 
     public enum InterfaceType{
@@ -66,10 +67,12 @@ public class WitchGameManager : MonoBehaviour
         pauseState = !pauseState;
         //ga mungkin bs pause kalo lg d state interface
         if(pauseState){
-            state = gameState.Pause;
+            saveState_WhilePause = state;
+            state = gameState.Pause;        
         }
         else{
-            state = gameState.InGame;
+            
+            state = saveState_WhilePause;
         }
     }
 
@@ -79,6 +82,9 @@ public class WitchGameManager : MonoBehaviour
     }
     public bool isCinematic(){
         return state == gameState.Cinematic;
+    }
+    public bool isPause(){
+        return state == gameState.Pause;
     }
     public void ChangeToCinematic(){
         interfaceType = InterfaceType.none;
