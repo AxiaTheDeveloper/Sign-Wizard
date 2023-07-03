@@ -12083,6 +12083,8 @@ MonoBehaviour:
   gameManager: {fileID: 594276696}
   submitPotionUI_Inventory: {fileID: 1646422126}
   submitPotionUI: {fileID: 1998861870}
+  dialogueManager: {fileID: 1704590200}
+  playerSaveManager: {fileID: 4812652835541765478}
   questManager: {fileID: 31786008}
 --- !u!1 &1438491640 stripped
 GameObject:
@@ -12793,18 +12795,21 @@ MonoBehaviour:
   gameManager: {fileID: 594276696}
   dialogueHolder_Intro: {fileID: 1108561808}
   dialogueHolder_WrongChoice_Dialogue: {fileID: 870753134}
-  dialogueWrongChoice_GameObject: {fileID: 0}
   dialogue_playerInventoryFull_Chest: Inventoryku sudah full.
   dialogue_barangChestHabis_Chest: Barang ini sudah habis, besok baru akan restock.
   dialogue_tidakBerhasilJadi_Cauldron: Sepertinya ukuran apinya salah.
   dialogue_tidakAdaIngredientMasuk_Cauldron: Tidak ada bahan di  Cauldron
   dialogue_tidakAdaTempatPotion_Cauldron: Tidak ada tempat untuk potion di Inventoryku.
+  dialogue_tidakAdaTempat_Penumbuk: Tidak ada tempat di Inventoryku.
   dialogue_tidakAdaResep_CauldronPenumbuk: Hmm.. sepertinya kita tidak membaca resep
     dengan benar.
   dialogue_sudahPenuh_Cauldron: Tempat cauldron sudah penuh
+  dialogue_ingredientKurang_Cauldron: Sepertinya ingredient yang dibutuhkan kurang.
   dialogue_bukanBahanPotion_InventoryUI: ' bukan bahan untuk membuat potion.'
   dialogue_bukanBahanTumbukan_InventoryUI: ' bukan bahan yang perlu ditumbuk.'
   dialogue_bukanPotion_InventoryUI: ' bukan potion.'
+  dialogue_potionTidakSesuaiQuest_SubmitPotion: Ah, sepertinya potion yang ingin
+    kukirim bukan itu. Coba ku cek quest log lagi.
 --- !u!1 &1705084329
 GameObject:
   m_ObjectHideFlags: 0
@@ -14940,6 +14945,7 @@ MonoBehaviour:
   gameInput: {fileID: 1253066116}
   gameManager: {fileID: 594276696}
   submitUI: {fileID: 1998861870}
+  inputCooldownTimerMax: 0.15
 --- !u!114 &4812652835541765478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15134,51 +15140,51 @@ PrefabInstance:
       objectReference: {fileID: 1780878147}
     - target: {fileID: 5385961045098324024, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045098324024, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045098324024, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045098324024, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045359730835, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045359730835, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045359730835, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045359730835, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045564314208, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045564314208, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045564314208, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5385961045564314208, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5992061181011821705, guid: 55fab00d76d9a874eb4e803705f3ad29, type: 3}
       propertyPath: m_AnchorMax.y

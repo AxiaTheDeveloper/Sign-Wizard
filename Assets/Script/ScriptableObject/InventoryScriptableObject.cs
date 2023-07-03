@@ -149,8 +149,11 @@ public class InventoryScriptableObject : ScriptableObject
     
 
     public void RemoveAllItem(){
-        foreach(InventorySlot inventlot in inventSlot){
-            inventlot.EmptySlot();
+        for(int i=0;i<size;i++){
+            inventSlot[i] = new InventorySlot().EmptySlot();
+            OnItemUpdate?.Invoke(this, new OnItemUpdateEventArgs{
+                position = i
+            });
         }
     }
 

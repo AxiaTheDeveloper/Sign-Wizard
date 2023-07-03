@@ -26,7 +26,8 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField]private SubmitPotionUI submitUI;
     
-
+    [SerializeField]private float inputCooldownTimerMax;
+    private float inputCooldownTimer;
     private void Awake() {
         Instance = this;
         inventorySize = inventory.size;
@@ -38,6 +39,7 @@ public class PlayerInventory : MonoBehaviour
         if(inventory.inventSlot.Count != inventorySize){
             inventory.CreateInventory();
         }
+        inputCooldownTimer = 0;
 
     }
 
@@ -56,24 +58,29 @@ public class PlayerInventory : MonoBehaviour
                 // Debug.Log("Hi Open");
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;
+                inputCooldownTimer = inputCooldownTimerMax;
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryTime){
             if(isInventoryOpen){
                 if(isChestOpen){
-                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen()){
+                    if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen()) && inputCooldownTimer <= 0){
+                        inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
                         isInventoryOpen = false;
-                        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest);
+                        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest); 
+                        
                     }
                     
-                    else if(gameInput.GetInputClearInventoryPlayer()){
+                    else if(gameInput.GetInputClearInventoryPlayer() && inputCooldownTimer <= 0){
+                        inputCooldownTimer = inputCooldownTimerMax;
                         OnClearPlayerInventory?.Invoke(this,EventArgs.Empty);
                     }
                     // Debug.Log(gameInput.InputClearInventoryPlayer());
                 }
                 else{
-                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()){
+                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory() && inputCooldownTimer <= 0){
+                        inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
                         isInventoryOpen = false;
                     }
@@ -82,19 +89,23 @@ public class PlayerInventory : MonoBehaviour
             InputArrowInventory(inventoryUI);
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndCauldron){
+            
             if(!isCauldronOpen){
                 isCauldronOpen = true;
             }
             else if(isCauldronOpen){
-                if(gameInput.GetInputEscape()){
+                if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                    inputCooldownTimer = inputCooldownTimerMax;
                     OnQuitCauldron?.Invoke(this,EventArgs.Empty);
                     // isChestOpen = false;
                     isCauldronOpen = false;
                 }
-                else if(gameInput.GetInputSelectItemForCauldron()){
+                else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                    inputCooldownTimer = inputCooldownTimerMax;
                     CauldronUI.SelectItem_Cauldron();
                 }
-                else if(gameInput.GetInputStartCookingForCauldron()){
+                else if(gameInput.GetInputStartCookingForCauldron() && inputCooldownTimer <= 0){
+                    inputCooldownTimer = inputCooldownTimerMax;
                     OnStartCookingCauldron?.Invoke(this,EventArgs.Empty);
                 }
                 InputArrowInventory(CauldronUI);
@@ -102,22 +113,26 @@ public class PlayerInventory : MonoBehaviour
             
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire){
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitCauldron?.Invoke(this,EventArgs.Empty);
                 // isChestOpen = false;
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest){
             isChestOpen = true;
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitChest?.Invoke(this,EventArgs.Empty);
                 isChestOpen = false;
             }
             InputArrowInventory(ChestInventoryUI);
-            if(gameInput.GetInputGetKeyTabDown()){
+            if(gameInput.GetInputGetKeyTabDown() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.QuantityTime);
             }
-            if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen){
+            if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;
                 WordInput.Instance.UndoInputLetterManyWords();
@@ -126,31 +141,38 @@ public class PlayerInventory : MonoBehaviour
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.QuantityTime){
             InputArrowInventory_AddQuantity(ChestInventoryUI);
-            if(gameInput.GetInputGetKeyTabDown()){
+            if(gameInput.GetInputGetKeyTabDown() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest);
             }
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitChest?.Invoke(this,EventArgs.Empty);
                 isChestOpen = false;
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndPenumbuk){
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitPenumbuk?.Invoke(this,EventArgs.Empty);
+                
                 // isChestOpen = false;
             }
-            else if(gameInput.GetInputSelectItemForCauldron()){
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 PenumbukUI.SelectItem_Cauldron();
             }
             InputArrowInventory(PenumbukUI);
         
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitPenumbuk?.Invoke(this,EventArgs.Empty);
                 // isChestOpen = false;
             }
-            if(gameInput.GetInputOpenInventory_ChestOpen()){
+            if(gameInput.GetInputOpenInventory_ChestOpen() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 // PenumbukUI.ShowInventory_PenumbukIsOpen();
                 WordInput.Instance.UndoInputLetterManyWords();
                 OnStopTumbuk?.Invoke(this,EventArgs.Empty); // selanjutnya coba buka penumuk UI, trus bikin ui nya + word manager + progress bar etc etc
@@ -158,25 +180,36 @@ public class PlayerInventory : MonoBehaviour
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
             InputArrowInventory(inventoryUI);
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
                 isInventoryOpen = false;
             }
-            else if(gameInput.GetInputSelectItemForCauldron()){
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 inventoryUI.SelectItem_Cauldron();
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.SubmitPotion){
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
                 isInventoryOpen = false;
             }
-            else if(gameInput.GetInputSelectItemForCauldron()){
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 OnSubmitPotionChoice?.Invoke(this,EventArgs.Empty);
             }
             InputArrowInventory_SubmitPotionChoice();
             
         }
+        if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
+            inputCooldownTimer -= Time.deltaTime;
+        }
+        if(gameManager.IsInGame() && inputCooldownTimer <= 0 ){
+            inputCooldownTimer = inputCooldownTimerMax;
+        }
+        // Debug.Log(inputCooldownTimer);
         
     }
 

@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion
     }
 
     // private DialogueType dialogueType;
@@ -19,14 +19,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_WrongChoice_Dialogue; 
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
-    [SerializeField]private GameObject dialogueWrongChoice_GameObject;
+    // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
     private DialogueWrongChoice dialogueWrongChoice;
     private DialogueSystem.DialogueLine dialogueLines_WrongChoice;
     private string mainDialogue_WrongChoice;
 
     [SerializeField]
     [field : TextArea]
-    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI;
+    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion;
     private void Awake() {
         Instance = this;
         dialogueLines_WrongChoice = dialogueHolder_WrongChoice_Dialogue.GetComponentInChildren<DialogueSystem.DialogueLine>();
@@ -76,12 +76,22 @@ public class DialogueManager : MonoBehaviour
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaTempatPotion_Cauldron){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaTempatPotion_Cauldron);
+            
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaTempat_Penumbuk){
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaTempat_Penumbuk);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaResep_CauldronPenumbuk);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.sudahPenuh_Cauldron){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_sudahPenuh_Cauldron);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.ingredientKurang_Cauldron){
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_ingredientKurang_Cauldron);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion){
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_potionTidakSesuaiQuest_SubmitPotion);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
@@ -98,6 +108,7 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueWrongChoice == DialogueWrongChoice.bukanPotion_InventoryUI){
             dialogueLines_WrongChoice.ChangeInputText(itemName + dialogue_bukanPotion_InventoryUI);
         }
+        
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
 }

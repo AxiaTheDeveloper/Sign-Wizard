@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265cb333ce5fd764785c88d439b6abb4, type: 3}
   m_Name: AAAAAAAAAAAAAAAAAAAAAAAAA
   m_EditorClassIdentifier: 
-  Ingredients:
-  - {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
-  - {fileID: 11400000, guid: 9b639ace78719e6449e55dd6a0f9e306, type: 2}
-  - {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
+  ingredientArray:
+  - ingredientName: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
+    quantity: 1
+  - ingredientName: {fileID: 11400000, guid: 9b639ace78719e6449e55dd6a0f9e306, type: 2}
+    quantity: 2
+  - ingredientName: {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
+    quantity: 1
   fireSizeLevel: 2
   output_Potion: {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}

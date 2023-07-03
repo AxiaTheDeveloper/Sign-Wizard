@@ -176,13 +176,14 @@ public class Cauldron : MonoBehaviour
 
     private void CheckRecipe_ItemStage(){
         recipeChosen = null;
+        
         for(int i=0;i<recipeList.Length;i++){
             PotionRecipeScriptableObject recipe = recipeList[i];
             
             bool isContainMatch = true;
-            if(cauldronItems.Count == recipe.Ingredients.Length){
+            if(cauldronItems.Count == recipe.ingredientArray.Length){
                 for(int j=0;j<cauldronItems.Count;j++){
-                    if(recipe.Ingredients[j] != cauldronItems[j].itemSO){
+                    if(recipe.ingredientArray[j].ingredientName != cauldronItems[j].itemSO){
                         isContainMatch = false;
                         break;
                     }
@@ -194,23 +195,29 @@ public class Cauldron : MonoBehaviour
             }
         }
         if(recipeChosen){
-            if(isFireSizeCorrect(recipeChosen)){
-                
+            if(!checkIngredient_Quantity()){
+                if(isFireSizeCorrect(recipeChosen)){
+                    cauldronUI_Inventory.HideCauldronInventory_Only();
+                    cauldronUI_Cook.HideCookUI();
+                    gameManager.ChangeToCinematic();
+                    CountFireSpeed();
+                    TimelineManager.Instance.Start_CauldronSuccess();
+                    announcementUI.AddData(recipeChosen.output_Potion);
+                    //play the timeline or animation or anything,
+                }
+                else{
+                    CloseWholeUI();
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBerhasilJadi_Cauldron);
+                    // Debug.Log("Tidak berhasil jadi"); //ato kalo mo nanti sesuai quality ya disesuaiin di sini, itu semua tetep diambil item, tp pas mo kasih, nah kasih potion yg jeleknya, jd nanti di scriptableobject recipe bakal ada 2 macam potiuon, high quality, ama low quality plg gitu, trus ini penentu nanti ksh ke player yg high ato low
 
-                cauldronUI_Inventory.HideCauldronInventory_Only();
-                cauldronUI_Cook.HideCookUI();
-                gameManager.ChangeToCinematic();
-                TimelineManager.Instance.Start_CauldronSuccess();
-                announcementUI.AddData(recipeChosen.output_Potion);
-                //play the timeline or animation or anything,
+                    //ini kalo jd kek di atas, brarti ini ntr cuma kek if recipechosen != null semua yg di isfiresizecorrect itu dijalanin dl, br dicek isfiresizecorrect buat kasih tau mo keluarin potion yg mana
+                }
             }
             else{
                 CloseWholeUI();
-                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBerhasilJadi_Cauldron);
-                // Debug.Log("Tidak berhasil jadi"); //ato kalo mo nanti sesuai quality ya disesuaiin di sini, itu semua tetep diambil item, tp pas mo kasih, nah kasih potion yg jeleknya, jd nanti di scriptableobject recipe bakal ada 2 macam potiuon, high quality, ama low quality plg gitu, trus ini penentu nanti ksh ke player yg high ato low
-
-                //ini kalo jd kek di atas, brarti ini ntr cuma kek if recipechosen != null semua yg di isfiresizecorrect itu dijalanin dl, br dicek isfiresizecorrect buat kasih tau mo keluarin potion yg mana
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.ingredientKurang_Cauldron);
             }
+            
         } 
         else{
             CloseWholeUI();
@@ -219,6 +226,17 @@ public class Cauldron : MonoBehaviour
             // Debug.Log("Tidak ada resep dengan ingredient tersebut");
         }
         
+    }
+    private bool checkIngredient_Quantity(){
+        bool isLowResource = false;
+        for(int i=0;i<recipeChosen.ingredientArray.Length;i++){
+            if(cauldronItems[i].quantity < recipeChosen.ingredientArray[i].quantity){
+                isLowResource = true;
+                break;
+            }
+        }
+
+        return isLowResource;
     }
     public bool isFireSizeCorrect(PotionRecipeScriptableObject recipe){
         int fireLevel = recipe.fireSizeLevel;
@@ -234,10 +252,10 @@ public class Cauldron : MonoBehaviour
 
     public void CreatePotion(){
         //ini bakal dipanggil pas timeline masak potion berakhir.
-        foreach(CauldronItem itemCauldron in cauldronItems){
-            if(!itemCauldron.isEmpty){
-                int position = itemCauldron.position_InInventory;                    
-                playerInventory.GetPlayerInventory().TakeItemFromSlot(position, 1);
+        for(int j=0;j<cauldronItems.Count;j++){
+            if(!cauldronItems[j].isEmpty){
+                int position = cauldronItems[j].position_InInventory;                    
+                playerInventory.GetPlayerInventory().TakeItemFromSlot(position, recipeChosen.ingredientArray[j].quantity);
                         
             }
         }

@@ -17,8 +17,24 @@ public class PlayerSaveManager : MonoBehaviour
         return playerSaveSO.modeLevel;
     }
 
-    public void ChangePlayerLevel(int level){
-        playerSaveSO.level = level;
+    public void ChangePlayerLevel(){
+        if(playerSaveSO.level == 0){
+            playerSaveSO.level = 1;
+        }
+        else if(playerSaveSO.level == 1){
+            playerSaveSO.level = 2;
+        }
+        else if(playerSaveSO.level == 2){
+            playerSaveSO.level = 3;
+        }
+        else if(playerSaveSO.level == 3){
+            playerSaveSO.level = 4;
+        }
+        else if(playerSaveSO.level == 4){
+            playerSaveSO.level = 4;
+        }
+        
+        
     }
     public void ChangePlayerMode(levelMode mode){
         playerSaveSO.modeLevel = mode;

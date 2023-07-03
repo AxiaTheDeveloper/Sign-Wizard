@@ -10,6 +10,8 @@ public class SubmitPotion : MonoBehaviour
     [SerializeField]private InventoryUI submitPotionUI_Inventory;
     [SerializeField]private SubmitPotionUI submitPotionUI;
     private InventoryOnly inventOnly;
+    [SerializeField]private DialogueManager dialogueManager;
+    [SerializeField]private PlayerSaveManager playerSaveManager;
 
     [Header("Pengecekan potion")]
 
@@ -18,6 +20,7 @@ public class SubmitPotion : MonoBehaviour
     [SerializeField]private QuestManager questManager;
     private int totalPotion;
     private int item_Counter;
+
 
     private void Start() {
         playerInventory.OnQuitSubmitPotion += playerInventory_OnQuitSubmitPotion;
@@ -47,13 +50,20 @@ public class SubmitPotion : MonoBehaviour
                 foreach(CauldronItem item in ListItemTerpilih){
                     playerInventory.GetPlayerInventory().TakeItemFromSlot(item.position_InInventory, 1);
                 }
-                Debug.Log("Sukses kirim");
+                playerSaveManager.ChangePlayerLevel();
+                playerSaveManager.ChangePlayerMode(levelMode.outside);
             }
-            else{
-                Debug.Log("Sepertinya salah kirim");
-            }
+            
             HideWHoleUI();
             playerInventory.ClosePlayerInventory();
+
+            //mulai timeline or anything
+            if(isPotionMatch){
+                //multai timeline
+            }
+            else{
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion);
+            }
             
             //quest manager ngecheck apakah potionnya bener ato salah.
             

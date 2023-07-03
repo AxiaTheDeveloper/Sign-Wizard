@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Penumbuk : MonoBehaviour
 {
@@ -76,13 +77,19 @@ public class Penumbuk : MonoBehaviour
     {
         
         if(e.isAdd){
+            if(playerInventory.GetPlayerInventory().isFull){
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaTempat_Penumbuk);
+            }
+            else{
+                InventorySlot item;
+                item = playerInventory.GetPlayerInventory().TakeDataFromSlot(e.Position);
+                itemTerpilih = new CauldronItem().AddItem(item.itemSO, item.quantity, e.Position);
+                PenumbukUI_Tumbuk.UpdateVisualInventorySlot(itemTerpilih);
+                PenumbukUI_Inventory.HideInventory_PenumbukIsOpen();
+                CheckRecipe(item.itemSO);
+            }
+
             
-            InventorySlot item;
-            item = playerInventory.GetPlayerInventory().TakeDataFromSlot(e.Position);
-            itemTerpilih = new CauldronItem().AddItem(item.itemSO, item.quantity, e.Position);
-            PenumbukUI_Tumbuk.UpdateVisualInventorySlot(itemTerpilih);
-            PenumbukUI_Inventory.HideInventory_PenumbukIsOpen();
-            CheckRecipe(item.itemSO);
         }
         else{
             itemTerpilih = new CauldronItem().EmptyItem();
@@ -116,7 +123,7 @@ public class Penumbuk : MonoBehaviour
         else{
             //hrsnya ini ga mungkin trjdi krn si player ga mungkin bs ambil item yg merupakan bahan tumbukkan yg resepnya sendiri blm kebuka
             PenumbukUI_Inventory.ShowInventory_PenumbukIsOpen();
-            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);;
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk);
         }
         
     }
@@ -145,6 +152,7 @@ public class Penumbuk : MonoBehaviour
             progressNow = maxProgress;
             playerInventory.GetPlayerInventory().TakeItemFromSlot(itemTerpilih.position_InInventory, 1);
             playerInventory.GetPlayerInventory().AddItemToSlot(chosenRecipe.output_Ingredient, 1);
+            EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
             announcementUI.AddData(chosenRecipe.output_Ingredient);
             CloseWholeUI();
             gameManager.ChangeToCinematic();
