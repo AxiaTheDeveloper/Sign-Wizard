@@ -36,12 +36,18 @@ public class TheDictionary
         dictionary.ShowUI();
     }
 }
+public class TheBed
+{
+    public void OpenUI(Bed bed){
+        bed.ShowDialogue();
+    }
+}
 
 public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed
     }
     public ObjectType type;
 
@@ -50,12 +56,14 @@ public class InteractObject : MonoBehaviour
     private TheChest chest;
     private TheSubmit submit;
     private TheDictionary dictionary;
+    private TheBed bed;
 
     [SerializeField]private Chest Chest;
     [SerializeField]private Cauldron Cauldron;
     [SerializeField]private Penumbuk Penumbuk;
     [SerializeField]private SubmitPotion Submit;
     [SerializeField]private DictionaryUI Dictionary;
+    [SerializeField]private Bed Bed;
 
 
     private void Start() {
@@ -77,6 +85,9 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheDictionary){
             dictionary = new TheDictionary();
         }
+        if(type == ObjectType.TheBed){
+            bed = new TheBed();
+        }
     }
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
@@ -93,6 +104,9 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheDictionary){
             dictionary.OpenUI(Dictionary);
+        }
+        if(type == ObjectType.TheBed){
+            bed.OpenUI(Bed);
         }
     }
 }

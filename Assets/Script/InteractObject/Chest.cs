@@ -19,13 +19,20 @@ public class Chest : MonoBehaviour
     [SerializeField]private FinishWordDoFunction finishFunction;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private DialogueManager dialogueManager;
+    [SerializeField]private PlayerSaveManager playerSave;
 
     private void Awake(){
         // gameManager = WitchGameManager.Instance;
         //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
-        chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
-        chestInventorySize = chestInventory.size;
-        EditorUtility.SetDirty(chestInventory);
+        if(playerSave.GetIsReset()){
+            chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
+            chestInventorySize = chestInventory.size;
+            EditorUtility.SetDirty(chestInventory);
+            // playerInventory.GetPlayerInventory().RemoveAllItem();
+            // EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+            playerSave.HasReset();
+        }
+        
     }
 
     private List<InventorySlot> CopyInventorySlot(List<InventorySlot> source){
@@ -44,12 +51,13 @@ public class Chest : MonoBehaviour
     }
     private void finishWord_OnFinishChestWord(object sender, EventArgs e)
     {
-        
+
         if(playerInventory.GetPlayerInventory().isFull){
             dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.playerInventoryFull_Chest);
             // Debug.Log("Keluarkan UI playerInventoryFull");
         }
         else{
+
             int selectItem = ChestUI.GetSelectedItem();
             int quantityWant = ChestUI.GetQuantityWant();
             if(quantityWant == 1 && chestInventory.inventSlot[selectItem].quantity == 0){
@@ -58,13 +66,20 @@ public class Chest : MonoBehaviour
                 
             }
             else{
+
                 chestInventory.TakeItemFromSlot(selectItem, quantityWant);
+
                 playerInventory.GetPlayerInventory().AddItemToSlot(chestInventory.inventSlot[selectItem].itemSO, quantityWant);
+
                 EditorUtility.SetDirty(chestInventory);
+
                 EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+
             }
         }
+
         ChestUI.ResetQuantityWant();
+
     }
 
     private void playerInventory_OnQuitChest(object sender, EventArgs e)

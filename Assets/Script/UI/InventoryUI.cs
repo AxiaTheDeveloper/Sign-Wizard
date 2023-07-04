@@ -517,7 +517,7 @@ public class InventoryUI : MonoBehaviour
     }
     public void UpdateVisualInventorySlot(int position, InventorySlot item){
         // Debug.Log(position);
-        if(!item.itemSO){
+        if(item.itemSO == null){
             UI_ItemList[position].ResetData();
         }
         else{
@@ -534,7 +534,7 @@ public class InventoryUI : MonoBehaviour
             }
             
         }
-        
+        Debug.Log("eii");
     }
 
     public void SelectItemRight(){

@@ -17,7 +17,7 @@ public class WitchGameManager : MonoBehaviour
 
 
     public enum InterfaceType{
-        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime
+        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime, InterfaceBed
     }
     private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {

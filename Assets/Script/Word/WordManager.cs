@@ -42,7 +42,7 @@ public class WordManager : MonoBehaviour
     public void createWord(){
         // Word word = new Word(WordGenerator.GetRandomWord(), spawner.SpawnWord());
         hasWord = true;
-        
+
         if(wordType == WordType.SameWord){
             choseWord = theWord;
         }
@@ -51,12 +51,15 @@ public class WordManager : MonoBehaviour
         }
 
         if(templateType == TemplateType.SameTemplate){
+
             if(wordDisplay == null){
                 wordDisplay =  spawner.SpawnWord();
                 // Debug.Log("harusnya sekali aja");
             }
             else{
+
                 chosenWord = new Word(choseWord, wordDisplay, true);
+
                 // Debug.Log(chosenWord);
             }
         }
@@ -107,24 +110,23 @@ public class WordManager : MonoBehaviour
 
     public bool InputLetter(char letter){
         //ini kalo ud ada has chooseword
-        
+
         if(hasChooseWord && chosenWord.GetLetter() == letter){
+
             chosenWord.TypeOutLetter();
         }
         else{
             chosenWord.WrongLetter();
         }
         if(hasChooseWord && chosenWord.AllTyped()){
-            // wordList.Remove(chosenWord);
             
-            //kalo mo itu palingan haschoosword diapus trus tinggal kek abis yg ini abis, chosenword = word selanjutnya d list, ato pake queue kali ya hem, jd tiap create word tuh, create gituh, apa kita gameobject d tmpt lain poolnya hem, hem, well ga si ribet mending d sini 
-            
-            //do this and this and this trgantung yg kepasang ini.
+
             function.WordFinisheds();
             hasChooseWord = false;
             hasWord = false;
 
             StartCoroutine(DelayedCreateWord());
+
             //di sini suruh kerjain apa gitu
             return false;
         }
@@ -132,7 +134,9 @@ public class WordManager : MonoBehaviour
 
     }
     private IEnumerator DelayedCreateWord(){
+
         yield return new WaitForSeconds(delayedSpawnWord_Time);
+
         createWord();
     }
 

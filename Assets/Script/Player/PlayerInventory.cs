@@ -19,12 +19,13 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice, OnQuitBed, OnSubmitBed; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion, OnQuitBed & OnSubmitBed buat Bed
     private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
 
     [SerializeField]private SubmitPotionUI submitUI;
+    [SerializeField]private Bed bed;
     
     [SerializeField]private float inputCooldownTimerMax;
     private float inputCooldownTimer;
@@ -203,6 +204,17 @@ public class PlayerInventory : MonoBehaviour
             InputArrowInventory_SubmitPotionChoice();
             
         }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceBed){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnQuitBed?.Invoke(this, EventArgs.Empty);
+            }
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnSubmitBed?.Invoke(this,EventArgs.Empty);
+            }
+            InputArrowInventory_SubmitBedChoice();
+        }
         if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
             inputCooldownTimer -= Time.deltaTime;
         }
@@ -252,6 +264,20 @@ public class PlayerInventory : MonoBehaviour
         else if(keyInputArrowUI.x == -1){
             if(!submitUI.GetIsChosePotion()){
                 submitUI.Change_YesNo();
+            }
+        }
+
+    }
+    private void InputArrowInventory_SubmitBedChoice(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        if(keyInputArrowUI.y == 1){
+            if(!bed.GetIsResetDay()){
+                bed.Change_YesNo();
+            }
+        }
+        else if(keyInputArrowUI.y == -1){
+            if(bed.GetIsResetDay()){
+                bed.Change_YesNo();
             }
         }
 
