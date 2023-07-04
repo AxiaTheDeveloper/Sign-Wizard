@@ -22,7 +22,7 @@ public class WitchGameManager : MonoBehaviour
     private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {
         Instance = this;
-        state = gameState.Cinematic;
+        state = gameState.InGame;
         // Debug.Log(state);
     }
     private void Start() {

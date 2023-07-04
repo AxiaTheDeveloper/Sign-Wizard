@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265cb333ce5fd764785c88d439b6abb4, type: 3}
+  m_Name: Soothing Root Infusion Recipe
+  m_EditorClassIdentifier: 
+  ingredientArray:
+  - ingredientName: {fileID: 11400000, guid: 959ec1e811f0a5145948ad8f11760e76, type: 2}
+    quantity: 3
+  - ingredientName: {fileID: 11400000, guid: e6e71080bbf3826478f68850a3408697, type: 2}
+    quantity: 2
+  - ingredientName: {fileID: 11400000, guid: e91eed10c43b0aa4da4c16868c5f1cc5, type: 2}
+    quantity: 2
+  fireSizeLevel: 1
+  output_Potion: {fileID: 11400000, guid: 916277fbcc8defc4aaaf9c52061a3001, type: 2}

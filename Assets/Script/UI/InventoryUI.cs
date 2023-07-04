@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class InventoryOnly{
     private bool keepMoveRight,keepMoveLeft;
-    public int SelectItemRight(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList){
+    public int SelectItemRight(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize){
         // Debug.Log("Hi bich");
         keepMoveRight = true;
         int selectItemNow = 0;// ini buat tau dia ada di row mana sih
@@ -18,6 +18,9 @@ public class InventoryOnly{
                 keepMoveRight = false;
                 break;
             }
+        }
+        if(selectItemHere == inventorySize - 1 && keepMoveRight){
+            keepMoveRight = false;
         }
         if(keepMoveRight){
             UI_ItemList[selectItemHere].DeselectItem();
@@ -33,7 +36,7 @@ public class InventoryOnly{
         // inventUIDesc.SetItemDataDesc(); diisii~~~
         return selectItemHere; // kasih ke main class
     }
-    public int SelectItemLeft(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList){
+    public int SelectItemLeft(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize){
         keepMoveLeft = true;
         int selectItemNow = 0;// ini buat tau dia ada di row mana sih
         int selectItemHere = selectItem;
@@ -44,6 +47,7 @@ public class InventoryOnly{
                 break;
             }
         }
+
         if(keepMoveLeft){
             UI_ItemList[selectItemHere].DeselectItem();
             selectItemHere--;
@@ -52,6 +56,9 @@ public class InventoryOnly{
         else{
             UI_ItemList[selectItemHere].DeselectItem();
             selectItemHere = totalColumn-1 + selectItemNow;
+            if(selectItemHere > inventorySize - 1){
+                selectItemHere = inventorySize -1;
+            }
             UI_ItemList[selectItemHere].SelectItem();
         }
         // UpdateVisual_InventDescription();
@@ -172,15 +179,15 @@ public class InventoryOnly{
     }
 }
 public class InventoryWithDesc : InventoryOnly{
-    public int SelectItemRight_Desc(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, InventoryUIDesc inventUIDesc, int quantity_Want)
+    public int SelectItemRight_Desc(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize,InventoryUIDesc inventUIDesc, int quantity_Want)
     {
         // Debug.Log("Hi biches");
-        int selectItemHere = SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+        int selectItemHere = SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         UpdateVisual_InventDescription(UI_ItemList, selectItemHere, inventUIDesc, quantity_Want);
         return selectItemHere;
     }
-    public int SelectItemLeft_Desc(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, InventoryUIDesc inventUIDesc, int quantity_Want){
-        int selectItemHere = SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+    public int SelectItemLeft_Desc(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize,InventoryUIDesc inventUIDesc, int quantity_Want){
+        int selectItemHere = SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         UpdateVisual_InventDescription(UI_ItemList, selectItemHere, inventUIDesc, quantity_Want);
         return selectItemHere;
     }
@@ -471,6 +478,9 @@ public class InventoryUI : MonoBehaviour
         
         StartCoroutine(DeactivateGameObjectDelayed());
     }
+    private void Update() {
+        // Debug.Log(selectItem);
+    }
     private IEnumerator DeactivateGameObjectDelayed()
     {
         yield return null; // Wait for the next frame update
@@ -530,35 +540,35 @@ public class InventoryUI : MonoBehaviour
     public void SelectItemRight(){
         
         if(tipeInventory == TipeInventory.inventoryOnly){
-            selectItem = inventOnly.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = inventOnly.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
             quantity_Want = 1;
-            selectItem = invent_Desc.SelectItemRight_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
+            selectItem = invent_Desc.SelectItemRight_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
         else if(tipeInventory == TipeInventory.inventoryCauldron){
-            selectItem = invent_Cauldron.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = invent_Cauldron.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryPenumbuk){
-            selectItem = invent_Penumbuk.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = invent_Penumbuk.SelectItemRight(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         
     }
     public void SelectItemLeft(){
         if(tipeInventory == TipeInventory.inventoryOnly){
-            selectItem = inventOnly.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = inventOnly.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryWithDesc){
             quantity_Want = 1;
-            selectItem = invent_Desc.SelectItemLeft_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventUIDesc, quantity_Want);
+            selectItem = invent_Desc.SelectItemLeft_Desc(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize, inventUIDesc, quantity_Want);
             maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
         }
         else if(tipeInventory == TipeInventory.inventoryCauldron){
-            selectItem = invent_Cauldron.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = invent_Cauldron.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
         else if(tipeInventory == TipeInventory.inventoryPenumbuk){
-            selectItem = invent_Penumbuk.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList);
+            selectItem = invent_Penumbuk.SelectItemLeft(totalRow, totalColumn, selectItem, UI_ItemList, inventorySize);
         }
     }
     public void SelectItemDown(){

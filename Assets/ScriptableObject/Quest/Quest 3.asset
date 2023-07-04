@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebcd416cb1b9e5499770b2189f454c3, type: 3}
+  m_Name: Quest 3
+  m_EditorClassIdentifier: 
+  levelQuest: 3
+  potionWantList:
+  - {fileID: 11400000, guid: 577f1d9ed9b7a5b4f911ae3dc98e539c, type: 2}
+  - {fileID: 11400000, guid: 92c9d45a6c82556439aa73c1f4c9c71d, type: 2}
+  QuestDescription: 
+  QuestLog: 

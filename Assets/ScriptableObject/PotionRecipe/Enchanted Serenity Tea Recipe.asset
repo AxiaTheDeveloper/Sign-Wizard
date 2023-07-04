@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265cb333ce5fd764785c88d439b6abb4, type: 3}
+  m_Name: Enchanted Serenity Tea Recipe
+  m_EditorClassIdentifier: 
+  ingredientArray:
+  - ingredientName: {fileID: 11400000, guid: b4c44dcd2234c7c478ee37d15745c479, type: 2}
+    quantity: 2
+  - ingredientName: {fileID: 11400000, guid: a65d10c636117b340903e99cda0e0e89, type: 2}
+    quantity: 1
+  - ingredientName: {fileID: 11400000, guid: 3afe324e489ec934388238e9a0cedf52, type: 2}
+    quantity: 3
+  fireSizeLevel: 1
+  output_Potion: {fileID: 11400000, guid: 92c9d45a6c82556439aa73c1f4c9c71d, type: 2}

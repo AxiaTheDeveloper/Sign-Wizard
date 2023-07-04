@@ -31,7 +31,10 @@ public class PlayerSaveManager : MonoBehaviour
             playerSaveSO.level = 4;
         }
         else if(playerSaveSO.level == 4){
-            playerSaveSO.level = 4;
+            playerSaveSO.level = 5;
+        }
+        else if(playerSaveSO.level == 5){
+            playerSaveSO.level = 5;
         }
         
         

@@ -12,64 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c524f9e60efc0d4299bd3aa1be4bcbf, type: 3}
   m_Name: ChestInventory
   m_EditorClassIdentifier: 
-  size: 28
+  size: 27
   type: 1
   isFull: 1
-  isFullyEmpty: 13
+  isFullyEmpty: 27
   inventSlot:
-  - itemSO: {fileID: 11400000, guid: 40e477b913119594a93d040b3b4b5458, type: 2}
-    quantity: 5
-  - itemSO: {fileID: 11400000, guid: 9b639ace78719e6449e55dd6a0f9e306, type: 2}
-    quantity: 3
-  - itemSO: {fileID: 11400000, guid: 9e297f3b33f68c3408feb7e11234eb4f, type: 2}
-    quantity: 4
-  - itemSO: {fileID: 11400000, guid: 579fb7f58684f6f46940fd6916a8fe1f, type: 2}
+  - itemSO: {fileID: 11400000, guid: 1d0cc14d8ec6e1d46acca96d058e6b4d, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 4173d422813a12d429356fbb5207ae85, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 1f724aeb1170d8940b8d641bd05d89c6, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 075d348d21bde58448a3b3e37954b910, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: cda2ec355055671489fd80d8f37e6d54, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: e91eed10c43b0aa4da4c16868c5f1cc5, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 15c56bc5e9131b1488929bc09322fd38, type: 2}
+    quantity: 7
+  - itemSO: {fileID: 11400000, guid: 93a42aee707cc7c4186777351420fb94, type: 2}
     quantity: 9
-  - itemSO: {fileID: 11400000, guid: fe7f8a23b7479a941b7d337495b99b30, type: 2}
-    quantity: 4
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
-  - itemSO: {fileID: 0}
-    quantity: 0
+  - itemSO: {fileID: 11400000, guid: 499428928f4013942ba98eece5a52a4e, type: 2}
+    quantity: 8
+  - itemSO: {fileID: 11400000, guid: 3d31bef00639bee4e976bc01f44e5e86, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: c9d8a31a8b0dc824291a972ee7e4dde5, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: b4c44dcd2234c7c478ee37d15745c479, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: c3e7cfc307d9a9c40acb72b5a35c4c44, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 3afe324e489ec934388238e9a0cedf52, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 10228bf4420c64e40a4d76866c2ed89c, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: cda2ec355055671489fd80d8f37e6d54, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 356bc1f670559da47a004593827f5d7f, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 45e21ade8f6e5ba4c93798958008d7d3, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 00532621b2fc07d42a77ea42560ae3ff, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 34c75a4360e76b34f96a4fe4dae78ed4, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 36a6d9d66a060904d9d8d5d79a428aac, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 03526a17ce891d14e9d1e0372b0d56e2, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 7989d2c772f80044493c0c490b59e9c7, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 84e19a512e5f3e04c8be340fabee1256, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 7cd3d906c6ae20f4f920879ed26dace3, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: c405a219bf7ba2548bc43be31e683e60, type: 2}
+    quantity: 10
+  - itemSO: {fileID: 11400000, guid: 8bbd11b0d33275d43a6bea53860d21e4, type: 2}
+    quantity: 10

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelQuest: 1
   potionWantList:
-  - {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}
-  - {fileID: 11400000, guid: 545b942c977d43146971ec744fb28570, type: 2}
+  - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
   QuestDescription: Bring me this Potion A
   QuestLog: '- 1 Potion A'

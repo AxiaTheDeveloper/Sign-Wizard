@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265cb333ce5fd764785c88d439b6abb4, type: 3}
+  m_Name: Olive Yoghurt Elixir Recipe
+  m_EditorClassIdentifier: 
+  ingredientArray:
+  - ingredientName: {fileID: 11400000, guid: 7cd3d906c6ae20f4f920879ed26dace3, type: 2}
+    quantity: 2
+  - ingredientName: {fileID: 11400000, guid: c405a219bf7ba2548bc43be31e683e60, type: 2}
+    quantity: 1
+  - ingredientName: {fileID: 11400000, guid: 8bbd11b0d33275d43a6bea53860d21e4, type: 2}
+    quantity: 3
+  fireSizeLevel: 1
+  output_Potion: {fileID: 11400000, guid: 986778bff2b1a524490c70b4b37fb0f9, type: 2}

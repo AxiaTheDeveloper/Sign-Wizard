@@ -18,9 +18,6 @@ namespace DialogueSystem{
             else{
                 HideDialogue();
             }
-
-            
-            
         }
         private IEnumerator dialogueSequence(){
             for(int i=0;i<transform.childCount;i++){

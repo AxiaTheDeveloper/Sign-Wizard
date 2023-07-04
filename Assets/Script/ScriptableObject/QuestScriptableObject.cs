@@ -13,4 +13,6 @@ public class QuestScriptableObject : ScriptableObject
     [field : TextArea]
     public string QuestLog;
 
+    
+
 }

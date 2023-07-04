@@ -104,6 +104,7 @@ public class Cauldron : MonoBehaviour
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire){
             FireStage();
         }
+        
     }
 
     private void AddItemCauldron(int selectItem){
@@ -179,9 +180,10 @@ public class Cauldron : MonoBehaviour
         
         for(int i=0;i<recipeList.Length;i++){
             PotionRecipeScriptableObject recipe = recipeList[i];
-            
+            Debug.Log(recipe);
             bool isContainMatch = true;
             if(cauldronItems.Count == recipe.ingredientArray.Length){
+                Debug.Log("hmm >");
                 for(int j=0;j<cauldronItems.Count;j++){
                     if(recipe.ingredientArray[j].ingredientName != cauldronItems[j].itemSO){
                         isContainMatch = false;
@@ -240,8 +242,10 @@ public class Cauldron : MonoBehaviour
     }
     public bool isFireSizeCorrect(PotionRecipeScriptableObject recipe){
         int fireLevel = recipe.fireSizeLevel;
-        rotation = Mathf.Abs(rotation);
-        if(rotation >= fireSizeMin[fireLevel] && rotation <= fireSizeMax[fireLevel]){
+        
+        finalRotation = Mathf.Abs(finalRotation);
+        // Debug.Log(fireSizeMin[fireLevel] + " " + fireSizeMax[fireLevel] + "=" + finalRotation);
+        if(finalRotation >= fireSizeMin[fireLevel] && finalRotation <= fireSizeMax[fireLevel]){
             
             return true;
         }

@@ -248,6 +248,10 @@ MonoBehaviour:
   questList:
   - {fileID: 11400000, guid: 085c0b7660b1b22409442efbea2e79a8, type: 2}
   - {fileID: 11400000, guid: 47e2f86c2d757a242928d35811eb21e5, type: 2}
+  - {fileID: 11400000, guid: e1847909c455fb547820c8ddd350db3a, type: 2}
+  - {fileID: 11400000, guid: 6b3d0509fe7678d45bd5a16422ab101a, type: 2}
+  - {fileID: 11400000, guid: 7dfe9215d2ac37e4b809f7cf0a6e634a, type: 2}
+  - {fileID: 11400000, guid: 6b74cfb97c8f152448e2cee1c15b4ba8, type: 2}
 --- !u!1 &34520401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,7 +2793,7 @@ PrefabInstance:
       objectReference: {fileID: 1502486643}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: recipeList.Array.size
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMax.Array.size
@@ -2806,18 +2810,54 @@ PrefabInstance:
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: recipeList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8537fa1251c17ee44a7a42e6d59333ca, type: 2}
+      objectReference: {fileID: 11400000, guid: b7bb494fd31c53144ab7be6e929c5056, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 340e91d51ba65be41a4b8b66de1acee0, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 509e91fd153d99242b6a63e4ab630b22, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 680db43377bf7b64bafc79c12200c822, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: f957929da27c70d4c8f7b412724733f4, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d70d1e4b93a9ce478348bbf3af9a5e7, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 408f00660a47fe44885c8d93b0e80993, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4cd7bc24fc441704ca86de315c1aaa19, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a47bee3b7ebb23418a0f5fcd85f55ad, type: 2}
+    - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
+      propertyPath: recipeList.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: f8d5d2db18bc5a74bbaceecf07ef7329, type: 2}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMax.Array.data[0]
-      value: 60
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMax.Array.data[1]
-      value: 120
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMax.Array.data[2]
-      value: 180
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMin.Array.data[0]
@@ -2825,11 +2865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMin.Array.data[1]
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: fireSizeMin.Array.data[2]
-      value: 121
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5299125127480670763, guid: b1ea5e9b716da59448b4a38b6e08a5b7, type: 3}
       propertyPath: wordManager.Array.data[0]
@@ -11833,7 +11873,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 7661af13853703b4696579adde27ffeb, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -12110,7 +12150,14 @@ MonoBehaviour:
   announcementUI: {fileID: 653521435}
   dialogueManager: {fileID: 1704590200}
   recipeList:
-  - {fileID: 11400000, guid: 736f41ab8801ffe4fbcf0a73c897b4d7, type: 2}
+  - {fileID: 11400000, guid: 4130fc64796fa0d49b44b9abe4bc49ea, type: 2}
+  - {fileID: 11400000, guid: 0ab12112ada21664c9b691c101be267a, type: 2}
+  - {fileID: 11400000, guid: cf84e41203fe6af4683e1f1143c3ac9c, type: 2}
+  - {fileID: 11400000, guid: 3d67063f4e0797a4689c9c6f587e3288, type: 2}
+  - {fileID: 11400000, guid: 5b4b9a25ecc3bde47bf7eaf76e58bde2, type: 2}
+  - {fileID: 11400000, guid: 036351260270edb4f9f47350f6988ed7, type: 2}
+  - {fileID: 11400000, guid: f797f2202c07fcb4399c12d9bb9185d3, type: 2}
+  - {fileID: 11400000, guid: ed4f4b27f6c9d6e419861febd13cc21f, type: 2}
   maxProgress: 100
   penguranganProgress: 0.5
   wordInput: {fileID: 1253066114}
@@ -14598,7 +14645,7 @@ PrefabInstance:
       objectReference: {fileID: 1284429681}
     - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
       propertyPath: maxItemShown_PerLevel.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
       propertyPath: maxItemShown_PerLevel.Array.data[0]
@@ -14606,7 +14653,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
       propertyPath: maxItemShown_PerLevel.Array.data[1]
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[2]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[3]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[4]
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 918253560006761410, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
+      propertyPath: maxItemShown_PerLevel.Array.data[5]
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 918253560137520884, guid: 29d0ee5c737ac764ebf306f649e04028, type: 3}
       propertyPath: m_AnchorMax.y
