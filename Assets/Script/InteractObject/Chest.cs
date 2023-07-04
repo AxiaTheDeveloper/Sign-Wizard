@@ -28,8 +28,8 @@ public class Chest : MonoBehaviour
             chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
             chestInventorySize = chestInventory.size;
             EditorUtility.SetDirty(chestInventory);
-            // playerInventory.GetPlayerInventory().RemoveAllItem();
-            // EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+            playerInventory.GetPlayerInventory().RemoveAllItem();
+            EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
             playerSave.HasReset();
         }
         

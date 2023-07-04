@@ -23,33 +23,36 @@ public class InventoryItemUI : MonoBehaviour
         ResetData();
         DeselectItem();
         DeSelectItem_Cooking();
-        Debug.Log(itemImage + "awake");
+
     }
 
 
-    private void update(){
-        Debug.Log(itemImage + "updates");
-    }
+
 
 
     private void RefreshVisualUI(){
-        Debug.Log(itemImage + "refresh");
-        if(empty){
-            itemImage.gameObject.SetActive(false);
+
+        if(itemImage != null){
+            if(empty){
+                itemImage.gameObject.SetActive(false);
+            }
+            else{
+                itemImage.gameObject.SetActive(true);
+            }
         }
-        else{
-            itemImage.gameObject.SetActive(true);
-        }
+        
     }
+
     public void SetItemData(ItemScriptableObject newItemSO, int quantity){
         itemSO = newItemSO;
-        Debug.Log("TEST");
+        // Debug.Log("TEST");
+        // Debug.Log(itemImage + "set");
         itemImage.sprite = itemSO.itemSprite;
-        Debug.Log("ILANG YA");
+
         quantity_Text.text = quantity.ToString();
         empty = false;
         RefreshVisualUI();
-        Debug.Log("eii");
+        // Debug.Log("eii");
     }
     public void ResetData(){
         empty = true;

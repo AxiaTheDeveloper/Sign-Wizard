@@ -81,7 +81,7 @@ public class Bed : MonoBehaviour
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
-        Debug.Log(charaImage.activeSelf);
+        // Debug.Log(charaImage.activeSelf);
         dialogue.SetActive(false);
         // gameObject.SetActive(false);
         if(!gameManager.IsInGame()){

@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Essensi yang diperkaya dengan campuran rempah-rempah, disesuaikan dengan
+    api kecil. Essensi ini memberikan sentuhan beraroma dan berbumbu pada berbagai
+    hidangan atau minuman.

@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Infusi yang terbuat dari akar herbal yang berkhasiat menenangkan. Dengan
+    api sedang, infusi ini menghasilkan minuman hangat yang membantu meredakan stres
+    dan ketegangan.

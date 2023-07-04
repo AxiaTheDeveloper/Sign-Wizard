@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Eliksir dengan cita rasa tropis yang memikat. Dibuat dengan menggunakan api
+    besar, eliksir ini menggabungkan rasa manis nanas, wortel, dan campuran bahan-bahan
+    lainnya untuk memberikan kenikmatan dan keceriaan tropis.

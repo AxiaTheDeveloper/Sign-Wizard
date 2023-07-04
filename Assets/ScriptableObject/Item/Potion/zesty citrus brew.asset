@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Minuman yang menyegarkan dengan sentuhan citrus yang berasal dari lemon dan
+    campuran rempah-rempah. Dibuat dengan menggunakan api kecil, minuman ini memberikan
+    rasa segar dan menyegarkan.

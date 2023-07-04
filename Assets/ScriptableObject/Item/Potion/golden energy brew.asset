@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Minuman energi berwarna keemasan yang dibuat dengan perpaduan biji, gandum,
+    dan oatmeal. Dengan menggunakan api sedang, minuman ini memberikan dorongan energi
+    dan meningkatkan vitalitas.

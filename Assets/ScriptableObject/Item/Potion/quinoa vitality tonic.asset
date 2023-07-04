@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Tonik yang berasal dari quinoa, diperkuat dengan menggunakan api sedang.
+    Tonik ini memberikan vitalitas dan nutrisi yang tinggi untuk meningkatkan kesehatan
+    secara keseluruhan.

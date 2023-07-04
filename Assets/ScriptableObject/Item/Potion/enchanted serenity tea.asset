@@ -17,4 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   isFromChest: 0
   maxStack: 1
-  Desc: 
+  Desc: Teh ajaib yang memiliki keajaiban kesederhanaan dalam setiap tegukan. Dibuat
+    dengan perpaduan serai dan teh, dengan menggunakan api kecil, teh ini memberikan
+    efek menenangkan dan ketenangan.

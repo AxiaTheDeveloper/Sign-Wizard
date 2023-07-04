@@ -19,14 +19,14 @@ public class FinishWordDoFunction : MonoBehaviour
 
 
     public void WordFinisheds(){
-        Debug.Log("PAK TOLONG");
+        // Debug.Log("PAK TOLONG");
         if(type == Type.AddObject){
-            Debug.Log("yey");
+            // Debug.Log("yey");
         }
         else if(type == Type.Chest){
-            Debug.Log("HELOOOOO");
+            // Debug.Log("HELOOOOO");
             OnFinishChestWord?.Invoke(this,EventArgs.Empty);
-            Debug.Log("HELOOOOO AAAAAAAAAAAAAAAAAAA");
+            // Debug.Log("HELOOOOO AAAAAAAAAAAAAAAAAAA");
             // adds.WordFinished(playerInventory.GetPlayerInventory(), itemYangNambah, quantity);
         }
         else if(type == Type.Cauldron){

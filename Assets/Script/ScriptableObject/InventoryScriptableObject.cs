@@ -118,7 +118,7 @@ public class InventoryScriptableObject : ScriptableObject
 
     }
     public void TakeItemFromSlot(int position, int quantityTake){
-        Debug.Log("pls..");
+        // Debug.Log("pls..");
         if(!inventSlot[position].isEmpty){
             int remainderQuantity = inventSlot[position].quantity - quantityTake;
             //quantitytake dipastikan ga lebih dr quantity di inventslot
@@ -140,14 +140,14 @@ public class InventoryScriptableObject : ScriptableObject
             else if(remainderQuantity > 0){
                 inventSlot[position].quantity = remainderQuantity;
             }
-            Debug.Log("bruh");
+            // Debug.Log("bruh");
             OnItemUpdate?.Invoke(this, new OnItemUpdateEventArgs{
                 position = position
             });
-            Debug.Log("ei");
+            // Debug.Log("ei");
             
         }
-        Debug.Log("helo..");
+        // Debug.Log("helo..");
     }
     
 

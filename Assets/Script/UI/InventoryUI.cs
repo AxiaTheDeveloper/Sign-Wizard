@@ -423,6 +423,7 @@ public class InventoryUI : MonoBehaviour
     [Header("This is for ChestInvent")]
     [SerializeField]private int[] maxItemShown_PerLevel; // misal lvl 1 ya cuma muncul 3 ingredient prtm doang etc etc
     private int chosen_MaxItem;
+    private bool hi;
     
     private void Awake() {
         if(tipeInventory == TipeInventory.inventoryWithDesc){
@@ -478,9 +479,7 @@ public class InventoryUI : MonoBehaviour
         
         StartCoroutine(DeactivateGameObjectDelayed());
     }
-    private void Update() {
-        // Debug.Log(selectItem);
-    }
+
     private IEnumerator DeactivateGameObjectDelayed()
     {
         yield return null; // Wait for the next frame update
@@ -492,10 +491,13 @@ public class InventoryUI : MonoBehaviour
         
         UpdateVisualInventorySlot(e.position,playerInventory.GetPlayerInventory().inventSlot[e.position]);
     }
+    
+    private void Update() {
+    }
 
     private void otherInventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
     {
-        // Debug.Log("masuk sini");
+
         UpdateVisualInventorySlot(e.position,chestInventory.inventSlot[e.position]);
     }
 
@@ -515,9 +517,12 @@ public class InventoryUI : MonoBehaviour
         // Debug.Log(UI_ItemList[selectItem].transform.position);
         
     }
+
     public void UpdateVisualInventorySlot(int position, InventorySlot item){
         // Debug.Log(position);
+
         if(item.itemSO == null){
+            
             UI_ItemList[position].ResetData();
         }
         else{
@@ -534,7 +539,6 @@ public class InventoryUI : MonoBehaviour
             }
             
         }
-        Debug.Log("eii");
     }
 
     public void SelectItemRight(){
