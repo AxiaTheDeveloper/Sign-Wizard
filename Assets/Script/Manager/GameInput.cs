@@ -99,49 +99,6 @@ public class GameInput : MonoBehaviour
         return lastKeyInput;
     }
 
-    public Vector2 GetLastInputMovementAnimation(){
-        //the ultimate biar dia stuck di diagonal di animasinya
-        if(WitchGameManager.Instance.IsInGame()){
-            if((keyInput != Vector2.zero)){
-            // Debug.Log("Keyinput : " + keyInput);
-                if((keyInput.x != 0 && keyInput.y == 0) || (keyInput.x == 0 && keyInput.y != 0)){
-                    if(!wasDiagonal){
-                        // Debug.Log("Belum Diagonal");
-                        lastKeyInputAnimation = keyInput;
-                    }
-                    else{
-                        // Debug.Log("Pernah Diagonal");
-                        if(diagonalChecker > 0){
-                            // Debug.Log("DiagonalCountdown");
-                            lastKeyInputAnimation = lastDiagonalInput;
-                            diagonalChecker -= Time.deltaTime;
-                        }
-                        else if(diagonalChecker <= 0){
-                            // Debug.Log("Ternyata sudah tidak diagonal");
-                            lastKeyInputAnimation = keyInput;
-                            diagonalChecker = diagonalCheckerMaxTime;
-                            wasDiagonal = false;
-                        }
-                    }
-                }
-                else if(keyInput.x != 0 && keyInput.y != 0){
-                    // Debug.Log("Diagonal");
-                    lastKeyInputAnimation = keyInput;
-                    lastDiagonalInput = keyInput;
-                    wasDiagonal = true;
-                }
-            }
-            else{
-                diagonalChecker = diagonalCheckerMaxTime;
-                wasDiagonal = false;
-            }
-        }
-        
-
-        // Debug.Log(lastKeyInputAnimation);
-        return lastKeyInputAnimation;
-    }
-
     //yang lain
     public bool GetInputInteract(){
         return Input.GetKeyDown(KeyCode.F);

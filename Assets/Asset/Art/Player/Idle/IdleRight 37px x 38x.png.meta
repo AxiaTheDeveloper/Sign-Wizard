@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -588,9 +588,9 @@ TextureImporter:
       IdleRight 37px x 38x_18: 1057819625
       IdleRight 37px x 38x_1: -2094796395
       IdleRight 37px x 38x_16: -596518751
-      IdleRight 37px x 38x_0: -1701230251
       IdleRight 37px x 38x_2: 1716637118
       IdleRight 37px x 38x_3: 870071208
+      IdleRight 37px x 38x_0: -1701230251
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
