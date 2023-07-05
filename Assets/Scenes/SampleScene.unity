@@ -346,7 +346,7 @@ TilemapRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 1.078125, y: 1.15625, z: 0}
+  m_ChunkCullingBounds: {x: 2.65625, y: 2.8125, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -3041,7 +3041,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -17174,11 +17174,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4812652835229335095, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_Size.x
-      value: 1.125
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4812652835229335095, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_Size.y
-      value: 1.25
+      value: 1.3125
       objectReference: {fileID: 0}
     - target: {fileID: 4812652835229335095, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_Sprite
@@ -17224,6 +17224,10 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 1253066116}
+    - target: {fileID: 5684377240713654881, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
+      propertyPath: speedMovement
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5684377240713654882, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: interactDistance
       value: 1

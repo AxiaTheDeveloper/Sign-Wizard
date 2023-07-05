@@ -19,13 +19,6 @@ public class PlayerAnimator : MonoBehaviour
     private void Update() {
 
         keyInput = GameInput.Instance.GetInputMovement();
-        lastKeyInput = GameInput.Instance.GetLastInputMovementAnimation();
-        
-        animatorController.SetFloat(ANIMATOR_HORIZONTAL, keyInput.x);
-        animatorController.SetFloat(ANIMATOR_VERTICAL, keyInput.y);
-        animatorController.SetFloat(ANIMATOR_LAST_HORIZONTAL, lastKeyInput.x);
-        animatorController.SetFloat(ANIMATOR_LAST_VERTICAL, lastKeyInput.y);
-        animatorController.SetFloat(ANIMATOR_SPEED, keyInput.sqrMagnitude);
 
     }
 }
