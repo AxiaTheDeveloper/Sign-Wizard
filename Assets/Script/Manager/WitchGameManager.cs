@@ -17,24 +17,13 @@ public class WitchGameManager : MonoBehaviour
 
 
     public enum InterfaceType{
-        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime, InterfaceBed
+        InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime, InterfaceBed, InterfaceDoor, InterfaceQuestBox
     }
     private InterfaceType interfaceType, saveInterfaceType_forPause;
     private void Awake() {
         Instance = this;
-        state = gameState.InGame;
-        // Debug.Log(state);
-    }
-    private void Start() {
-        // state = gameState.InGame; // ini tergantung sih mo drmn dl
-        //baca save 
-
-        //inicontoh doang...
-        // Debug.Log(state);
         
-
-    }
-    private void Update() {
+        state = gameState.Cinematic;
         // Debug.Log(state);
     }
 

@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour
     private void Awake(){
         // gameManager = WitchGameManager.Instance;
         //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
-        if(playerSave.GetIsReset()){
+        if(playerSave.GetIsReset() || playerSave.GetIsPlayerFromOutside()){
             chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
             chestInventorySize = chestInventory.size;
             EditorUtility.SetDirty(chestInventory);
@@ -57,7 +57,6 @@ public class Chest : MonoBehaviour
             // Debug.Log("Keluarkan UI playerInventoryFull");
         }
         else{
-
             int selectItem = ChestUI.GetSelectedItem();
             int quantityWant = ChestUI.GetQuantityWant();
             if(quantityWant == 1 && chestInventory.inventSlot[selectItem].quantity == 0){

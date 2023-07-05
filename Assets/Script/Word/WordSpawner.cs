@@ -8,19 +8,17 @@ public class WordSpawner : MonoBehaviour
     [SerializeField]private GameObject displayPrefab_SIBI;
     private GameObject displayPrefab;
     [SerializeField]private Transform parentCanvas;
-    private enum bahasa{
-        BISINDO, SIBI
-    }
-    [SerializeField]private bahasa pilihanBahasa;
 
     [SerializeField]private int fontSize;
     [SerializeField]private Color32 colorFont;
+    private const string PLAYER_PREF_PILIHAN_BAHASA = "pilihanBahasa";
     private void Awake() {
-        if(pilihanBahasa == bahasa.BISINDO){
-            displayPrefab = displayPrefab_BISINDO;
-        }
-        else if(pilihanBahasa == bahasa.SIBI){
+        string pilihanBahasa = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA, "SIBI");
+        if(pilihanBahasa == "SIBI"){
             displayPrefab = displayPrefab_SIBI;
+        }
+        if(pilihanBahasa == "BISINDO"){
+            displayPrefab = displayPrefab_BISINDO;
         }
     }
     public WordUI SpawnWord(){

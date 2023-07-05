@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Bed : MonoBehaviour
+public class Door_Outside : MonoBehaviour
 {
-    // Start is called before the first frame update
+        // Start is called before the first frame update
     [SerializeField]private GameObject BG, charaImage, dialogue;
+    [SerializeField]private CanvasGroup darkBG_effect;
     
     [SerializeField]private GameObject yesNoQuestion;
     [SerializeField]private GameObject Selected_Yes, Selected_No;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private PlayerSaveManager playerSave;
 
-    private bool isResetDay, isSubmitButton; // kalo reset change position player ke bed abis restart scene
+    private bool wantTo_GoIn, isSubmitButton; // kalo reset change position player ke bed abis restart scene
     private void Start(){
-        playerInventory.OnQuitBed += playerInventory_OnQuitBed;
-        playerInventory.OnSubmitBed += playerInventory_OnSubmitBed;
+        darkBG_effect.alpha = 0f;
+        playerInventory.OnQuitDoor += playerInventory_OnQuitDoor;
+        playerInventory.OnSubmitDoor += playerInventory_OnSubmitDoor;
         BG.SetActive(false);
         isSubmitButton = false;
-        isResetDay = false;
+        wantTo_GoIn = false;
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
@@ -29,26 +31,31 @@ public class Bed : MonoBehaviour
 
     }
 
-    private void playerInventory_OnSubmitBed(object sender, EventArgs e)
+    private void playerInventory_OnSubmitDoor(object sender, EventArgs e)
     {
         isSubmitButton = true;
         
-        if(!isResetDay){
+        if(!wantTo_GoIn){
             HideDialogue();
         }
         else{
             HideDialogue();
-            fadeNight.ShowUI();
+            gameManager.ChangeToCinematic();
+            playerSave.ChangePlayerMode(levelMode.MakingPotion);
+            darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
+                () => playerSave.ResetDay_Sleep()
+            );
+        
         }
     }
 
-    private void playerInventory_OnQuitBed(object sender, EventArgs e)
+    private void playerInventory_OnQuitDoor(object sender, EventArgs e)
     {
         HideDialogue();
     }
 
     private void Selected_On(){
-        if(isResetDay){
+        if(wantTo_GoIn){
             Selected_Yes.SetActive(true);
             Selected_No.SetActive(false);
         }
@@ -65,7 +72,7 @@ public class Bed : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
         // Debug.Log(line.finished);
-        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceBed);
+        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceDoor);
         line.ChangeFinished_false();
         yesNoQuestion.SetActive(true);
 
@@ -84,7 +91,7 @@ public class Bed : MonoBehaviour
     public void HideDialogue(){
         BG.SetActive(false);
         isSubmitButton = false;
-        isResetDay = false;
+        wantTo_GoIn = false;
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
@@ -97,10 +104,11 @@ public class Bed : MonoBehaviour
     }
 
     public void Change_YesNo(){
-        isResetDay = !isResetDay;
+        wantTo_GoIn = !wantTo_GoIn;
         Selected_On();
     }
-    public bool GetIsResetDay(){
-        return isResetDay;
+    public bool GetWantToGoIn(){
+        return wantTo_GoIn;
     }
+
 }

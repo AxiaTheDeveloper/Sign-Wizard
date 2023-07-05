@@ -15,5 +15,15 @@ MonoBehaviour:
   levelQuest: 1
   potionWantList:
   - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
-  QuestDescription: Bring me this Potion A
-  QuestLog: '- 1 Potion A'
+  Quest_Title: A little favor
+  QuestDescription: '"Aku minta ramuan Dewdrop Elixir untuk memberikan kesegaran
+    dan kelembutan yang menenangkan bagi tubuhku"'
+  QuestTask: '- Ke Book Shelf untuk cek Resep untuk Dewdrop Elixir
+
+    - Ke Chest
+    ambil 1 Air, 2 Daun. 1 Herbal.
+
+    - Ke Cauldron masukin bahan sesuai urutan
+    kemudian lock api di suhu kecil.
+
+    - Kirim lewat Magical Owl.'

@@ -6,7 +6,7 @@ using UnityEngine;
 //buat the whole inventory
 
 public class InventoryOnly{
-    private bool keepMoveRight,keepMoveLeft;
+    private bool keepMoveRight,keepMoveLeft, move;
     public int SelectItemRight(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize){
         // Debug.Log("Hi bich");
         keepMoveRight = true;
@@ -110,15 +110,32 @@ public class InventoryOnly{
         return selectItemHere;
     }
     public void ShowInventoryUI(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
-        WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
-
-        UI.SetActive(true);
+        WitchGameManager gameManager = WitchGameManager.Instance; 
+        if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest){
+            gameManager.ChangeInterfaceType(pilihanInterface);
+            RectTransform ui_rect = UI.GetComponent<RectTransform>();
+            ui_rect.anchoredPosition = new Vector3(-362.5f, -900, 0); 
+            LeanTween.move(ui_rect, new Vector3(-362.5f, 25, 0), 0.2f);
+            UI.SetActive(true);
+            move = true;
+        }
+        else{
+            move = false;
+            RectTransform ui_rect = UI.GetComponent<RectTransform>();
+            ui_rect.anchoredPosition = new Vector3(-362.5f, 25, 0); 
+            gameManager.ChangeInterfaceType(pilihanInterface);
+            UI.SetActive(true);
+        }
         // inventUIDesc.EmptyDescUI();
         // UpdateVisual_InventDescription();
     }
     public void HideInventoryUI(GameObject UI){
         WitchGameManager.Instance.ChangeToInGame();
-
+        if(move){
+            move = false;
+            RectTransform ui_rect = UI.GetComponent<RectTransform>();
+            LeanTween.move(ui_rect, new Vector3(-362.5f, -900, 0), 0.2f);
+        }
         UI.SetActive(false);
         
         
@@ -204,7 +221,8 @@ public class InventoryWithDesc : InventoryOnly{
     
     public void ShowInventoryUI_Desc(WitchGameManager.InterfaceType pilihanInterface, GameObject UI, InventoryUIDesc inventUIDesc, List<InventoryItemUI> UI_ItemList, int selectItem, int quantity_Want){
         // Debug.Log("show");
-        ShowInventoryUI(pilihanInterface, UI);
+        WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
+        UI.SetActive(true);
         inventUIDesc.EmptyDescUI();
         UpdateVisual_InventDescription(UI_ItemList, selectItem, inventUIDesc, quantity_Want);
     }
@@ -313,7 +331,12 @@ public class InventoryPenumbuk : InventoryOnly{
     public void ShowInventoryUI_Penumbuk(WitchGameManager.InterfaceType pilihanInterface, GameObject UI){
         // Debug.Log("show");
         WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
-        
+
+        RectTransform ui_rect = UI.GetComponent<RectTransform>();
+        ui_rect.anchoredPosition = new Vector3(0f, -900, 0); 
+        LeanTween.move(ui_rect, new Vector3(0f, 25, 0), 0.2f);
+
+
         UI.SetActive(true);
         hasSelectItem = false;
         // Debug.Log("show" + UI.activeSelf);
@@ -340,8 +363,6 @@ public class InventoryPenumbuk : InventoryOnly{
                     OnItemPenumbuk?.Invoke(this, new OnItemPenumbukEventArgs{
                         Position = selectItem, isAdd = true
                     });
-                    
-                    
                 }
                 else{
                     DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.bukanBahanTumbukan_InventoryUI, UI_item.GetItemData().itemName);
@@ -356,7 +377,10 @@ public class InventoryPenumbuk : InventoryOnly{
         if(hasSelectItem){
             SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList);//deselect item
         }
-        
+        RectTransform ui_rect = UI.GetComponent<RectTransform>();
+        ui_rect.anchoredPosition = new Vector3(0, 25, 0); 
+        LeanTween.move(ui_rect, new Vector3(0, -900, 0), 0.2f);
+
         HideInventoryUI(UI);
     }
 
@@ -367,6 +391,9 @@ public class InventoryPenumbuk : InventoryOnly{
 
     }
     public void HideUI_Penumbuk_Tapi_PenumbukIsOpen(GameObject UI){
+        RectTransform ui_rect = UI.GetComponent<RectTransform>();
+        ui_rect.anchoredPosition = new Vector3(0, 25, 0); 
+        LeanTween.move(ui_rect, new Vector3(0, -900, 0), 0.2f);
 
         HideInventoryUI(UI);
     }
@@ -477,14 +504,11 @@ public class InventoryUI : MonoBehaviour
             chestInventory.OnItemUpdate += otherInventory_OnItemUpdate;
         }
         
-        StartCoroutine(DeactivateGameObjectDelayed());
-    }
-
-    private IEnumerator DeactivateGameObjectDelayed()
-    {
-        yield return null; // Wait for the next frame update
+        // StartCoroutine(DeactivateGameObjectDelayed());
         gameObject.SetActive(false);
     }
+
+
 
     private void inventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
     {
@@ -714,6 +738,26 @@ public class InventoryUI : MonoBehaviour
         //updet semua
         for(int i=0;i<inventorySize;i++){
             UpdateVisualInventorySlot(i,inventory.inventSlot[i]);
+            
+        }
+    }
+
+    public void moveChestUI(bool moveRight){
+        if(tipeInventory == TipeInventory.inventoryWithDesc){
+            
+            if(moveRight){
+                inventUIDesc.Show_Hide_WordPlace();
+                RectTransform rect = GetComponent<RectTransform>();
+                LeanTween.move(rect, new Vector3(850f, 25f, 0f), 0.2f);
+            }
+            else{
+                RectTransform rect = GetComponent<RectTransform>();
+                LeanTween.move(rect, new Vector3(0f, 25f, 0f), 0.2f).setOnComplete(
+                    ()=>inventUIDesc.Show_Hide_WordPlace()
+                );
+                
+            }
+
             
         }
     }

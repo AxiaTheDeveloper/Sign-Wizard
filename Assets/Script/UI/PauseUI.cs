@@ -12,7 +12,7 @@ public class PauseUI : MonoBehaviour
     [SerializeField]private Button resumeButton, mainButton;
     
     [SerializeField]private float escapeCooldownTimerMax;
-    private float escapeCooldownTimer;
+    private float escapeCooldownTimer = 0;
 
     private void Awake() {
         resumeButton.onClick.AddListener(() => {
@@ -23,7 +23,7 @@ public class PauseUI : MonoBehaviour
     }
     void Start()
     {
-        escapeCooldownTimer = 0;
+        // escapeCooldownTimer = 0;
         HideUI();
     }
 

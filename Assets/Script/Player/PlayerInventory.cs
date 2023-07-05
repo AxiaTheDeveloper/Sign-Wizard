@@ -19,13 +19,14 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice, OnQuitBed, OnSubmitBed; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion, OnQuitBed & OnSubmitBed buat Bed
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice, OnQuitBed, OnSubmitBed, OnQuitDoor, OnSubmitDoor, OnQuitQuestBox; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion, OnQuitBed & OnSubmitBed buat Bed, OnQuitDoor & OnSubmitDoor buat Door_Outside, OnQuitQuestBox di QuestBox
     private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
 
     [SerializeField]private SubmitPotionUI submitUI;
     [SerializeField]private Bed bed;
+    [SerializeField]private Door_Outside door;
     
     [SerializeField]private float inputCooldownTimerMax;
     private float inputCooldownTimer;
@@ -55,7 +56,7 @@ public class PlayerInventory : MonoBehaviour
         //Open Inventory
         if(gameManager.IsInGame()){
             
-            if(gameInput.GetInputOpenInventory() && !isInventoryOpen){
+            if(gameInput.GetInputOpenInventory() && !isInventoryOpen && !PlayerSaveManager.Instance.GetIsPlayerFromOutside()){
                 // Debug.Log("Hi Open");
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;
@@ -68,6 +69,7 @@ public class PlayerInventory : MonoBehaviour
                     if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen()) && inputCooldownTimer <= 0){
                         inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
+                        ChestInventoryUI.moveChestUI(false);
                         isInventoryOpen = false;
                         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest); 
                         
@@ -135,6 +137,7 @@ public class PlayerInventory : MonoBehaviour
             if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 inventoryUI.ShowInventoryUI();
+                ChestInventoryUI.moveChestUI(true);
                 isInventoryOpen = true;
                 WordInput.Instance.UndoInputLetterManyWords();
                 
@@ -215,13 +218,31 @@ public class PlayerInventory : MonoBehaviour
             }
             InputArrowInventory_SubmitBedChoice();
         }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceDoor){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnQuitDoor?.Invoke(this, EventArgs.Empty);
+            }
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnSubmitDoor?.Invoke(this,EventArgs.Empty);
+            }
+            InputArrowInventory_DoorChoice();
+        }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceQuestBox){
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnQuitQuestBox?.Invoke(this, EventArgs.Empty);
+            }
+
+        }
         if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
             inputCooldownTimer -= Time.deltaTime;
         }
         if(gameManager.IsInGame() && inputCooldownTimer <= 0 ){
             inputCooldownTimer = inputCooldownTimerMax;
         }
-        // Debug.Log(inputCooldownTimer);
+        
         
     }
 
@@ -278,6 +299,21 @@ public class PlayerInventory : MonoBehaviour
         else if(keyInputArrowUI.y == -1){
             if(bed.GetIsResetDay()){
                 bed.Change_YesNo();
+            }
+        }
+
+    }
+
+    private void InputArrowInventory_DoorChoice(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        if(keyInputArrowUI.y == 1){
+            if(!door.GetWantToGoIn()){
+                door.Change_YesNo();
+            }
+        }
+        else if(keyInputArrowUI.y == -1){
+            if(door.GetWantToGoIn()){
+                door.Change_YesNo();
             }
         }
 

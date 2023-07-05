@@ -6,20 +6,36 @@ public class QuestManager : MonoBehaviour
 {
     [SerializeField]private PlayerSaveManager playerSaveManager;
     [SerializeField]private QuestScriptableObject[] questList;
+    private QuestScriptableObject quest;
+    [SerializeField]private QuestScriptableObject noQuest;
     private int levelNow, totalPotion;
     private ItemScriptableObject[] potionList;
     private List<bool> isPotionCheck_Right; // untuk check apakah si potion di array yang sama uda sama dengan potion yang dikirim belom
     //misal quest butuh 2 potion A (gbs di stack ato mungkin bisa ? lol, ya ini misal kalo gabisa), trus potion A, potion A, yang dikasih misal potion A dn B, misal potion A array 0 udah di cek oh bener, brarti break, brearti pas pengecekan potion B, si array 0 gausa di cek, cuma buat itu doang, yea smth like that lol
+
+    [SerializeField]private QuestLogUI questUI;
     private void Awake() {
         levelNow = playerSaveManager.GetPlayerLevel();
-        totalPotion = questList[levelNow].totalPotion;
-        potionList = questList[levelNow].potionWantList;
+        quest = questList[levelNow];
+        totalPotion = quest.totalPotion;
+        potionList = quest.potionWantList;
+        
     }
-    private void Start() {
+    private void Start(){
+        if(playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
+            questUI.SetData(noQuest);
+        }
+        else if(playerSaveManager.GetPlayerLevelMode() == levelMode.MakingPotion){
+            questUI.SetData(quest);
+        }
+
+        
+        
         isPotionCheck_Right = new List<bool>();
         for(int i=0;i<totalPotion;i++){
             isPotionCheck_Right.Add(false);
         }
+        
     }
 
     public bool CheckPotion(List<CauldronItem> cauldronItems){
@@ -56,7 +72,6 @@ public class QuestManager : MonoBehaviour
         }
     }
     public int GetTotalPotionNeed(){
-        // Debug.Log(levelNow + "" + questList[levelNow].totalPotion);
         return totalPotion;
     }
 }

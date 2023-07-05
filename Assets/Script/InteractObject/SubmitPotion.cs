@@ -59,7 +59,7 @@ public class SubmitPotion : MonoBehaviour
 
             //mulai timeline or anything
             if(isPotionMatch){
-                //multai timeline
+                dialogueManager.ShowDialogue_KirimPotion();
             }
             else{
                 dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion);

@@ -39,7 +39,22 @@ public class TheDictionary
 public class TheBed
 {
     public void OpenUI(Bed bed){
+
         bed.ShowDialogue();
+    }
+}
+
+public class TheDoor
+{
+    public void OpenUI(Door_Outside door){
+
+        door.ShowDialogue();
+    }
+}
+public class TheQuestBox
+{
+    public void OpenUI(QuestBox questBox){
+        questBox.ShowUI();
     }
 }
 
@@ -47,7 +62,7 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox
     }
     public ObjectType type;
 
@@ -57,6 +72,8 @@ public class InteractObject : MonoBehaviour
     private TheSubmit submit;
     private TheDictionary dictionary;
     private TheBed bed;
+    private TheDoor door;
+    private TheQuestBox questBox;
 
     [SerializeField]private Chest Chest;
     [SerializeField]private Cauldron Cauldron;
@@ -64,11 +81,11 @@ public class InteractObject : MonoBehaviour
     [SerializeField]private SubmitPotion Submit;
     [SerializeField]private DictionaryUI Dictionary;
     [SerializeField]private Bed Bed;
+    [SerializeField]private Door_Outside Door;
+    [SerializeField]private QuestBox QuestBox;
 
 
     private void Start() {
-        
-        
         
         if(type == ObjectType.TheCauldron){
             cauldron = new TheCauldron();
@@ -88,6 +105,12 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheBed){
             bed = new TheBed();
         }
+        if(type == ObjectType.TheDoor){
+            door = new TheDoor();
+        }
+        if(type == ObjectType.TheQuestBox){
+            questBox = new TheQuestBox();
+        }
     }
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
@@ -100,13 +123,32 @@ public class InteractObject : MonoBehaviour
             penumbuk.OpenUI(Penumbuk);
         }
         if(type == ObjectType.TheSubmitPotion){
-            submit.OpenUI(Submit);
+            PlayerSaveManager playerSave = PlayerSaveManager.Instance;
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                submit.OpenUI(Submit);
+            }
+            
         }
         if(type == ObjectType.TheDictionary){
             dictionary.OpenUI(Dictionary);
         }
         if(type == ObjectType.TheBed){
             bed.OpenUI(Bed);
+        }
+        if(type == ObjectType.TheDoor){
+            if(QuestBox.GetHasCheckFirstTime()){
+                door.OpenUI(Door);
+            }
+            else{
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+            }
+        }
+
+        if(type == ObjectType.TheQuestBox){
+            questBox.OpenUI(QuestBox);
         }
     }
 }

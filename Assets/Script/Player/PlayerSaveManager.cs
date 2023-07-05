@@ -7,22 +7,39 @@ public class PlayerSaveManager : MonoBehaviour
 {
     public static PlayerSaveManager Instance{get; private set;}
     [SerializeField]private PlayerSave playerSaveSO;
+    private Transform playerPosition;
+    [SerializeField]private Transform bedPlayerPosition;
 
-    private bool hasReset;
+    private bool hasReset = false, hasDone_Go_Out_Dialogue = false;
     private void Awake() {
         Instance = this;
-        hasReset = false;
-        if(playerSaveSO.isResetDay){
-            //change position player jgn lupa
+        // hasReset = false;
+        if(playerSaveSO.isResetDay || playerSaveSO.isSubmitPotion){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = bedPlayerPosition.position;
         }
     }
     private void Update() {
-        if(hasReset && playerSaveSO.isResetDay){
-            playerSaveSO.isResetDay = false;
+        if(hasReset){
+            if(playerSaveSO.isResetDay){
+                playerSaveSO.isResetDay = false;
+            }
+            else if(playerSaveSO.isFromOutside){
+                playerSaveSO.isFromOutside = false;
+            }
+            
+        }
+        if(hasDone_Go_Out_Dialogue && playerSaveSO.isSubmitPotion){
+            playerSaveSO.isSubmitPotion = false;
         }
     }
     public void HasReset(){
         hasReset = true;
+        Debug.Log(hasReset);
+    }
+    public void HasDone_GoOutDialogue(){
+        hasDone_Go_Out_Dialogue = true;
+        Debug.Log(hasReset);
     }
 
 
@@ -61,10 +78,24 @@ public class PlayerSaveManager : MonoBehaviour
 
     public void ResetDay_Sleep(){
         playerSaveSO.isResetDay = true;
-        //restart scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("InDoor");
+    }
+    public void ResetDay_SubmitPotion(){
+        playerSaveSO.isSubmitPotion = true;
+        SceneManager.LoadScene("InDoor"); // ntr kuganti jd nama scene saja
+    }
+    public void Go_OutsideNow(){
+        playerSaveSO.isFromOutside = true;
+        SceneManager.LoadScene("OutDoor");
     }
     public bool GetIsReset(){
         return playerSaveSO.isResetDay;
     }
+    public bool GetIsPlayerFromOutside(){
+        return playerSaveSO.isFromOutside;
+    }
+    public bool GetIsSubmitPotion(){
+        return playerSaveSO.isSubmitPotion;
+    }
+
 }

@@ -8,10 +8,13 @@ public class QuestScriptableObject : ScriptableObject
     public int levelQuest;
     public ItemScriptableObject[] potionWantList;
     public int totalPotion => potionWantList.Length;
+
+    public string Quest_Title;
+
     [field : TextArea]
     public string QuestDescription;
     [field : TextArea]
-    public string QuestLog;
+    public string QuestTask;
 
     
 

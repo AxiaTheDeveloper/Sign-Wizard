@@ -15,12 +15,13 @@ public class InventoryUIDesc : MonoBehaviour
     [SerializeField]private WordManager wordManager_Chest;
     [SerializeField]private GameObject wordPlace_GameObject;
     [SerializeField]WordInput wordInput;
+    private bool isFirsTime;
 
     private void Awake() {
         EmptyDescUI();
     }
     private void Start() {
-        
+        isFirsTime = true;
     }
     public void EmptyDescUI(){
         item_Image.gameObject.SetActive(false);
@@ -32,6 +33,14 @@ public class InventoryUIDesc : MonoBehaviour
         wordPlace_GameObject.SetActive(false);
         wholeQuantity.SetActive(false);
 
+    }
+    public void Show_Hide_WordPlace(){
+        if(wordPlace_GameObject.activeSelf){
+            wordPlace_GameObject.SetActive(false);
+        }
+        else{
+            wordPlace_GameObject.SetActive(true);
+        }
     }
     public void SetItemDataDesc(Sprite spriteItem, string itemTitle, string itemDesc, int quantityWant, Transform posisiWord){
         item_Image.sprite = spriteItem;
@@ -45,7 +54,13 @@ public class InventoryUIDesc : MonoBehaviour
         wordManager_Chest.changeTheWord(itemTitle);
         
         // Debug.Log(posisiWord.position);
-        wordPlace_GameObject.transform.position = posisiWord.position;
+        
+        if(isFirsTime){
+            isFirsTime = false;
+        }
+        else{
+            wordPlace_GameObject.transform.position = posisiWord.position;
+        }
         
         wordPlace_GameObject.SetActive(true);
     }
