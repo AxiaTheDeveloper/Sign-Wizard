@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59921e1701671d24ba17d5887a55ecc6, type: 3}
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
-  level: 2
-  modeLevel: 1
+  level: 3
+  modeLevel: 0
   isResetDay: 0
-  isFromOutside: 0
+  isFromOutside: 1
   isSubmitPotion: 0

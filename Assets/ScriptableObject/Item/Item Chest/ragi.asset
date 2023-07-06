@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: ragi
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 0931a2a82bdc21d45a26dfee529a05b7, type: 3}
   isFromChest: 1
   maxStack: 1
   Desc: Mikroorganisme yang digunakan dalam proses fermentasi untuk menghasilkan

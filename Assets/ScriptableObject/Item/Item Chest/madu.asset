@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: madu
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3ea1151a436793f4a95f70bb99e2005b, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Cairan manis yang diproduksi oleh lebah, digunakan dalam ramuan sebagai pemanis
-    alami serta memberikan sifat antimikroba.
+  Desc: Cairan kental yang digunakan dalam ramuan sebagai pemanis alami serta memberikan
+    sifat antimikroba.

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: lemon
   type: 1
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 4ec8565717186c647b442573a26416cd, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Buah yang asam dan segar, digunakan dalam ramuan untuk memberikan rasa asam

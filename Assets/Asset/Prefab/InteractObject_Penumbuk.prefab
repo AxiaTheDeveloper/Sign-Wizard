@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9109023583913222106, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85b5bf87a8743404abb4181234157a32, type: 3}
     - target: {fileID: 9109023584731141660, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109023584731141661, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
       propertyPath: m_Name
-      value: InteractObject
+      value: InteractObject_Penumbuk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: golden energy brew
   type: 2
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 93a69ec0739dd6e4ca626972df02973d, type: 3}
   isFromChest: 0
   maxStack: 1
   Desc: Minuman energi berwarna keemasan yang dibuat dengan perpaduan biji, gandum,

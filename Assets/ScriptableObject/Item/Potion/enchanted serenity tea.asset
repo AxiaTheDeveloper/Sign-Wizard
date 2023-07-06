@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: enchanted serenity tea
   type: 2
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 77f2d958950cfb04ead179fede47616d, type: 3}
   isFromChest: 0
   maxStack: 1
   Desc: Teh ajaib yang memiliki keajaiban kesederhanaan dalam setiap tegukan. Dibuat

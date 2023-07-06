@@ -22,12 +22,20 @@ public class QuestManager : MonoBehaviour
         
     }
     private void Start(){
-        if(playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
-            questUI.SetData(noQuest);
+        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
+            if(playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
+                // Debug.Log("test");
+                questUI.SetData(noQuest);
+            }
+            else if(playerSaveManager.GetPlayerLevelMode() == levelMode.MakingPotion){
+                // Debug.Log("gelooo");
+                questUI.SetData(quest);
+            }
         }
-        else if(playerSaveManager.GetPlayerLevelMode() == levelMode.MakingPotion){
-            questUI.SetData(quest);
+        else{
+            //isi data yg d luar
         }
+        
 
         
         

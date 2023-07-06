@@ -18,6 +18,10 @@ public class PlayerSaveManager : MonoBehaviour
             playerPosition = GetComponent<Transform>();
             playerPosition.position = bedPlayerPosition.position;
         }
+        if(playerSaveSO.isFromOutside){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = new Vector3(-1f,-7.75f,0f);
+        }
     }
     private void Update() {
         if(hasReset){
@@ -35,11 +39,11 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public void HasReset(){
         hasReset = true;
-        Debug.Log(hasReset);
+        // Debug.Log(hasReset);
     }
     public void HasDone_GoOutDialogue(){
         hasDone_Go_Out_Dialogue = true;
-        Debug.Log(hasReset);
+        // Debug.Log(hasReset);
     }
 
 

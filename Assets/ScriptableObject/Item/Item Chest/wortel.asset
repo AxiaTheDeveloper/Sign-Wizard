@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: wortel
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 5f0ed1959afd64846841e8f1c0dff678, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Akar sayuran yang memberikan rasa manis dan memberikan nutrisi serta warna

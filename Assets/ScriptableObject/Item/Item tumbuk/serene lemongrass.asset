@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: serene lemongrass
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: fc00847c943958c48b0fe8c78f25b0ef, type: 3}
   isFromChest: 0
   maxStack: 10
   Desc: Serai yang memberikan ketenangan dan kedamaian dengan aroma yang menenangkan.

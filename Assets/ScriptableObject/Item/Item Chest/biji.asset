@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: biji
   type: 1
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: d78bf870455bcff4999622914478b3a4, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Komponen tanaman yang bisa digunakan untuk ekstraksi minyak, memberikan rasa,

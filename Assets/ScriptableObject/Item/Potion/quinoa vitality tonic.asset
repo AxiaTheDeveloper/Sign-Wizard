@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: quinoa vitality tonic
   type: 2
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: b95801093c16c1c459482efcb9dd786b, type: 3}
   isFromChest: 0
   maxStack: 1
   Desc: Tonik yang berasal dari quinoa, diperkuat dengan menggunakan api sedang.

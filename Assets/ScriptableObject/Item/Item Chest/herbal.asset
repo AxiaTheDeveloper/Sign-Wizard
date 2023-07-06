@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: herbal
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: dd272ca9f8ae05f4d83d47c6e67ef339, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Mengacu pada berbagai bahan tumbuhan yang memiliki sifat penyembuhan atau

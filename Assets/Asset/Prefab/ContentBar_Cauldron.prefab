@@ -9,19 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 236273963517456575, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.5
       objectReference: {fileID: 0}
     - target: {fileID: 1932533550557271205, guid: e383e84083e9773479a35476200828ef, type: 3}
       propertyPath: m_AnchorMax.y

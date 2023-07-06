@@ -20,13 +20,20 @@ public class WitchGameManager : MonoBehaviour
         InventoryTime, InventoryAndCauldron, CauldronFire, InventoryAndChest, QuantityTime, none, InventoryAndPenumbuk, TumbukTime, InventoryAndSubmit, SubmitPotion, DictionaryTime, InterfaceBed, InterfaceDoor, InterfaceQuestBox
     }
     private InterfaceType interfaceType, saveInterfaceType_forPause;
+
+    public enum Place{
+        indoor, outdoor, none
+    }
+    [SerializeField]private Place place;
     private void Awake() {
         Instance = this;
         
         state = gameState.Cinematic;
         // Debug.Log(state);
     }
-
+    public Place GetPlace(){
+        return place;
+    }
     public void ChangeToInGame(){
         interfaceType = InterfaceType.none;
         state = gameState.InGame;

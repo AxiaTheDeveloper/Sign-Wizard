@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: jahe
   type: 1
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 2132ad0d33bce5341a1853ff2977ee3f, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Akar tanaman jahe yang memiliki rasa pedas dan digunakan dalam ramuan untuk
-    manfaat kesehatan serta memberikan rasa hangat.
+  Desc: Akar tanaman yang memiliki rasa pedas dan digunakan dalam ramuan untuk manfaat
+    kesehatan serta memberikan rasa hangat.

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: fennel
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 2ece0a430dc5ec64a81e83746b7e5687, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Biji tumbuhan adas yang digunakan dalam ramuan untuk memberikan aroma dan

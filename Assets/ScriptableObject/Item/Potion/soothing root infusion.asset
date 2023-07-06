@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: soothing root infusion
   type: 2
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 677d29dd4a4eb2b40bd543e7c1d9fffa, type: 3}
   isFromChest: 0
   maxStack: 1
   Desc: Infusi yang terbuat dari akar herbal yang berkhasiat menenangkan. Dengan

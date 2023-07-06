@@ -183,7 +183,7 @@ public class Cauldron : MonoBehaviour
             Debug.Log(recipe);
             bool isContainMatch = true;
             if(cauldronItems.Count == recipe.ingredientArray.Length){
-                Debug.Log("hmm >");
+                // Debug.Log("hmm >");
                 for(int j=0;j<cauldronItems.Count;j++){
                     if(recipe.ingredientArray[j].ingredientName != cauldronItems[j].itemSO){
                         isContainMatch = false;

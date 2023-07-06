@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: air
   type: 0
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: e28fec251fc612449ae664822a81d387, type: 3}
   isFromChest: 1
   maxStack: 10
   Desc: Bahan dasar yang penting dalam pembuatan ramuan. Memberikan hidrasi dan menjadi

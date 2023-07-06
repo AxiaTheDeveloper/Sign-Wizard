@@ -1813,6 +1813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0349eebeb02d64b8091479207dbcb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  place: 1
 --- !u!1 &606736505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9276,7 +9277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   director: {fileID: 1274972593}
   cauldronSuccess: {fileID: 11400000, guid: 58680b727263ff44e95b477adacb4de0, type: 2}
+  goOutside: {fileID: 0}
   cauldron: {fileID: 0}
+  fadeNight: {fileID: 0}
 --- !u!1 &1281089770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9606,6 +9609,7 @@ MonoBehaviour:
   gameManager: {fileID: 594276696}
   dialogueManager: {fileID: 1704590200}
   nextDay_Text: {fileID: 1512105711}
+  outsideLight: {fileID: 0}
 --- !u!1 &1463375461
 GameObject:
   m_ObjectHideFlags: 0
