@@ -12,6 +12,7 @@ public class QuestBox : MonoBehaviour
     
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private QuestManager questManager;
     private bool hasCheckFirstTime = false;
 
     private void Start() {
@@ -26,15 +27,23 @@ public class QuestBox : MonoBehaviour
     }
 
     public void ShowUI(){
-        hasCheckFirstTime = true;
+        
         gameManager.ChangeToCinematic();
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
         LeanTween.move(letter, new Vector3(0, 800f, 0f), 0.2f).setOnComplete(
             ()=> LeanTween.move(questLetter, new Vector3(0, 0, 0f), 0.8f).setDelay(0.2f).setOnComplete(
-                ()=> gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceQuestBox)
+                ()=> Show()
             )
         );
         
+        
+    }
+    private void Show(){
+        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceQuestBox);
+        if(!hasCheckFirstTime){
+            questManager.UpdateData_QuestLog();
+        }
+        hasCheckFirstTime = true;
     }
 
     private void HideUI(){

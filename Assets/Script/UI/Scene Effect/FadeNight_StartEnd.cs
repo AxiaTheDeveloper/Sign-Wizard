@@ -56,7 +56,8 @@ public class FadeNight_StartEnd : MonoBehaviour
         yield return null;
     }
     public void ShowOutsideLight(){
-        LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
+        
+        outsideLight.LeanAlpha(1f, 1.2f).setOnComplete(
             () => playerSave.Go_OutsideNow()
         );
     }
@@ -73,7 +74,7 @@ public class FadeNight_StartEnd : MonoBehaviour
     }
     public void ShowUI_Potion(){
         gameManager.ChangeToCinematic();
-        nightBG.gameObject.GetComponent<Image>().color = Color.black;
+        nightBG.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
         LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
             () => nextDay_Text.LeanAlpha(1f, 1f).setOnComplete(
                 () => nextDay_Text.LeanAlpha(0f, 0.5f).setOnComplete(

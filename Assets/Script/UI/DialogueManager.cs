@@ -64,7 +64,8 @@ public class DialogueManager : MonoBehaviour
     private void dialogueHolder_Go_Out_Dialogue_OnDialogueFinish(object sender, EventArgs e)
     {
         PlayerSaveManager.Instance.HasDone_GoOutDialogue();
-        TimelineManager.Instance.Start_GoOutside();
+        gameManager.ChangeToInGame();
+        // TimelineManager.Instance.Start_GoOutside();
     }
 
     public void ShowDialogue_KirimPotion(){

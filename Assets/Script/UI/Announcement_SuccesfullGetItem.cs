@@ -32,7 +32,7 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
     }
 
     public void Show(){
-        
+        itemImage.gameObject.SetActive(true);
         gameObject.SetActive(true);
 
     }

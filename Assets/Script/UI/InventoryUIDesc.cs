@@ -14,14 +14,12 @@ public class InventoryUIDesc : MonoBehaviour
     [SerializeField]private TextMeshProUGUI quantity_PlayerWant;
     [SerializeField]private WordManager wordManager_Chest;
     [SerializeField]private GameObject wordPlace_GameObject;
+    [SerializeField]private GameObject quantityUI;
     [SerializeField]WordInput wordInput;
-    private bool isFirsTime;
+    private bool isFirsTime = true;
 
     private void Awake() {
         EmptyDescUI();
-    }
-    private void Start() {
-        isFirsTime = true;
     }
     public void EmptyDescUI(){
         item_Image.gameObject.SetActive(false);
@@ -32,7 +30,20 @@ public class InventoryUIDesc : MonoBehaviour
         
         wordPlace_GameObject.SetActive(false);
         wholeQuantity.SetActive(false);
-
+    }
+    private void Update() {
+        if(WitchGameManager.Instance.IsInterfaceType() == WitchGameManager.InterfaceType.QuantityTime){
+            
+            if(!quantityUI.activeSelf){
+                quantityUI.SetActive(true);
+            }
+        }
+        else{
+            if(quantityUI.activeSelf){
+                quantityUI.SetActive(false);
+            }
+            
+        }
     }
     public void Show_Hide_WordPlace(){
         if(wordPlace_GameObject.activeSelf){

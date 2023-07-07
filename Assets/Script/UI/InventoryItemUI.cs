@@ -47,7 +47,10 @@ public class InventoryItemUI : MonoBehaviour
         itemSO = newItemSO;
         // Debug.Log("TEST");
         // Debug.Log(itemImage + "set");
-        itemImage.sprite = itemSO.itemSprite;
+        if(itemImage != null){
+            itemImage.sprite = itemSO.itemSprite;
+        }
+        
 
         quantity_Text.text = quantity.ToString();
         empty = false;

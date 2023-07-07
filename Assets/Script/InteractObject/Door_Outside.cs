@@ -14,10 +14,18 @@ public class Door_Outside : MonoBehaviour
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private PlayerInventory playerInventory;
     [SerializeField]private PlayerSaveManager playerSave;
+    [SerializeField]private FadeNight_StartEnd fadeNight;
+    
+    [field : TextArea]
+    [SerializeField]private string Go_outside_dialogue, Go_inside_dialogue;
+    
 
     private bool wantTo_GoIn, isSubmitButton; // kalo reset change position player ke bed abis restart scene
     private void Start(){
-        darkBG_effect.alpha = 0f;
+        if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+            darkBG_effect.alpha = 0f;
+        }
+        
         playerInventory.OnQuitDoor += playerInventory_OnQuitDoor;
         playerInventory.OnSubmitDoor += playerInventory_OnSubmitDoor;
         BG.SetActive(false);
@@ -41,13 +49,15 @@ public class Door_Outside : MonoBehaviour
         else{
             HideDialogue();
             gameManager.ChangeToCinematic();
-            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
-                playerSave.ChangePlayerMode(levelMode.MakingPotion);
+            if(gameManager.GetPlace() == WitchGameManager.Place.indoor){
+                fadeNight.ShowOutsideLight();
+            }
+            else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+                darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
+                    () => playerSave.Go_InsideNow()
+                );
             }
             
-            darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
-                () => playerSave.ResetDay_Sleep()
-            );
         
         }
     }
@@ -70,8 +80,15 @@ public class Door_Outside : MonoBehaviour
     }
     private IEnumerator dialogueSequence(){
         gameManager.ChangeToCinematic();
+        
         dialogue.SetActive(true);
         DialogueSystem.DialogueLine line = dialogue.GetComponent<DialogueSystem.DialogueLine>();
+        if(gameManager.GetPlace() == WitchGameManager.Place.indoor){
+            line.ChangeInputText(Go_outside_dialogue);
+        }
+        else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+            line.ChangeInputText(Go_inside_dialogue);
+        }
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
         // Debug.Log(line.finished);

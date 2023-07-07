@@ -56,7 +56,7 @@ public class PlayerInventory : MonoBehaviour
         //Open Inventory
         if(gameManager.IsInGame()){
             
-            if(gameInput.GetInputOpenInventory() && !isInventoryOpen && !PlayerSaveManager.Instance.GetIsPlayerFromOutside()){
+            if(gameInput.GetInputOpenInventory() && !isInventoryOpen){
                 // Debug.Log("Hi Open");
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;

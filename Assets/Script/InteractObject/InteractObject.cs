@@ -83,10 +83,11 @@ public class InteractObject : MonoBehaviour
     [SerializeField]private Bed Bed;
     [SerializeField]private Door_Outside Door;
     [SerializeField]private QuestBox QuestBox;
+    private PlayerSaveManager playerSave;
 
 
     private void Start() {
-        
+        playerSave = PlayerSaveManager.Instance;
         if(type == ObjectType.TheCauldron){
             cauldron = new TheCauldron();
         }
@@ -98,6 +99,7 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheSubmitPotion){
             submit = new TheSubmit();
+            questBox = new TheQuestBox();
         }
         if(type == ObjectType.TheDictionary){
             dictionary = new TheDictionary();
@@ -108,29 +110,44 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheDoor){
             door = new TheDoor();
         }
-        if(type == ObjectType.TheQuestBox){
-            questBox = new TheQuestBox();
-        }
     }
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
-            cauldron.OpenUI(Cauldron);
-        }
-        if(type == ObjectType.TheChest){
-            chest.OpenUI(Chest);
-        }
-        if(type == ObjectType.ThePenumbuk){
-            penumbuk.OpenUI(Penumbuk);
-        }
-        if(type == ObjectType.TheSubmitPotion){
-            PlayerSaveManager playerSave = PlayerSaveManager.Instance;
             if(playerSave.GetPlayerLevelMode() == levelMode.outside){
                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
-                submit.OpenUI(Submit);
+                cauldron.OpenUI(Cauldron);
             }
             
+        }
+        if(type == ObjectType.TheChest){
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                chest.OpenUI(Chest);
+            }
+            
+        }
+        if(type == ObjectType.ThePenumbuk){
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                penumbuk.OpenUI(Penumbuk);
+            }
+            
+        }
+        if(type == ObjectType.TheSubmitPotion){
+            if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                submit.OpenUI(Submit);
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                playerSave.ChangePlayerMode(levelMode.MakingPotion);
+                questBox.OpenUI(QuestBox);
+            }
+
         }
         if(type == ObjectType.TheDictionary){
             dictionary.OpenUI(Dictionary);
@@ -139,16 +156,24 @@ public class InteractObject : MonoBehaviour
             bed.OpenUI(Bed);
         }
         if(type == ObjectType.TheDoor){
-            if(QuestBox.GetHasCheckFirstTime()){
-                door.OpenUI(Door);
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor){
+                    if(QuestBox.GetHasCheckFirstTime()){
+                        door.OpenUI(Door);
+                    }
+                    else{
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+                    }
+                }
+                else if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
+                    door.OpenUI(Door);
+                }
+                
             }
-            else{
-                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                door.OpenUI(Door);
             }
         }
 
-        if(type == ObjectType.TheQuestBox){
-            questBox.OpenUI(QuestBox);
-        }
     }
 }

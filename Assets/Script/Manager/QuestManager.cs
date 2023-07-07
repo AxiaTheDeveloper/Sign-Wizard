@@ -43,6 +43,9 @@ public class QuestManager : MonoBehaviour
         }
         
     }
+    public void UpdateData_QuestLog(){
+        questUI.SetData(quest);
+    }
 
     public bool CheckPotion(List<CauldronItem> cauldronItems){
         bool isPotionMatch = true;

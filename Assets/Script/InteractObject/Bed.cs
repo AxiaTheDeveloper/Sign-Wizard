@@ -38,6 +38,7 @@ public class Bed : MonoBehaviour
         }
         else{
             HideDialogue();
+            PlayerSaveManager.Instance.resetDay();
             fadeNight.ShowUI();
         }
     }

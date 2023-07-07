@@ -712,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractObject_SubmitPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 620951555974384936, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
+      propertyPath: QuestBox
+      value: 
+      objectReference: {fileID: 1980060517}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
 --- !u!4 &190583301 stripped
@@ -13201,6 +13205,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921473559}
   m_CullTransparentMesh: 1
+--- !u!1 &1980060514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 620951555974384343, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
+  m_PrefabInstance: {fileID: 190583300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1980060517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980060514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e76f25dfd42b64f8169403e26167f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questLetter: {fileID: 1463375462}
+  letter: {fileID: 2088312576}
+  gameManager: {fileID: 594276696}
+  playerInventory: {fileID: 4812652835541765473}
+  questManager: {fileID: 31786008}
 --- !u!1 &2003135139
 GameObject:
   m_ObjectHideFlags: 0
@@ -14104,6 +14130,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1603845781}
     - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
+      propertyPath: fadeNight
+      value: 
+      objectReference: {fileID: 1442504013}
+    - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
       propertyPath: charaImage
       value: 
       objectReference: {fileID: 1285394100}
@@ -14135,6 +14165,14 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 4812652835541765473}
+    - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
+      propertyPath: Go_inside_dialogue
+      value: Mau masuk?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
+      propertyPath: Go_outside_dialogue
+      value: Mau keluar?
+      objectReference: {fileID: 0}
     - target: {fileID: 5148750359772352886, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
       propertyPath: QuestBox
       value: 
@@ -14507,6 +14545,10 @@ PrefabInstance:
     - target: {fileID: 33320875998766632, guid: d376661a099d24641b715d050345e93a, type: 3}
       propertyPath: m_Name
       value: InteractObject_QuestBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 33320875998766632, guid: d376661a099d24641b715d050345e93a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 33320875998766633, guid: d376661a099d24641b715d050345e93a, type: 3}
       propertyPath: m_RootOrder

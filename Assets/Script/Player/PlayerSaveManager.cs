@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class PlayerSaveManager : MonoBehaviour
 {
@@ -10,42 +11,33 @@ public class PlayerSaveManager : MonoBehaviour
     private Transform playerPosition;
     [SerializeField]private Transform bedPlayerPosition;
 
+
     private bool hasReset = false, hasDone_Go_Out_Dialogue = false;
     private void Awake() {
         Instance = this;
-        // hasReset = false;
-        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
-            if(playerSaveSO.isResetDay || playerSaveSO.isSubmitPotion){
-                playerPosition = GetComponent<Transform>();
-                playerPosition.position = bedPlayerPosition.position;
-            }
-            if(playerSaveSO.isFromOutside){
-                playerPosition = GetComponent<Transform>();
-                playerPosition.position = new Vector3(-1f,-7.75f,0f);
-            }
-        }
+
         
     }
-    private void Update() {
-        if(hasReset){
-            if(playerSaveSO.isResetDay){
-                playerSaveSO.isResetDay = false;
-            }
-            else if(playerSaveSO.isFromOutside){
-                playerSaveSO.isFromOutside = false;
-            }
-            
-        }
-        if(hasDone_Go_Out_Dialogue && playerSaveSO.isSubmitPotion){
-            playerSaveSO.isSubmitPotion = false;
-        }
-    }
+
     public void HasReset(){
         hasReset = true;
+        if(playerSaveSO.isResetDay){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = bedPlayerPosition.position;
+            playerSaveSO.isResetDay = false;
+        }
+        else if(playerSaveSO.isFromOutside){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = new Vector3(-1f,-7.75f,0f);
+            playerSaveSO.isFromOutside = false;
+        }
         // Debug.Log(hasReset);
     }
     public void HasDone_GoOutDialogue(){
         hasDone_Go_Out_Dialogue = true;
+        playerPosition = GetComponent<Transform>();
+        playerPosition.position = bedPlayerPosition.position;
+        playerSaveSO.isSubmitPotion = false;
         // Debug.Log(hasReset);
     }
 
@@ -82,8 +74,12 @@ public class PlayerSaveManager : MonoBehaviour
     public void ChangePlayerMode(levelMode mode){
         playerSaveSO.modeLevel = mode;
     }
+    public void resetDay(){
+        playerSaveSO.isResetDay = true;
+    }
 
     public void ResetDay_Sleep(){
+       
         playerSaveSO.isResetDay = true;
         SceneManager.LoadScene("InDoor");
     }
@@ -92,11 +88,13 @@ public class PlayerSaveManager : MonoBehaviour
         SceneManager.LoadScene("InDoor"); // ntr kuganti jd nama scene saja
     }
     public void Go_OutsideNow(){
-        playerSaveSO.isFromOutside = true;
+        if(playerSaveSO.modeLevel == levelMode.outside){
+            playerSaveSO.isFromOutside = true;
+        }
         SceneManager.LoadScene("OutDoor");
     }
     public void Go_InsideNow(){
-        
+        SceneManager.LoadScene("InDoor");
     }
     public bool GetIsReset(){
         return playerSaveSO.isResetDay;
