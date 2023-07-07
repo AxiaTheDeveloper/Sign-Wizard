@@ -152,7 +152,9 @@ public class Penumbuk : MonoBehaviour
             progressNow = maxProgress;
             playerInventory.GetPlayerInventory().TakeItemFromSlot(itemTerpilih.position_InInventory, 1);
             playerInventory.GetPlayerInventory().AddItemToSlot(chosenRecipe.output_Ingredient, 1);
+            #if UNITY_EDITOR
             EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+            #endif
             announcementUI.AddData(chosenRecipe.output_Ingredient);
             CloseWholeUI();
             gameManager.ChangeToCinematic();

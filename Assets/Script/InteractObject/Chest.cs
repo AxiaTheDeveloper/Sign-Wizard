@@ -27,9 +27,13 @@ public class Chest : MonoBehaviour
         if(playerSave.GetIsReset() || playerSave.GetIsPlayerFromOutside()){
             chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
             chestInventorySize = chestInventory.size;
-            EditorUtility.SetDirty(chestInventory);
+            
             playerInventory.GetPlayerInventory().RemoveAllItem();
+            #if UNITY_EDITOR
+            EditorUtility.SetDirty(chestInventory);
             EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+            #endif
+            
             playerSave.HasReset();
         }
         
@@ -69,10 +73,13 @@ public class Chest : MonoBehaviour
                 chestInventory.TakeItemFromSlot(selectItem, quantityWant);
 
                 playerInventory.GetPlayerInventory().AddItemToSlot(chestInventory.inventSlot[selectItem].itemSO, quantityWant);
-
+                
+                #if UNITY_EDITOR
                 EditorUtility.SetDirty(chestInventory);
-
                 EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+                #endif
+
+                
 
             }
         }
@@ -141,8 +148,11 @@ public class Chest : MonoBehaviour
                     playerInventory.GetPlayerInventory().TakeItemFromSlot(i, quantity);
                     playerInventory.GetPlayerInventory().TakeDataFromSlot(i);
                     chestInventory.AddItemToSlot(item, quantity);
+                    #if UNITY_EDITOR
                     EditorUtility.SetDirty(chestInventory);
                     EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+                    #endif
+
                 }
                 
             }

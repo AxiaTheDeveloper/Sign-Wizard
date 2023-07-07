@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9109023583913222106, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e9b6f2ad3ff934c49bdfdf2d0b55a6d5, type: 3}
     - target: {fileID: 9109023584731140578, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
       propertyPath: type
       value: 0
@@ -89,6 +93,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerInventory: {fileID: 0}
   CauldronSize: 3
+  announcementUI: {fileID: 0}
+  dialogueManager: {fileID: 0}
   maxRotation: -180
   minRotation: 0
   maxSpeed: 100

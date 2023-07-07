@@ -264,7 +264,10 @@ public class Cauldron : MonoBehaviour
             }
         }
         playerInventory.GetPlayerInventory().AddItemToSlot(recipeChosen.output_Potion, 1);
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
+        #endif
+        
         cauldronUI_Inventory.DeselectItemCauldron_Only();
         announcementUI.Show();
         // Debug.Log("Anda berhasil membuat potion " + recipeChosen.output_Potion);
