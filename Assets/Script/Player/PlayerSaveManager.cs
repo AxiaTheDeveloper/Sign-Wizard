@@ -14,14 +14,17 @@ public class PlayerSaveManager : MonoBehaviour
     private void Awake() {
         Instance = this;
         // hasReset = false;
-        if(playerSaveSO.isResetDay || playerSaveSO.isSubmitPotion){
-            playerPosition = GetComponent<Transform>();
-            playerPosition.position = bedPlayerPosition.position;
+        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
+            if(playerSaveSO.isResetDay || playerSaveSO.isSubmitPotion){
+                playerPosition = GetComponent<Transform>();
+                playerPosition.position = bedPlayerPosition.position;
+            }
+            if(playerSaveSO.isFromOutside){
+                playerPosition = GetComponent<Transform>();
+                playerPosition.position = new Vector3(-1f,-7.75f,0f);
+            }
         }
-        if(playerSaveSO.isFromOutside){
-            playerPosition = GetComponent<Transform>();
-            playerPosition.position = new Vector3(-1f,-7.75f,0f);
-        }
+        
     }
     private void Update() {
         if(hasReset){
@@ -92,12 +95,16 @@ public class PlayerSaveManager : MonoBehaviour
         playerSaveSO.isFromOutside = true;
         SceneManager.LoadScene("OutDoor");
     }
+    public void Go_InsideNow(){
+        
+    }
     public bool GetIsReset(){
         return playerSaveSO.isResetDay;
     }
     public bool GetIsPlayerFromOutside(){
         return playerSaveSO.isFromOutside;
     }
+    
     public bool GetIsSubmitPotion(){
         return playerSaveSO.isSubmitPotion;
     }

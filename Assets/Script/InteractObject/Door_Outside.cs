@@ -41,7 +41,10 @@ public class Door_Outside : MonoBehaviour
         else{
             HideDialogue();
             gameManager.ChangeToCinematic();
-            playerSave.ChangePlayerMode(levelMode.MakingPotion);
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+                playerSave.ChangePlayerMode(levelMode.MakingPotion);
+            }
+            
             darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
                 () => playerSave.ResetDay_Sleep()
             );

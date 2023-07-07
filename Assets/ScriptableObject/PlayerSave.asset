@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
   level: 1
-  modeLevel: 0
+  modeLevel: 1
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0

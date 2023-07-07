@@ -22,18 +22,16 @@ public class QuestManager : MonoBehaviour
         
     }
     private void Start(){
-        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
-            if(playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
-                // Debug.Log("test");
-                questUI.SetData(noQuest);
-            }
-            else if(playerSaveManager.GetPlayerLevelMode() == levelMode.MakingPotion){
-                // Debug.Log("gelooo");
-                questUI.SetData(quest);
-            }
+        if(playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
+            // Debug.Log("test");
+            questUI.SetData(noQuest);
         }
-        else{
-            //isi data yg d luar
+        else if(playerSaveManager.GetPlayerLevelMode() == levelMode.MakingPotion){
+            // Debug.Log("gelooo");
+            questUI.SetData(quest);
+        }
+        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor){
+            //masukkin data ke surat
         }
         
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeNight_StartEnd : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class FadeNight_StartEnd : MonoBehaviour
     }
     public void ShowUI_Potion(){
         gameManager.ChangeToCinematic();
+        nightBG.gameObject.GetComponent<Image>().color = Color.black;
         LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
             () => nextDay_Text.LeanAlpha(1f, 1f).setOnComplete(
                 () => nextDay_Text.LeanAlpha(0f, 0.5f).setOnComplete(

@@ -20,7 +20,7 @@ public class QuestLogUI : MonoBehaviour
     }
 
     private void Update() {
-        if(WitchGameManager.Instance.IsInGame() && !PlayerSaveManager.Instance.GetIsPlayerFromOutside()){
+        if(WitchGameManager.Instance.IsInGame()){
             if(!isShow && gameInput.GetInputShowQuestLog()){
                 ShowUI();
             }
