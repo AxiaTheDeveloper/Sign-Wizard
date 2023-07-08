@@ -57,36 +57,6 @@ public class GameInput : MonoBehaviour
     }
     
     public Vector2 GetLastInputMovement(){
-        
-        // if(Input.GetKey(KeyCode.W)) {
-        //     if(Input.GetKey(KeyCode.A)){
-        //         lastKeyInput.Set(-1,1);
-        //     }
-        //     else if(Input.GetKey(KeyCode.D)){
-        //         lastKeyInput.Set(1,1);
-        //     }
-        //     else{
-        //         lastKeyInput.Set(0,1);
-        //     }
-        //     lastKeyInput = lastKeyInput.normalized;
-
-        //     return lastKeyInput;
-        // }
-        // if(Input.GetKey(KeyCode.S)){
-        //     if(Input.GetKey(KeyCode.A)){
-        //         lastKeyInput.Set(-1,-1);
-        //     }
-        //     else if(Input.GetKey(KeyCode.D)){
-        //         lastKeyInput.Set(1,-1);
-        //     }
-        //     else{
-        //         lastKeyInput.Set(0,-1);
-        //     }
-        //     lastKeyInput = lastKeyInput.normalized;
-        //     return lastKeyInput;
-        // }
-        // if(Input.GetKey(KeyCode.D)) lastKeyInput.Set(1,0);
-        // if(Input.GetKey(KeyCode.A)) lastKeyInput.Set(-1,0);
 
         if(WitchGameManager.Instance.IsInGame()){
             if(keyInput.y != 0 || keyInput.x != 0){
