@@ -43,10 +43,10 @@ public class GameInput : MonoBehaviour
         keyInput.Set(0f,0f);
 
         if(WitchGameManager.Instance.IsInGame()){
-            if(Input.GetKey(KeyCode.W)) keyInput.y = 1;
-            if(Input.GetKey(KeyCode.S)) keyInput.y = -1;
-            if(Input.GetKey(KeyCode.D)) keyInput.x = 1;
-            if(Input.GetKey(KeyCode.A)) keyInput.x = -1;
+            if(Input.GetKey(KeyCode.UpArrow)) keyInput.y = 1;
+            if(Input.GetKey(KeyCode.DownArrow)) keyInput.y = -1;
+            if(Input.GetKey(KeyCode.RightArrow)) keyInput.x = 1;
+            if(Input.GetKey(KeyCode.LeftArrow)) keyInput.x = -1;
         }
         
 
@@ -77,7 +77,7 @@ public class GameInput : MonoBehaviour
         return Input.GetKeyDown(KeyCode.E);
     }
     public bool GetInputOpenInventory_ChestOpen(){
-        return Input.GetKeyDown(KeyCode.Alpha1);
+        return Input.GetKeyDown(KeyCode.RightShift);
     }
 
     public Vector2 GetInputArrow(){

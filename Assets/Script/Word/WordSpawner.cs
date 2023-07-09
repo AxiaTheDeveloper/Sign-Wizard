@@ -13,7 +13,7 @@ public class WordSpawner : MonoBehaviour
     [SerializeField]private Color32 colorFont;
     private const string PLAYER_PREF_PILIHAN_BAHASA = "pilihanBahasa";
     private void Awake() {
-        PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
+        
         string pilihanBahasa = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
         if(pilihanBahasa == "SIBI"){
             displayPrefab = displayPrefab_SIBI;

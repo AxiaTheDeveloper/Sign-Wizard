@@ -17,5 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 82dd697be9a847e4cb4d3bca18ce5852, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Buah pohon zaitun yang digunakan dalam ramuan untuk memberikan aroma dan
-    rasa khas serta manfaat kesehatan.
+  Desc: Buah yang digunakan dalam ramuan untuk memberikan aroma dan rasa khas serta
+    manfaat kesehatan.

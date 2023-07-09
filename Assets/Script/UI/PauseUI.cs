@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PauseUI : MonoBehaviour
             gameManager.PauseGame();
             HideUI();
             escapeCooldownTimer = escapeCooldownTimerMax;
+        });
+        mainButton.onClick.AddListener(() => {
+            SceneManager.LoadScene("MainMenu");
         });
     }
     void Start()
