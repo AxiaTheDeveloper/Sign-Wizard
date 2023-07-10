@@ -6,6 +6,7 @@ using UnityEngine;
 public class QuestScriptableObject : ScriptableObject
 {
     public int levelQuest;
+    public string nameSender;
     public ItemScriptableObject[] potionWantList;
     public int totalPotion => potionWantList.Length;
 

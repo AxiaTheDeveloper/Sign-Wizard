@@ -11,34 +11,43 @@ public class PlayerSaveManager : MonoBehaviour
     private Transform playerPosition;
     [SerializeField]private Transform bedPlayerPosition;
 
-
-    private bool hasReset = false, hasDone_Go_Out_Dialogue = false;
     private void Awake() {
         Instance = this;
-
+        if(playerSaveSO.modeLevel == levelMode.outside && playerSaveSO.level == 1){
+            Transform visualPos = transform.GetChild(0);
+            // Debug.Log(visualPos.gameObject);
+            visualPos.localPosition = new Vector3(0,-8,0);
+        }
         
     }
 
     public void HasReset(){
-        hasReset = true;
         if(playerSaveSO.isResetDay){
-            playerPosition = GetComponent<Transform>();
-            playerPosition.position = bedPlayerPosition.position;
             playerSaveSO.isResetDay = false;
         }
         else if(playerSaveSO.isFromOutside){
-            playerPosition = GetComponent<Transform>();
-            playerPosition.position = new Vector3(-1f,-7.75f,0f);
             playerSaveSO.isFromOutside = false;
         }
         // Debug.Log(hasReset);
     }
+    public void player_HasReset_Place(){
+        if(playerSaveSO.isResetDay){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = bedPlayerPosition.position;
+        }
+        else if(playerSaveSO.isFromOutside){
+            playerPosition = GetComponent<Transform>();
+            playerPosition.position = new Vector3(-1f,-7.75f,0f);
+        }
+    }
     public void HasDone_GoOutDialogue(){
-        hasDone_Go_Out_Dialogue = true;
-        playerPosition = GetComponent<Transform>();
-        playerPosition.position = bedPlayerPosition.position;
+        
         playerSaveSO.isSubmitPotion = false;
         // Debug.Log(hasReset);
+    }
+    public void player_GoOutDialogue_Place(){
+        playerPosition = GetComponent<Transform>();
+        playerPosition.position = bedPlayerPosition.position;
     }
 
 

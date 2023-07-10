@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
 
-    [SerializeField]private Animator animator;
+    [SerializeField]public Animator animator;
     private Vector2 keyInput, lastKeyInput;
 
 

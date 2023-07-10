@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Quest 1
   m_EditorClassIdentifier: 
   levelQuest: 1
+  nameSender: Neighbour
   potionWantList:
   - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
   Quest_Title: A little favor

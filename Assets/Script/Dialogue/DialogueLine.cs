@@ -31,10 +31,16 @@ namespace DialogueSystem{
         [Header("BG")]
         [SerializeField]private Color bgColor;
         [SerializeField]private Image backGroundHolder;
+        [Header("Name")]
+        [SerializeField]private bool isCharaHaveName;
+        [SerializeField]private string charaName;
+        [SerializeField]private TextMeshProUGUI name_textHolder;
+        
 
 
         private void Awake() {
             textHolder = GetComponent<TextMeshProUGUI>();
+            pressToContinue_textHolder.SetActive(false);
         }
 
         public void ChangeInputText(string inputTexts){
@@ -43,6 +49,15 @@ namespace DialogueSystem{
         }
         public void GoLineText(){
             // Debug.Log(inputText);
+            if(isCharaHaveName){
+                name_textHolder.text = charaName;
+                name_textHolder.gameObject.SetActive(true);
+            }
+            else{
+                name_textHolder.gameObject.SetActive(false);
+            }
+
+        
             if(!isInputText_FromOtherCode){
                 inputText = textHolder.text;
             }

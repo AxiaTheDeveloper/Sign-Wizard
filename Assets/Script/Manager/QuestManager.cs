@@ -14,6 +14,7 @@ public class QuestManager : MonoBehaviour
     //misal quest butuh 2 potion A (gbs di stack ato mungkin bisa ? lol, ya ini misal kalo gabisa), trus potion A, potion A, yang dikasih misal potion A dn B, misal potion A array 0 udah di cek oh bener, brarti break, brearti pas pengecekan potion B, si array 0 gausa di cek, cuma buat itu doang, yea smth like that lol
 
     [SerializeField]private QuestLogUI questUI;
+    [SerializeField]private QuestBox questBoxUI;
     private void Awake() {
         levelNow = playerSaveManager.GetPlayerLevel();
         quest = questList[levelNow];
@@ -30,8 +31,8 @@ public class QuestManager : MonoBehaviour
             // Debug.Log("gelooo");
             questUI.SetData(quest);
         }
-        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor){
-            //masukkin data ke surat
+        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor && playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
+            questBoxUI.SetData(quest);
         }
         
 

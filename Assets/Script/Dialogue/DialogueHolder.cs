@@ -7,7 +7,7 @@ using System;
 namespace DialogueSystem{
     public class DialogueHolder : MonoBehaviour
     {
-        [SerializeField]private GameObject BG, charaImage;
+        [SerializeField]private GameObject BG, charaImage, nameChara;
         public event EventHandler OnDialogueFinish;//ke dialogue manager
         public bool startOnAwake;
 
@@ -50,6 +50,7 @@ namespace DialogueSystem{
         }
         public void HideDialogue(){
             BG.SetActive(false);
+            nameChara.SetActive(false);
             charaImage.SetActive(false);
             gameObject.SetActive(false);
         }

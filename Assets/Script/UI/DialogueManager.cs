@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     // private DialogueType dialogueType;
     private WitchGameManager.InterfaceType interfaceType;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue; 
+    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
@@ -30,6 +30,10 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue Kirim Potion")]
     [SerializeField]private FadeNight_StartEnd fadeNight;
+    [SerializeField]private QuestBox questBoxUI;
+    [SerializeField]private PlayerAnimator playerAnimator;
+
+    
     private void Awake() {
         Instance = this;
         dialogueLines_WrongChoice = dialogueHolder_WrongChoice_Dialogue.GetComponentInChildren<DialogueSystem.DialogueLine>();
@@ -38,6 +42,9 @@ public class DialogueManager : MonoBehaviour
     
     private void Start() {
         dialogueHolder_Intro.OnDialogueFinish += dialogueHolder_Intro_OnDialogueFinish;
+        if(dialogueHolder_Intro2){
+            dialogueHolder_Intro2.OnDialogueFinish += dialogueHolder_Intro2_OnDialogueFinish;
+        }
         dialogueHolder_WrongChoice_Dialogue.OnDialogueFinish += dialogueHolder_WrongChoice_OnDialogueFinish;
         dialogueHolder_KirimPotion.OnDialogueFinish += dialogueHolder_KirimPotion_OnDialogueFinish;
         dialogueHolder_Go_Out_Dialogue.OnDialogueFinish += dialogueHolder_Go_Out_Dialogue_OnDialogueFinish;
@@ -45,7 +52,12 @@ public class DialogueManager : MonoBehaviour
 
     private void dialogueHolder_Intro_OnDialogueFinish(object sender, EventArgs e)
     {
-        gameManager.ChangeToInGame();
+        TimelineManager.Instance.Start_IntroWalk();
+    }
+    private void dialogueHolder_Intro2_OnDialogueFinish(object sender, EventArgs e)
+    {
+        
+        questBoxUI.ShowUI_MainLetter();
     }
     private void dialogueHolder_WrongChoice_OnDialogueFinish(object sender, EventArgs e)
     {
@@ -65,7 +77,19 @@ public class DialogueManager : MonoBehaviour
     {
         PlayerSaveManager.Instance.HasDone_GoOutDialogue();
         gameManager.ChangeToInGame();
+        playerAnimator.animator.Play("Player_Idle_Down");
+        playerAnimator.animator.SetBool("idle", true);
         // TimelineManager.Instance.Start_GoOutside();
+    }
+    public void ShowDialogue_Intro(){
+        gameManager.ChangeToCinematic();
+        dialogueHolder_Intro.ShowDialogue();
+    }
+    public void ShowDialogue_Intro2(){
+        playerAnimator.animator.Play("Player_Idle_Up");
+        playerAnimator.animator.SetBool("idle", true);
+        gameManager.ChangeToCinematic();
+        dialogueHolder_Intro2.ShowDialogue();
     }
 
     public void ShowDialogue_KirimPotion(){
@@ -73,6 +97,7 @@ public class DialogueManager : MonoBehaviour
         dialogueHolder_KirimPotion.ShowDialogue();
     }
     public void ShowDialogue_Go_Out_Dialogue(){
+        PlayerSaveManager.Instance.player_GoOutDialogue_Place();
         gameManager.ChangeToCinematic();
         dialogueHolder_Go_Out_Dialogue.ShowDialogue();
     }

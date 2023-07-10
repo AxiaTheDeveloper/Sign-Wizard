@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]private Slider soundSlider;
     private const string PLAYER_PREF_SOUND_VOLUME = "Sound_Volume";
 
+
     private void Start() {
         volume = PlayerPrefs.GetFloat(PLAYER_PREF_SOUND_VOLUME, 0.3f);
         foreach(AudioSource soundEffect in SoundEffect_Array){
@@ -18,7 +19,7 @@ public class SoundManager : MonoBehaviour
         
     }
 
-    public void UpdateBGM_Volume(){
+    public void UpdateSound_Volume(){
         volume = soundSlider.value;
         PlayerPrefs.SetFloat(PLAYER_PREF_SOUND_VOLUME, volume);
         foreach(AudioSource soundEffect in SoundEffect_Array){

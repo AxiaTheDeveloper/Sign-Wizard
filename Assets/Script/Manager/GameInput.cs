@@ -8,9 +8,9 @@ public class GameInput : MonoBehaviour
     public static GameInput Instance {get; private set;}
 
     private Vector2 keyInput, lastKeyInput, lastKeyInputAnimation, lastDiagonalInput, keyArrowInputUI;
-    private bool wasDiagonal, wasUsingArrowKeys;
-    [SerializeField]private float diagonalCheckerMaxTime, arrowKeyCooldownMaxTime;
-    private float diagonalChecker, arrowKeyCooldown;
+    private bool wasUsingArrowKeys, wasUsingArrowKeysDictionary;
+    [SerializeField]private float arrowKeyCooldownMaxTime, arrowKeyCooldownDictionaryMaxTime;
+    private float arrowKeyCooldown, arrowKeyCooldownDictionary;
 
 
 
@@ -19,8 +19,6 @@ public class GameInput : MonoBehaviour
         Instance = this;
     }
     private void Start() {
-        wasDiagonal = false;
-        diagonalChecker = diagonalCheckerMaxTime;
 
         wasUsingArrowKeys = false;
         arrowKeyCooldown = arrowKeyCooldownMaxTime;
@@ -71,13 +69,13 @@ public class GameInput : MonoBehaviour
 
     //yang lain
     public bool GetInputInteract(){
-        return Input.GetKeyDown(KeyCode.F);
+        return Input.GetKeyDown(KeyCode.Z);
     }
     public bool GetInputOpenInventory(){
-        return Input.GetKeyDown(KeyCode.E);
+        return Input.GetKeyDown(KeyCode.C);
     }
     public bool GetInputOpenInventory_ChestOpen(){
-        return Input.GetKeyDown(KeyCode.RightShift);
+        return Input.GetKeyDown(KeyCode.LeftAlt);
     }
 
     public Vector2 GetInputArrow(){
@@ -111,20 +109,51 @@ public class GameInput : MonoBehaviour
         
         return keyArrowInputUI;
     }
+    public Vector2 GetInputArrow_Dictionary(){
+        keyArrowInputUI.Set(0,0);
+        if(wasUsingArrowKeysDictionary){
+            arrowKeyCooldownDictionary -= Time.deltaTime;
+            if(arrowKeyCooldownDictionary <= 0){
+                arrowKeyCooldownDictionary = arrowKeyCooldownDictionaryMaxTime;
+                wasUsingArrowKeysDictionary = false;
+            }
+        }
+        else{
+            if(Input.GetKey(KeyCode.UpArrow)){
+                keyArrowInputUI.y = 1;
+                wasUsingArrowKeysDictionary = true;
+            } 
+            else if(Input.GetKey(KeyCode.DownArrow)){
+                keyArrowInputUI.y = -1;
+                wasUsingArrowKeysDictionary = true;
+            } 
+            else if(Input.GetKey(KeyCode.LeftArrow)){
+                keyArrowInputUI.x = -1;
+                wasUsingArrowKeysDictionary = true;
+            }
+            
+            else if(Input.GetKey(KeyCode.RightArrow)){
+                keyArrowInputUI.x = 1;
+                wasUsingArrowKeysDictionary = true;
+            }
+        }
+        
+        return keyArrowInputUI;
+    }
 
-    public bool GetInputGetKeyTabDown(){
-        return Input.GetKeyDown(KeyCode.Tab);
+    public bool GetInputGetKeyQuantity(){
+        return Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
     }
 
     public bool GetInputClearInventoryPlayer(){
-        return (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift)) && Input.GetKey(KeyCode.Return);
+        return (Input.GetKeyDown(KeyCode.C));
     }
     
     public bool GetInputSelectItemForCauldron(){
-        return Input.GetKeyDown(KeyCode.A);
+        return Input.GetKeyDown(KeyCode.Z);
     }
     public bool GetInputStartCookingForCauldron(){
-        return Input.GetKeyDown(KeyCode.F);
+        return Input.GetKeyDown(KeyCode.Return);
     }
 
     public bool GetInputNextLine_Dialogue(){
@@ -135,10 +164,10 @@ public class GameInput : MonoBehaviour
     }
 
     public bool GetInputShowQuestLog(){
-        return Input.GetKeyDown(KeyCode.Tab);
+        return Input.GetKeyDown(KeyCode.LeftShift);
     }
     public bool GetInputHideQuestLog(){
-        return Input.GetKeyUp(KeyCode.Tab);
+        return Input.GetKeyUp(KeyCode.LeftShift);
     }
 
     

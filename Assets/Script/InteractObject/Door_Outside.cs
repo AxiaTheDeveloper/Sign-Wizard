@@ -6,7 +6,7 @@ using System;
 public class Door_Outside : MonoBehaviour
 {
         // Start is called before the first frame update
-    [SerializeField]private GameObject BG, charaImage, dialogue;
+    [SerializeField]private GameObject BG, charaImage, dialogue, nameChara;
     [SerializeField]private CanvasGroup darkBG_effect;
     
     [SerializeField]private GameObject yesNoQuestion;
@@ -32,6 +32,7 @@ public class Door_Outside : MonoBehaviour
         isSubmitButton = false;
         wantTo_GoIn = false;
         Selected_On();
+        nameChara.SetActive(false);
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
 
@@ -115,6 +116,7 @@ public class Door_Outside : MonoBehaviour
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
+        nameChara.SetActive(false);
         // Debug.Log(charaImage.activeSelf);
         dialogue.SetActive(false);
         // gameObject.SetActive(false);

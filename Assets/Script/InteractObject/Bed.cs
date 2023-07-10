@@ -6,7 +6,7 @@ using System;
 public class Bed : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]private GameObject BG, charaImage, dialogue;
+    [SerializeField]private GameObject BG, charaImage, dialogue, nameChara;
     
     [SerializeField]private GameObject yesNoQuestion;
     [SerializeField]private GameObject Selected_Yes, Selected_No;
@@ -24,7 +24,7 @@ public class Bed : MonoBehaviour
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
-
+        nameChara.SetActive(false);
         dialogue.SetActive(false);
 
     }
@@ -89,6 +89,7 @@ public class Bed : MonoBehaviour
         Selected_On();
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
+        nameChara.SetActive(false);
         // Debug.Log(charaImage.activeSelf);
         dialogue.SetActive(false);
         // gameObject.SetActive(false);

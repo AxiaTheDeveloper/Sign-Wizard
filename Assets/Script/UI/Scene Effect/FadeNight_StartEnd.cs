@@ -49,7 +49,14 @@ public class FadeNight_StartEnd : MonoBehaviour
             dialogueManager.ShowDialogue_Go_Out_Dialogue();
         }
         else{
-            gameManager.ChangeToInGame();
+            //kalo lvl 1 ato 0 trgantung ntr di outside, mainin dialog da da da
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside && playerSave.GetPlayerLevel() == 1){
+                dialogueManager.ShowDialogue_Intro();
+            }
+            else{
+                gameManager.ChangeToInGame();
+            }
+            
         }
     }
     private IEnumerator delay(){

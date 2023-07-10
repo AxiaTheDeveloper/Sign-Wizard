@@ -19,10 +19,7 @@ public class WordManager : MonoBehaviour
     } 
     [SerializeField]private TemplateType templateType;
     
-    // private enum SpawnType{
-    //     OnlyOneTemplate, DifferentTemplate // ini per manager semua cuma 1 template jd spawnnya pas dipanggil aja, kalo different template di spawnya lsg pas start aja
-    // } 
-    // [SerializeField]private SpawnType spawnType;
+
 
 
     [SerializeField]private string theWord;
@@ -30,6 +27,8 @@ public class WordManager : MonoBehaviour
     [SerializeField]private WordUI wordDisplay;
 
     [SerializeField]private float delayedSpawnWord_Time = 0.2f;
+
+    [SerializeField]private WordGenerator wordGenerator;
     private void Start() {
         hasWord = false;
         hasChooseWord = false;
@@ -47,7 +46,7 @@ public class WordManager : MonoBehaviour
             choseWord = theWord;
         }
         else if(wordType == WordType.DifferentWord){
-            choseWord = WordGenerator.GetRandomWord();
+            choseWord = wordGenerator.GetRandomWord();
         }
 
         if(templateType == TemplateType.SameTemplate){
@@ -106,6 +105,28 @@ public class WordManager : MonoBehaviour
         }
         chosenWord.WrongLetter();
         return false;
+    }
+    public bool InputLetter_OnlyOneWordManager(char letter){
+        if(chosenWord.GetLetter() == letter){
+
+            chosenWord.TypeOutLetter();
+        }
+        else{
+            chosenWord.WrongLetter();
+        }
+        if(chosenWord.AllTyped()){
+            
+
+            function.WordFinisheds();
+            hasChooseWord = false;
+            hasWord = false;
+
+            StartCoroutine(DelayedCreateWord());
+
+            //di sini suruh kerjain apa gitu
+            return false;
+        }
+        return true;
     }
 
     public bool InputLetter(char letter){

@@ -332,9 +332,6 @@ public class InventoryPenumbuk : InventoryOnly{
         // Debug.Log("show");
         WitchGameManager.Instance.ChangeInterfaceType(pilihanInterface);
 
-        RectTransform ui_rect = UI.GetComponent<RectTransform>();
-        ui_rect.anchoredPosition = new Vector3(0f, -900, 0); 
-        LeanTween.move(ui_rect, new Vector3(0f, 25, 0), 0.2f);
 
 
         UI.SetActive(true);
@@ -377,9 +374,7 @@ public class InventoryPenumbuk : InventoryOnly{
         if(hasSelectItem){
             SelectItem_Penumbuk(penumbuk_SelectedItem, UI_ItemList);//deselect item
         }
-        RectTransform ui_rect = UI.GetComponent<RectTransform>();
-        ui_rect.anchoredPosition = new Vector3(0, 25, 0); 
-        LeanTween.move(ui_rect, new Vector3(0, -900, 0), 0.2f);
+        
 
         HideInventoryUI(UI);
     }
@@ -391,9 +386,7 @@ public class InventoryPenumbuk : InventoryOnly{
 
     }
     public void HideUI_Penumbuk_Tapi_PenumbukIsOpen(GameObject UI){
-        RectTransform ui_rect = UI.GetComponent<RectTransform>();
-        ui_rect.anchoredPosition = new Vector3(0, 25, 0); 
-        LeanTween.move(ui_rect, new Vector3(0, -900, 0), 0.2f);
+        
 
         HideInventoryUI(UI);
     }
@@ -680,7 +673,7 @@ public class InventoryUI : MonoBehaviour
     }
     public void HideInventory_PenumbukIsOpen(){
         if(tipeInventory == TipeInventory.inventoryPenumbuk){
-            invent_Penumbuk.HideUI_Penumbuk_Tapi_PenumbukIsOpen(this.gameObject);
+            // invent_Penumbuk.HideUI_Penumbuk_Tapi_PenumbukIsOpen(this.gameObject);
             gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.TumbukTime); 
         }
     }
@@ -772,6 +765,9 @@ public class InventoryUI : MonoBehaviour
     }
     public InventoryOnly GetInventoryOnly(){
         return inventOnly;
+    }
+    public bool isUIEmpty(){
+        return UI_ItemList[selectItem].IsEmpty();
     }
 
 

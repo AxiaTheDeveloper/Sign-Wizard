@@ -33,13 +33,16 @@ public class InventoryUIDesc : MonoBehaviour
     }
     private void Update() {
         if(WitchGameManager.Instance.IsInterfaceType() == WitchGameManager.InterfaceType.QuantityTime){
-            
+            wordPlace_GameObject.SetActive(true);
             if(!quantityUI.activeSelf){
+                // wordPlace_GameObject.SetActive(false);
+                
                 quantityUI.SetActive(true);
             }
         }
         else{
             if(quantityUI.activeSelf){
+                // wordPlace_GameObject.SetActive(true);
                 quantityUI.SetActive(false);
             }
             

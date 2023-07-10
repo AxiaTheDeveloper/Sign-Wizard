@@ -130,9 +130,13 @@ public class PlayerInventory : MonoBehaviour
                 isChestOpen = false;
             }
             InputArrowInventory(ChestInventoryUI);
-            if(gameInput.GetInputGetKeyTabDown() && inputCooldownTimer <= 0){
+            if(gameInput.GetInputGetKeyQuantity() && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
-                gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.QuantityTime);
+                // WordInput.Instance.UndoInputLetterManyWords();
+                if(!ChestInventoryUI.isUIEmpty()){
+                    gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.QuantityTime);
+                }
+                
             }
             if(gameInput.GetInputOpenInventory_ChestOpen() && !isInventoryOpen && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
@@ -145,7 +149,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.QuantityTime){
             InputArrowInventory_AddQuantity(ChestInventoryUI);
-            if(gameInput.GetInputGetKeyTabDown() && inputCooldownTimer <= 0){
+            if(gameInput.GetInputGetKeyQuantity() && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest);
             }
@@ -176,6 +180,7 @@ public class PlayerInventory : MonoBehaviour
                 // isChestOpen = false;
             }
             if(gameInput.GetInputOpenInventory_ChestOpen() && inputCooldownTimer <= 0){
+                // Debug.Log("sini");
                 inputCooldownTimer = inputCooldownTimerMax;
                 // PenumbukUI.ShowInventory_PenumbukIsOpen();
                 WordInput.Instance.UndoInputLetterManyWords();

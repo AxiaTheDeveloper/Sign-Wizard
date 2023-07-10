@@ -9,10 +9,13 @@ namespace DialogueSystem{
     public class DialogueBase : MonoBehaviour
     {
         public bool finished {get; protected set;}
+        [SerializeField]protected GameObject pressToContinue_textHolder;
+
         protected IEnumerator typeText(string inputText, TextMeshProUGUI textHolder, float delayTypeText, float delayBetweenLines){
             //kalo mau
             // textHolder.color = textColor;
             // textHolder.font = textFont;
+            
             for(int i=0; i<inputText.Length;i++){
                 textHolder.text += inputText[i];
                 
@@ -24,10 +27,12 @@ namespace DialogueSystem{
                     break;
                 }
             }
+            pressToContinue_textHolder.SetActive(true);
             yield return new WaitForSeconds(delayBetweenLines);
 
 
             yield return new WaitUntil(()=>GameInput.Instance.GetInputNextLine_Dialogue());
+            pressToContinue_textHolder.SetActive(false);
             finished = true;
         }
         public void ChangeFinished_false(){

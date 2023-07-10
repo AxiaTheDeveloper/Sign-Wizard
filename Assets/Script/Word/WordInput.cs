@@ -44,18 +44,29 @@ public class WordInput : MonoBehaviour
                     // Debug.Log(letter);
                     
                     if(!hasChosenWords && !isUIFirstTimeShowing){
-                        for(int i=0;i<wordManager.Length;i++){
+                        if(wordManager.Length == 1){
                             if(adaWord){
-                                if(wordManager[i].InputFirstLetter(letter)){
-
-                                    chosenWordsList.Add(i);
-                                    hasChosenWords = true;
+                                if(!wordManager[0].InputLetter_OnlyOneWordManager(letter)){
+                                    hasChosenWords = false;
+                                    chosenWordsList.Clear();
                                 }
                             }
-                                
-    
-                            
                         }
+                        else{
+                            for(int i=0;i<wordManager.Length;i++){
+                                if(adaWord){
+                                    if(wordManager[i].InputFirstLetter(letter)){
+
+                                        chosenWordsList.Add(i);
+                                        hasChosenWords = true;
+                                    }
+                                }
+                                    
+        
+                                
+                            }
+                        }
+                        
                     }
 
                     else{

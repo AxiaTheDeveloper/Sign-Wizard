@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0001f378314e4b141a4b312a497c1624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pressToContinue_textHolder: {fileID: 0}
   dialogueType: 0
   isInputText_FromOtherCode: 0
   delayTypeText: 0.1
@@ -68,6 +69,9 @@ MonoBehaviour:
   spriteCharacter: {fileID: 21300000, guid: dbc624f7b3a644dcf989e434e63d9a98, type: 3}
   bgColor: {r: 1, g: 0, b: 0, a: 1}
   backGroundHolder: {fileID: 0}
+  isCharaHaveName: 1
+  charaName: Axia
+  name_textHolder: {fileID: 0}
 --- !u!114 &536089217676254481
 MonoBehaviour:
   m_ObjectHideFlags: 0
