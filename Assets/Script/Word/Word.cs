@@ -30,8 +30,10 @@ public class Word
         
         //hilangin kata di screen atau nanti katanya berubah warna aja kali
     }
+
     public void WrongLetter(){
         if(!isAlreadyWrong){
+            
             isAlreadyWrong = true;
             display.ChangeWrongColorUI(no_Letter);
         }
@@ -44,6 +46,7 @@ public class Word
         isAlreadyWrong = false;
         no_Letter = 0;
         display.SetWord(word);
+        // Debug.Log(no_Letter);
         //semua kata dibalikkin ke warna semula
     }
     public bool AllTyped(){

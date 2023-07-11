@@ -67,6 +67,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractObject_Cauldron
       objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082864, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082864, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082864, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082865, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082871, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ba477535e847244a878f4c49bfa13d6, type: 3}
+    - target: {fileID: 9109023585610082871, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082871, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109023585610082871, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2004138877
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d98d6b9d5b1e343428f79a1600838748, type: 3}
 --- !u!1 &6438743358690095682 stripped

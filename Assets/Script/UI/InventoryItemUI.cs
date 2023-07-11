@@ -12,8 +12,8 @@ public class InventoryItemUI : MonoBehaviour
 {
     private ItemScriptableObject itemSO;
     [SerializeField]private Image itemImage;
-    [SerializeField]private TextMeshProUGUI quantity_Text;
-    [SerializeField]private Image borderSelect, borderSelectCauldron;
+    [SerializeField]private TextMeshProUGUI quantity_Text, itemName;
+    [SerializeField]private Image borderSelect, borderSelectCauldron, border_mainBG;
     [SerializeField]private Transform posisiWord;
 
     
@@ -23,7 +23,6 @@ public class InventoryItemUI : MonoBehaviour
         ResetData();
         DeselectItem();
         DeSelectItem_Cooking();
-
     }
 
 
@@ -45,6 +44,9 @@ public class InventoryItemUI : MonoBehaviour
 
     public void SetItemData(ItemScriptableObject newItemSO, int quantity){
         itemSO = newItemSO;
+        if(itemName != null){
+            itemName.text = newItemSO.itemName;
+        }
         // Debug.Log("TEST");
         // Debug.Log(itemImage + "set");
         if(itemImage != null){
@@ -55,7 +57,7 @@ public class InventoryItemUI : MonoBehaviour
         quantity_Text.text = quantity.ToString();
         empty = false;
         RefreshVisualUI();
-        // Debug.Log("eii");
+        
     }
     public void ResetData(){
         empty = true;
@@ -63,7 +65,7 @@ public class InventoryItemUI : MonoBehaviour
     }
     public void SelectItem(){
         borderSelect.enabled = true;
-        //save an item semua data dikirim keeee informasi
+        
     }
     public void DeselectItem(){
         borderSelect.enabled = false;
@@ -71,10 +73,12 @@ public class InventoryItemUI : MonoBehaviour
 
     public void SelectItem_Cooking(){
         borderSelectCauldron.enabled = true;
+        border_mainBG.enabled = false;
         selected_Cauldron = true;
     }
     public void DeSelectItem_Cooking(){
         borderSelectCauldron.enabled = false;
+        border_mainBG.enabled = true;
         selected_Cauldron = false;
     }
 

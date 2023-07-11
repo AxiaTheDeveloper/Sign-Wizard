@@ -38,16 +38,18 @@ public class DictionaryUI : MonoBehaviour
             if(gameInput.GetInputEscape()){
                 HideUI();
             }
+            Vector2 keyArrowInput = gameInput.GetInputArrow_Dictionary();
             if(pagePart == 1){
-                ChangePage_Potion();
+                ChangePage_Potion(keyArrowInput);
             }
             
-            ChangePagePart();
+            ChangePagePart(keyArrowInput);
 
         }
     }
-    private void ChangePagePart(){
-        Vector2 keyArrowInput = gameInput.GetInputArrow_Dictionary();
+    private void ChangePagePart(Vector2 keyArrowInput){
+        
+        Debug.Log(keyArrowInput + " " + pagePart);
         if(keyArrowInput.y == -1 && pagePart == 0){
             // Debug.Log("aaa");
             pagePart = 1;
@@ -58,8 +60,7 @@ public class DictionaryUI : MonoBehaviour
         }
         UpdatePage();
     }
-    private void ChangePage_Potion(){
-        Vector2 keyArrowInput = gameInput.GetInputArrow_Dictionary();
+    private void ChangePage_Potion(Vector2 keyArrowInput){
         if(keyArrowInput.x == -1 && pageNow_Potion > 0){
             pageNow_Potion--;
         }

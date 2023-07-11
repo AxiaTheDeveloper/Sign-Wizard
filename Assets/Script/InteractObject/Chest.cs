@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour
         //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
         if(playerSave.GetIsReset() || playerSave.GetIsPlayerFromOutside()){
             playerSave.player_HasReset_Place();
+            
             chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
             chestInventorySize = chestInventory.size;
             

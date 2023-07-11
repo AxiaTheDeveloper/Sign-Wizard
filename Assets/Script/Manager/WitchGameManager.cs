@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 //game manageerrr, level, game state, interfacetype lalalalalala
@@ -14,6 +15,7 @@ public class WitchGameManager : MonoBehaviour
 
     private bool pauseState;
     private gameState saveState_WhilePause;
+    public event EventHandler OnChangeToCinematic, OnChangeToInGame, OnChangeToInterface;
 
 
     public enum InterfaceType{
@@ -37,6 +39,7 @@ public class WitchGameManager : MonoBehaviour
     public void ChangeToInGame(){
         interfaceType = InterfaceType.none;
         state = gameState.InGame;
+        OnChangeToInGame?.Invoke(this, EventArgs.Empty);
     }
 
     //bagian urusan interface
@@ -52,6 +55,7 @@ public class WitchGameManager : MonoBehaviour
     public void ChangeInterfaceType(InterfaceType type){
         state = gameState.InterfaceTime;
         interfaceType = type;
+        OnChangeToInterface?.Invoke(this, EventArgs.Empty);
     }
     public InterfaceType IsInterfaceType(){
         return interfaceType;
@@ -85,6 +89,7 @@ public class WitchGameManager : MonoBehaviour
     public void ChangeToCinematic(){
         interfaceType = InterfaceType.none;
         state = gameState.Cinematic;
+        OnChangeToCinematic?.Invoke(this, EventArgs.Empty);
     }
     // public bool IsInterfaceTime(){
     //     return state == gameState.InterfaceTime;

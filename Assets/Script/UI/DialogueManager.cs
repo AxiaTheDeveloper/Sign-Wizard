@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     public enum DialogueWrongChoice{
         playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekQuestDulu_InteractObject
     }
-
+    
     // private DialogueType dialogueType;
     private WitchGameManager.InterfaceType interfaceType;
     [SerializeField]private WitchGameManager gameManager;
@@ -58,6 +58,8 @@ public class DialogueManager : MonoBehaviour
     {
         
         questBoxUI.ShowUI_MainLetter();
+        playerAnimator.animator.Play("Player_Idle_Down");
+        playerAnimator.animator.SetBool("idle", true);
     }
     private void dialogueHolder_WrongChoice_OnDialogueFinish(object sender, EventArgs e)
     {
@@ -77,8 +79,7 @@ public class DialogueManager : MonoBehaviour
     {
         PlayerSaveManager.Instance.HasDone_GoOutDialogue();
         gameManager.ChangeToInGame();
-        playerAnimator.animator.Play("Player_Idle_Down");
-        playerAnimator.animator.SetBool("idle", true);
+        
         // TimelineManager.Instance.Start_GoOutside();
     }
     public void ShowDialogue_Intro(){
@@ -97,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         dialogueHolder_KirimPotion.ShowDialogue();
     }
     public void ShowDialogue_Go_Out_Dialogue(){
-        PlayerSaveManager.Instance.player_GoOutDialogue_Place();
+        
         gameManager.ChangeToCinematic();
         dialogueHolder_Go_Out_Dialogue.ShowDialogue();
     }

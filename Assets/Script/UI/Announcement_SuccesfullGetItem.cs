@@ -8,8 +8,10 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
 {
     [SerializeField]private Image itemImage;
     [SerializeField]private TextMeshProUGUI itemTitle, itemDesc;
+    [SerializeField]private ParticleSystem particle;
 
     private void Start() {
+        particle.Stop();
         ResetData();
         gameObject.SetActive(false);
     }
@@ -34,9 +36,13 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
     public void Show(){
         itemImage.gameObject.SetActive(true);
         gameObject.SetActive(true);
+        particle.gameObject.SetActive(true);
+        particle.Play();
 
     }
     public void Hide(){
+        particle.gameObject.SetActive(false);
+        particle.Stop();
         gameObject.SetActive(false);
         WitchGameManager.Instance.ChangeToInGame();
     }

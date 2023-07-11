@@ -37,9 +37,8 @@ public class WordInput : MonoBehaviour
     }
     private void Update() {
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
-            if(Input.anyKeyDown){
+            if(Input.anyKeyDown && !gameInput.GetInputCancelInputLetter()){
                 foreach(char letter in Input.inputString){
-
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
                     // Debug.Log(letter);
                     
@@ -120,6 +119,8 @@ public class WordInput : MonoBehaviour
             }
             if(gameInput.GetInputCancelInputLetter()){
                 UndoInputLetterManyWords();
+                
+                
             }
             if(gameInput.GetInputEscape()){
                 isUIFirstTimeShowing = true;
@@ -131,9 +132,18 @@ public class WordInput : MonoBehaviour
     }
 
     public void UndoInputLetterManyWords(){
+        
         foreach(WordManager wordMn in wordManager){
-            wordMn.CancelInputLetter();
+            // Debug.Log("????");
+            if(wordManager.Length == 1){
+                wordMn.CancelInputLetter_OnlyOneWordManager();
+            }
+            else{
+                wordMn.CancelInputLetter();
+            }
+            
         }
+
         chosenWordsList.Clear();
         hasChosenWords = false;
     }

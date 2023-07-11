@@ -180,21 +180,36 @@ public class Cauldron : MonoBehaviour
         
         for(int i=0;i<recipeList.Length;i++){
             PotionRecipeScriptableObject recipe = recipeList[i];
-            Debug.Log(recipe);
+            // Debug.Log(recipe);
             bool isContainMatch = true;
             if(cauldronItems.Count == recipe.ingredientArray.Length){
                 // Debug.Log("hmm >");
-                for(int j=0;j<cauldronItems.Count;j++){
-                    if(recipe.ingredientArray[j].ingredientName != cauldronItems[j].itemSO){
+                // for(int j=0;j<cauldronItems.Count;j++){
+                
+                //     if(recipe.ingredientArray[j].ingredientName != cauldronItems[j].itemSO){
+                //         isContainMatch = false;
+                //         break;
+                //     }
+                // }
+                foreach(CauldronItem cauldronItem in cauldronItems){
+                    bool isInTheRecipe = false;
+                    foreach(PotionRecipeScriptableObject.Ingredients itemIngredient in recipe.ingredientArray){
+                        if(cauldronItem.itemSO == itemIngredient.ingredientName){
+                            isInTheRecipe = true;
+                            break;
+                        }
+                    }
+                    if(!isInTheRecipe){
                         isContainMatch = false;
                         break;
                     }
                 }
+                if(isContainMatch){
+                    recipeChosen = recipe;
+                    break;
+                }
             }
-            if(isContainMatch){
-                recipeChosen = recipe;
-                break;
-            }
+            
         }
         if(recipeChosen){
             if(!checkIngredient_Quantity()){
@@ -231,10 +246,20 @@ public class Cauldron : MonoBehaviour
     }
     private bool checkIngredient_Quantity(){
         bool isLowResource = false;
-        for(int i=0;i<recipeChosen.ingredientArray.Length;i++){
-            if(cauldronItems[i].quantity < recipeChosen.ingredientArray[i].quantity){
-                isLowResource = true;
-                break;
+        // for(int i=0;i<recipeChosen.ingredientArray.Length;i++){
+        //     if(cauldronItems[i].quantity < recipeChosen.ingredientArray[i].quantity){
+        //         isLowResource = true;
+        //         break;
+        //     }
+        // }
+        foreach(CauldronItem cauldronItem in cauldronItems){
+            foreach(PotionRecipeScriptableObject.Ingredients itemIngredient in recipeChosen.ingredientArray){
+                if(cauldronItem.itemSO == itemIngredient.ingredientName){
+                    if(cauldronItem.quantity < itemIngredient.quantity){
+                        isLowResource = true;
+                        break;
+                    }
+                }
             }
         }
 

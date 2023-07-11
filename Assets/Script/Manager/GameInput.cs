@@ -29,7 +29,7 @@ public class GameInput : MonoBehaviour
         return Input.GetKey(KeyCode.Backspace); 
     }
     public bool GetInputEscape(){
-        return Input.GetKey(KeyCode.Escape); 
+        return Input.GetKeyDown(KeyCode.Escape); 
     }
 
 
@@ -119,20 +119,20 @@ public class GameInput : MonoBehaviour
             }
         }
         else{
-            if(Input.GetKey(KeyCode.UpArrow)){
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
                 keyArrowInputUI.y = 1;
                 wasUsingArrowKeysDictionary = true;
             } 
-            else if(Input.GetKey(KeyCode.DownArrow)){
+            else if(Input.GetKeyDown(KeyCode.DownArrow)){
                 keyArrowInputUI.y = -1;
                 wasUsingArrowKeysDictionary = true;
             } 
-            else if(Input.GetKey(KeyCode.LeftArrow)){
+            else if(Input.GetKeyDown(KeyCode.LeftArrow)){
                 keyArrowInputUI.x = -1;
                 wasUsingArrowKeysDictionary = true;
             }
             
-            else if(Input.GetKey(KeyCode.RightArrow)){
+            else if(Input.GetKeyDown(KeyCode.RightArrow)){
                 keyArrowInputUI.x = 1;
                 wasUsingArrowKeysDictionary = true;
             }

@@ -273,7 +273,7 @@ public class InventoryCauldron : InventoryOnly{
             });
         }
         else{
-            if(list_selected_Cauldron_Item.Count == 3){
+            if(list_selected_Cauldron_Item.Count == 3 && !UI_item.IsEmpty()){
                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahPenuh_Cauldron);
                 // Debug.Log("Uda penuh");
             }

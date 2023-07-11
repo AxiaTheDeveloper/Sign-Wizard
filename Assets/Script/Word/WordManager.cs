@@ -112,6 +112,7 @@ public class WordManager : MonoBehaviour
             chosenWord.TypeOutLetter();
         }
         else{
+            
             chosenWord.WrongLetter();
         }
         if(chosenWord.AllTyped()){
@@ -137,6 +138,7 @@ public class WordManager : MonoBehaviour
             chosenWord.TypeOutLetter();
         }
         else{
+            
             chosenWord.WrongLetter();
         }
         if(hasChooseWord && chosenWord.AllTyped()){
@@ -163,9 +165,12 @@ public class WordManager : MonoBehaviour
 
     public void CancelInputLetter(){
         if(hasChooseWord){
-            // Debug.Log(chosenWord.word);
             chosenWord.CancelTypedOut();
             hasChooseWord = false;
         }
+    }
+    public void CancelInputLetter_OnlyOneWordManager(){
+        chosenWord.CancelTypedOut();
+        hasChooseWord = false;
     }
 }

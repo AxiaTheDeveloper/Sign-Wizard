@@ -28,9 +28,11 @@ public class FadeNight_StartEnd : MonoBehaviour
         if(outsideLight){
             outsideLight.alpha = 0f;
         }
-        
+        // Debug.Log("nande");
         if(playerSave.GetIsReset() || playerSave.GetIsSubmitPotion()){
-            
+            if(playerSave.GetIsSubmitPotion()){
+                playerSave.player_GoOutDialogue_Place();
+            }
             LeanTween.alpha(nightBG, 0f, 1.2f).setOnComplete(
                 () => StartCoroutine(delayPlayerMove())
             );
@@ -63,7 +65,7 @@ public class FadeNight_StartEnd : MonoBehaviour
         yield return null;
     }
     public void ShowOutsideLight(){
-        
+        outsideLight.gameObject.SetActive(true);
         outsideLight.LeanAlpha(1f, 1.2f).setOnComplete(
             () => playerSave.Go_OutsideNow()
         );
