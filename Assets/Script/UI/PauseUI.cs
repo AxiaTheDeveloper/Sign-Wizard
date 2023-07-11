@@ -9,29 +9,26 @@ public class PauseUI : MonoBehaviour
     [SerializeField]private GameObject pauseUI;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
-
-    [SerializeField]private Button resumeButton, mainButton;
     
-    [SerializeField]private float escapeCooldownTimerMax;
-    private float escapeCooldownTimer = 0;
+    [SerializeField]private float escapeCooldownTimerMax, inputCoolDownTimerMax;
+    private float escapeCooldownTimer = 0, inputCooldownTimer = 0;
+    [SerializeField]private GameObject[] selectArrowsPause;
+    private int selectionPause;
+    [SerializeField]private GameObject musicSlider, SoundSlider;
+    private bool isMusicOn, isSoundOn;
+    [SerializeField]private SoundManager soundManager;
+    [SerializeField]private BGMManager bgmManager;
 
-    private void Awake() {
-        resumeButton.onClick.AddListener(() => {
-            gameManager.PauseGame();
-            HideUI();
-            escapeCooldownTimer = escapeCooldownTimerMax;
-        });
-        mainButton.onClick.AddListener(() => {
-            SceneManager.LoadScene("MainMenu");
-        });
-    }
     void Start()
     {
-        // escapeCooldownTimer = 0;
+        
+        selectionPause = 0;
+        UpdateSelectArrowPause();
         HideUI();
     }
 
     // Update is called once per frame
+    
     void Update()
     {
         if(gameManager.IsInGame()){
@@ -56,6 +53,30 @@ public class PauseUI : MonoBehaviour
             else if(escapeCooldownTimer > 0){
                 escapeCooldownTimer -= Time.deltaTime;
             }
+            Vector2 keyInputArrow = gameInput.GetInputArrow();
+            moveSelection_option(keyInputArrow);
+            if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCoolDownTimerMax;
+                Select_Option();
+            }
+            if(isMusicOn && keyInputArrow.x == 1){
+                bgmManager.UpdateBGM_Volume(0.1f);
+            }
+            else if(isMusicOn && keyInputArrow.x == -1){
+                bgmManager.UpdateBGM_Volume(-0.1f);
+            }
+            if(isSoundOn && keyInputArrow.x == 1){
+                soundManager.UpdateSound_Volume(0.1f);
+            }
+            else if(isSoundOn && keyInputArrow.x == -1){
+                soundManager.UpdateSound_Volume(-0.1f);
+            }
+
+            if(inputCooldownTimer > 0){
+                inputCooldownTimer--;
+            }
+
+
             
         }
         else{
@@ -63,12 +84,68 @@ public class PauseUI : MonoBehaviour
         }
         
     }
+    private void moveSelection_option(Vector2 keyInputArrow){
+        if(!isMusicOn && !isSoundOn){
+            if(keyInputArrow.y == 1 && selectionPause > 0 ){
+                selectionPause--;
+            }
+            else if(keyInputArrow.y == -1 && selectionPause < selectArrowsPause.Length-1){
+                selectionPause++;
+            }
+            
+            UpdateSelectArrowPause();
+        }
+        
+    }
+    private void UpdateSelectArrowPause(){
+        foreach(GameObject selectarrow in selectArrowsPause){
+            selectarrow.SetActive(false);
+        }
+        selectArrowsPause[selectionPause].SetActive(true);
+    }
 
     private void ShowUI(){
         pauseUI.SetActive(true);
     }
     private void HideUI(){
+        isMusicOn = false;
+        isSoundOn = false;
+        musicSlider.gameObject.SetActive(false);
+        SoundSlider.gameObject.SetActive(false);
         pauseUI.SetActive(false);
+    }
+
+    private void Select_Option(){
+        if(selectionPause == 0){
+            HideUI();
+            gameManager.PauseGame();
+            escapeCooldownTimer = escapeCooldownTimerMax;
+            
+        }
+        else if(selectionPause == 1){
+            if(isMusicOn){
+                musicSlider.gameObject.SetActive(false);
+                isMusicOn = false;
+            }
+            else if(!isMusicOn){
+                musicSlider.gameObject.SetActive(true);
+                isMusicOn = true;
+            }
+            
+        }
+        else if(selectionPause == 2){
+            if(isSoundOn){
+                SoundSlider.gameObject.SetActive(false);
+                isSoundOn = false;
+            }
+            else if(!isSoundOn){
+                SoundSlider.gameObject.SetActive(true);
+                isSoundOn = true;
+            }
+        }
+        else if(selectionPause == 3){
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
 

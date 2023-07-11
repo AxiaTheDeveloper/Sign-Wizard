@@ -12,6 +12,7 @@ public class WordInput : MonoBehaviour
 
     private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
+    [SerializeField]private PenumbukUI penumbukUI;
 
     
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
@@ -38,10 +39,13 @@ public class WordInput : MonoBehaviour
     private void Update() {
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
             if(Input.anyKeyDown && !gameInput.GetInputCancelInputLetter()){
+                
                 foreach(char letter in Input.inputString){
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
                     // Debug.Log(letter);
-                    
+                    if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime && !penumbukUI.GetisAnimationDone()){
+                        break;
+                    }
                     if(!hasChosenWords && !isUIFirstTimeShowing){
                         if(wordManager.Length == 1){
                             if(adaWord){
@@ -115,7 +119,18 @@ public class WordInput : MonoBehaviour
                 }
             }
             if(isUIFirstTimeShowing){
-                isUIFirstTimeShowing = false; // biar input buat nyalain invent dkk ga masuk;
+                if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
+                    if(penumbukUI.GetisAnimationDone()){
+                        isUIFirstTimeShowing = false;
+                    }
+                    else{
+                        isUIFirstTimeShowing = true;
+                    }
+                }
+                else{
+                    isUIFirstTimeShowing = false;
+                }
+                 // biar input buat nyalain invent dkk ga masuk;
             }
             if(gameInput.GetInputCancelInputLetter()){
                 UndoInputLetterManyWords();

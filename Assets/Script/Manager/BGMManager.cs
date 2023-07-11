@@ -12,12 +12,14 @@ public class BGMManager : MonoBehaviour
 
     private void Start() {
         volume = PlayerPrefs.GetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
-        BGM.volume = volume;
+        bgmSlider.value = volume;
+        // BGM.volume = volume;
     }
 
-    public void UpdateBGM_Volume(){
-        volume = bgmSlider.value;
-        BGM.volume = volume;
+    public void UpdateBGM_Volume(float upVolume){
+        volume += upVolume;
+        bgmSlider.value = volume;
+        // BGM.volume = volume;
         PlayerPrefs.SetFloat(PLAYER_PREF_BGM_VOLUME, volume);
     }
 }

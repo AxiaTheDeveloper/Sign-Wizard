@@ -13,5 +13,6 @@ public class PlayerSave : ScriptableObject
     public bool isResetDay;
     public bool isFromOutside;
     public bool isSubmitPotion;
+    public bool isResetSave;
 
 }

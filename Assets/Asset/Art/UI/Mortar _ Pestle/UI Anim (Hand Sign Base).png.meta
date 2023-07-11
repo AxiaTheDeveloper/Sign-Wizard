@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 550
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605946b892e2a3346977c00c8b44507e
+      internalID: 1170189681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784316aca71fa494dad7cfa44eed8b03
+      internalID: 401819236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b7986a6b208794c99ba8847a3a0540
+      internalID: 1315862226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3bf24872f9c794e82d5db736dd5094
+      internalID: 1710728012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119e6bfd1b79544489199bcd77ee99dd
+      internalID: -109121181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bac430a9b690c74b95f3a8b0f9e40a5
+      internalID: 947491771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee08f886c4c782f4fb034802090146bc
+      internalID: 1451714905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5e932fcfbebeb449d51a82d3274cab
+      internalID: 1505236088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffa7f932d97e1140800b91a4125d7f7
+      internalID: -1715999054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8c24426027ee74d98003251b58cd27
+      internalID: -1940230396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6683bcb0abe784e9242a123b5b59b5
+      internalID: -1314303126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Anim (Hand Sign Base)_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 202
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b704986df5efa4fa747136b044c907
+      internalID: -933348880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +402,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI Anim (Hand Sign Base)_4: -109121181
+      UI Anim (Hand Sign Base)_1: 401819236
+      UI Anim (Hand Sign Base)_9: -1940230396
+      UI Anim (Hand Sign Base)_6: 1451714905
+      UI Anim (Hand Sign Base)_7: 1505236088
+      UI Anim (Hand Sign Base)_8: -1715999054
+      UI Anim (Hand Sign Base)_11: -933348880
+      UI Anim (Hand Sign Base)_2: 1315862226
+      UI Anim (Hand Sign Base)_10: -1314303126
+      UI Anim (Hand Sign Base)_0: 1170189681
+      UI Anim (Hand Sign Base)_3: 1710728012
+      UI Anim (Hand Sign Base)_5: 947491771
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

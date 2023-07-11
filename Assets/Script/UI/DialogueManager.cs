@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekQuestDulu_InteractObject
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekQuestDulu_InteractObject, sudahMenyelesaikanSemuaQuest
     }
     
     // private DialogueType dialogueType;
@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     [field : TextArea]
-    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekQuestDulu_InteractObject;
+    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject;
 
     [Header("Dialogue Kirim Potion")]
     [SerializeField]private FadeNight_StartEnd fadeNight;
@@ -41,7 +41,10 @@ public class DialogueManager : MonoBehaviour
     }
     
     private void Start() {
-        dialogueHolder_Intro.OnDialogueFinish += dialogueHolder_Intro_OnDialogueFinish;
+        if(dialogueHolder_Intro){
+            dialogueHolder_Intro.OnDialogueFinish += dialogueHolder_Intro_OnDialogueFinish;
+        }
+        
         if(dialogueHolder_Intro2){
             dialogueHolder_Intro2.OnDialogueFinish += dialogueHolder_Intro2_OnDialogueFinish;
         }
@@ -58,8 +61,11 @@ public class DialogueManager : MonoBehaviour
     {
         
         questBoxUI.ShowUI_MainLetter();
-        playerAnimator.animator.Play("Player_Idle_Down");
-        playerAnimator.animator.SetBool("idle", true);
+        if(playerAnimator){
+            playerAnimator.animator.Play("Player_Idle_Down");
+            playerAnimator.animator.SetBool("idle", true);
+        }
+        
     }
     private void dialogueHolder_WrongChoice_OnDialogueFinish(object sender, EventArgs e)
     {
@@ -87,8 +93,11 @@ public class DialogueManager : MonoBehaviour
         dialogueHolder_Intro.ShowDialogue();
     }
     public void ShowDialogue_Intro2(){
-        playerAnimator.animator.Play("Player_Idle_Up");
-        playerAnimator.animator.SetBool("idle", true);
+        if(playerAnimator){
+            playerAnimator.animator.Play("Player_Idle_Up");
+            playerAnimator.animator.SetBool("idle", true);
+        }
+        
         gameManager.ChangeToCinematic();
         dialogueHolder_Intro2.ShowDialogue();
     }
@@ -147,6 +156,9 @@ public class DialogueManager : MonoBehaviour
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.cekQuestDulu_InteractObject){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_cekQuestDulu_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.sudahMenyelesaikanSemuaQuest){
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_sudahMenyelesaikanSemuaQuest_InteractObject);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }

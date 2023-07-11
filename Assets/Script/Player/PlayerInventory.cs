@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 
 //ngatur inventory intinya
 
@@ -30,9 +31,17 @@ public class PlayerInventory : MonoBehaviour
     
     [SerializeField]private float inputCooldownTimerMax;
     private float inputCooldownTimer;
+    [SerializeField]private PlayerSaveManager playerSave;
     private void Awake() {
         Instance = this;
         inventorySize = inventory.size;
+        if(playerSave.GetIsResetSave()){
+            playerSave.HasResetSave();
+            inventory.RemoveAllItem();
+            #if UNITY_EDITOR
+            EditorUtility.SetDirty(inventory);
+            #endif
+        }
     }
     private void Start(){
         isInventoryOpen = false;

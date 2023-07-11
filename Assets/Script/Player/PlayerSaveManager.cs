@@ -21,6 +21,7 @@ public class PlayerSaveManager : MonoBehaviour
         
     }
 
+
     public void HasReset(){
         if(playerSaveSO.isResetDay){
             playerSaveSO.isResetDay = false;
@@ -75,7 +76,7 @@ public class PlayerSaveManager : MonoBehaviour
             playerSaveSO.level = 5;
         }
         else if(playerSaveSO.level == 5){
-            playerSaveSO.level = 5;
+            playerSaveSO.level = 6;
         }
         
         
@@ -114,6 +115,12 @@ public class PlayerSaveManager : MonoBehaviour
     
     public bool GetIsSubmitPotion(){
         return playerSaveSO.isSubmitPotion;
+    }
+    public bool GetIsResetSave(){
+        return playerSaveSO.isResetSave;
+    }
+    public void HasResetSave(){
+        playerSaveSO.isResetSave = false;
     }
 
 }

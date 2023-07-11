@@ -13,6 +13,7 @@ public class GameControlUI : MonoBehaviour
         gameManager.OnChangeToCinematic += gameManager_OnChangeToCinematic;
         gameManager.OnChangeToInGame += gameManager_OnChangeToInGame;
         gameManager.OnChangeToInterface += gameManager_OnChangeToInterface;
+        gameManager.OnChangeToPause += gameManager_OnChangeToPause;
     }
 
 
@@ -73,5 +74,13 @@ public class GameControlUI : MonoBehaviour
     private void gameManager_OnChangeToCinematic(object sender, EventArgs e)
     {
         image.gameObject.SetActive(false);
+    }
+    private void gameManager_OnChangeToPause(object sender, EventArgs e)
+    {
+        if(!image.gameObject.activeSelf){
+            image.gameObject.SetActive(true);
+        }
+        Debug.Log("loh");
+        image.sprite = MortarSelectItem;
     }
 }

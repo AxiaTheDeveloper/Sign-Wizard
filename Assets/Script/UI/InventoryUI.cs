@@ -492,6 +492,9 @@ public class InventoryUI : MonoBehaviour
         }
         else if(owner == OwnerShip.Chest){
             int level = PlayerSaveManager.Instance.GetPlayerLevel();
+            if(level == 6){
+                level = 5;
+            }
             chosen_MaxItem = maxItemShown_PerLevel[level];
             GiveData_To_UI(chestInventory);
             chestInventory.OnItemUpdate += otherInventory_OnItemUpdate;

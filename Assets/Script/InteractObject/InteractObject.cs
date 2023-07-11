@@ -141,7 +141,13 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheSubmitPotion){
             if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
-                submit.OpenUI(Submit);
+                if(playerSave.GetPlayerLevel() == 6){
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest);
+                }
+                else{
+                    submit.OpenUI(Submit);
+                }
+                
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.outside){
                 playerSave.ChangePlayerMode(levelMode.MakingPotion);

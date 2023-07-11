@@ -49,7 +49,7 @@ public class DictionaryUI : MonoBehaviour
     }
     private void ChangePagePart(Vector2 keyArrowInput){
         
-        Debug.Log(keyArrowInput + " " + pagePart);
+        // Debug.Log(keyArrowInput + " " + pagePart);
         if(keyArrowInput.y == -1 && pagePart == 0){
             // Debug.Log("aaa");
             pagePart = 1;

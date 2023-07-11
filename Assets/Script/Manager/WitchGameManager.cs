@@ -15,7 +15,7 @@ public class WitchGameManager : MonoBehaviour
 
     private bool pauseState;
     private gameState saveState_WhilePause;
-    public event EventHandler OnChangeToCinematic, OnChangeToInGame, OnChangeToInterface;
+    public event EventHandler OnChangeToCinematic, OnChangeToInGame, OnChangeToInterface, OnChangeToPause;
 
 
     public enum InterfaceType{
@@ -68,11 +68,13 @@ public class WitchGameManager : MonoBehaviour
         //ga mungkin bs pause kalo lg d state interface
         if(pauseState){
             saveState_WhilePause = state;
-            state = gameState.Pause;        
+            state = gameState.Pause; 
+            OnChangeToPause?.Invoke(this, EventArgs.Empty);       
         }
         else{
             
             state = saveState_WhilePause;
+            OnChangeToInGame?.Invoke(this,EventArgs.Empty);
         }
     }
 

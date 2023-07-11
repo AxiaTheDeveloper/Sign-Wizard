@@ -117,7 +117,7 @@ public class Penumbuk : MonoBehaviour
             foreach(WordManager wordMn in wordManager){
                 wordMn.createWord();
             }
-            PenumbukUI_Tumbuk.ShowWordUI();
+            PenumbukUI_Tumbuk.ShowTumbukUI();
             
         } 
         else{

@@ -14,10 +14,14 @@ public class PenumbukUI : MonoBehaviour
 
     [SerializeField]private Slider slider;
     [SerializeField]private Image sliderImage;
+    [SerializeField]private Animator progressBar_Animator, word_Animator;
+    private bool isAnimationDone = false;
 
     private void Start() {
         ResetAllVisual();
-        HidePenumbukUI();
+        gameObject.SetActive(false);
+        wordPlace.SetActive(false);
+        PenumbukItem_UI.gameObject.SetActive(false);
         penumbuk.OnChangeProgress += penumbuk_OnChangeProgress;
     }
 
@@ -41,7 +45,7 @@ public class PenumbukUI : MonoBehaviour
     private void ResetAllVisual(){
         PenumbukItem_UI.ResetData();
         slider.value = 0;
-
+        isAnimationDone = false;
     }
     public void UpdateVisualInventorySlot(CauldronItem item){
         // Debug.Log(position);
@@ -54,21 +58,39 @@ public class PenumbukUI : MonoBehaviour
         
     }
 
+
     public void ShowPenumbukUI(){
+        
         gameObject.SetActive(true);
     }
     public void HidePenumbukUI(){
         // WitchGameManager.Instance.ChangeToInGame();
+        isAnimationDone = false;
         gameObject.SetActive(false);
         wordPlace.SetActive(false);
-        
-        
+        word_Animator.SetBool("isTumbuk", false);
+        progressBar_Animator.SetBool("isTumbuk", false);
+    }
+    public void ShowTumbukUI(){
+        PenumbukItem_UI.gameObject.SetActive(true);
+        word_Animator.SetBool("isTumbuk", true);
+        progressBar_Animator.SetBool("isTumbuk", true);
     }
 
     public void ShowWordUI(){
+        isAnimationDone = true;
         wordPlace.SetActive(true);
     }
     public void CloseWordUI(){
+        PenumbukItem_UI.gameObject.SetActive(false);
         wordPlace.SetActive(false);
+        word_Animator.SetBool("isTumbuk", false);
+        progressBar_Animator.SetBool("isTumbuk", false);
+        isAnimationDone = false;
     }
+    public bool GetisAnimationDone(){
+        return isAnimationDone;
+    }
+
+    
 }
