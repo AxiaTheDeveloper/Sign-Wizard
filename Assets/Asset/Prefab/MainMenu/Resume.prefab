@@ -99,5 +99,21 @@ PrefabInstance:
       propertyPath: m_text
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 8775010026231378453, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775010026231378453, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775010026231378453, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775010026231378453, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}

@@ -35,7 +35,7 @@ public class SubmitPotionUI : MonoBehaviour
         Selected_On();
     }
     public void Show_AreYouSure(string potionName){
-        text_AreYouSure.text = "Apakah aku akan kirim "+ potionName + " ini ?";
+        text_AreYouSure.text = "Apakah aku akan kirim potion ini ?";
         UI_AskingWhichPotion.SetActive(false);
         UI_AreYouSure.SetActive(true);
     }
