@@ -58,7 +58,7 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         Inventory_Input();
-        
+        // Debug.Log(inputCooldownTimer);
     }
 
     private void Inventory_Input(){
@@ -305,12 +305,12 @@ public class PlayerInventory : MonoBehaviour
     }
     private void InputArrowInventory_SubmitBedChoice(){
         keyInputArrowUI = gameInput.GetInputArrow();
-        if(keyInputArrowUI.y == 1){
+        if(keyInputArrowUI.x == -1){
             if(!bed.GetIsResetDay()){
                 bed.Change_YesNo();
             }
         }
-        else if(keyInputArrowUI.y == -1){
+        else if(keyInputArrowUI.x == 1){
             if(bed.GetIsResetDay()){
                 bed.Change_YesNo();
             }
@@ -320,12 +320,12 @@ public class PlayerInventory : MonoBehaviour
 
     private void InputArrowInventory_DoorChoice(){
         keyInputArrowUI = gameInput.GetInputArrow();
-        if(keyInputArrowUI.y == 1){
+        if(keyInputArrowUI.x == -1){
             if(!door.GetWantToGoIn()){
                 door.Change_YesNo();
             }
         }
-        else if(keyInputArrowUI.y == -1){
+        else if(keyInputArrowUI.x == 1){
             if(door.GetWantToGoIn()){
                 door.Change_YesNo();
             }

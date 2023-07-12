@@ -31,6 +31,9 @@ public class GameInput : MonoBehaviour
     public bool GetInputEscape(){
         return Input.GetKeyDown(KeyCode.Escape); 
     }
+    public bool GetInputEscapeMainMenu(){
+        return Input.GetKeyDown(KeyCode.X);
+    }
 
 
     //Ini Buat Player Semua

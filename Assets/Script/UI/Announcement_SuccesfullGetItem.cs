@@ -34,6 +34,7 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
     }
 
     public void Show(){
+        SoundManager.Instance.PlayPotionJadi();
         itemImage.gameObject.SetActive(true);
         gameObject.SetActive(true);
         particle.gameObject.SetActive(true);

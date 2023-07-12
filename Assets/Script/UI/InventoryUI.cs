@@ -134,9 +134,14 @@ public class InventoryOnly{
         if(move){
             move = false;
             RectTransform ui_rect = UI.GetComponent<RectTransform>();
-            LeanTween.move(ui_rect, new Vector3(-362.5f, -900, 0), 0.2f);
+            LeanTween.move(ui_rect, new Vector3(-362.5f, -900, 0), 0.2f).setOnComplete(()=>{
+                UI.SetActive(false);
+            });
         }
-        UI.SetActive(false);
+        else{
+            UI.SetActive(false);
+        }
+        
         
         
     }
@@ -241,9 +246,9 @@ public class InventoryWithDesc : InventoryOnly{
             // Debug.Log(UI_ItemList[selectItem].GetPosisiWord().position);
         }
     }
-    public void UpdateVisual_InventQuantity(InventoryUIDesc inventUIDesc, int quantity_Want){
+    public void UpdateVisual_InventQuantity(InventoryUIDesc inventUIDesc, int quantity_Want, int maxQuantity){
         //dibwh ud di cek lebi ato krg etc, ini kalo angka brubah aja dipanggil
-        inventUIDesc.changeQuantityWant(quantity_Want);
+        inventUIDesc.changeQuantityWant(quantity_Want, maxQuantity);
     }
 }
 
@@ -712,11 +717,11 @@ public class InventoryUI : MonoBehaviour
         if(tipeInventory == TipeInventory.inventoryWithDesc){
             if(change == 1 && quantity_Want < maxQuantityNow){
                 quantity_Want += change;
-                invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
+                invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want,maxQuantityNow);
             }
             else if(change == -1 && quantity_Want > 1){
                 quantity_Want += change;
-                invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
+                invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want, maxQuantityNow);
                 wordPlaceShow_InventDesc.SetActive(false);
             }
         }
@@ -727,7 +732,7 @@ public class InventoryUI : MonoBehaviour
     public void ResetQuantityWant(){
         quantity_Want = 1;
         maxQuantityNow = chestInventory.inventSlot[selectItem].quantity;
-        invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want);
+        invent_Desc.UpdateVisual_InventQuantity(inventUIDesc, quantity_Want, maxQuantityNow);
     }
 
     public void GiveData_To_UI(InventoryScriptableObject inventory){

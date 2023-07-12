@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: No_Quest
   m_EditorClassIdentifier: 
   levelQuest: 0
+  nameSender: 
   potionWantList: []
-  Quest_Title: There is no quest
-  QuestDescription: <i>No Quest</i>
-  QuestTask: "- Get out from the house. \n- Get a new quest from the quest box."
+  Quest_Title: Tidak Ada Quest
+  QuestDescription: <i>Tidak ada quest</i>
+  QuestTask: '- Keluar dari rumah.
+
+    - Ambil quest dari mail box.'
+  QuestinMail: <i>Tidak ada quest</i>

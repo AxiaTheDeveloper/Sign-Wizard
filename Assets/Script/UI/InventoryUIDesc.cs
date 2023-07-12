@@ -8,13 +8,13 @@ public class InventoryUIDesc : MonoBehaviour
 {
     
     [SerializeField]private Image item_Image;
-    [SerializeField]private TextMeshProUGUI item_Title;
     [SerializeField]private TextMeshProUGUI item_Desc;
     [SerializeField]private GameObject wholeQuantity;
     [SerializeField]private TextMeshProUGUI quantity_PlayerWant;
     [SerializeField]private WordManager wordManager_Chest;
     [SerializeField]private GameObject wordPlace_GameObject;
     [SerializeField]private GameObject quantityUI;
+    [SerializeField]private Image arrowQuantityUp,arrowQuantityDown;
     [SerializeField]WordInput wordInput;
     private bool isFirsTime = true;
 
@@ -23,7 +23,6 @@ public class InventoryUIDesc : MonoBehaviour
     }
     public void EmptyDescUI(){
         item_Image.gameObject.SetActive(false);
-        item_Title.text = "";
         item_Desc.text = "";
         wordInput.ChangeAdaWord(false);
         wordManager_Chest.changeTheWord("");
@@ -60,7 +59,6 @@ public class InventoryUIDesc : MonoBehaviour
         item_Image.sprite = spriteItem;
         item_Image.gameObject.SetActive(true);
         
-        item_Title.text = itemTitle;
         item_Desc.text = itemDesc;
         quantity_PlayerWant.text = quantityWant.ToString();
         wholeQuantity.SetActive(true);
@@ -78,7 +76,19 @@ public class InventoryUIDesc : MonoBehaviour
         
         wordPlace_GameObject.SetActive(true);
     }
-    public void changeQuantityWant(int quantityWant){
+    public void changeQuantityWant(int quantityWant, int maxQuantityNow){
         quantity_PlayerWant.text = quantityWant.ToString();
+        if(quantityWant == 1){
+            arrowQuantityDown.color = new Color32(135,135,135,255);
+            arrowQuantityUp.color = new Color32(255,255,255,255);
+        }
+        else if(quantityWant == maxQuantityNow){
+            arrowQuantityDown.color = new Color32(255,255,255,255);
+            arrowQuantityUp.color = new Color32(135,135,135,255);
+        }
+        else if(quantityWant > 1 && quantityWant < maxQuantityNow){
+            arrowQuantityDown.color = new Color32(255,255,255,255);
+            arrowQuantityUp.color = new Color32(255,255,255,255);
+        }
     }
 }

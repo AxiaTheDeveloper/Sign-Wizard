@@ -53,6 +53,7 @@ public class Penumbuk : MonoBehaviour
     private void finishFunction_OnTumbuk(object sender, EventArgs e)
     {
         Tumbuk();
+        SoundManager.Instance.PlayMortar();
     }
 
     private void playerInventory_OnQuitPenumbuk(object sender, EventArgs e)
@@ -147,6 +148,7 @@ public class Penumbuk : MonoBehaviour
     }
 
     public void Tumbuk(){
+
         progressNow += progress_perTumbuk;
         if(progressNow >= maxProgress){
             progressNow = maxProgress;

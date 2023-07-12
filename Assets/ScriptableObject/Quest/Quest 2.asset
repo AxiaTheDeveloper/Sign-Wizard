@@ -13,8 +13,25 @@ MonoBehaviour:
   m_Name: Quest 2
   m_EditorClassIdentifier: 
   levelQuest: 2
+  nameSender: Vii
   potionWantList:
   - {fileID: 11400000, guid: 916277fbcc8defc4aaaf9c52061a3001, type: 2}
   - {fileID: 11400000, guid: 7303a853c8b09f145b246d6cdbdccbca, type: 2}
-  QuestDescription: 
-  QuestLog: 
+  Quest_Title: Golden Root
+  QuestDescription: "\r\"Aku mau pesan ramuan <b>Soothing Root Infusion & Golden
+    Energy Brew</b> karena belakangan ini aku sedang stress dan butuh dorongan tambahan
+    nih hehe.\""
+  QuestTask: '- Ke Book Shelf untuk cek Resep.
+
+    - Ke Chest ambil bahan.
+
+    -
+    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
+
+    - Ke Cauldron
+    masukin bahan dan sesuaikan api.
+
+    - Kirim lewat mail box.'
+  QuestinMail: "Pagi Nek, apa kabar? semoga baik baik saja yaa.. \r\n\r\nAku mau
+    pesan ramuan <b>Soothing Root Infusion & Golden Energy Brew</b> karena belakangan
+    ini aku sedang stress dan butuh dorongan tambahan nih hehe. Terimakasih yaa!"

@@ -92,7 +92,9 @@ public class Chest : MonoBehaviour
 
     private void playerInventory_OnQuitChest(object sender, EventArgs e)
     {
+        SoundManager.Instance.PlayChestClose();
         CloseWholeUI();
+        
     }
 
     private void playerInventory_OnClearPlayerInventory(object sender, EventArgs e)

@@ -13,9 +13,33 @@ MonoBehaviour:
   m_Name: Quest 5
   m_EditorClassIdentifier: 
   levelQuest: 5
+  nameSender: Eline
   potionWantList:
   - {fileID: 11400000, guid: 663134221284a14489270ca36138e620, type: 2}
   - {fileID: 11400000, guid: 6e4d8ada99ce91a45894efba59d21fbb, type: 2}
   - {fileID: 11400000, guid: 986778bff2b1a524490c70b4b37fb0f9, type: 2}
-  QuestDescription: 
-  QuestLog: 
+  Quest_Title: Tonic Essence
+  QuestDescription: '"Kalau begitu Aku mau pesan ramuan <b>Quinoa Vitality Tonic,
+    Spice-infused Essence & Olive Yogurt Elixir.</b> Maaf jika terlalu banyak yaa
+    hehe."'
+  QuestTask: '- Ke Book Shelf untuk cek Resep.
+
+    - Ke Chest ambil bahan.
+
+    -
+    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
+
+    - Ke Cauldron
+    masukin bahan dan sesuaikan api.
+
+    - Kirim lewat mail box.'
+  QuestinMail: 'Selamat pagi, kudengar nenek belum kembali tetapi ada yang mengerjakan
+    pesanan. Salam kenal ya!
+
+
+    Kalau begitu Aku mau pesan ramuan <b>Quinoa Vitality
+    Tonic, Spice-infused Essence & Olive Yogurt Elixir.</b> Maaf jika terlalu banyak
+    yaa hehe.
+
+
+    Baiklah itu saja, kutunggu kirimannya ya, Terimakasih!'

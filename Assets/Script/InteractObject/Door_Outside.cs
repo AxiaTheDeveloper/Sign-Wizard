@@ -54,6 +54,7 @@ public class Door_Outside : MonoBehaviour
                 fadeNight.ShowOutsideLight();
             }
             else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+                SoundManager.Instance.PlayDoorOpen();
                 darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
                     () => playerSave.Go_InsideNow()
                 );

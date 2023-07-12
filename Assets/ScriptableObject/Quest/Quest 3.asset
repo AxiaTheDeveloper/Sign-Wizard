@@ -13,8 +13,31 @@ MonoBehaviour:
   m_Name: Quest 3
   m_EditorClassIdentifier: 
   levelQuest: 3
+  nameSender: Cloter
   potionWantList:
   - {fileID: 11400000, guid: 577f1d9ed9b7a5b4f911ae3dc98e539c, type: 2}
   - {fileID: 11400000, guid: 92c9d45a6c82556439aa73c1f4c9c71d, type: 2}
-  QuestDescription: 
-  QuestLog: 
+  Quest_Title: Citrus Tea
+  QuestDescription: '"Aku jadi tertarik pesan <b>Zesty Citrus Brew & Enchanted Serenity
+    Tea</b>! semoga hasilnya tetap menyegarkan!!"'
+  QuestTask: '- Ke Book Shelf untuk cek Resep.
+
+    - Ke Chest ambil bahan.
+
+    -
+    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
+
+    - Ke Cauldron
+    masukin bahan dan sesuaikan api.
+
+    - Kirim lewat mail box.'
+  QuestinMail: 'Haloo, ku dengar dari Chal ramuannya lebih bagus dari biasanya dan
+    sepertinya bukan buatan nenek lagi ya?
+
+
+    Aku jadi tertarik pesan <b>Zesty
+    Citrus Brew & Enchanted Serenity Tea</b>! semoga hasilnya tetap menyegarkan!!
+
+
+    Ditunggu
+    yaa, Terimakasih banyak!!!'

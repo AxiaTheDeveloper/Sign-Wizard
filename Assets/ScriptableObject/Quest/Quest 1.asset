@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: Quest 1
   m_EditorClassIdentifier: 
   levelQuest: 1
-  nameSender: Neighbour
+  nameSender: Chal
   potionWantList:
   - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
-  Quest_Title: A little favor
-  QuestDescription: '"Aku minta ramuan Dewdrop Elixir untuk memberikan kesegaran
-    dan kelembutan yang menenangkan bagi tubuhku"'
-  QuestTask: '- Ke Book Shelf untuk cek Resep untuk Dewdrop Elixir
+  Quest_Title: A Little Favor
+  QuestDescription: '"Aku mau pesan ramuan <b>Dewdrop Elixir</b> untuk memberikan
+    kesegaran dan kelembutan yang menenangkan bagi tubuhku."'
+  QuestTask: '- Ke Book Shelf untuk cek Resep.
 
-    - Ke Chest
-    ambil 1 Air, 2 Daun. 1 Herbal.
+    - Ke Chest ambil bahan.
 
-    - Ke Cauldron masukin bahan sesuai urutan
-    kemudian lock api di suhu kecil.
+    -
+    Ke Cauldron masukin bahan dan sesuaikan api.
 
-    - Kirim lewat Magical Owl.'
+    - Kirim lewat mail box.'
+  QuestinMail: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b>Dewdrop Elixir</b>
+    untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku. \r\n\r\nTerimakasih
+    yaa!"

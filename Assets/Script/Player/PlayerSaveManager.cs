@@ -29,6 +29,10 @@ public class PlayerSaveManager : MonoBehaviour
         else if(playerSaveSO.isFromOutside){
             playerSaveSO.isFromOutside = false;
         }
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
+        
         // Debug.Log(hasReset);
     }
     public void player_HasReset_Place(){
@@ -45,6 +49,9 @@ public class PlayerSaveManager : MonoBehaviour
         
         playerSaveSO.isSubmitPotion = false;
         // Debug.Log(hasReset);
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
     }
     public void player_GoOutDialogue_Place(){
         playerPosition = GetComponent<Transform>();
@@ -79,27 +86,45 @@ public class PlayerSaveManager : MonoBehaviour
             playerSaveSO.level = 6;
         }
         
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
         
     }
     public void ChangePlayerMode(levelMode mode){
         playerSaveSO.modeLevel = mode;
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
     }
     public void resetDay(){
         playerSaveSO.isResetDay = true;
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
     }
 
     public void ResetDay_Sleep(){
        
         playerSaveSO.isResetDay = true;
         SceneManager.LoadScene("InDoor");
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
     }
     public void ResetDay_SubmitPotion(){
         playerSaveSO.isSubmitPotion = true;
         SceneManager.LoadScene("InDoor"); // ntr kuganti jd nama scene saja
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(playerSaveSO);
+        #endif
     }
     public void Go_OutsideNow(){
         if(playerSaveSO.modeLevel == levelMode.outside){
             playerSaveSO.isFromOutside = true;
+            #if UNITY_EDITOR
+            EditorUtility.SetDirty(playerSaveSO);
+            #endif
         }
         SceneManager.LoadScene("OutDoor");
     }
@@ -121,6 +146,9 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public void HasResetSave(){
         playerSaveSO.isResetSave = false;
+        #if UNITY_EDITOR
+            EditorUtility.SetDirty(playerSaveSO);
+            #endif
     }
 
 }

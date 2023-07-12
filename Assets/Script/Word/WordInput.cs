@@ -13,6 +13,9 @@ public class WordInput : MonoBehaviour
     private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
     [SerializeField]private PenumbukUI penumbukUI;
+    [SerializeField]private float inputCooldownTimerMax;
+    private float inputCooldownTimer;
+
 
     
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
@@ -38,8 +41,8 @@ public class WordInput : MonoBehaviour
     }
     private void Update() {
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
-            if(Input.anyKeyDown && !gameInput.GetInputCancelInputLetter()){
-                
+            if(Input.anyKeyDown && !gameInput.GetInputCancelInputLetter() &&inputCooldownTimer <=0){
+                inputCooldownTimer = inputCooldownTimerMax;
                 foreach(char letter in Input.inputString){
                     //kalo one word only butuh penanda yg mana yg dipilih dan apakah ud dipilih dr inventory ui nya
                     // Debug.Log(letter);
@@ -141,6 +144,9 @@ public class WordInput : MonoBehaviour
                 isUIFirstTimeShowing = true;
                 UndoInputLetterManyWords();
                 OnQuitInterface?.Invoke(this,EventArgs.Empty);
+            }
+            if(inputCooldownTimer > 0){
+                inputCooldownTimer-= Time.deltaTime;
             }
         }
         

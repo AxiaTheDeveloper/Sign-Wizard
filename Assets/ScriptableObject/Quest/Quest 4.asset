@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: Quest 4
   m_EditorClassIdentifier: 
   levelQuest: 4
+  nameSender: Chal
   potionWantList:
   - {fileID: 11400000, guid: b3ee70bd823997d4cb337d7a5e9d277b, type: 2}
   - {fileID: 11400000, guid: 0489c99ec22434c4ba51769a4a0510a4, type: 2}
-  QuestDescription: 
-  QuestLog: 
+  Quest_Title: Tropical Brew
+  QuestDescription: '"Kali ini Aku mau pesan ramuan <b>Harmony Fish Brew & Tropical
+    Bliss Elixir</b> yaa, lagi pengen yang sehat dan segar aja gitu."'
+  QuestTask: '- Ke Book Shelf untuk cek Resep.
+
+    - Ke Chest ambil bahan.
+
+    -
+    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
+
+    - Ke Cauldron
+    masukin bahan dan sesuaikan api.
+
+    - Kirim lewat mail box.'
+  QuestinMail: "Selamat Pagi!!!\r\n\r\nKali ini Aku mau pesan ramuan <b>Harmony Fish
+    Brew & Tropical Bliss Elixir</b> yaa, lagi pengen yang sehat dan segar aja gitu.
+    \r\n\r\nTerimakasih banyak, ditunggu ya!"

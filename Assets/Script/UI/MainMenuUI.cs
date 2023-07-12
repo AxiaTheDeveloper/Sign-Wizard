@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEditor;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -124,7 +125,7 @@ public class MainMenuUI : MonoBehaviour
             Deselect();
         }
         else if(type == mainMenuType.reset){
-            if((gameInput.GetInputOpenInventory() || gameInput.GetInputEscape()) && inputCooldownTimer <= 0){
+            if((gameInput.GetInputOpenInventory() || gameInput.GetInputEscape()|| gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 isYesReset = false;
                 UpdateSelectChoice_Reset();
@@ -150,6 +151,9 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isResetDay = false;
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
+                    #if UNITY_EDITOR
+                    EditorUtility.SetDirty(playerSaveSO);
+                    #endif
                 }
 
                 inputCooldownTimer = inputCooldownTimerMax;
@@ -223,6 +227,9 @@ public class MainMenuUI : MonoBehaviour
                 else{
                     if(!playerSaveSO.isFromOutside){
                         playerSaveSO.isFromOutside = true;
+                        // #if UNITY_EDITOR
+                        // EditorUtility.SetDirty(playerSaveSO);
+                        // #endif
                     }
                 }
             }
@@ -233,7 +240,7 @@ public class MainMenuUI : MonoBehaviour
     private void Deselect(){
         
         if(type == mainMenuType.language){
-            if((gameInput.GetInputSelectItemForCauldron() || gameInput.GetInputEscape()) && inputCooldownTimer <= 0){
+            if((gameInput.GetInputSelectItemForCauldron() || gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                 
                 inputCooldownTimer = inputCooldownTimerMax;
                 pilihanLanguage.SetActive(false);
@@ -242,7 +249,7 @@ public class MainMenuUI : MonoBehaviour
             }
         }
         else if(type == mainMenuType.option){
-            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+            if((gameInput.GetInputEscape() ||gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 isMusicOn = false;
                 isSoundOn = false;
@@ -254,7 +261,7 @@ public class MainMenuUI : MonoBehaviour
             }
         }
         else if(type == mainMenuType.credits){
-            if((gameInput.GetInputSelectItemForCauldron() || gameInput.GetInputEscape()) && inputCooldownTimer <= 0){
+            if((gameInput.GetInputSelectItemForCauldron() || gameInput.GetInputEscape()||gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 // pilihanLanguage.SetActive(false);
                 type = mainMenuType.normal;
@@ -273,6 +280,7 @@ public class MainMenuUI : MonoBehaviour
             musicSlider.gameObject.SetActive(false);
             optionUI.SetActive(false);
             type = mainMenuType.normal;
+            OnChange?.Invoke(this,EventArgs.Empty);
         }
         else if(selectionPause == 1){
             if(isMusicOn){

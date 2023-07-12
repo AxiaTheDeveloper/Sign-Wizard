@@ -59,8 +59,9 @@ MonoBehaviour:
   CloseLetter: {fileID: 21300000, guid: 3acfad3f1f478e84d9fabe5b70bc74e2, type: 3}
   Dictionary: {fileID: 21300000, guid: 6520c78c87e85c54488a563830ed482e, type: 3}
   InGame: {fileID: 21300000, guid: d094472b4eda3884e9f03f40d8f76db2, type: 3}
-  MortarInProgress: {fileID: 21300000, guid: e2cb8d98cb658d14786e70dc7f1a763a, type: 3}
+  MortarInProgress: {fileID: 21300000, guid: 6a4884857a5a87d44b276543ae8debdd, type: 3}
   MortarSelectItem: {fileID: 21300000, guid: 90d2942e779b564418bfa48264f05571, type: 3}
+  submitPotion: {fileID: 21300000, guid: c3e67dc2390de8a4a84d2e5e36c05981, type: 3}
   image: {fileID: 3755188029374768497}
   gameManager: {fileID: 0}
 --- !u!1 &3755188029374768499

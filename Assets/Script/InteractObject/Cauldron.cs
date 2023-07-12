@@ -98,6 +98,7 @@ public class Cauldron : MonoBehaviour
         cauldronUI_Cook.UpdateVisualNeedle(rotation);
         finalRotation = rotation;
         StartCoroutine(StartCountDownCloseUI_FireStage());
+        
     }
 
     private void Update() {
@@ -168,6 +169,7 @@ public class Cauldron : MonoBehaviour
 
     //ini countdownnya misal firestage ud abis ga lsg nutup biar keliatan arrow ada di mana
     private IEnumerator StartCountDownCloseUI_FireStage(){
+        SoundManager.Instance.PlayStartFire();
         yield return new WaitForSeconds(waitCloseUI);
         CheckRecipe_ItemStage();
         
@@ -218,8 +220,9 @@ public class Cauldron : MonoBehaviour
                     cauldronUI_Cook.HideCookUI();
                     gameManager.ChangeToCinematic();
                     CountFireSpeed();
-                    TimelineManager.Instance.Start_CauldronSuccess();
+                    
                     announcementUI.AddData(recipeChosen.output_Potion);
+                    CreatePotion();
                     //play the timeline or animation or anything,
                 }
                 else{

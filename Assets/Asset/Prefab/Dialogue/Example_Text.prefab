@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 536089217676254487}
   - component: {fileID: 536089217676254482}
   - component: {fileID: 536089217676254480}
-  - component: {fileID: 536089217676254481}
+  - component: {fileID: 4183160401426539664}
   m_Layer: 5
   m_Name: Example_Text
   m_TagString: Untagged
@@ -62,17 +62,17 @@ MonoBehaviour:
   pressToContinue_textHolder: {fileID: 0}
   dialogueType: 0
   isInputText_FromOtherCode: 0
-  delayTypeText: 0.1
-  delayBetweenLines: 1
+  delayTypeText: 0.01
+  delayBetweenLines: 0.5
   isCharaHaveImage: 1
   imageHolder: {fileID: 0}
   spriteCharacter: {fileID: 21300000, guid: dbc624f7b3a644dcf989e434e63d9a98, type: 3}
-  bgColor: {r: 1, g: 0, b: 0, a: 1}
+  bgColor: {r: 1, g: 1, b: 1, a: 1}
   backGroundHolder: {fileID: 0}
   isCharaHaveName: 1
-  charaName: Axia
+  charaName: AXIA
   name_textHolder: {fileID: 0}
---- !u!114 &536089217676254481
+--- !u!114 &4183160401426539664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New TextNewNew TextNewNew TextNewNew TextNewNew TextNewNew TextNew
+  m_text: New text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4286944714
+  m_fontColor: {r: 0.7921569, g: 0.58431375, b: 0.52156866, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -125,13 +125,13 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

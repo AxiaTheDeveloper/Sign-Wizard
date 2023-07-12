@@ -27,11 +27,13 @@ public class PlayerInteraction : MonoBehaviour
     public class OnSelectedInteractObjectEventArgs : EventArgs{
         public InteractObject selectedObject;
     }
+    [SerializeField]private float InputCooldownTimerMax;
+    private float inputCooldownTimer;
     
     private void Awake() {
         Instance = this;
         collPlayer = GetComponent<Collider2D>();
-        
+        inputCooldownTimer = InputCooldownTimerMax;
     }
 
 
@@ -39,11 +41,17 @@ public class PlayerInteraction : MonoBehaviour
         
         HandleSelectObjectInteractions();
         if(WitchGameManager.Instance.IsInGame()){
-            if(GameInput.Instance.GetInputInteract() && selectedObject){
+            if(GameInput.Instance.GetInputInteract() && selectedObject && inputCooldownTimer <= 0){
                 // HandleInteractions();
                 selectedObject.Interacts();
 
             }
+            if(inputCooldownTimer > 0){
+                inputCooldownTimer -= Time.deltaTime;
+            }
+        }
+        else{
+            inputCooldownTimer = InputCooldownTimerMax;
         }
         
         

@@ -14,6 +14,10 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]private GameInput gameInput;
     [SerializeField]private float maxDiagonalChecker;
     private float diagonalChecker;
+    private SoundManager soundManager;
+    private void Start() {
+        soundManager = SoundManager.Instance;
+    }
 
     private void Update() {
     
@@ -55,6 +59,14 @@ public class PlayerAnimator : MonoBehaviour
         if (keyInput.y > 0) keyInput.y = 1;
         if (keyInput.x < 0) keyInput.x = -1;
         if (keyInput.y < 0) keyInput.y = -1;
+        if(keyInput != Vector2.zero){
+            if(!soundManager.isPlayedSFX_PlayerWalk()){
+                soundManager.PlaySFX_PlayerWalk();
+            }
+        }
+        else{
+            soundManager.StopSFX_PlayerWalk();
+        }
         if(keyInput.y != 0 && keyInput.x != 0){
             wasDiagonal = true;
             lastKeyInput = keyInput;
@@ -148,5 +160,6 @@ public class PlayerAnimator : MonoBehaviour
             default:
                 break;
         }
+        
     }
 }

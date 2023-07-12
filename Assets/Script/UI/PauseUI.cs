@@ -31,6 +31,11 @@ public class PauseUI : MonoBehaviour
     
     void Update()
     {
+        if(bgmManager == null){
+            // Debug.Log("lah");
+            bgmManager = GameObject.FindWithTag("Manager").GetComponent<BGMManager>();
+            // Debug.Log(GameObject.FindWithTag("Manager"));
+        }
         if(gameManager.IsInGame()){
             if(gameInput.GetInputEscape() && escapeCooldownTimer <= 0){
                 
@@ -144,8 +149,12 @@ public class PauseUI : MonoBehaviour
             }
         }
         else if(selectionPause == 3){
+            bgmManager.DestroyInstance();
             SceneManager.LoadScene("MainMenu");
         }
+    }
+    public Slider GetBGMSlider(){
+        return musicSlider.GetComponent<Slider>();
     }
 
 

@@ -15,12 +15,12 @@ MonoBehaviour:
   levelQuest: 0
   nameSender: MichiZ Team
   potionWantList: []
-  Quest_Title: There is no quest
-  QuestDescription: '<i>Congratulations and Thank You for finishing the game !!
+  Quest_Title: Tidak Ada Quest
+  QuestDescription: <i>Selamat dan Terima kasih telah memainkan game kami sampai
+    habis. Silahkan tunggu untuk update berikutnya.</i>
+  QuestTask: '- Tunggu update berikutnya.
 
-    Please
-    wait for the next update.</i>'
-  QuestTask: '- Wait for the next update
-
-    - Restart the game save file in the
-    main menu if you want to play again.'
+    - Reset game save file pada main menu
+    jika ingin memainkan kembali dari awal.'
+  QuestinMail: <i>Selamat dan Terima kasih telah memainkan game kami sampai habis.
+    Silahkan tunggu untuk update berikutnya.</i>

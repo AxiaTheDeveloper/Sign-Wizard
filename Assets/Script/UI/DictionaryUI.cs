@@ -9,7 +9,9 @@ public class DictionaryUI : MonoBehaviour
     [SerializeField]private GameObject[] potionPageList;
     [SerializeField]private GameObject runePage, potionPage;
     private int pageNow_Potion, totalPage, pagePart;
+    private SoundManager soundManager;
     private void Start() {
+        soundManager = SoundManager.Instance;
         pageNow_Potion = 0;
         pagePart = 0;
         totalPage = potionPageList.Length;
@@ -53,19 +55,23 @@ public class DictionaryUI : MonoBehaviour
         if(keyArrowInput.y == -1 && pagePart == 0){
             // Debug.Log("aaa");
             pagePart = 1;
+            soundManager.PlayFlipPage();
         }
         else if(keyArrowInput.y == 1 && pagePart == 1){
             // Debug.Log("aaasss");
             pagePart = 0;
+            soundManager.PlayFlipPage();
         }
         UpdatePage();
     }
     private void ChangePage_Potion(Vector2 keyArrowInput){
         if(keyArrowInput.x == -1 && pageNow_Potion > 0){
             pageNow_Potion--;
+            soundManager.PlayFlipPage();
         }
         else if(keyArrowInput.x == 1 && pageNow_Potion < totalPage-1){
             pageNow_Potion++;
+            soundManager.PlayFlipPage();
         }
         UpdatePage();
     }

@@ -28,8 +28,8 @@ public class QuestBox : MonoBehaviour
         HideUI();
     }
     public void SetData(QuestScriptableObject questSO){
-        questDesc.text = questSO.QuestDescription;
-        questSender.text = "From: " + questSO.nameSender;
+        questDesc.text = questSO.QuestinMail;
+        questSender.text = "- " + questSO.nameSender;
 
     }
 
@@ -37,6 +37,7 @@ public class QuestBox : MonoBehaviour
         
         gameManager.ChangeToCinematic();
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
+        SoundManager.Instance.PlayOpenEnvelope();
         LeanTween.move(letter, new Vector3(0, 800f, 0f), 0.2f).setOnComplete(
             ()=> LeanTween.move(questLetter, new Vector3(0, 0, 0f), 0.8f).setDelay(0.2f).setOnComplete(
                 ()=> Show()
@@ -48,6 +49,7 @@ public class QuestBox : MonoBehaviour
         isMainLetter = true;
         gameManager.ChangeToCinematic();
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
+        SoundManager.Instance.PlayOpenEnvelope();
         LeanTween.move(letter, new Vector3(0, 800f, 0f), 0.2f).setOnComplete(
             ()=> LeanTween.move(mainLetter, new Vector3(0, 0, 0f), 0.8f).setDelay(0.2f).setOnComplete(
                 ()=> gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceQuestBox)

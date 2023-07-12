@@ -16,6 +16,8 @@ public class QuestScriptableObject : ScriptableObject
     public string QuestDescription;
     [field : TextArea]
     public string QuestTask;
+    [field : TextArea]
+    public string QuestinMail;
 
     
 

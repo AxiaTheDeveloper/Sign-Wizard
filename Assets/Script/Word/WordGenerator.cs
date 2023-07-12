@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WordGenerator : MonoBehaviour
 {   
-    private string[] wordArrayTumbuk = {"adil", "air", "alas", "alat", "aliran", "amal", "ampun", "aneh", "angka", "api", "aroma", "artis", "atas", "ayam", "bagus", "bahagia", "bahasa", "baja", "baju", "baliho", "bandara", "bangga", "bangunan", "bantal", "baru", "baru-baru", "baru saja", "basah", "bata", "batu", "bazar", "beban", "belajar", "bekerja", "belakang", "belanja", "berani", "berasa", "berat", "berdua", "berguna", "berhasil", "beri", "bersama", "bersih", "bertemu", "beruang", "besar", "besok", "betul", "bibir", "bintang", "bisnis", "buah", "buku", "bukan", "bulan", "burung", "butuh", "cahaya", "cepat", "cerah", "cerita", "cinta", "cokelat", "daftar", "dalam", "dalamnya", "dandan", "datang", "dekat", "desain", "dewasa", "diam", "dinding", "diri", "diskon", "dong", "dua", "duduk", "dunia", "edukasi", "emas", "enak", "energi", "enggak", "gagal", "gadis", "gajah", "gambar", "ganteng", "gantungan", "garam", "garis", "gaya"};
+    private string[] wordArrayTumbuk = {"abc", "def", "ghi", "jkl", "mno", "pqr", "stu", "vwx", "yzc", "bde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "acd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "yza", "bcd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst"};
     private string[] wordArrayKompor = {"a", "i", "u", "e", "o"};
     // private static string[] wordArray = {"adil", "apa", "asik"};
     public enum TypeWord{

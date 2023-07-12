@@ -66,6 +66,7 @@ public class FadeNight_StartEnd : MonoBehaviour
     }
     public void ShowOutsideLight(){
         outsideLight.gameObject.SetActive(true);
+        SoundManager.Instance.PlayDoorOpen();
         outsideLight.LeanAlpha(1f, 1.2f).setOnComplete(
             () => playerSave.Go_OutsideNow()
         );

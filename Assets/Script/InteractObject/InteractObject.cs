@@ -84,9 +84,11 @@ public class InteractObject : MonoBehaviour
     [SerializeField]private Door_Outside Door;
     [SerializeField]private QuestBox QuestBox;
     private PlayerSaveManager playerSave;
+    private SoundManager soundManager;
 
 
     private void Start() {
+        soundManager = SoundManager.Instance;
         playerSave = PlayerSaveManager.Instance;
         if(type == ObjectType.TheCauldron){
             cauldron = new TheCauldron();
@@ -126,6 +128,7 @@ public class InteractObject : MonoBehaviour
                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                soundManager.PlayChestOpen();
                 chest.OpenUI(Chest);
             }
             
@@ -135,6 +138,7 @@ public class InteractObject : MonoBehaviour
                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                
                 penumbuk.OpenUI(Penumbuk);
             }
             
@@ -145,12 +149,14 @@ public class InteractObject : MonoBehaviour
                     DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest);
                 }
                 else{
+                    soundManager.PlayMailbox();
                     submit.OpenUI(Submit);
                 }
                 
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.outside){
                 playerSave.ChangePlayerMode(levelMode.MakingPotion);
+                soundManager.PlayMailbox();
                 questBox.OpenUI(QuestBox);
             }
 
