@@ -8,10 +8,13 @@ public class DictionaryUI : MonoBehaviour
     [SerializeField]private GameInput gameInput;
     [SerializeField]private GameObject[] potionPageList;
     [SerializeField]private GameObject runePage, potionPage;
+    [SerializeField]private GameObject penghalangKiri, penghalangKanan;
     private int pageNow_Potion, totalPage, pagePart;
     private SoundManager soundManager;
+    private PlayerSaveManager playerSave;
     private void Start() {
         soundManager = SoundManager.Instance;
+        playerSave = PlayerSaveManager.Instance;
         pageNow_Potion = 0;
         pagePart = 0;
         totalPage = potionPageList.Length;
@@ -46,8 +49,87 @@ public class DictionaryUI : MonoBehaviour
             }
             
             ChangePagePart(keyArrowInput);
-
+            checkPenghalang();
         }
+    }
+    private void checkPenghalang(){
+        if(pagePart == 0){
+            penghalangKanan.gameObject.SetActive(false);
+            penghalangKiri.gameObject.SetActive(false);
+        }
+        else if(pagePart == 1){
+           
+            if(playerSave.GetPlayerLevel() == 1){
+                if(pageNow_Potion == 0){
+                    //  Debug.Log("WOIII");
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else{
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(true);
+                }
+            }
+            if(playerSave.GetPlayerLevel() == 2){
+                if(pageNow_Potion == 0){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 1){
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else{
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(true);
+                }
+            }
+            if(playerSave.GetPlayerLevel() == 3){
+                if(pageNow_Potion == 0){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 1){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 2){
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else{
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(true);
+                }
+            }
+            if(playerSave.GetPlayerLevel() == 4){
+                if(pageNow_Potion == 0){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 1){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 2){
+                    penghalangKanan.gameObject.SetActive(false);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else if(pageNow_Potion == 3){
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(false);
+                }
+                else{
+                    penghalangKanan.gameObject.SetActive(true);
+                    penghalangKiri.gameObject.SetActive(true);
+                }
+            }
+            if(playerSave.GetPlayerLevel() == 5){
+                penghalangKanan.gameObject.SetActive(false);
+                penghalangKiri.gameObject.SetActive(false);
+            }
+        }
+        
     }
     private void ChangePagePart(Vector2 keyArrowInput){
         

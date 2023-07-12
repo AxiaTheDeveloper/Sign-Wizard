@@ -40,11 +40,11 @@ public class QuestLogUI : MonoBehaviour
     private void ShowUI(){
         isShow = true;
         // canvas_QuestUI.anchoredPosition = new Vector3(755, 0f, 0f);
-        LeanTween.move(canvas_QuestUI, new Vector3(10f, 0f, 0f), 0.2f);
+        LeanTween.move(canvas_QuestUI, new Vector3(65f, 55f, 0f), 0.2f);
     }
 
     private void HideUI(){
-        LeanTween.move(canvas_QuestUI, new Vector3(755, 0f, 0f), 0.2f).setOnComplete(
+        LeanTween.move(canvas_QuestUI, new Vector3(965, 55f, 0f), 0.2f).setOnComplete(
             ()=> isShow = false
         );
     }

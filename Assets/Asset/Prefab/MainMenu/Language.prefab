@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775010026231378453, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}
       propertyPath: m_text
-      value: Language
+      value: Bahasa
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970fadd3982f3494bb4fe51bb324ee3f, type: 3}

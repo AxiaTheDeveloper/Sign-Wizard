@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour
         DoorOpen.Play();
     }
     public void PlayFlipPage(){
-        DoorOpen.Play();
+        FlipPage.Play();
     }
     public void PlayMailbox(){
         Mailbox.Play();

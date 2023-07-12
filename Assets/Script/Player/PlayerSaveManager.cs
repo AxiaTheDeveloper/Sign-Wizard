@@ -16,7 +16,7 @@ public class PlayerSaveManager : MonoBehaviour
         if(playerSaveSO.modeLevel == levelMode.outside && playerSaveSO.level == 1){
             Transform visualPos = transform.GetChild(0);
             // Debug.Log(visualPos.gameObject);
-            visualPos.localPosition = new Vector3(0,-8,0);
+            visualPos.localPosition = new Vector3(0,-2.65f,0);
         }
         
     }

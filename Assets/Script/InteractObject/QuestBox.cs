@@ -17,8 +17,8 @@ public class QuestBox : MonoBehaviour
     [SerializeField]private TextMeshProUGUI questDesc, questSender;
 
     private void Start() {
-        LeanTween.move(questLetter, new Vector3(0, 1050, 0f), 0.2f);
-        LeanTween.move(mainLetter, new Vector3(0, 1050, 0f), 0.2f);
+        LeanTween.move(questLetter, new Vector3(93.0238f, 1568.225f, 0f), 0.2f);
+        LeanTween.move(mainLetter, new Vector3(120.166f, 1535, 0f), 0.2f);
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
         playerInventory.OnQuitQuestBox += playerInventory_OnQuitQuestBox;
     }
@@ -39,7 +39,7 @@ public class QuestBox : MonoBehaviour
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
         SoundManager.Instance.PlayOpenEnvelope();
         LeanTween.move(letter, new Vector3(0, 800f, 0f), 0.2f).setOnComplete(
-            ()=> LeanTween.move(questLetter, new Vector3(0, 0, 0f), 0.8f).setDelay(0.2f).setOnComplete(
+            ()=> LeanTween.move(questLetter, new Vector3(93.0238f, -208.5263f, 0f), 0.8f).setDelay(0.2f).setOnComplete(
                 ()=> Show()
             )
         );
@@ -51,7 +51,7 @@ public class QuestBox : MonoBehaviour
         letter.anchoredPosition = new Vector3(0, -800f, 0f);
         SoundManager.Instance.PlayOpenEnvelope();
         LeanTween.move(letter, new Vector3(0, 800f, 0f), 0.2f).setOnComplete(
-            ()=> LeanTween.move(mainLetter, new Vector3(0, 0, 0f), 0.8f).setDelay(0.2f).setOnComplete(
+            ()=> LeanTween.move(mainLetter, new Vector3(120.166f, -241, 0f), 0.8f).setDelay(0.2f).setOnComplete(
                 ()=> gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceQuestBox)
             )
         );
@@ -67,12 +67,12 @@ public class QuestBox : MonoBehaviour
     private void HideUI(){
         if(isMainLetter){
             isMainLetter = false;
-            LeanTween.move(mainLetter, new Vector3(0, 1050, 0f), 0.2f).setOnComplete(
+            LeanTween.move(mainLetter, new Vector3(120.166f, 1535, 0f), 0.2f).setOnComplete(
                 ()=> gameManager.ChangeToInGame()
             );
         }
         else{
-            LeanTween.move(questLetter, new Vector3(0, 1050, 0f), 0.2f).setOnComplete(
+            LeanTween.move(questLetter, new Vector3(93.0238f, 1568.225f, 0f), 0.2f).setOnComplete(
                 ()=> gameManager.ChangeToInGame()
             );
         }
