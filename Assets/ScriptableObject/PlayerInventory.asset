@@ -20,8 +20,13 @@ MonoBehaviour:
   - itemSO: {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
     quantity: 1
   - itemSO: {fileID: 11400000, guid: 1d0cc14d8ec6e1d46acca96d058e6b4d, type: 2}
-    quantity: 1
+    quantity: 2
   - itemSO: {fileID: 11400000, guid: 4173d422813a12d429356fbb5207ae85, type: 2}
+<<<<<<< Updated upstream
+=======
+    quantity: 2
+  - itemSO: {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
+>>>>>>> Stashed changes
     quantity: 1
   - itemSO: {fileID: 0}
     quantity: 0
