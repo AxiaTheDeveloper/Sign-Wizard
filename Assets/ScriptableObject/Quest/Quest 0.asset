@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Quest 0
   m_EditorClassIdentifier: 
   levelQuest: 0
+  nameSender: 
   potionWantList: []
+  Quest_Title: 
   QuestDescription: 
-  QuestLog: 
+  QuestTask: 
+  QuestinMail: 
+  progressPerTumbuk_Quest: 45

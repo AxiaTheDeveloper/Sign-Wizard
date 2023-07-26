@@ -107,14 +107,25 @@ public class PlayerSaveManager : MonoBehaviour
     public void ResetDay_Sleep(){
        
         playerSaveSO.isResetDay = true;
-        SceneManager.LoadScene("InDoor");
+        if(playerSaveSO.isIndonesia){
+            SceneManager.LoadScene("InDoor_ID");
+        }
+        else{
+            SceneManager.LoadScene("InDoor_EN");
+        }
         #if UNITY_EDITOR
         EditorUtility.SetDirty(playerSaveSO);
         #endif
     }
     public void ResetDay_SubmitPotion(){
         playerSaveSO.isSubmitPotion = true;
-        SceneManager.LoadScene("InDoor"); // ntr kuganti jd nama scene saja
+        if(playerSaveSO.isIndonesia){
+            SceneManager.LoadScene("InDoor_ID");
+        }
+        else{
+            SceneManager.LoadScene("InDoor_EN");
+        }
+        
         #if UNITY_EDITOR
         EditorUtility.SetDirty(playerSaveSO);
         #endif
@@ -126,10 +137,20 @@ public class PlayerSaveManager : MonoBehaviour
             EditorUtility.SetDirty(playerSaveSO);
             #endif
         }
-        SceneManager.LoadScene("OutDoor");
+        if(playerSaveSO.isIndonesia){
+            SceneManager.LoadScene("OutDoor_ID");
+        }
+        else{
+            SceneManager.LoadScene("OutDoor_EN");
+        }
     }
     public void Go_InsideNow(){
-        SceneManager.LoadScene("InDoor");
+        if(playerSaveSO.isIndonesia){
+            SceneManager.LoadScene("InDoor_ID");
+        }
+        else{
+            SceneManager.LoadScene("InDoor_EN");
+        }
     }
     public bool GetIsReset(){
         return playerSaveSO.isResetDay;

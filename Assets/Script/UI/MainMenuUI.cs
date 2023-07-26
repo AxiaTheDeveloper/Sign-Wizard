@@ -219,10 +219,21 @@ public class MainMenuUI : MonoBehaviour
         PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, selectLanguage);
             if(playerSaveSO.modeLevel == levelMode.outside){
                 if(playerSaveSO.isFromOutside){
-                    SceneManager.LoadScene("OutDoor");
+                    if(playerSaveSO.isIndonesia){
+                        SceneManager.LoadScene("OutDoor_ID");
+                    }
+                    else{
+                        SceneManager.LoadScene("OutDoor_EN");
+                    }
+                    
                 }
                 else if(playerSaveSO.isSubmitPotion){
-                    SceneManager.LoadScene("InDoor");
+                    if(playerSaveSO.isIndonesia){
+                        SceneManager.LoadScene("InDoor_ID");
+                    }
+                    else{
+                        SceneManager.LoadScene("InDoor_EN");
+                    }
                 }
                 else{
                     if(!playerSaveSO.isFromOutside){
@@ -234,7 +245,12 @@ public class MainMenuUI : MonoBehaviour
                 }
             }
             else if(playerSaveSO.modeLevel == levelMode.MakingPotion){
-                SceneManager.LoadScene("InDoor");
+                if(playerSaveSO.isIndonesia){
+                    SceneManager.LoadScene("InDoor_ID");
+                }
+                else{
+                    SceneManager.LoadScene("InDoor_EN");
+                }
             }
     }
     private void Deselect(){

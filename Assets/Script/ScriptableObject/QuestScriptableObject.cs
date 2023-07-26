@@ -19,6 +19,8 @@ public class QuestScriptableObject : ScriptableObject
     [field : TextArea]
     public string QuestinMail;
 
+    public float progressPerTumbuk_Quest;
+
     
 
 }

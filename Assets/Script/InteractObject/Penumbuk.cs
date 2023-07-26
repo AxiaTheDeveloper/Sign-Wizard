@@ -10,6 +10,7 @@ public class Penumbuk : MonoBehaviour
     [SerializeField]private PenumbukUI PenumbukUI_Tumbuk;
     private InventoryPenumbuk inventPenumbuk;
     [SerializeField]private WitchGameManager gameManager;
+    [SerializeField]private QuestManager questManager;
     [SerializeField]private PlayerInventory playerInventory;
     [SerializeField]private Announcement_SuccesfullGetItem announcementUI;
     [SerializeField]private DialogueManager dialogueManager;
@@ -113,7 +114,7 @@ public class Penumbuk : MonoBehaviour
         }
         if(chosenRecipe){
             progressNow = 0;
-            progress_perTumbuk = chosenRecipe.progressPerTumbuk;
+            progress_perTumbuk = questManager.GetProgressPerTumbuk_QuestNow();
             wordInput.ChangeAdaWord(true);
             foreach(WordManager wordMn in wordManager){
                 wordMn.createWord();

@@ -21,3 +21,4 @@ MonoBehaviour:
 
     - Ambil quest dari mail box.'
   QuestinMail: <i>Tidak ada quest</i>
+  progressPerTumbuk_Quest: 45

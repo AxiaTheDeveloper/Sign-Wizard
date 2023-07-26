@@ -30,3 +30,4 @@ MonoBehaviour:
   QuestinMail: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b>Dewdrop Elixir</b>
     untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku. \r\n\r\nTerimakasih
     yaa!"
+  progressPerTumbuk_Quest: 30

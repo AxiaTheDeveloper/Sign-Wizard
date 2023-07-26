@@ -84,4 +84,8 @@ public class QuestManager : MonoBehaviour
     public int GetTotalPotionNeed(){
         return totalPotion;
     }
+
+    public float GetProgressPerTumbuk_QuestNow(){
+        return quest.progressPerTumbuk_Quest;
+    }
 }

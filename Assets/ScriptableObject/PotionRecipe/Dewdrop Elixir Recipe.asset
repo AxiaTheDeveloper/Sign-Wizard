@@ -19,5 +19,5 @@ MonoBehaviour:
     quantity: 2
   - ingredientName: {fileID: 11400000, guid: 1f724aeb1170d8940b8d641bd05d89c6, type: 2}
     quantity: 1
-  fireSizeLevel: 0
+  fireSizeLevel: 2
   output_Potion: {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}

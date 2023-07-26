@@ -16,7 +16,7 @@ public class InventoryItemUI : MonoBehaviour
     [SerializeField]private Image borderSelect, borderSelectCauldron, border_mainBG;
     [SerializeField]private Transform posisiWord;
 
-    
+    [SerializeField]private bool isTumbuk;
     private bool empty = true;
     private bool selected_Cauldron = false;
     private void Awake() {
@@ -78,7 +78,9 @@ public class InventoryItemUI : MonoBehaviour
     }
     public void DeSelectItem_Cooking(){
         borderSelectCauldron.enabled = false;
-        border_mainBG.enabled = true;
+        if(!isTumbuk){
+            border_mainBG.enabled = true;
+        }
         selected_Cauldron = false;
     }
 
