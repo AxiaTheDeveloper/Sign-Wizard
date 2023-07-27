@@ -66,6 +66,13 @@ public class PlayerSaveManager : MonoBehaviour
         return playerSaveSO.modeLevel;
     }
 
+    public void ChangeFirstTimeTutorial(){
+        playerSaveSO.isFirstTime_Tutorial = false;
+    }
+    public bool GetFirstTimeTutorial(){
+        return playerSaveSO.isFirstTime_Tutorial;
+    }
+
     public void ChangePlayerLevel(){
         if(playerSaveSO.level == 0){
             playerSaveSO.level = 1;
@@ -108,10 +115,10 @@ public class PlayerSaveManager : MonoBehaviour
        
         playerSaveSO.isResetDay = true;
         if(playerSaveSO.isIndonesia){
-            SceneManager.LoadScene("InDoor_ID");
+            SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{
-            SceneManager.LoadScene("InDoor_EN");
+            SceneManager.LoadSceneAsync("InDoor_EN");
         }
         #if UNITY_EDITOR
         EditorUtility.SetDirty(playerSaveSO);
@@ -120,10 +127,10 @@ public class PlayerSaveManager : MonoBehaviour
     public void ResetDay_SubmitPotion(){
         playerSaveSO.isSubmitPotion = true;
         if(playerSaveSO.isIndonesia){
-            SceneManager.LoadScene("InDoor_ID");
+            SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{
-            SceneManager.LoadScene("InDoor_EN");
+            SceneManager.LoadSceneAsync("InDoor_EN");
         }
         
         #if UNITY_EDITOR
@@ -138,18 +145,18 @@ public class PlayerSaveManager : MonoBehaviour
             #endif
         }
         if(playerSaveSO.isIndonesia){
-            SceneManager.LoadScene("OutDoor_ID");
+            SceneManager.LoadSceneAsync("OutDoor_ID");
         }
         else{
-            SceneManager.LoadScene("OutDoor_EN");
+            SceneManager.LoadSceneAsync("OutDoor_EN");
         }
     }
     public void Go_InsideNow(){
         if(playerSaveSO.isIndonesia){
-            SceneManager.LoadScene("InDoor_ID");
+            SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{
-            SceneManager.LoadScene("InDoor_EN");
+            SceneManager.LoadSceneAsync("InDoor_EN");
         }
     }
     public bool GetIsReset(){

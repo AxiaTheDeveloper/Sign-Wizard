@@ -16,5 +16,6 @@ public class PlayerSave : ScriptableObject
     public bool isResetSave;
 
     public bool isIndonesia;
+    public bool isFirstTime_Tutorial;
 
 }

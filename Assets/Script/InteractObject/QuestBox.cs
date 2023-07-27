@@ -45,6 +45,8 @@ public class QuestBox : MonoBehaviour
         );
         
     }
+
+
     public void ShowUI_MainLetter(){
         isMainLetter = true;
         gameManager.ChangeToCinematic();

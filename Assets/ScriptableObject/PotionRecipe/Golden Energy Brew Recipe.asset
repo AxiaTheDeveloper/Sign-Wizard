@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientArray:
   - ingredientName: {fileID: 11400000, guid: ff21db81e408bed408e8dfb8a1ac22c7, type: 2}
-    quantity: 3
+    quantity: 1
   - ingredientName: {fileID: 11400000, guid: cf82e44f8928ee74ea8547422eb03400, type: 2}
     quantity: 1
   - ingredientName: {fileID: 11400000, guid: 499428928f4013942ba98eece5a52a4e, type: 2}

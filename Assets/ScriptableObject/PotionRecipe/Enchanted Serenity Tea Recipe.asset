@@ -16,7 +16,7 @@ MonoBehaviour:
   - ingredientName: {fileID: 11400000, guid: b4c44dcd2234c7c478ee37d15745c479, type: 2}
     quantity: 2
   - ingredientName: {fileID: 11400000, guid: a65d10c636117b340903e99cda0e0e89, type: 2}
-    quantity: 1
+    quantity: 2
   - ingredientName: {fileID: 11400000, guid: 3afe324e489ec934388238e9a0cedf52, type: 2}
     quantity: 3
   fireSizeLevel: 1

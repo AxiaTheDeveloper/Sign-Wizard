@@ -6,6 +6,7 @@ public class WordSpawner : MonoBehaviour
 {
     [SerializeField]private GameObject displayPrefab_BISINDO;
     [SerializeField]private GameObject displayPrefab_SIBI;
+    [SerializeField]private GameObject displayPrefab_ASL;
     private GameObject displayPrefab;
     [SerializeField]private Transform parentCanvas;
 
@@ -20,6 +21,9 @@ public class WordSpawner : MonoBehaviour
         }
         if(pilihanBahasa == "BISINDO"){
             displayPrefab = displayPrefab_BISINDO;
+        }
+        if(pilihanBahasa == "ASL"){
+            displayPrefab = displayPrefab_ASL;
         }
     }
     public WordUI SpawnWord(){

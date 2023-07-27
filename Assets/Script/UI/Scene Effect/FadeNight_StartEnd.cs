@@ -56,7 +56,14 @@ public class FadeNight_StartEnd : MonoBehaviour
                 dialogueManager.ShowDialogue_Intro();
             }
             else{
-                gameManager.ChangeToInGame();
+                if(playerSave.GetFirstTimeTutorial()){
+                    //ntr ini mainin timeline nya ,skrg smntr ini
+                    dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerCauldron);
+                }
+                else{
+                    gameManager.ChangeToInGame();
+                }
+                
             }
             
         }

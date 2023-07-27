@@ -138,8 +138,13 @@ public class InteractObject : MonoBehaviour
                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                if(playerSave.GetPlayerLevel() == 1){
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaPakaiPenumbuk);
+                }
+                else{
+                    penumbuk.OpenUI(Penumbuk);
+                }
                 
-                penumbuk.OpenUI(Penumbuk);
             }
             
         }

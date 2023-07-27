@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [SerializeField]private GameObject selectSibi, selectBisindo;
+    [SerializeField]private GameObject selectSibi, selectBisindo, selectASL;
     private string selectLanguage;
     [SerializeField]private PlayerSave playerSaveSO;
 
@@ -91,11 +91,19 @@ public class MainMenuUI : MonoBehaviour
         }
         else if(type == mainMenuType.language){
             Deselect();
-            if(keyInputArrow.x == 1 && selectLanguage == "SIBI"){
+            if(keyInputArrow.y == -1 && selectLanguage == "BISINDO"){
+                selectLanguage = "SIBI";
+                changeBahasa(selectLanguage);
+            }
+            else if(keyInputArrow.y == -1 && selectLanguage == "SIBI"){
+                selectLanguage = "ASL";
+                changeBahasa(selectLanguage);
+            }
+            else if(keyInputArrow.y == 1 && selectLanguage == "SIBI"){
                 selectLanguage = "BISINDO";
                 changeBahasa(selectLanguage);
             }
-            else if(keyInputArrow.x == -1 && selectLanguage == "BISINDO"){
+            else if(keyInputArrow.y == 1 && selectLanguage == "ASL"){
                 selectLanguage = "SIBI";
                 changeBahasa(selectLanguage);
             }
@@ -151,6 +159,7 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isResetDay = false;
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
+                    playerSaveSO.isFirstTime_Tutorial = true;
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
@@ -220,19 +229,19 @@ public class MainMenuUI : MonoBehaviour
             if(playerSaveSO.modeLevel == levelMode.outside){
                 if(playerSaveSO.isFromOutside){
                     if(playerSaveSO.isIndonesia){
-                        SceneManager.LoadScene("OutDoor_ID");
+                        SceneManager.LoadSceneAsync("OutDoor_ID");
                     }
                     else{
-                        SceneManager.LoadScene("OutDoor_EN");
+                        SceneManager.LoadSceneAsync("OutDoor_EN");
                     }
                     
                 }
                 else if(playerSaveSO.isSubmitPotion){
                     if(playerSaveSO.isIndonesia){
-                        SceneManager.LoadScene("InDoor_ID");
+                        SceneManager.LoadSceneAsync("InDoor_ID");
                     }
                     else{
-                        SceneManager.LoadScene("InDoor_EN");
+                        SceneManager.LoadSceneAsync("InDoor_EN");
                     }
                 }
                 else{
@@ -246,10 +255,10 @@ public class MainMenuUI : MonoBehaviour
             }
             else if(playerSaveSO.modeLevel == levelMode.MakingPotion){
                 if(playerSaveSO.isIndonesia){
-                    SceneManager.LoadScene("InDoor_ID");
+                    SceneManager.LoadSceneAsync("InDoor_ID");
                 }
                 else{
-                    SceneManager.LoadScene("InDoor_EN");
+                    SceneManager.LoadSceneAsync("InDoor_EN");
                 }
             }
     }
@@ -323,10 +332,17 @@ public class MainMenuUI : MonoBehaviour
     private void changeBahasa(string bahasa){
         if(bahasa == "BISINDO"){
             selectSibi.SetActive(false);
+            selectASL.SetActive(false);
             selectBisindo.SetActive(true);
         }
         else if(bahasa == "SIBI"){
             selectSibi.SetActive(true);
+            selectASL.SetActive(false);
+            selectBisindo.SetActive(false);
+        }
+        else if(bahasa == "ASL"){
+            selectSibi.SetActive(false);
+            selectASL.SetActive(true);
             selectBisindo.SetActive(false);
         }
     }

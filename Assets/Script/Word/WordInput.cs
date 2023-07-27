@@ -49,10 +49,12 @@ public class WordInput : MonoBehaviour
                     if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime && !penumbukUI.GetisAnimationDone()){
                         break;
                     }
+                    char lowerLetter = char.ToLower(letter);
+                    
                     if(!hasChosenWords && !isUIFirstTimeShowing){
                         if(wordManager.Length == 1){
                             if(adaWord){
-                                if(!wordManager[0].InputLetter_OnlyOneWordManager(letter)){
+                                if(!wordManager[0].InputLetter_OnlyOneWordManager(lowerLetter)){
                                     hasChosenWords = false;
                                     chosenWordsList.Clear();
                                 }
@@ -61,7 +63,7 @@ public class WordInput : MonoBehaviour
                         else{
                             for(int i=0;i<wordManager.Length;i++){
                                 if(adaWord){
-                                    if(wordManager[i].InputFirstLetter(letter)){
+                                    if(wordManager[i].InputFirstLetter(lowerLetter)){
 
                                         chosenWordsList.Add(i);
                                         hasChosenWords = true;
@@ -82,7 +84,7 @@ public class WordInput : MonoBehaviour
                             foreach (int i in chosenWordsCopy)
                             {
                                 // Debug.Log(i);
-                                YesWordSame = wordManager[i].checkerAdaYangSama(letter);
+                                YesWordSame = wordManager[i].checkerAdaYangSama(lowerLetter);
                                 if(YesWordSame){
                                     break;
                                 }
@@ -93,7 +95,7 @@ public class WordInput : MonoBehaviour
                                 foreach (int i in chosenWordsCopy)
                                 {
                                     // Debug.Log(i);
-                                    if (wordManager[i].InputLetters(letter))
+                                    if (wordManager[i].InputLetters(lowerLetter))
                                     {
                                         // chosenWordsList.Add(i);
                                         hasChosenWords = true;
@@ -109,7 +111,7 @@ public class WordInput : MonoBehaviour
                             }
                         }
                         else if(chosenWordsList.Count == 1){
-                            if(!wordManager[chosenWordsList[0]].InputLetter(letter)){
+                            if(!wordManager[chosenWordsList[0]].InputLetter(lowerLetter)){
                                 hasChosenWords = false;
                                 chosenWordsList.Clear();
                             }
