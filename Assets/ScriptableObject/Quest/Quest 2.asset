@@ -18,10 +18,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 916277fbcc8defc4aaaf9c52061a3001, type: 2}
   - {fileID: 11400000, guid: 7303a853c8b09f145b246d6cdbdccbca, type: 2}
   Quest_Title: Golden Root
-  QuestDescription: "\r\"Aku mau pesan ramuan <b>Soothing Root Infusion & Golden
-    Energy Brew</b> karena belakangan ini aku sedang stress dan butuh dorongan tambahan
-    nih hehe.\""
-  QuestTask: '- Ke Book Shelf untuk cek Resep.
+  Quest_Title_ID: Akar Emas
+  Quest_Title_EN: Golden Root
+  QuestDescription_ID: "\r\"Aku mau pesan ramuan <b><color=#A46443>Soothing Root
+    Infusion & Golden Energy Brew</color></b> karena belakangan ini aku sedang stress
+    dan butuh dorongan tambahan nih hehe.\""
+  QuestDescription_EN: 
+  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
 
     - Ke Chest ambil bahan.
 
@@ -32,7 +35,21 @@ MonoBehaviour:
     masukin bahan dan sesuaikan api.
 
     - Kirim lewat mail box.'
-  QuestinMail: "Pagi Nek, apa kabar? semoga baik baik saja yaa.. \r\n\r\nAku mau
-    pesan ramuan <b>Soothing Root Infusion & Golden Energy Brew</b> karena belakangan
-    ini aku sedang stress dan butuh dorongan tambahan nih hehe. Terimakasih yaa!"
+  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
+
+    - Ke <b>chest</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+
+    -
+    Kirim lewat <b>mail box</b> di depan rumah.'
+  QuestinMail_ID: "Pagi Nek, apa kabar? semoga baik baik saja yaa.. \r\n\r\nAku mau
+    pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
+    karena belakangan ini aku sedang stress dan butuh dorongan tambahan nih hehe.
+    Terimakasih yaa!"
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: Chal
   progressPerTumbuk_Quest: 35

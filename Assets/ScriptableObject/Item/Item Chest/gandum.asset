@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 4a6aa173e0aaa9e449f1f94586820dda, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Sumber karbohidrat utama yang digunakan dalam pembuatan minuman seperti bir
-    atau sebagai bahan dasar untuk fermentasi.
+  Desc_ID: Sumber karbohidrat utama yang digunakan dalam pembuatan minuman seperti
+    bir atau sebagai bahan dasar untuk fermentasi.
+  Desc_EN: A major carbohydrate source used in making beverages like beer or as a
+    base for fermentation.

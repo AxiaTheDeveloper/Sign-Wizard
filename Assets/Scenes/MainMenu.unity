@@ -265,7 +265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d094472b4eda3884e9f03f40d8f76db2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ab52a3d3053a984da0c5056125f69dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3191,10 +3191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 256544848}
-  AnyChance: {fileID: 21300000, guid: 7c5de9f0a0750a44eaf06ce7a49a0039, type: 3}
-  mainMenuImage: {fileID: 21300000, guid: f48a0acbf7b421345871bc7e259e97e9, type: 3}
-  pause: {fileID: 21300000, guid: 90d2942e779b564418bfa48264f05571, type: 3}
-  escape: {fileID: 21300000, guid: 98066d243a242f64ea5f239f2ece4c6f, type: 3}
+  mainMenus: {fileID: 21300000, guid: 8ab52a3d3053a984da0c5056125f69dd, type: 3}
+  option: {fileID: 21300000, guid: 8828d0ba1680c7e40b4704f2df92c857, type: 3}
+  credits: {fileID: 21300000, guid: bce9efa5b23131043aae802ad534327d, type: 3}
+  reset: {fileID: 21300000, guid: ca22b3e929eab67418587c4731325f37, type: 3}
   image: {fileID: 27700175}
 --- !u!1 &1716329398
 GameObject:

@@ -17,6 +17,14 @@ public class ItemScriptableObject : ScriptableObject
     public bool isFromChest;
     public int maxStack = 1;
     [field : TextArea]
-    public string Desc;
+    public string Desc_ID, Desc_EN;
+    public string Desc
+    {
+        get
+        {
+            return PlayerSaveManager.Instance.GetIsIndonesia() ? Desc_ID : Desc_EN;
+        }
+    }
+
     
 }

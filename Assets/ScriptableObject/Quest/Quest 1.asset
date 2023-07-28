@@ -17,17 +17,34 @@ MonoBehaviour:
   potionWantList:
   - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
   Quest_Title: A Little Favor
-  QuestDescription: '"Aku mau pesan ramuan <b>Dewdrop Elixir</b> untuk memberikan
-    kesegaran dan kelembutan yang menenangkan bagi tubuhku."'
-  QuestTask: '- Ke Book Shelf untuk cek Resep.
+  Quest_Title_ID: Permintaan Kecil
+  Quest_Title_EN: A Little Favor
+  QuestDescription_ID: '"Aku mau pesan ramuan  <b><color=#A46443>Dewdrop Elixir</color></b>
+    untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku."'
+  QuestDescription_EN: 
+  QuestTask_ID: '- Ke <b>rak buku</b> untuk cek Resep.
 
-    - Ke Chest ambil bahan.
+    - Ke <b>peti</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
 
     -
-    Ke Cauldron masukin bahan dan sesuaikan api.
+    Kirim lewat <b>kotak surat</b> di depan rumah.'
+  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
 
-    - Kirim lewat mail box.'
-  QuestinMail: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b>Dewdrop Elixir</b>
-    untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku. \r\n\r\nTerimakasih
-    yaa!"
+    - Ke <b>chest</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+
+    -
+    Kirim lewat <b>mail box</b> di depan rumah.'
+  QuestinMail_ID: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b><color=#A46443>Dewdrop
+    Elixir</color></b> untuk memberikan kesegaran dan kelembutan yang menenangkan
+    bagi tubuhku. \r\n\r\nTerimakasih yaa!"
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 30

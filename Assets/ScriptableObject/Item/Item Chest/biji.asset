@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: d78bf870455bcff4999622914478b3a4, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Komponen tanaman yang bisa digunakan untuk ekstraksi minyak, memberikan rasa,
-    atau digunakan sebagai tambahan nutrisi.
+  Desc_ID: Komponen tanaman yang bisa digunakan untuk ekstraksi minyak, memberikan
+    rasa, atau digunakan sebagai tambahan nutrisi.
+  Desc_EN: Plant components used for oil extraction, flavoring, or as a nutrition
+    booster.

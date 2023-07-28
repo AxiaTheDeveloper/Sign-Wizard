@@ -517,8 +517,6 @@ public class InventoryUI : MonoBehaviour
         UpdateVisualInventorySlot(e.position,playerInventory.GetPlayerInventory().inventSlot[e.position]);
     }
     
-    private void Update() {
-    }
 
     private void otherInventory_OnItemUpdate(object sender, InventoryScriptableObject.OnItemUpdateEventArgs e)
     {

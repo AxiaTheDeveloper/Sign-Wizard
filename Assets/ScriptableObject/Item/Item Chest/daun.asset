@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 53cabaaf3e6254b40bddc5d526f3ba30, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Bagian hijau tanaman yang kaya akan nutrisi, sering digunakan sebagai bahan
-    dasar untuk teh atau sebagai bumbu dalam masakan.
+  Desc_ID: Bagian hijau tanaman yang kaya akan nutrisi, sering digunakan sebagai
+    bahan dasar untuk teh atau sebagai bumbu dalam masakan.
+  Desc_EN: The green part of plants rich in nutrients, often used as a base for tea
+    or as a spice in cooking.

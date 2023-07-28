@@ -16,12 +16,27 @@ MonoBehaviour:
   nameSender: MichiZ Team
   potionWantList: []
   Quest_Title: Tidak Ada Quest
-  QuestDescription: <i>Selamat dan Terima kasih telah memainkan game kami sampai
-    habis. Silahkan tunggu untuk update berikutnya.</i>
-  QuestTask: '- Tunggu update berikutnya.
+  Quest_Title_ID: Tidak Ada Quest
+  Quest_Title_EN: No Quest
+  QuestDescription_ID: "Sudah tidak ada quest lagi.\nTerima kasih telah memainkan
+    game kami sampai selesai. \nSilahkan menunggu update berikutnya"
+  QuestDescription_EN: 'There''s no more quest.
 
-    - Reset game save file pada main menu
-    jika ingin memainkan kembali dari awal.'
-  QuestinMail: <i>Selamat dan Terima kasih telah memainkan game kami sampai habis.
-    Silahkan tunggu untuk update berikutnya.</i>
+    Thank you for playing our game
+    until the end.
+
+    Please wait for the next update.'
+  QuestTask_ID: '- Cobalah untuk membuat potion lagi dari resep yang ada atau reset
+    gamenya di bagian main menu.
+
+    - Tunggu update berikutnya.'
+  QuestTask_EN: '- Try to create potion from the recipe list again or reset the game
+    from the main menu.
+
+    - Wait for the next update.'
+  QuestinMail_ID: 
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 45

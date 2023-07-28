@@ -18,9 +18,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3ee70bd823997d4cb337d7a5e9d277b, type: 2}
   - {fileID: 11400000, guid: 0489c99ec22434c4ba51769a4a0510a4, type: 2}
   Quest_Title: Tropical Brew
-  QuestDescription: '"Kali ini Aku mau pesan ramuan <b>Harmony Fish Brew & Tropical
-    Bliss Elixir</b> yaa, lagi pengen yang sehat dan segar aja gitu."'
-  QuestTask: '- Ke Book Shelf untuk cek Resep.
+  Quest_Title_ID: Minuman Tropical
+  Quest_Title_EN: Tropical Brew
+  QuestDescription_ID: '"Kali ini Aku mau pesan ramuan <b><color=#A46443>Harmony
+    Fish Brew & Tropical Bliss Elixir</color></b> yaa, lagi pengen yang sehat dan
+    segar aja gitu."'
+  QuestDescription_EN: 
+  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
 
     - Ke Chest ambil bahan.
 
@@ -31,7 +35,20 @@ MonoBehaviour:
     masukin bahan dan sesuaikan api.
 
     - Kirim lewat mail box.'
-  QuestinMail: "Selamat Pagi!!!\r\n\r\nKali ini Aku mau pesan ramuan <b>Harmony Fish
-    Brew & Tropical Bliss Elixir</b> yaa, lagi pengen yang sehat dan segar aja gitu.
-    \r\n\r\nTerimakasih banyak, ditunggu ya!"
+  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
+
+    - Ke <b>chest</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+
+    -
+    Kirim lewat <b>mail box</b> di depan rumah.'
+  QuestinMail_ID: "Selamat Pagi!!!\r\n\r\nKali ini Aku mau pesan ramuan <b><color=#A46443>Harmony
+    Fish Brew & Tropical Bliss Elixir</color></b> yaa, lagi pengen yang sehat dan
+    segar aja gitu. \r\n\r\nTerimakasih banyak, ditunggu ya!"
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 45

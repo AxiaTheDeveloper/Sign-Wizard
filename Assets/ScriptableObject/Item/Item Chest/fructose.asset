@@ -17,5 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 1ee929a0e8639d343acb6c192a38ef50, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Gula alami yang terdapat dalam buah-buahan, digunakan untuk memberikan rasa
-    manis dalam ramuan.
+  Desc_ID: Gula alami yang terdapat dalam buah-buahan, digunakan untuk memberikan
+    rasa manis dalam ramuan
+  Desc_EN: Natural sugars found in fruits, used to sweeten potions.

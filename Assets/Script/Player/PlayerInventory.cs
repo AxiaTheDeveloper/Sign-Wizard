@@ -244,7 +244,7 @@ public class PlayerInventory : MonoBehaviour
             if(inputCooldownTimer <= 0)InputArrowInventory_DoorChoice();
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceQuestBox){
-            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+            if((gameInput.GetInputQuit_Announcement()) && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitQuestBox?.Invoke(this, EventArgs.Empty);
             }

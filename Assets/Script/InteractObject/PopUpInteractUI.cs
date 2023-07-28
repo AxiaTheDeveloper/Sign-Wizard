@@ -12,6 +12,11 @@ public class PopUpInteractUI : MonoBehaviour
         PlayerInteraction.Instance.OnSelectedInteractObject += playerInteraction_OnSelectedInteractObject;
         HidePopUp();
     }
+    private void Update() {
+        if(popUpUImessage.activeSelf && WitchGameManager.Instance.isCinematic()){
+            popUpUImessage.SetActive(false);
+        }
+    }
 
     private void playerInteraction_OnSelectedInteractObject(object sender, PlayerInteraction.OnSelectedInteractObjectEventArgs e)
     {

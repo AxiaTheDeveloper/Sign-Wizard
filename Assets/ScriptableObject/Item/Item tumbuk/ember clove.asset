@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 757516d4be2951641a5897ebb6dd2a79, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Cengkeh yang menyala-nyala dengan kehangatan dan kekuatan yang membara.
+  Desc_ID: Cengkeh yang menyala-nyala dengan kehangatan dan kekuatan yang membara.
+  Desc_EN: Clove that's ablaze with warmth and burning strength.

@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: f9c7d6ed22db8424889475e2d946afd1, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Bagian bawah tanaman yang berfungsi sebagai sumber nutrisi dan memiliki berbagai
-    sifat penyembuhan.
+  Desc_ID: Bagian bawah tanaman yang berfungsi sebagai sumber nutrisi dan memiliki
+    berbagai sifat penyembuhan.
+  Desc_EN: The underground part of a plant that's a nutrient powerhouse and has various
+    healing properties.

@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: f99bde66782fbb549aa70c7cec5a5506, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Daun yang memiliki aroma kuat dan digunakan dalam ramuan untuk memberikan
+  Desc_ID: Daun yang memiliki aroma kuat dan digunakan dalam ramuan untuk memberikan
     rasa dan aroma segar.
+  Desc_EN: Leaves with a strong aroma, used in potions to provide a fresh flavor
+    and aroma.

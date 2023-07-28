@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 34bcd483fb59f1342b59fa15e624f8cd, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Akar mistik yang memancarkan aura keajaiban dan kekuatan magis.
+  Desc_ID: Akar mistik yang memancarkan aura keajaiban dan kekuatan magis.
+  Desc_EN: Mysterious roots radiating an aura of wonder and magical power.

@@ -18,13 +18,17 @@ public class Word
         isSameTemplate = GetisSameTemplate;
     }
     public char GetLetter(){
+
         return word[no_Letter];
     }
     // public void RightGiveColor(){
     //     no_Letter 
     // }
     public void TypeOutLetter(){
-        display.ChangeColorLetterUI(no_Letter);
+        if(no_Letter <= word.Length){
+            display.ChangeColorLetterUI(no_Letter);
+        }
+        
         
         no_Letter++;
         
@@ -35,7 +39,10 @@ public class Word
         if(!isAlreadyWrong){
             
             isAlreadyWrong = true;
-            display.ChangeWrongColorUI(no_Letter);
+            if(no_Letter <= word.Length){
+                display.ChangeWrongColorUI(no_Letter);
+            }
+
         }
         else{
             CancelTypedOut();

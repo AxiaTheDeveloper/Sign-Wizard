@@ -8,27 +8,27 @@ public class GameControlUIMainMenu : MonoBehaviour
 {
     [SerializeField]private MainMenuUI mainMenu;
     
-    [SerializeField]private Sprite AnyChance,mainMenuImage, pause, escape;
+    [SerializeField]private Sprite mainMenus, option, credits, reset;
     [SerializeField]private Image image;
 
     private void Start() {
-        image.sprite = mainMenuImage;
+        image.sprite = mainMenus;
         mainMenu.OnChange += mainMenu_OnChange;
     }
 
     private void mainMenu_OnChange(object sender, EventArgs e)
     {
         if(mainMenu.GetTypeMainMenu() == MainMenuUI.mainMenuType.normal || mainMenu.GetTypeMainMenu() == MainMenuUI.mainMenuType.language){
-            image.sprite = mainMenuImage;
+            image.sprite = mainMenus;
         }
         else if(mainMenu.GetTypeMainMenu() == MainMenuUI.mainMenuType.option){
-            image.sprite = pause;
+            image.sprite = option;
         }
         else if(mainMenu.GetTypeMainMenu() == MainMenuUI.mainMenuType.reset){
-            image.sprite = AnyChance;
+            image.sprite = reset;
         }
         else if(mainMenu.GetTypeMainMenu() == MainMenuUI.mainMenuType.credits){
-            image.sprite = escape;
+            image.sprite = credits;
         }
     }
 }

@@ -17,6 +17,8 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6a04000d35ddf314697ed9b64c06c982, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Eliksir yang terbuat dari ramuan yang dipercaya dapat memberikan kehidupan
+  Desc_ID: Eliksir yang terbuat dari ramuan yang dipercaya dapat memberikan kehidupan
     dan kesegaran baru. Eliksir ini memberikan efek penyegaran dan kelembutan yang
     menenangkan.
+  Desc_EN: An elixir made from a blend believed to bring new life and freshness.
+    This elixir provides a refreshing and soothing softness.

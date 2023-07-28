@@ -19,10 +19,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6e4d8ada99ce91a45894efba59d21fbb, type: 2}
   - {fileID: 11400000, guid: 986778bff2b1a524490c70b4b37fb0f9, type: 2}
   Quest_Title: Tonic Essence
-  QuestDescription: '"Kalau begitu Aku mau pesan ramuan <b>Quinoa Vitality Tonic,
-    Spice-infused Essence & Olive Yogurt Elixir.</b> Maaf jika terlalu banyak yaa
-    hehe."'
-  QuestTask: '- Ke Book Shelf untuk cek Resep.
+  Quest_Title_ID: Esensi Tonik
+  Quest_Title_EN: Tonic Essence
+  QuestDescription_ID: '"Kalau begitu Aku mau pesan ramuan <b><color=#A46443>Quinoa
+    Vitality Tonic, Spice-infused Essence & Olive Yogurt Elixir.</color></b> Maaf
+    jika terlalu banyak yaa hehe."'
+  QuestDescription_EN: 
+  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
 
     - Ke Chest ambil bahan.
 
@@ -33,14 +36,28 @@ MonoBehaviour:
     masukin bahan dan sesuaikan api.
 
     - Kirim lewat mail box.'
-  QuestinMail: 'Selamat pagi, kudengar nenek belum kembali tetapi ada yang mengerjakan
+  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
+
+    - Ke <b>chest</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+
+    -
+    Kirim lewat <b>mail box</b> di depan rumah.'
+  QuestinMail_ID: 'Selamat pagi, kudengar nenek belum kembali tetapi ada yang mengerjakan
     pesanan. Salam kenal ya!
 
 
-    Kalau begitu Aku mau pesan ramuan <b>Quinoa Vitality
-    Tonic, Spice-infused Essence & Olive Yogurt Elixir.</b> Maaf jika terlalu banyak
-    yaa hehe.
+    Kalau begitu Aku mau pesan ramuan <b><color=#A46443>Quinoa
+    Vitality Tonic, Spice-infused Essence & Olive Yogurt Elixir.</color></b> Maaf
+    jika terlalu banyak yaa hehe.
 
 
-    Baiklah itu saja, kutunggu kirimannya ya, Terimakasih!'
+    Baiklah itu saja, kutunggu kirimannya ya,
+    Terimakasih!'
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 45

@@ -6,18 +6,19 @@ public class DictionaryUI : MonoBehaviour
 {
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
-    [SerializeField]private GameObject[] potionPageList;
+    [SerializeField]private GameObject[] runePageList,potionPageList;
     [SerializeField]private GameObject runePage, potionPage;
     [SerializeField]private GameObject penghalangKiri, penghalangKanan;
-    private int pageNow_Potion, totalPage, pagePart;
+    private int pageNow_Potion, totalPage_Potion, pagePart, pageNow_Rune, totalPage_Rune;
     private SoundManager soundManager;
     private PlayerSaveManager playerSave;
     private void Start() {
         soundManager = SoundManager.Instance;
         playerSave = PlayerSaveManager.Instance;
-        pageNow_Potion = 0;
+        pageNow_Potion = pageNow_Rune = 0;
         pagePart = 0;
-        totalPage = potionPageList.Length;
+        totalPage_Potion = potionPageList.Length;
+        totalPage_Rune = runePageList.Length;
         UpdatePage();
         gameObject.SetActive(false);
     }
@@ -26,6 +27,11 @@ public class DictionaryUI : MonoBehaviour
         if(pagePart == 0){
             runePage.SetActive(true);
             potionPage.SetActive(false);
+
+            foreach(GameObject dictionaryPage in runePageList){
+                dictionaryPage.SetActive(false);
+            }
+            runePageList[pageNow_Rune].SetActive(true);
         }
         else if(pagePart == 1){
             runePage.SetActive(false);
@@ -40,12 +46,15 @@ public class DictionaryUI : MonoBehaviour
     }
     private void Update() {
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.DictionaryTime){
-            if(gameInput.GetInputEscape()){
+            if(gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()){
                 HideUI();
             }
             Vector2 keyArrowInput = gameInput.GetInputArrow_Dictionary();
             if(pagePart == 1){
                 ChangePage_Potion(keyArrowInput);
+            }
+            else if(pagePart == 0){
+                ChangePage_Rune(keyArrowInput);
             }
             
             ChangePagePart(keyArrowInput);
@@ -151,8 +160,21 @@ public class DictionaryUI : MonoBehaviour
             pageNow_Potion--;
             soundManager.PlayFlipPage();
         }
-        else if(keyArrowInput.x == 1 && pageNow_Potion < totalPage-1){
+        else if(keyArrowInput.x == 1 && pageNow_Potion < totalPage_Potion-1){
             pageNow_Potion++;
+            soundManager.PlayFlipPage();
+        }
+        UpdatePage();
+    }
+    private void ChangePage_Rune(Vector2 keyArrowInput){
+        if(keyArrowInput.x == -1 && pageNow_Rune > 0){
+            Debug.Log(pageNow_Rune);
+            pageNow_Rune--;
+            soundManager.PlayFlipPage();
+        }
+        else if(keyArrowInput.x == 1 && pageNow_Rune < totalPage_Rune-1){
+            Debug.Log(pageNow_Rune);
+            pageNow_Rune++;
             soundManager.PlayFlipPage();
         }
         UpdatePage();

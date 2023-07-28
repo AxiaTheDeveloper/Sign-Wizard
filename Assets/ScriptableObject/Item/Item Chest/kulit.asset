@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 7a03d234744bc7d4bb671128be828aa0, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Bagian luar tanaman atau buah yang memiliki aroma atau rasa khas dan digunakan
+  Desc_ID: Bagian luar tanaman atau buah yang memiliki aroma atau rasa khas dan digunakan
     dalam ramuan untuk memberikan karakteristik tertentu.
+  Desc_EN: The outer part of plants or fruits, used in potions for its distinct aroma
+    or flavor.

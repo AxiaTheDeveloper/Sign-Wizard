@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 5d331b397c29a24469182cf0f7b43b27, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Produk susu yang mengalami fermentasi, digunakan dalam ramuan untuk memberikan
+  Desc_ID: Produk susu yang mengalami fermentasi, digunakan dalam ramuan untuk memberikan
     rasa asam dan manfaat probiotik.
+  Desc_EN: Fermented dairy product used in potions to provide a sour taste and probiotic
+    benefits.

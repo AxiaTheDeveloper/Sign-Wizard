@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: a7b949d7507f7fd4baf527bdd8cc15af, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Gandum yang berputar-putar dengan energi yang dinamis dan memikat.
+  Desc_ID: Gandum yang berputar-putar dengan energi yang dinamis dan memikat.
+  Desc_EN: Wheat swirling with dynamic and captivating energy.

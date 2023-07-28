@@ -17,6 +17,8 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: b95801093c16c1c459482efcb9dd786b, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Tonik yang berasal dari quinoa, diperkuat dengan menggunakan api sedang.
+  Desc_ID: Tonik yang berasal dari quinoa, diperkuat dengan menggunakan api sedang.
     Tonik ini memberikan vitalitas dan nutrisi yang tinggi untuk meningkatkan kesehatan
     secara keseluruhan.
+  Desc_EN: A tonic made from quinoa, fortified over medium heat. This tonic provides
+    high vitality and nutrition to enhance overall health.

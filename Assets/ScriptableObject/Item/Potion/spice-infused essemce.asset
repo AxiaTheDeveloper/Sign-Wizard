@@ -17,6 +17,8 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: b3fb62616ce0e4d46a2823efb271b971, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Essensi yang diperkaya dengan campuran rempah-rempah, disesuaikan dengan
+  Desc_ID: Essensi yang diperkaya dengan campuran rempah-rempah, disesuaikan dengan
     api kecil. Essensi ini memberikan sentuhan beraroma dan berbumbu pada berbagai
     hidangan atau minuman.
+  Desc_EN: An essence enriched with a blend of spices, adjusted over low heat. This
+    essence adds an aromatic and spiced touch to various dishes or drinks.

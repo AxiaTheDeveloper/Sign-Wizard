@@ -50,18 +50,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070f581ba3d0a6f4eb8b0006d81da2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnyChance: {fileID: 21300000, guid: 47e43a72b8031da428ad2f4f54c0ab00, type: 3}
-  Cauldron: {fileID: 21300000, guid: 06c88ea28c41b994cb8b24227e6a9bea, type: 3}
-  CauldronFire: {fileID: 21300000, guid: 29aaf11a2eb0a684e8150d7154fefa46, type: 3}
-  ChestInvent: {fileID: 21300000, guid: 5fd7c4428229c1045b566e23860ac149, type: 3}
-  ChestQuantity: {fileID: 21300000, guid: 123b9cc4f23aa8343a9a2aa8438077c8, type: 3}
-  Chest: {fileID: 21300000, guid: bbffddc3c69dc4b41ab506b1ece3a790, type: 3}
-  CloseLetter: {fileID: 21300000, guid: 3acfad3f1f478e84d9fabe5b70bc74e2, type: 3}
-  Dictionary: {fileID: 21300000, guid: 6520c78c87e85c54488a563830ed482e, type: 3}
-  InGame: {fileID: 21300000, guid: d094472b4eda3884e9f03f40d8f76db2, type: 3}
-  MortarInProgress: {fileID: 21300000, guid: 6a4884857a5a87d44b276543ae8debdd, type: 3}
-  MortarSelectItem: {fileID: 21300000, guid: 90d2942e779b564418bfa48264f05571, type: 3}
-  submitPotion: {fileID: 21300000, guid: c3e67dc2390de8a4a84d2e5e36c05981, type: 3}
+  AnyChoose: {fileID: 21300000, guid: e8d1591464ca1794083828f7aa864454, type: 3}
+  AnyChooseHorizontal: {fileID: 21300000, guid: 20361772691f9ca498dd9d766c6139bc, type: 3}
+  AnyChooseVertical: {fileID: 21300000, guid: 2e913e59a56952942bf2fe337fef3060, type: 3}
+  Cauldron: {fileID: 21300000, guid: d491939080ba1a24196b2010fd612e0f, type: 3}
+  CauldronFire: {fileID: 21300000, guid: b004151f3db29164d86a7c28eb674c41, type: 3}
+  ChestInvent: {fileID: 21300000, guid: 58229db4d1593ed41924343b96fbddd3, type: 3}
+  ChestQuantity: {fileID: 21300000, guid: 4157d290bfbc99d4bbe8a276e1dce98a, type: 3}
+  Chest: {fileID: 21300000, guid: 66434edd261a1784bb37bffa0b1b2a0a, type: 3}
+  CloseLetter: {fileID: 21300000, guid: a838f208878f19b45b6ab7a88436573e, type: 3}
+  Dictionary: {fileID: 21300000, guid: 519ee73e2d743e546880ce73ce171776, type: 3}
+  InGame: {fileID: 21300000, guid: 3d4b9295f23035b499d4f880fa613633, type: 3}
+  MortarInProgress: {fileID: 21300000, guid: 73bbb6254db83a14f966bf25f63f21be, type: 3}
+  MortarSelectItem: {fileID: 21300000, guid: 385c12198302fb6469a710d27eab6ef5, type: 3}
+  submitPotion: {fileID: 21300000, guid: ee86c182d7beb6341959af39da9c02ee, type: 3}
   image: {fileID: 3755188029374768497}
   gameManager: {fileID: 0}
 --- !u!1 &3755188029374768499
@@ -130,7 +132,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 730775f013bdd4c449ea89b89b1d5194, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d4b9295f23035b499d4f880fa613633, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

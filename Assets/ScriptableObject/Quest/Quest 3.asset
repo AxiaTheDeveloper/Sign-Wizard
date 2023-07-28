@@ -18,9 +18,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 577f1d9ed9b7a5b4f911ae3dc98e539c, type: 2}
   - {fileID: 11400000, guid: 92c9d45a6c82556439aa73c1f4c9c71d, type: 2}
   Quest_Title: Citrus Tea
-  QuestDescription: '"Aku jadi tertarik pesan <b>Zesty Citrus Brew & Enchanted Serenity
-    Tea</b>! semoga hasilnya tetap menyegarkan!!"'
-  QuestTask: '- Ke Book Shelf untuk cek Resep.
+  Quest_Title_ID: Teh Citrus
+  Quest_Title_EN: Citrus Tea
+  QuestDescription_ID: '"Aku jadi tertarik pesan <b><color=#A46443>Zesty Citrus Brew
+    & Enchanted Serenity Tea</color></b>! semoga hasilnya tetap menyegarkan!!"'
+  QuestDescription_EN: 
+  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
 
     - Ke Chest ambil bahan.
 
@@ -31,14 +34,27 @@ MonoBehaviour:
     masukin bahan dan sesuaikan api.
 
     - Kirim lewat mail box.'
-  QuestinMail: 'Haloo, ku dengar dari Chal ramuannya lebih bagus dari biasanya dan
-    sepertinya bukan buatan nenek lagi ya?
+  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
+
+    - Ke <b>chest</b> untuk
+    ambil bahan.
+
+    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+
+    -
+    Kirim lewat <b>mail box</b> di depan rumah.'
+  QuestinMail_ID: 'Haloo, ku dengar dari Chal ramuannya lebih bagus dari biasanya
+    dan sepertinya bukan buatan nenek lagi ya?
 
 
-    Aku jadi tertarik pesan <b>Zesty
-    Citrus Brew & Enchanted Serenity Tea</b>! semoga hasilnya tetap menyegarkan!!
+    Aku jadi tertarik pesan <b><color=#A46443>Zesty
+    Citrus Brew & Enchanted Serenity Tea</color></b>! semoga hasilnya tetap menyegarkan!!
 
 
     Ditunggu
     yaa, Terimakasih banyak!!!'
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 40

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSaveSO: {fileID: 11400000, guid: e941e1b9749bf9c4e81831e58f2d982e, type: 2}
   bedPlayerPosition: {fileID: 0}
+  maxLevel: 6
 --- !u!1 &4812652835229335099
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 20d0b202760d77247bdad271f7297f8f, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Eliksir yang terbuat dari kombinasi olive oil dan yogurt, dengan menggunakan
+  Desc_ID: Eliksir yang terbuat dari kombinasi olive oil dan yogurt, dengan menggunakan
     api sedang. Eliksir ini memberikan keseimbangan antara rasa kaya dan kelembutan
     yogurt, serta manfaat kesehatan yang terkait dengan olive oil.
+  Desc_EN: An elixir made from a combination of olive oil and yogurt, using medium
+    heat. This elixir provides a balance between the rich taste and creaminess of
+    yogurt, and health benefits associated with olive oil.

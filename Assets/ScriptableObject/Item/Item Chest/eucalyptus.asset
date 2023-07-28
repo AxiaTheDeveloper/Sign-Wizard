@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: c329d6432695c384bbbf21dd85310133, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Daun yang memiliki aroma segar dan digunakan dalam ramuan untuk sifat penyembuhan
-    pernapasan.
+  Desc_ID: Daun yang memiliki aroma segar dan digunakan dalam ramuan untuk sifat
+    penyembuhan pernapasan.
+  Desc_EN: Leaves with a fresh aroma, used in potions for their respiratory healing
+    properties.

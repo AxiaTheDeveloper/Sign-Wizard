@@ -17,6 +17,9 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 8402ff25d52c8004e91d9ede492169c7, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Eliksir dengan cita rasa tropis yang memikat. Dibuat dengan menggunakan api
-    besar, eliksir ini menggabungkan rasa manis nanas, wortel, dan campuran bahan-bahan
+  Desc_ID: Eliksir dengan cita rasa tropis yang memikat. Dibuat dengan menggunakan
+    api besar, eliksir ini menggabungkan rasa manis nanas, wortel, dan campuran bahan-bahan
     lainnya untuk memberikan kenikmatan dan keceriaan tropis.
+  Desc_EN: An elixir with a captivating tropical taste. Made over high heat, this
+    elixir combines the sweetness of pineapple, carrots, and a mix of other ingredients
+    to provide tropical pleasure and cheer.

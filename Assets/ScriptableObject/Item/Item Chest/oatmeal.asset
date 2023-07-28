@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 50216feffc0c0154f8dadf53f5fe0a08, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Bubuk gandum yang digunakan dalam ramuan untuk memberikan tekstur kental
+  Desc_ID: Bubuk gandum yang digunakan dalam ramuan untuk memberikan tekstur kental
     serta memberikan nutrisi tambahan.
+  Desc_EN: Ground wheat used in potions to provide a thick texture and additional
+    nutrition.

@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 6c815052130be444f940acd6abdd30ca, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Tunas bunga kering yang memiliki aroma kuat dan digunakan sebagai bumbu atau
-    untuk keperluan obat-obatan.
+  Desc_ID: Tunas bunga kering yang memiliki aroma kuat dan digunakan sebagai bumbu
+    atau untuk keperluan obat-obatan.
+  Desc_EN: Dried flower buds with a strong aroma, used as a spice or for medicinal
+    purposes.

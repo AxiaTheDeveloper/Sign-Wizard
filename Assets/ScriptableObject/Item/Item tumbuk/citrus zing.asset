@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: ad76c8a0e1d6d3f48b27a546f687e28c, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Keajaiban yang terpancar dari rasa sitrus yang menggugah selera.
+  Desc_ID: Keajaiban yang terpancar dari rasa sitrus yang menggugah selera.
+  Desc_EN: A taste wonder bursting from the appetite-awakening citrus flavor.

@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 3ea1151a436793f4a95f70bb99e2005b, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Cairan kental yang digunakan dalam ramuan sebagai pemanis alami serta memberikan
-    sifat antimikroba.
+  Desc_ID: Cairan kental yang digunakan dalam ramuan sebagai pemanis alami serta
+    memberikan sifat antimikroba.
+  Desc_EN: A thick liquid used in potions as a natural sweetener and for its antimicrobial
+    properties.

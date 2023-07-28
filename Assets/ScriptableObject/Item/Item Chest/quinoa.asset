@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 25644e88ae5e9014ca80f4e04686aae0, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Biji yang kaya akan nutrisi dan protein, digunakan dalam ramuan untuk memberikan
-    tekstur dan nutrisi tambahan.
+  Desc_ID: Biji yang kaya akan nutrisi dan protein, digunakan dalam ramuan untuk
+    memberikan tekstur dan nutrisi tambahan.
+  Desc_EN: Nutrient-rich seeds, used in potions to provide texture and additional
+    nutrition.

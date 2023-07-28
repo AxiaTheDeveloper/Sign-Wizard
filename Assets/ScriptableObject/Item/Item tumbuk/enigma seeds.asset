@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 4c7bb768900812d408c27ac2ae099eda, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Biji misterius yang menyimpan rahasia dan potensi luar biasa.
+  Desc_ID: Biji misterius yang menyimpan rahasia dan potensi luar biasa.
+  Desc_EN: Mysterious seeds holding amazing secrets and potential.

@@ -17,6 +17,9 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 77f2d958950cfb04ead179fede47616d, type: 3}
   isFromChest: 0
   maxStack: 1
-  Desc: Teh ajaib yang memiliki keajaiban kesederhanaan dalam setiap tegukan. Dibuat
-    dengan perpaduan serai dan teh, dengan menggunakan api kecil, teh ini memberikan
-    efek menenangkan dan ketenangan.
+  Desc_ID: Teh ajaib yang memiliki keajaiban kesederhanaan dalam setiap tegukan.
+    Dibuat dengan perpaduan serai dan teh, dengan menggunakan api kecil, teh ini
+    memberikan efek menenangkan dan ketenangan.
+  Desc_EN: A magical tea that brings a sense of tranquility in every sip. Made with
+    a blend of lemongrass and tea over low heat, this tea offers a calming and serene
+    effect.

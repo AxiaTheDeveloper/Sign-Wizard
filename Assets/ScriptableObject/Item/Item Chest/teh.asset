@@ -17,5 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 13c2e7be8a9df7b44890cadd7e9a3d87, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Daun yang dikeringkan, digunakan dalam ramuan untuk memberikan rasa dan manfaat
-    kesehatan.
+  Desc_ID: Daun yang dikeringkan, digunakan dalam ramuan untuk memberikan rasa dan
+    manfaat kesehatan.
+  Desc_EN: Dried leaves used in potions to provide flavor and health benefits.

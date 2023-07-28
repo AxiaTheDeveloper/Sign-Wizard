@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: c2222882e0139564893d1f4865c001b1, type: 3}
   isFromChest: 0
   maxStack: 10
-  Desc: Pala yang memberikan kepedasan yang khas dan memberi sensasi yang menarik.
+  Desc_ID: Pala yang memberikan kepedasan yang khas dan memberi sensasi yang menarik.
+  Desc_EN: Nutmeg that provides a unique spiciness and delivers an exciting sensation.

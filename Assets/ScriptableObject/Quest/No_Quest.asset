@@ -16,9 +16,15 @@ MonoBehaviour:
   nameSender: 
   potionWantList: []
   Quest_Title: Tidak Ada Quest
-  QuestDescription: <i>Tidak ada quest</i>
-  QuestTask: '- Keluar dari rumah.
-
-    - Ambil quest dari mail box.'
-  QuestinMail: <i>Tidak ada quest</i>
+  Quest_Title_ID: Tidak Ada Quest
+  Quest_Title_EN: No Quest
+  QuestDescription_ID: Sedang tidak ada quest coba cek kotak surat untuk mendapatkannya.
+  QuestDescription_EN: There's no quest try to check the mail box for more.
+  QuestTask_ID: '- Cek kotak surat yang ada di depan rumah.'
+  QuestTask_EN: '- Check <b>mail box</b> in front of the house.'
+  QuestinMail_ID: 
+  QuestinMail_EN: 
+  GiftDescinMail_ID: 
+  GiftDescinMail_EN: 
+  giftSender: 
   progressPerTumbuk_Quest: 45

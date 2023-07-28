@@ -17,4 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 09ad4ba6dde347b4a91002ada360404d, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Polisakarida yang digunakan sebagai bahan pengental alami dalam ramuan.
+  Desc_ID: Polisakarida yang digunakan sebagai bahan pengental alami dalam ramuan.
+  Desc_EN: Polysaccharides used as a natural thickening agent in potions.

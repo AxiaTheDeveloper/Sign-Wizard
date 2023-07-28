@@ -17,5 +17,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 9f5c401295562e444a84a4da4bceb032, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Sumber protein yang digunakan dalam ramuan untuk memberikan nutrisi dan rasa
-    khas.
+  Desc_ID: Sumber protein yang digunakan dalam ramuan untuk memberikan nutrisi dan
+    rasa khas.
+  Desc_EN: A protein source used in potions to provide nutrition and a unique flavor.

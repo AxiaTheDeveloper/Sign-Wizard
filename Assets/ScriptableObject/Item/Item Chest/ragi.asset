@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 0931a2a82bdc21d45a26dfee529a05b7, type: 3}
   isFromChest: 1
   maxStack: 1
-  Desc: Mikroorganisme yang digunakan dalam proses fermentasi untuk menghasilkan
+  Desc_ID: Mikroorganisme yang digunakan dalam proses fermentasi untuk menghasilkan
     hasil akhir yang diinginkan dalam ramuan.
+  Desc_EN: Microorganisms used in fermentation processes to produce the desired end
+    product in potions.

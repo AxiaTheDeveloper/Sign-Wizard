@@ -10,6 +10,8 @@ public class PlayerSaveManager : MonoBehaviour
     [SerializeField]private PlayerSave playerSaveSO;
     private Transform playerPosition;
     [SerializeField]private Transform bedPlayerPosition;
+    [SerializeField]private int maxLevel;
+    
 
     private void Awake() {
         Instance = this;
@@ -178,5 +180,14 @@ public class PlayerSaveManager : MonoBehaviour
             EditorUtility.SetDirty(playerSaveSO);
             #endif
     }
+
+    public int GetMaxLevel(){
+        return maxLevel;
+    }
+
+    public bool GetIsIndonesia(){
+        return playerSaveSO.isIndonesia;
+    }
+
 
 }

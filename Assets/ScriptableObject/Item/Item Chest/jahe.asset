@@ -17,5 +17,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 2132ad0d33bce5341a1853ff2977ee3f, type: 3}
   isFromChest: 1
   maxStack: 10
-  Desc: Akar tanaman yang memiliki rasa pedas dan digunakan dalam ramuan untuk manfaat
-    kesehatan serta memberikan rasa hangat.
+  Desc_ID: Akar tanaman yang memiliki rasa pedas dan digunakan dalam ramuan untuk
+    manfaat kesehatan serta memberikan rasa hangat.
+  Desc_EN: A spicy plant root used in potions for its health benefits and warming
+    flavor.

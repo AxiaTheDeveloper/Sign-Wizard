@@ -56,6 +56,9 @@ public class TheQuestBox
     public void OpenUI(QuestBox questBox){
         questBox.ShowUI();
     }
+    public void OpenUI_Gift(QuestBox questBox){
+        questBox.ShowUI_GiftLetter();
+    }
 }
 
 public class InteractObject : MonoBehaviour
@@ -85,6 +88,8 @@ public class InteractObject : MonoBehaviour
     [SerializeField]private QuestBox QuestBox;
     private PlayerSaveManager playerSave;
     private SoundManager soundManager;
+
+    private bool hasCheckGift = false;
 
 
     private void Start() {
@@ -160,9 +165,24 @@ public class InteractObject : MonoBehaviour
                 
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.outside){
-                playerSave.ChangePlayerMode(levelMode.MakingPotion);
-                soundManager.PlayMailbox();
-                questBox.OpenUI(QuestBox);
+                if(playerSave.GetPlayerLevel() > 1 && playerSave.GetPlayerLevel() < playerSave.GetMaxLevel()){
+                    if(!hasCheckGift){
+                        hasCheckGift = true;
+                        soundManager.PlayMailbox();
+                        questBox.OpenUI_Gift(QuestBox);
+                    }
+                    else{
+                        playerSave.ChangePlayerMode(levelMode.MakingPotion);
+                        soundManager.PlayMailbox();
+                        questBox.OpenUI(QuestBox);
+                    }
+                }
+                else{
+                    playerSave.ChangePlayerMode(levelMode.MakingPotion);
+                    soundManager.PlayMailbox();
+                    questBox.OpenUI(QuestBox);
+                }
+                
             }
 
         }
@@ -179,7 +199,18 @@ public class InteractObject : MonoBehaviour
                         door.OpenUI(Door);
                     }
                     else{
-                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+                        if(playerSave.GetPlayerLevel() > 1 && playerSave.GetPlayerLevel() < playerSave.GetMaxLevel()){
+                            if(!hasCheckGift){
+                                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
+                            }
+                            else{
+                                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+                            }
+                        }
+                        else{
+                            DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
+                        }
+                        
                     }
                 }
                 else if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
