@@ -119,6 +119,7 @@ public class QuestBox : MonoBehaviour
     }
 
     private void ShowDialogueGift(){
+        gameManager.ChangeToCinematic();
         if(playerSave.GetPlayerLevel() == 2){
             dialogueManager.ShowDialogue_Gift(DialogueManager.DialogueNerimaGift.gift1);
         }
@@ -131,6 +132,7 @@ public class QuestBox : MonoBehaviour
         else if(playerSave.GetPlayerLevel() == 5){
             dialogueManager.ShowDialogue_Gift(DialogueManager.DialogueNerimaGift.gift4);
         }
+        
     }
     
 

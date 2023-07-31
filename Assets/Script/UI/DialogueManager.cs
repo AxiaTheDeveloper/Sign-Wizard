@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
         playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest, tidakBisaPakaiPenumbuk
     }
     public enum DialogueTutorial{
-        playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerStartMaking
+        playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerStartMaking
     }
     public enum DialogueNerimaGift{
         gift1, gift2, gift3, gift4
@@ -42,8 +42,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue Tutorial")]
     [SerializeField]
     [field : TextArea]
-    private string dialogueTutorial_Cauldron, dialogueTutorial_Chest, dialogueTutorial_Dictionary, dialogueTutorial_Bed, dialogueTutorial_Tumbuk, dialogueTutorial_StartMaking;
+    private string dialogueTutorial_StartTutorial,dialogueTutorial_Cauldron, dialogueTutorial_Chest, dialogueTutorial_Dictionary, dialogueTutorial_Bed, dialogueTutorial_Tumbuk, dialogueTutorial_StartMaking;
     private DialogueTutorial dialogueTutorial;
+
+    [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk;
 
     [Header("Dialogue Nerima Gift")]
     [SerializeField]
@@ -90,26 +92,31 @@ public class DialogueManager : MonoBehaviour
     private void dialogueHolder_tutorial_OnDialogueFinish(object sender, EventArgs e)
     {
         // Debug.Log("hi");
-        // Debug.Log(dialogueTutorial);
-        if(dialogueTutorial == DialogueTutorial.playerCauldron){
+        
+        if(dialogueTutorial == DialogueTutorial.playerTutorialStart){
             // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerChest);
+            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerCauldron);
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerCauldron){
+            // gameManager.ChangeToInGame();
+            tutorialCauldron.Show_Tutorial();
+            
         }
         else if(dialogueTutorial == DialogueTutorial.playerChest){
             // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerDictionary);
+            tutorialChest.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerDictionary){
             // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerBed);
+            tutorialDictionary.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerBed){
             // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTumbuk);
+            tutorialBed.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerTumbuk){
             // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerStartMaking);
+            tutorialTumbuk.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerStartMaking){
             gameManager.ChangeToInGame();
@@ -199,7 +206,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowDialogue_Tutorial(DialogueTutorial dialogueTutorials){
         gameManager.ChangeToCinematic();
+        
         dialogueTutorial = dialogueTutorials;
+        // Debug.Log(dialogueTutorial);
+        if(dialogueTutorials == DialogueTutorial.playerTutorialStart){
+            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_StartTutorial);
+        }
         if(dialogueTutorials == DialogueTutorial.playerCauldron){
             dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Cauldron);
         }

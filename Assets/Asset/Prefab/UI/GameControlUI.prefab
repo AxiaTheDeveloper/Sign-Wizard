@@ -64,6 +64,7 @@ MonoBehaviour:
   MortarInProgress: {fileID: 21300000, guid: 73bbb6254db83a14f966bf25f63f21be, type: 3}
   MortarSelectItem: {fileID: 21300000, guid: 385c12198302fb6469a710d27eab6ef5, type: 3}
   submitPotion: {fileID: 21300000, guid: ee86c182d7beb6341959af39da9c02ee, type: 3}
+  tutorial: {fileID: 21300000, guid: 8aab809ef7b33fa4989f0c32c00ee2db, type: 3}
   image: {fileID: 3755188029374768497}
   gameManager: {fileID: 0}
 --- !u!1 &3755188029374768499

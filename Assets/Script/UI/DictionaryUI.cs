@@ -168,12 +168,10 @@ public class DictionaryUI : MonoBehaviour
     }
     private void ChangePage_Rune(Vector2 keyArrowInput){
         if(keyArrowInput.x == -1 && pageNow_Rune > 0){
-            Debug.Log(pageNow_Rune);
             pageNow_Rune--;
             soundManager.PlayFlipPage();
         }
         else if(keyArrowInput.x == 1 && pageNow_Rune < totalPage_Rune-1){
-            Debug.Log(pageNow_Rune);
             pageNow_Rune++;
             soundManager.PlayFlipPage();
         }

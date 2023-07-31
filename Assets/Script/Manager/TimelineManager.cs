@@ -9,7 +9,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private PlayableDirector director;
 
     private enum TimelineType{
-        intro, cauldron_Success, Go_Outside,none
+        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk ,none
     }
     private TimelineType type;
 

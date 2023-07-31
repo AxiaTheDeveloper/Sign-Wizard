@@ -58,7 +58,7 @@ public class FadeNight_StartEnd : MonoBehaviour
             else{
                 if(playerSave.GetFirstTimeTutorial()){
                     //ntr ini mainin timeline nya ,skrg smntr ini
-                    dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerCauldron);
+                    dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTutorialStart);
                 }
                 else{
                     gameManager.ChangeToInGame();
