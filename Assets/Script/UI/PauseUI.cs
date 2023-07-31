@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
-    [SerializeField]private GameObject pauseUI;
+    [SerializeField]private GameObject pauseUI, gameControlUI;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
     
@@ -18,6 +18,8 @@ public class PauseUI : MonoBehaviour
     private bool isMusicOn, isSoundOn;
     [SerializeField]private SoundManager soundManager;
     [SerializeField]private BGMManager bgmManager;
+
+    [SerializeField]private FadeNight_StartEnd fade;
 
     void Start()
     {
@@ -149,12 +151,19 @@ public class PauseUI : MonoBehaviour
             }
         }
         else if(selectionPause == 3){
-            bgmManager.DestroyInstance();
-            SceneManager.LoadScene("MainMenu");
+            gameControlUI.SetActive(false);
+            HideUI();
+            fade.ShowUI_Option();
+            
         }
     }
     public Slider GetBGMSlider(){
         return musicSlider.GetComponent<Slider>();
+    }
+    public void GoToMainMenu(){
+        bgmManager.DestroyInstance();
+        SceneManager.LoadScene("MainMenu");
+        
     }
 
 

@@ -15,7 +15,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? Quest_Title_ID : Quest_Title_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Quest_Title_ID : Quest_Title_EN;
         }
     }
 
@@ -25,7 +25,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? QuestDescription_ID : QuestDescription_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestDescription_ID : QuestDescription_EN;
         }
     }
     [field : TextArea]
@@ -34,7 +34,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? QuestTask_ID : QuestTask_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestTask_ID : QuestTask_EN;
         }
     }
     [field : TextArea]
@@ -43,7 +43,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? QuestinMail_ID : QuestinMail_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestinMail_ID : QuestinMail_EN;
         }
     }
 
@@ -54,7 +54,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? GiftDescinMail_ID : GiftDescinMail_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? GiftDescinMail_ID : GiftDescinMail_EN;
         }
     }
     public string giftSender;

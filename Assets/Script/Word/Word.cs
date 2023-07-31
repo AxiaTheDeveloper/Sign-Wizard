@@ -25,9 +25,7 @@ public class Word
     //     no_Letter 
     // }
     public void TypeOutLetter(){
-        if(no_Letter <= word.Length){
-            display.ChangeColorLetterUI(no_Letter);
-        }
+        display.ChangeColorLetterUI(no_Letter);
         
         
         no_Letter++;

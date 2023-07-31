@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
   level: 1
-  modeLevel: 1
+  modeLevel: 0
   isResetDay: 0
-  isFromOutside: 0
+  isFromOutside: 1
   isSubmitPotion: 0
   isResetSave: 0
-  isIndonesia: 1
-  isFirstTime_Tutorial: 0
+  isFirstTime_Tutorial: 1

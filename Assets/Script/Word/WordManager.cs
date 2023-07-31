@@ -108,6 +108,7 @@ public class WordManager : MonoBehaviour
     }
     public bool InputLetter_OnlyOneWordManager(char letter){
         
+        
         if(chosenWord.AllTyped()){
             
 
@@ -123,11 +124,24 @@ public class WordManager : MonoBehaviour
         if(chosenWord.GetLetter() == letter){
 
             chosenWord.TypeOutLetter();
+            if(chosenWord.AllTyped()){
+                
+
+                function.WordFinisheds();
+                hasChooseWord = false;
+                hasWord = false;
+
+                StartCoroutine(DelayedCreateWord());
+
+                //di sini suruh kerjain apa gitu
+                return false;
+            }
         }
         else{
             
             chosenWord.WrongLetter();
         }
+        
         return true;
     }
 

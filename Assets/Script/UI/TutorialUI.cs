@@ -12,6 +12,9 @@ public class TutorialUI : MonoBehaviour
     [SerializeField]private GameInput gameInput;
     [SerializeField]private DialogueManager.DialogueTutorial dialogueTutorial;
     [SerializeField]private DialogueManager dialogueManager;
+    [SerializeField]private TimelineManager timelineManager;
+    [SerializeField]private TimelineManager.TimelineType typeTimeline;
+    [SerializeField]private bool isEndedWithTimeline;
 
     private bool hasReadFull;
     private void Awake(){
@@ -77,7 +80,12 @@ public class TutorialUI : MonoBehaviour
 
     private IEnumerator StartNextThing(){
         yield return new WaitForSeconds(0.01f);
-        dialogueManager.ShowDialogue_Tutorial(dialogueTutorial);
+        if(isEndedWithTimeline){
+            timelineManager.Start_Tutorials(typeTimeline);
+        }
+        else{
+            dialogueManager.ShowDialogue_Tutorial(dialogueTutorial);
+        }
         Hide_Tutorial();
     }
 

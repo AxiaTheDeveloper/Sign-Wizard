@@ -22,7 +22,7 @@ public class ItemScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerSaveManager.Instance.GetIsIndonesia() ? Desc_ID : Desc_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Desc_ID : Desc_EN;
         }
     }
 

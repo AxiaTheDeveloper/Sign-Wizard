@@ -33,9 +33,12 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField]private GameObject[] selectArrowsPause;
     private int selectionPause;
     [SerializeField]private GameObject musicSlider, SoundSlider;
-    private bool isMusicOn, isSoundOn;
+    private bool isMusicOn, isSoundOn, isLanguageOn;
     [SerializeField]private SoundManager soundManager;
     [SerializeField]private BGMManager bgmManager;
+    private string selectionOptionLanguage;
+    [SerializeField]private GameObject pilihanIDEN, arrowLanguageID, arrowLanguageEN;
+
     [Header("Reset")]
     [SerializeField]private GameObject[] selectChoiceReset;
     private bool isYesReset;
@@ -54,8 +57,11 @@ public class MainMenuUI : MonoBehaviour
         //pause
         optionUI.gameObject.SetActive(false);
         musicSlider.gameObject.SetActive(false);
+        pilihanIDEN.SetActive(false);
         SoundSlider.gameObject.SetActive(false);
         selectionPause = 0;
+        selectionOptionLanguage = PlayerPrefs.GetString("pilihanIDEN", "EN");
+        UpdateVisualLanguageOption();
         UpdateSelectArrowPause();
 
         creditsUI.SetActive(false);
@@ -63,6 +69,16 @@ public class MainMenuUI : MonoBehaviour
         isYesReset = false;
         resetUI.SetActive(false);
         UpdateSelectChoice_Reset();
+    }
+    private void UpdateVisualLanguageOption(){
+        if(selectionOptionLanguage == "ID"){
+            arrowLanguageID.SetActive(true);
+            arrowLanguageEN.SetActive(false);
+        }
+        else if(selectionOptionLanguage == "EN"){
+            arrowLanguageEN.SetActive(true);
+            arrowLanguageID.SetActive(false);
+        }
     }
     private void UpdateSelectChoice_Reset(){
         if(isYesReset){
@@ -128,6 +144,20 @@ public class MainMenuUI : MonoBehaviour
             else if(isSoundOn && keyInputArrow.x == -1){
                 soundManager.UpdateSound_Volume(-0.1f);
             }
+            if(isLanguageOn && keyInputArrow.x == 1){
+                if(selectionOptionLanguage == "ID"){
+                    selectionOptionLanguage = "EN";
+                    UpdateVisualLanguageOption();
+                    PlayerPrefs.SetString("pilihanIDEN", selectionOptionLanguage);
+                }
+            }
+            else if(isLanguageOn && keyInputArrow.x == -1){
+                if(selectionOptionLanguage == "EN"){
+                    selectionOptionLanguage = "ID";
+                    UpdateVisualLanguageOption();
+                    PlayerPrefs.SetString("pilihanIDEN", selectionOptionLanguage);
+                }
+            }
         }
         else if(type == mainMenuType.credits){
             Deselect();
@@ -189,7 +219,7 @@ public class MainMenuUI : MonoBehaviour
         UpdateSelectArrow();
     }
     private void moveSelection_option(Vector2 keyInputArrow){
-        if(!isMusicOn && !isSoundOn){
+        if(!isMusicOn && !isSoundOn && !isLanguageOn){
             if(keyInputArrow.y == 1 && selectionPause > 0 ){
                 selectionPause--;
             }
@@ -225,23 +255,23 @@ public class MainMenuUI : MonoBehaviour
         }
     }
     public void SelectToPlay(){
-        PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, selectLanguage);
+        
             if(playerSaveSO.modeLevel == levelMode.outside){
                 if(playerSaveSO.isFromOutside){
-                    if(playerSaveSO.isIndonesia){
-                        SceneManager.LoadSceneAsync("OutDoor_ID");
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_ID");
                     }
                     else{
-                        SceneManager.LoadSceneAsync("OutDoor_EN");
+                        LevelLoader.Instance.LoadScene("OutDoor_EN");
                     }
                     
                 }
                 else if(playerSaveSO.isSubmitPotion){
-                    if(playerSaveSO.isIndonesia){
-                        SceneManager.LoadSceneAsync("InDoor_ID");
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("InDoor_ID");
                     }
                     else{
-                        SceneManager.LoadSceneAsync("InDoor_EN");
+                        LevelLoader.Instance.LoadScene("InDoor_EN");
                     }
                 }
                 else{
@@ -254,11 +284,11 @@ public class MainMenuUI : MonoBehaviour
                 }
             }
             else if(playerSaveSO.modeLevel == levelMode.MakingPotion){
-                if(playerSaveSO.isIndonesia){
-                    SceneManager.LoadSceneAsync("InDoor_ID");
+                if(selectionOptionLanguage == "ID"){
+                    LevelLoader.Instance.LoadScene("InDoor_ID");
                 }
                 else{
-                    SceneManager.LoadSceneAsync("InDoor_EN");
+                    LevelLoader.Instance.LoadScene("InDoor_EN");
                 }
             }
     }
@@ -278,8 +308,10 @@ public class MainMenuUI : MonoBehaviour
                 inputCooldownTimer = inputCooldownTimerMax;
                 isMusicOn = false;
                 isSoundOn = false;
+                isLanguageOn = false;
                 SoundSlider.gameObject.SetActive(false);
                 musicSlider.gameObject.SetActive(false);
+                pilihanIDEN.SetActive(false);
                 optionUI.SetActive(false);
                 type = mainMenuType.normal;
                 OnChange?.Invoke(this,EventArgs.Empty);
@@ -301,8 +333,10 @@ public class MainMenuUI : MonoBehaviour
         if(selectionPause == 0){
             isMusicOn = false;
             isSoundOn = false;
+            isLanguageOn = false;
             SoundSlider.gameObject.SetActive(false);
             musicSlider.gameObject.SetActive(false);
+            pilihanIDEN.SetActive(false);
             optionUI.SetActive(false);
             type = mainMenuType.normal;
             OnChange?.Invoke(this,EventArgs.Empty);
@@ -328,6 +362,16 @@ public class MainMenuUI : MonoBehaviour
                 isSoundOn = true;
             }
         }
+        else if(selectionPause == 3){
+            if(isLanguageOn){
+                pilihanIDEN.SetActive(false);
+                isLanguageOn = false;
+            }
+            else if(!isLanguageOn){
+                pilihanIDEN.SetActive(true);
+                isLanguageOn = true;
+            }
+        }
     }
     private void changeBahasa(string bahasa){
         if(bahasa == "BISINDO"){
@@ -345,6 +389,7 @@ public class MainMenuUI : MonoBehaviour
             selectASL.SetActive(true);
             selectBisindo.SetActive(false);
         }
+        PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, selectLanguage);
     }
     private void UpdateSelectArrow(){
         foreach(GameObject selectarrow in selectArrows){

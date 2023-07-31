@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     
     // private DialogueType dialogueType;
     private WitchGameManager.InterfaceType interfaceType;
+    [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
@@ -65,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     }
     
     private void Start() {
+        
         if(dialogueHolder_Intro){
             dialogueHolder_Intro.OnDialogueFinish += dialogueHolder_Intro_OnDialogueFinish;
         }
@@ -94,13 +96,11 @@ public class DialogueManager : MonoBehaviour
         // Debug.Log("hi");
         
         if(dialogueTutorial == DialogueTutorial.playerTutorialStart){
-            // gameManager.ChangeToInGame();
-            ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerCauldron);
+            timelineManager.Start_Tutorials(TimelineManager.TimelineType.TutorialCauldron);
+            
         }
         else if(dialogueTutorial == DialogueTutorial.playerCauldron){
-            // gameManager.ChangeToInGame();
             tutorialCauldron.Show_Tutorial();
-            
         }
         else if(dialogueTutorial == DialogueTutorial.playerChest){
             // gameManager.ChangeToInGame();
@@ -126,7 +126,7 @@ public class DialogueManager : MonoBehaviour
 
     private void dialogueHolder_Intro_OnDialogueFinish(object sender, EventArgs e)
     {
-        TimelineManager.Instance.Start_IntroWalk();
+        timelineManager.Start_IntroWalk();
     }
     private void dialogueHolder_Intro2_OnDialogueFinish(object sender, EventArgs e)
     {

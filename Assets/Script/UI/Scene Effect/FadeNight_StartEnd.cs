@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeNight_StartEnd : MonoBehaviour
 {
     [SerializeField]private RectTransform nightBG;
+    [SerializeField]private PauseUI pause;
 
     [Header("Fade out")]
     
@@ -98,6 +100,13 @@ public class FadeNight_StartEnd : MonoBehaviour
                     () => playerSave.ResetDay_SubmitPotion()
                 )
             )
+        );
+    }
+
+    public void ShowUI_Option(){
+        nightBG.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
+        LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
+            () => pause.GoToMainMenu()
         );
     }
 
