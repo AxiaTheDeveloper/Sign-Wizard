@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: cengkeh
   m_EditorClassIdentifier: 
   itemName: cengkeh
+  itemNameID: cengkeh
+  itemNameEN: clove
   type: 1
   itemSprite: {fileID: 21300000, guid: 6c815052130be444f940acd6abdd30ca, type: 3}
   isFromChest: 1

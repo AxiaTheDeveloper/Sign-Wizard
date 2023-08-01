@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: pala
   m_EditorClassIdentifier: 
   itemName: pala
+  itemNameID: pala
+  itemNameEN: nutmeg
   type: 1
   itemSprite: {fileID: 21300000, guid: 3a9c0d568cfad9f49aa447dfea2d08c7, type: 3}
   isFromChest: 1

@@ -97,6 +97,7 @@ public class MainMenuUI : MonoBehaviour
             moveSelection_normal(keyInputArrow);
             if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
+                // Debug.Log("Load 1");
                 Select();
             }
             if(gameInput.GetInputOpenInventory() && inputCooldownTimer <= 0){
@@ -233,6 +234,7 @@ public class MainMenuUI : MonoBehaviour
     }
     private void Select(){
         if(selection == 0){
+            type = mainMenuType.none;
             fade.ShowUI();
         }
         else if(selection == 1){
@@ -255,9 +257,9 @@ public class MainMenuUI : MonoBehaviour
         }
     }
     public void SelectToPlay(){
-        
             if(playerSaveSO.modeLevel == levelMode.outside){
                 if(playerSaveSO.isFromOutside){
+
                     if(selectionOptionLanguage == "ID"){
                         LevelLoader.Instance.LoadScene("OutDoor_ID");
                     }
@@ -277,9 +279,12 @@ public class MainMenuUI : MonoBehaviour
                 else{
                     if(!playerSaveSO.isFromOutside){
                         playerSaveSO.isFromOutside = true;
-                        // #if UNITY_EDITOR
-                        // EditorUtility.SetDirty(playerSaveSO);
-                        // #endif
+                        if(selectionOptionLanguage == "ID"){
+                            LevelLoader.Instance.LoadScene("OutDoor_ID");
+                        }
+                        else{
+                            LevelLoader.Instance.LoadScene("OutDoor_EN");
+                        }
                     }
                 }
             }

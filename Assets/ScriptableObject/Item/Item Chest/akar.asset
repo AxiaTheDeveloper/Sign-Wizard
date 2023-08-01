@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: akar
   m_EditorClassIdentifier: 
   itemName: akar
+  itemNameID: akar
+  itemNameEN: root
   type: 1
   itemSprite: {fileID: 21300000, guid: f9c7d6ed22db8424889475e2d946afd1, type: 3}
   isFromChest: 1

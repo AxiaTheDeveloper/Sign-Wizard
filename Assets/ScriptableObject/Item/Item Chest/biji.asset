@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: biji
   m_EditorClassIdentifier: 
   itemName: biji
+  itemNameID: biji
+  itemNameEN: seed
   type: 1
   itemSprite: {fileID: 21300000, guid: d78bf870455bcff4999622914478b3a4, type: 3}
   isFromChest: 1

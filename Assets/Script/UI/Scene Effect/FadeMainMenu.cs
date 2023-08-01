@@ -27,8 +27,9 @@ public class FadeMainMenu : MonoBehaviour
         );
     }
     public void Show(){
-        
+        // Debug.Log("Show Loading UI");
         mainMenu.SelectToPlay();
+        // Debug.Log("Start Loading");
     }
 
 }

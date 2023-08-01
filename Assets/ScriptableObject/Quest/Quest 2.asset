@@ -17,39 +17,49 @@ MonoBehaviour:
   potionWantList:
   - {fileID: 11400000, guid: 916277fbcc8defc4aaaf9c52061a3001, type: 2}
   - {fileID: 11400000, guid: 7303a853c8b09f145b246d6cdbdccbca, type: 2}
-  Quest_Title: Golden Root
   Quest_Title_ID: Akar Emas
   Quest_Title_EN: Golden Root
   QuestDescription_ID: "\r\"Aku mau pesan ramuan <b><color=#A46443>Soothing Root
     Infusion & Golden Energy Brew</color></b> karena belakangan ini aku sedang stress
     dan butuh dorongan tambahan nih hehe.\""
-  QuestDescription_EN: 
-  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
+  QuestDescription_EN: "\"I would like <b><color=#A46443>Soothing Root Infusion &
+    Golden Energy Brew</color></b>potions \nbecause lately I'm stressed and need
+    some extra push, hehe.\""
+  QuestTask_ID: '- Ke <b>rak buku</b> untuk cek Resep.
 
-    - Ke Chest ambil bahan.
-
-    -
-    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
-
-    - Ke Cauldron
-    masukin bahan dan sesuaikan api.
-
-    - Kirim lewat mail box.'
-  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
-
-    - Ke <b>chest</b> untuk
+    - Ke <b>peti</b> untuk
     ambil bahan.
 
-    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+    - Ke <b>penumbuk</b> untuk menumbuk beberapa bahan yang perlu
+    ditumbuk.
+
+    - Ke <b>cauldron</b>, masukin bahan, dan sesuaikan api.
 
     -
-    Kirim lewat <b>mail box</b> di depan rumah.'
+    Kirim lewat <b>kotak surat</b> di depan rumah.'
+  QuestTask_EN: '- Go to <b>shelf</b> to check the recipe.
+
+    - Go to <b>chest</b>
+    to get the ingredients.
+
+    - Go to <b>mortar & pestle</b> to mash the ingredients
+    that need to be mashed.
+
+    - Go to <b>cauldron</b>, put the ingredients inside.
+    and adjust the fire
+
+    - Deliver the potion using the <b>mail box</b> in front
+    of the house.'
   QuestinMail_ID: "Pagi Nek, apa kabar? semoga baik baik saja yaa.. \r\n\r\nAku mau
     pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
     karena belakangan ini aku sedang stress dan butuh dorongan tambahan nih hehe.
-    Terimakasih yaa!"
-  QuestinMail_EN: 
-  GiftDescinMail_ID: 
-  GiftDescinMail_EN: 
+    \n\nTerimakasih yaa!"
+  QuestinMail_EN: "Morning Granny, How are you? I hope everything's fine.. \n\nI
+    would like <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>potions
+    \nbecause lately I'm stressed and need some extra push, hehe.\n\nThank youu!"
+  GiftDescinMail_ID: Halo, terimakasih ya buat ramuannya kemarin, ini kuberikan alat
+    punyaku karena tidak pernah dipakai, semoga berguna ya!
+  GiftDescinMail_EN: Hello, thank you for the potion yesterday, please take my gift,
+    I never used it, I hope its usefull for you!
   giftSender: Chal
-  progressPerTumbuk_Quest: 35
+  progressPerTumbuk_Quest: 30

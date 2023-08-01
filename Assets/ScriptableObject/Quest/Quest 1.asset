@@ -16,35 +16,40 @@ MonoBehaviour:
   nameSender: Chal
   potionWantList:
   - {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
-  Quest_Title: A Little Favor
   Quest_Title_ID: Permintaan Kecil
   Quest_Title_EN: A Little Favor
   QuestDescription_ID: '"Aku mau pesan ramuan  <b><color=#A46443>Dewdrop Elixir</color></b>
     untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku."'
-  QuestDescription_EN: 
+  QuestDescription_EN: '"I would like a <b><color=#A46443>Dewdrop Elixir</color></b>
+    potion to give my body a soothing freshness and softness."'
   QuestTask_ID: '- Ke <b>rak buku</b> untuk cek Resep.
 
     - Ke <b>peti</b> untuk
     ambil bahan.
 
-    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+    - Ke <b>cauldron</b>, masukin bahan, dan sesuaikan api.
 
     -
     Kirim lewat <b>kotak surat</b> di depan rumah.'
-  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
+  QuestTask_EN: '- Go to <b>shelf</b> to check the recipe.
 
-    - Ke <b>chest</b> untuk
-    ambil bahan.
+    - Go to <b>chest</b>
+    to get the ingredients.
 
-    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+    - Go to <b>cauldron</b>, put the ingredients inside.
+    and adjust the fire
 
-    -
-    Kirim lewat <b>mail box</b> di depan rumah.'
+    - Deliver the potion using the <b>mail box</b> in front
+    of the house.'
   QuestinMail_ID: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b><color=#A46443>Dewdrop
     Elixir</color></b> untuk memberikan kesegaran dan kelembutan yang menenangkan
     bagi tubuhku. \r\n\r\nTerimakasih yaa!"
-  QuestinMail_EN: 
-  GiftDescinMail_ID: 
-  GiftDescinMail_EN: 
-  giftSender: 
+  QuestinMail_EN: "Good morning Granny, \n\nI would like a <b><color=#A46443>Dewdrop
+    Elixir</color></b> potion to give my body a soothing freshness and softness.\n\nThank
+    you so much!!!!!"
+  GiftDescinMail_ID: Halo, terimakasih ya buat ramuannya kemarin, ini kuberikan alat
+    punyaku karena tidak pernah dipakai, semoga berguna ya!
+  GiftDescinMail_EN: Hello, thank you for the potion yesterday, please take my gift,
+    I never used it, I hope its usefull for you!
+  giftSender: Chal
   progressPerTumbuk_Quest: 30

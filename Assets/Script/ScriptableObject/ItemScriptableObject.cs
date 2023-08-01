@@ -11,7 +11,7 @@ public enum ItemType{
 public class ItemScriptableObject : ScriptableObject
 {
     public int itemID => GetInstanceID();
-    public string itemName;
+    public string itemName, itemNameID, itemNameEN;
     public ItemType type;
     public Sprite itemSprite;
     public bool isFromChest;

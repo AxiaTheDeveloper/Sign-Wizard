@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: jahe
   m_EditorClassIdentifier: 
   itemName: jahe
+  itemNameID: jahe
+  itemNameEN: ginger
   type: 1
   itemSprite: {fileID: 21300000, guid: 2132ad0d33bce5341a1853ff2977ee3f, type: 3}
   isFromChest: 1

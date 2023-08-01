@@ -17,32 +17,38 @@ MonoBehaviour:
   potionWantList:
   - {fileID: 11400000, guid: 577f1d9ed9b7a5b4f911ae3dc98e539c, type: 2}
   - {fileID: 11400000, guid: 92c9d45a6c82556439aa73c1f4c9c71d, type: 2}
-  Quest_Title: Citrus Tea
   Quest_Title_ID: Teh Citrus
   Quest_Title_EN: Citrus Tea
   QuestDescription_ID: '"Aku jadi tertarik pesan <b><color=#A46443>Zesty Citrus Brew
     & Enchanted Serenity Tea</color></b>! semoga hasilnya tetap menyegarkan!!"'
-  QuestDescription_EN: 
-  QuestTask_ID: '- Ke Book Shelf untuk cek Resep.
+  QuestDescription_EN: '"I''m interested in ordering <b><color=#A46443>Zesty Citrus
+    Brew & Enchanted Serenity Tea</color></b>! Hopefully the results will give me
+    refreshment too!!"'
+  QuestTask_ID: '- Ke <b>rak buku</b> untuk cek Resep.
 
-    - Ke Chest ambil bahan.
-
-    -
-    Ke Mortar untuk menumbuk beberapa bahan yang perlu ditumbuk.
-
-    - Ke Cauldron
-    masukin bahan dan sesuaikan api.
-
-    - Kirim lewat mail box.'
-  QuestTask_EN: '- Ke <b>shelf</b> untuk cek Resep.
-
-    - Ke <b>chest</b> untuk
+    - Ke <b>peti</b> untuk
     ambil bahan.
 
-    - Ke <b>cauldron</b> masukin bahan dan sesuaikan api.
+    - Ke <b>penumbuk</b> untuk menumbuk beberapa bahan yang perlu
+    ditumbuk.
+
+    - Ke <b>cauldron</b>, masukin bahan, dan sesuaikan api.
 
     -
-    Kirim lewat <b>mail box</b> di depan rumah.'
+    Kirim lewat <b>kotak surat</b> di depan rumah.'
+  QuestTask_EN: '- Go to <b>shelf</b> to check the recipe.
+
+    - Go to <b>chest</b>
+    to get the ingredients.
+
+    - Go to <b>mortar & pestle</b> to mash the ingredients
+    that need to be mashed.
+
+    - Go to <b>cauldron</b>, put the ingredients inside.
+    and adjust the fire
+
+    - Deliver the potion using the <b>mail box</b> in front
+    of the house.'
   QuestinMail_ID: 'Haloo, ku dengar dari Chal ramuannya lebih bagus dari biasanya
     dan sepertinya bukan buatan nenek lagi ya?
 
@@ -53,8 +59,20 @@ MonoBehaviour:
 
     Ditunggu
     yaa, Terimakasih banyak!!!'
-  QuestinMail_EN: 
-  GiftDescinMail_ID: 
-  GiftDescinMail_EN: 
-  giftSender: 
-  progressPerTumbuk_Quest: 40
+  QuestinMail_EN: 'Helloo, I heard from Chal that the potions are better than the
+    usual and it looks like it''s not made by Granny anymore, huh ?
+
+
+    I''m interested
+    in ordering <b><color=#A46443>Zesty Citrus Brew & Enchanted Serenity Tea</color></b>!
+    Hopefully the results will give me refreshment too!!
+
+
+    I shall await it,
+    Thank you so much!!!'
+  GiftDescinMail_ID: Sheesh cepet juga ya, untuk balesannya ini ya, ada keranjang
+    dan tabung.
+  GiftDescinMail_EN: Sheesh that was fast, here's something to return for, basket
+    and flask.
+  giftSender: Vii
+  progressPerTumbuk_Quest: 35

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ikan
   m_EditorClassIdentifier: 
   itemName: ikan
+  itemNameID: ikan
+  itemNameEN: fish
   type: 0
   itemSprite: {fileID: 21300000, guid: 9f5c401295562e444a84a4da4bceb032, type: 3}
   isFromChest: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: kulit
   m_EditorClassIdentifier: 
   itemName: kulit
+  itemNameID: kulit
+  itemNameEN: skin
   type: 0
   itemSprite: {fileID: 21300000, guid: 7a03d234744bc7d4bb671128be828aa0, type: 3}
   isFromChest: 1

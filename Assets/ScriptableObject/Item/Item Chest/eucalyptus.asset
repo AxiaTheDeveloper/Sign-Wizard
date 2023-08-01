@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: eucalyptus
   m_EditorClassIdentifier: 
   itemName: eucalyptus
+  itemNameID: eukaliptus
+  itemNameEN: eucalyptus
   type: 0
   itemSprite: {fileID: 21300000, guid: c329d6432695c384bbbf21dd85310133, type: 3}
   isFromChest: 1

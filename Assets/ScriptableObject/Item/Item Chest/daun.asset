@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: daun
   m_EditorClassIdentifier: 
   itemName: daun
+  itemNameID: daun
+  itemNameEN: leaf
   type: 0
   itemSprite: {fileID: 21300000, guid: 53cabaaf3e6254b40bddc5d526f3ba30, type: 3}
   isFromChest: 1
