@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: zesty citrus brew
   m_EditorClassIdentifier: 
-  itemName: zesty citrus brew
+  itemName: Zesty Citrus Brew
+  itemNameID: Zesty Citrus Brew
+  itemNameEN: Zesty Citrus Brew
   type: 2
   itemSprite: {fileID: 21300000, guid: 7bc33f5aaf5b22247ba1a25422098d59, type: 3}
   isFromChest: 0

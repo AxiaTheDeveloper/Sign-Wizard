@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: zaitun
   m_EditorClassIdentifier: 
   itemName: zaitun
+  itemNameID: zaitun
+  itemNameEN: olive
   type: 0
   itemSprite: {fileID: 21300000, guid: 82dd697be9a847e4cb4d3bca18ce5852, type: 3}
   isFromChest: 1

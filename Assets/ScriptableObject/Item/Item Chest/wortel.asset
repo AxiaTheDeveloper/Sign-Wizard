@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: wortel
   m_EditorClassIdentifier: 
   itemName: wortel
+  itemNameID: wortel
+  itemNameEN: carrot
   type: 0
   itemSprite: {fileID: 21300000, guid: 5f0ed1959afd64846841e8f1c0dff678, type: 3}
   isFromChest: 1

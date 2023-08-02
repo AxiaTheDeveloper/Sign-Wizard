@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: mistik roots
   m_EditorClassIdentifier: 
-  itemName: mistik roots
+  itemName: Mistik Roots
+  itemNameID: Mistik Roots
+  itemNameEN: Mystic Roots
   type: 0
   itemSprite: {fileID: 21300000, guid: 34bcd483fb59f1342b59fa15e624f8cd, type: 3}
   isFromChest: 0

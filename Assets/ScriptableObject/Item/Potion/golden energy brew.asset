@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: golden energy brew
   m_EditorClassIdentifier: 
-  itemName: golden energy brew
+  itemName: Golden Energy Brew
+  itemNameID: Golden Energy Brew
+  itemNameEN: Golden Energy Brew
   type: 2
   itemSprite: {fileID: 21300000, guid: 93a69ec0739dd6e4ca626972df02973d, type: 3}
   isFromChest: 0

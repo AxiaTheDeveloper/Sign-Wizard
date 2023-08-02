@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: enchanted serenity tea
   m_EditorClassIdentifier: 
-  itemName: enchanted serenity tea
+  itemName: Enchanted Serenity Tea
+  itemNameID: Enchanted Serenity Tea
+  itemNameEN: Enchanted Serenity Tea
   type: 2
   itemSprite: {fileID: 21300000, guid: 77f2d958950cfb04ead179fede47616d, type: 3}
   isFromChest: 0

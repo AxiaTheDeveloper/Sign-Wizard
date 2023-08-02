@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: dewdrop elixir
   m_EditorClassIdentifier: 
-  itemName: dewdrop elixir
+  itemName: Dewdrop Elixir
+  itemNameID: Dewdrop Elixir
+  itemNameEN: Dewdrop Elixir
   type: 2
   itemSprite: {fileID: 21300000, guid: 6a04000d35ddf314697ed9b64c06c982, type: 3}
   isFromChest: 0

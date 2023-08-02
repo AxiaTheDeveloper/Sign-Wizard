@@ -11,7 +11,14 @@ public enum ItemType{
 public class ItemScriptableObject : ScriptableObject
 {
     public int itemID => GetInstanceID();
-    public string itemName, itemNameID, itemNameEN;
+    public string itemNameID, itemNameEN;
+    public string itemName
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? itemNameID : itemNameEN;
+        }
+    }
     public ItemType type;
     public Sprite itemSprite;
     public bool isFromChest;

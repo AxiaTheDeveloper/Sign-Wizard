@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268ed59abd9f6f448e561608e1b1526, type: 3}
   m_Name: spicy nutmeg
   m_EditorClassIdentifier: 
-  itemName: spicy nutmeg
+  itemName: Spicy Nutmeg
+  itemNameID: Spicy Nutmeg
+  itemNameEN: Spicy Nutmeg
   type: 0
   itemSprite: {fileID: 21300000, guid: c2222882e0139564893d1f4865c001b1, type: 3}
   isFromChest: 0
