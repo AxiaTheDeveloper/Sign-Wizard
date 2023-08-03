@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InDoor_ID.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/OutDoor_WithGrid.unity
     guid: 65bdbd0155ca83d42a4b6c4f32bb928b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OutDoor_ID.unity
     guid: 95f6fcd8cfd01f54db9d0fc9b85a01e2
   m_configObjects: {}
