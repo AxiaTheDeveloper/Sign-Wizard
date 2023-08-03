@@ -51,6 +51,7 @@ public class FadeNight_StartEnd : MonoBehaviour
         yield return null;
         if(playerSave.GetIsSubmitPotion()){
             dialogueManager.ShowDialogue_Go_Out_Dialogue();
+        
         }
         else{
             //kalo lvl 1 ato 0 trgantung ntr di outside, mainin dialog da da da

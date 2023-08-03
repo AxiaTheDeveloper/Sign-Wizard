@@ -160,10 +160,10 @@ public class GameInput : MonoBehaviour
     }
 
     public bool GetInputNextLine_Dialogue(){
-        return Input.GetKey(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Space);
     }
     public bool GetInputQuit_Announcement(){
-        return Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape);
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape);
     }
 
     public bool GetInputShowQuestLog(){
