@@ -17,4 +17,6 @@ public class PlayerSave : ScriptableObject
 
     public bool isFirstTime_Tutorial;
 
+    public bool isFirstTimeInGame = true;
+
 }

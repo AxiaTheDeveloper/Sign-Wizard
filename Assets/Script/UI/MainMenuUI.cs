@@ -42,6 +42,25 @@ public class MainMenuUI : MonoBehaviour
     [Header("Reset")]
     [SerializeField]private GameObject[] selectChoiceReset;
     private bool isYesReset;
+
+    [Header("Quit")]
+    [SerializeField]private GameSaveManager gameSaveManager;
+    [SerializeField]private InventoryScriptableObject playerInvent, chest;
+    [Header("ID EN")]
+    [SerializeField]private string bahasaGame;
+    private void Awake() {
+        if(playerSaveSO.isFirstTimeInGame){
+            playerSaveSO.isFirstTimeInGame = false;
+            #if UNITY_EDITOR
+                EditorUtility.SetDirty(playerSaveSO);
+            #endif
+            gameSaveManager.LoadData(playerSaveSO, playerInvent, chest);
+
+        }
+        
+    }
+
+    
     
 
     private void Start() {
@@ -60,7 +79,7 @@ public class MainMenuUI : MonoBehaviour
         pilihanIDEN.SetActive(false);
         SoundSlider.gameObject.SetActive(false);
         selectionPause = 0;
-        selectionOptionLanguage = PlayerPrefs.GetString("pilihanIDEN", "EN");
+        selectionOptionLanguage = PlayerPrefs.GetString("pilihanIDEN", bahasaGame);
         UpdateVisualLanguageOption();
         UpdateSelectArrowPause();
 
@@ -194,6 +213,7 @@ public class MainMenuUI : MonoBehaviour
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
+                    gameSaveManager.SaveData(playerSaveSO, playerInvent, chest);
                 }
 
                 inputCooldownTimer = inputCooldownTimerMax;
@@ -253,6 +273,8 @@ public class MainMenuUI : MonoBehaviour
             OnChange?.Invoke(this,EventArgs.Empty);
         }
         else if(selection == 4){
+            
+            playerSaveSO.isFirstTimeInGame = true;
             Application.Quit();
         }
     }

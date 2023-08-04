@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850ad805460e57f4da93eaf81123b487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSaveManager: {fileID: 4812652835541765478}
+  playerSaveManager: {fileID: 4812652835541765480}
   questList:
   - {fileID: 11400000, guid: 085c0b7660b1b22409442efbea2e79a8, type: 2}
   - {fileID: 11400000, guid: 47e2f86c2d757a242928d35811eb21e5, type: 2}
@@ -1848,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 1349225872, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
       propertyPath: playerSaveManager
       value: 
-      objectReference: {fileID: 4812652835541765478}
+      objectReference: {fileID: 0}
     - target: {fileID: 1349225872, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
       propertyPath: submitPotionUI_Inventory
       value: 
@@ -4910,6 +4910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442943757}
   - component: {fileID: 442943758}
+  - component: {fileID: 442943759}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: BGMSlider
@@ -4966,6 +4967,22 @@ MonoBehaviour:
   soundManager: {fileID: 1876853767}
   bgmManager: {fileID: 947262912}
   fade: {fileID: 1442504013}
+  playerSaveManager: {fileID: 4812652835541765480}
+  playerInventory: {fileID: 4812652835541765473}
+  chest: {fileID: 11400000, guid: ea3fe1f328471604cbec0b8e21738387, type: 2}
+  gameSaveManager: {fileID: 442943759}
+--- !u!114 &442943759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442943756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f26191df656844899e29c0ff7ff29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &447672178
 GameObject:
   m_ObjectHideFlags: 0
@@ -17218,7 +17235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nightBG: {fileID: 1799009023}
   pause: {fileID: 442943758}
-  playerSave: {fileID: 4812652835541765478}
+  playerSave: {fileID: 4812652835541765480}
   gameManager: {fileID: 594276696}
   dialogueManager: {fileID: 1704590200}
   nextDay_Text: {fileID: 1512105711}
@@ -25625,7 +25642,7 @@ PrefabInstance:
     - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
       propertyPath: playerSave
       value: 
-      objectReference: {fileID: 4812652835541765478}
+      objectReference: {fileID: 4812652835541765480}
     - target: {fileID: 2005706233, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
       propertyPath: Selected_No
       value: 
@@ -26145,22 +26162,7 @@ MonoBehaviour:
   bed: {fileID: 0}
   door: {fileID: 2005706233}
   inputCooldownTimerMax: 0.15
-  playerSave: {fileID: 4812652835541765478}
---- !u!114 &4812652835541765478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4812652835541765472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 392b51d42b329d34ea20410046927170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSaveSO: {fileID: 11400000, guid: e941e1b9749bf9c4e81831e58f2d982e, type: 2}
-  bedPlayerPosition: {fileID: 0}
-  maxLevel: 0
+  playerSave: {fileID: 4812652835541765480}
 --- !u!114 &4812652835541765480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4812652835541765478, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}

@@ -21,6 +21,12 @@ public class PauseUI : MonoBehaviour
 
     [SerializeField]private FadeNight_StartEnd fade;
 
+    [SerializeField]private PlayerSaveManager playerSaveManager;
+    [SerializeField]private PlayerInventory playerInventory;
+    [SerializeField]private InventoryScriptableObject chest;
+    [SerializeField]private GameSaveManager gameSaveManager;
+    private bool hasClickMainMenu = false;
+
     void Start()
     {
         
@@ -150,7 +156,9 @@ public class PauseUI : MonoBehaviour
                 isSoundOn = true;
             }
         }
-        else if(selectionPause == 3){
+        else if(selectionPause == 3 && !hasClickMainMenu){
+            hasClickMainMenu = true;
+            gameSaveManager.SaveData(playerSaveManager.GetPlayerSave(), playerInventory.GetPlayerInventory(), chest);
             gameControlUI.SetActive(false);
             HideUI();
             fade.ShowUI_Option();

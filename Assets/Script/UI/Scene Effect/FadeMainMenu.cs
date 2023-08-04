@@ -7,9 +7,11 @@ public class FadeMainMenu : MonoBehaviour
     [SerializeField]private RectTransform nightBG;
     [SerializeField]private MainMenuUI mainMenu;
     [SerializeField]private CanvasGroup loading;
-    [SerializeField]private GameObject character;
+    [SerializeField]private GameObject character, loadingText;
+    [SerializeField]private float scaleSize, scaleSpeed;
     private void Awake() {
         HideUI();
+        LeanTween.scale(loadingText, new Vector3(scaleSize, scaleSize, scaleSize), scaleSpeed).setLoopPingPong();
     }
     private void HideUI(){
         character.SetActive(false);
@@ -28,6 +30,7 @@ public class FadeMainMenu : MonoBehaviour
     }
     public void Show(){
         // Debug.Log("Show Loading UI");
+        
         mainMenu.SelectToPlay();
         // Debug.Log("Start Loading");
     }

@@ -184,6 +184,9 @@ public class PlayerSaveManager : MonoBehaviour
     public int GetMaxLevel(){
         return maxLevel;
     }
+    public PlayerSave GetPlayerSave(){
+        return playerSaveSO;
+    }
 
 
 

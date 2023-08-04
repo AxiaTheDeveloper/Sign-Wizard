@@ -8,6 +8,7 @@ public class InventoryUIDesc : MonoBehaviour
 {
     
     [SerializeField]private Image item_Image;
+    [SerializeField]private GameObject item_Image_bg;
     [SerializeField]private TextMeshProUGUI item_Desc;
     [SerializeField]private GameObject wholeQuantity;
     [SerializeField]private TextMeshProUGUI quantity_PlayerWant;
@@ -23,6 +24,7 @@ public class InventoryUIDesc : MonoBehaviour
     }
     public void EmptyDescUI(){
         item_Image.gameObject.SetActive(false);
+        item_Image_bg.SetActive(false);
         item_Desc.text = "";
         wordInput.ChangeAdaWord(false);
         wordManager_Chest.changeTheWord("");
@@ -58,7 +60,7 @@ public class InventoryUIDesc : MonoBehaviour
     public void SetItemDataDesc(Sprite spriteItem, string itemTitle, string itemDesc, int quantityWant, Transform posisiWord){
         item_Image.sprite = spriteItem;
         item_Image.gameObject.SetActive(true);
-        
+        item_Image_bg.SetActive(true);
         item_Desc.text = itemDesc;
         quantity_PlayerWant.text = quantityWant.ToString();
         wholeQuantity.SetActive(true);

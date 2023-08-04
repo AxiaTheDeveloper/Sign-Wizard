@@ -34,6 +34,10 @@ public class TutorialUI : MonoBehaviour
     
     private void Update(){
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceTutorial && gameObject.activeSelf){
+            if(pageList.Length == 1){
+                hasReadFull = true;
+                pressSpaceToContinue.SetActive(true);
+            }
             if((gameInput.GetInputEscape() || gameInput.GetInputNextLine_Dialogue()) && hasReadFull){
                 hasReadFull = false;
                 // Debug.Log(dialogueTutorial);

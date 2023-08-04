@@ -20,13 +20,13 @@ MonoBehaviour:
   - itemSO: {fileID: 11400000, guid: 1d0cc14d8ec6e1d46acca96d058e6b4d, type: 2}
     quantity: 10
   - itemSO: {fileID: 11400000, guid: 4173d422813a12d429356fbb5207ae85, type: 2}
-    quantity: 9
+    quantity: 10
   - itemSO: {fileID: 11400000, guid: 1f724aeb1170d8940b8d641bd05d89c6, type: 2}
     quantity: 10
   - itemSO: {fileID: 11400000, guid: 075d348d21bde58448a3b3e37954b910, type: 2}
     quantity: 10
   - itemSO: {fileID: 11400000, guid: cda2ec355055671489fd80d8f37e6d54, type: 2}
-    quantity: 9
+    quantity: 10
   - itemSO: {fileID: 11400000, guid: e91eed10c43b0aa4da4c16868c5f1cc5, type: 2}
     quantity: 10
   - itemSO: {fileID: 11400000, guid: 15c56bc5e9131b1488929bc09322fd38, type: 2}
