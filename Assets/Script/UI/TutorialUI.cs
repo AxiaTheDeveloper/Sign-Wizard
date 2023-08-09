@@ -7,6 +7,7 @@ public class TutorialUI : MonoBehaviour
     [SerializeField]private GameObject[] pageList;
     [SerializeField]private GameObject pressSpaceToContinue;
     private int selection = 0;
+    
     [SerializeField]private SoundManager soundManager;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
@@ -19,6 +20,7 @@ public class TutorialUI : MonoBehaviour
     
     private bool hasReadFull;
     private void Awake(){
+        
         hasReadFull = false;
         canvasGroup = GetComponent<CanvasGroup>();
         gameObject.SetActive(false);
@@ -34,10 +36,7 @@ public class TutorialUI : MonoBehaviour
     
     private void Update(){
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceTutorial && gameObject.activeSelf){
-            if(pageList.Length == 1){
-                hasReadFull = true;
-                pressSpaceToContinue.SetActive(true);
-            }
+            
             if((gameInput.GetInputEscape() || gameInput.GetInputNextLine_Dialogue()) && hasReadFull){
                 hasReadFull = false;
                 // Debug.Log(dialogueTutorial);
@@ -62,6 +61,10 @@ public class TutorialUI : MonoBehaviour
         canvasGroup.LeanAlpha(1f, 0.2f).setOnComplete(
             () => gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceTutorial)
         );
+        if(pageList.Length == 1){
+            hasReadFull = true;
+            pressSpaceToContinue.SetActive(true);
+        }
     }
     public void Hide_Tutorial(){
         if(pressSpaceToContinue.activeSelf){

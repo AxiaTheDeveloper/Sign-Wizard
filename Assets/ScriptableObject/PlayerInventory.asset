@@ -15,9 +15,9 @@ MonoBehaviour:
   size: 20
   type: 0
   isFull: 0
-  isFullyEmpty: 0
+  isFullyEmpty: 1
   inventSlot:
-  - itemSO: {fileID: 0}
+  - itemSO: {fileID: 11400000, guid: 1d0cc14d8ec6e1d46acca96d058e6b4d, type: 2}
     quantity: 1
   - itemSO: {fileID: 0}
     quantity: 1
