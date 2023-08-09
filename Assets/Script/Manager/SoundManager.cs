@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
         soundSlider.value = volume;
         PlayerPrefs.SetFloat(PLAYER_PREF_SOUND_VOLUME, volume);
         UpdateAllVolume();
+        
     }
 
     private void UpdateAllVolume(){
