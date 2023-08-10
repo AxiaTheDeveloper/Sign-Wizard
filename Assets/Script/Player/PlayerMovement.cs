@@ -44,12 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         PlayerWalk();
     }
-    
     private void PlayerWalk(){
-
         rb.MovePosition(rb.position + keyInput * speedMovement * Time.fixedDeltaTime);
-
-        
     }
 
     public Vector2 GetKeyInput(){

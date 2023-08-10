@@ -9,7 +9,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private PlayableDirector director;
 
     public enum TimelineType{
-        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk ,none
+        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk, TutorialSubmit,none
     }
     private TimelineType type;
 
@@ -17,7 +17,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private TimelineAsset cauldronSuccess;
     [SerializeField]private TimelineAsset goOutside;
     [SerializeField]private TimelineAsset introWalk;
-    [SerializeField]private TimelineAsset tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk;
+    [SerializeField]private TimelineAsset tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit;
     [SerializeField]private Cauldron cauldron;
     [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private DialogueManager dialogueManager;
@@ -65,6 +65,11 @@ public class TimelineManager : MonoBehaviour
             type = TimelineType.none;
             dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTumbuk);
         }
+        else if(type == TimelineType.TutorialSubmit){
+            type = TimelineType.none;
+            dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerSubmitPotion);
+        }
+        
     }
 
     public void Start_CauldronSuccess(){
@@ -78,11 +83,9 @@ public class TimelineManager : MonoBehaviour
         director.Play();
     }
     public void Start_IntroWalk(){
-        // Debug.Log("halo");
         director.playableAsset = introWalk;
         type = TimelineType.intro;
         director.Play();
-        // Debug.Log("napa jd masalah jir");
     }
 
     public void Start_Tutorials(TimelineType typeTutorial){
@@ -102,6 +105,9 @@ public class TimelineManager : MonoBehaviour
         }
         else if(type == TimelineType.TutorialTumbuk){
             director.playableAsset = tutorialTumbuk;
+        }
+        else if(type == TimelineType.TutorialSubmit){
+            director.playableAsset = tutorialSubmit;
         }
         director.Play();
     }

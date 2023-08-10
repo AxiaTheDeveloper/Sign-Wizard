@@ -1848,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 1349225872, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
       propertyPath: playerSaveManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4812652835541765480}
     - target: {fileID: 1349225872, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
       propertyPath: submitPotionUI_Inventory
       value: 
@@ -16175,6 +16175,7 @@ MonoBehaviour:
   tutorialDictionary: {fileID: 0}
   tutorialBed: {fileID: 0}
   tutorialTumbuk: {fileID: 0}
+  tutorialSubmit: {fileID: 0}
   cauldron: {fileID: 0}
   fadeNight: {fileID: 0}
   dialogueManager: {fileID: 1704590200}
@@ -20207,12 +20208,14 @@ MonoBehaviour:
   dialogueTutorial_Dictionary: 
   dialogueTutorial_Bed: 
   dialogueTutorial_Tumbuk: 
+  dialogueTutorial_SubmitPotion: 
   dialogueTutorial_StartMaking: 
   tutorialCauldron: {fileID: 0}
   tutorialChest: {fileID: 0}
   tutorialDictionary: {fileID: 0}
   tutorialBed: {fileID: 0}
   tutorialTumbuk: {fileID: 0}
+  tutorialSubmit: {fileID: 0}
   dialogueNerimaGift_1: Wah tumbukan baru!! Sekarang aku bisa membuat potion yang
     bahan-bahannya perlu ditumbuk.
   dialogueNerimaGift_2: Keranjang dan flask baru ini bisa membantu mempercepat proses
@@ -24125,6 +24128,17 @@ PolygonCollider2D:
       - {x: -0.9218484, y: -0.052429914}
       - {x: -0.73529315, y: -0.93645525}
       - {x: 0.10444212, y: -0.9375591}
+--- !u!114 &1980060521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 620951555974384936, guid: 4bd3c0cc795b18d4592ac21138166bd2, type: 3}
+  m_PrefabInstance: {fileID: 190583300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980060514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e855c3fb1ccfeec40bbefaf5b5272198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980653318
 GameObject:
   m_ObjectHideFlags: 0
@@ -25922,6 +25936,10 @@ PrefabInstance:
       propertyPath: QuestBox
       value: 
       objectReference: {fileID: 1980060517}
+    - target: {fileID: 5148750359772352886, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
+      propertyPath: interactObject_QuestBox
+      value: 
+      objectReference: {fileID: 1980060521}
     - target: {fileID: 5148750359772352887, guid: 15aa8a724ae0bdd449d9c371656d0f12, type: 3}
       propertyPath: m_Size.x
       value: 1.6575522

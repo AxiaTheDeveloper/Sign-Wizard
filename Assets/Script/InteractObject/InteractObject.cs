@@ -90,6 +90,8 @@ public class InteractObject : MonoBehaviour
     private SoundManager soundManager;
 
     private bool hasCheckGift = false;
+    [SerializeField]private InteractObject interactObject_QuestBox;
+
 
 
     private void Start() {
@@ -200,7 +202,7 @@ public class InteractObject : MonoBehaviour
                     }
                     else{
                         if(playerSave.GetPlayerLevel() > 1 && playerSave.GetPlayerLevel() < playerSave.GetMaxLevel()){
-                            if(!hasCheckGift){
+                            if(!interactObject_QuestBox.GetHasCheckGift()){
                                 DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
                             }
                             else{
@@ -223,5 +225,9 @@ public class InteractObject : MonoBehaviour
             }
         }
 
+    }
+    public bool GetHasCheckGift(){
+        //ini hanya utk door sadja, dikirim dari inter object punya potion,dikirim ke door
+        return hasCheckGift;
     }
 }

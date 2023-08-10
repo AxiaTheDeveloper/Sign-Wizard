@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
         playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest, tidakBisaPakaiPenumbuk
     }
     public enum DialogueTutorial{
-        playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerStartMaking
+        playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
     }
     public enum DialogueNerimaGift{
         gift1, gift2, gift3, gift4
@@ -43,10 +43,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue Tutorial")]
     [SerializeField]
     [field : TextArea]
-    private string dialogueTutorial_StartTutorial,dialogueTutorial_Cauldron, dialogueTutorial_Chest, dialogueTutorial_Dictionary, dialogueTutorial_Bed, dialogueTutorial_Tumbuk, dialogueTutorial_StartMaking;
+    private string dialogueTutorial_StartTutorial,dialogueTutorial_Cauldron, dialogueTutorial_Chest, dialogueTutorial_Dictionary, dialogueTutorial_Bed, dialogueTutorial_Tumbuk, dialogueTutorial_SubmitPotion, dialogueTutorial_StartMaking;
     private DialogueTutorial dialogueTutorial;
 
-    [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk;
+    [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit;
 
     [Header("Dialogue Nerima Gift")]
     [SerializeField]
@@ -117,6 +117,9 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueTutorial == DialogueTutorial.playerTumbuk){
             // gameManager.ChangeToInGame();
             tutorialTumbuk.Show_Tutorial();
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerSubmitPotion){
+            tutorialSubmit.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerStartMaking){
             gameManager.ChangeToInGame();
@@ -226,6 +229,9 @@ public class DialogueManager : MonoBehaviour
         }
         else if(dialogueTutorials == DialogueTutorial.playerTumbuk){
             dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Tumbuk);
+        }
+        else if(dialogueTutorials == DialogueTutorial.playerSubmitPotion){
+            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_SubmitPotion);
         }
         else if(dialogueTutorials == DialogueTutorial.playerStartMaking){
             dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_StartMaking);
