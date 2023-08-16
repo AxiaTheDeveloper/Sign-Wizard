@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class MainMenuUI : MonoBehaviour
     private string selectLanguage;
     [SerializeField]private PlayerSave playerSaveSO;
 
-    [SerializeField]private GameObject optionUI, creditsUI, resetUI;
+    [SerializeField] private GameObject optionUI, creditsUI, resetUI;
+    private GameObject mainMenu_NoButton;
+    [Header("Button UI, Auto")]
+    [SerializeField] private GameObject buttonStart, buttonOption, buttonCredits, buttonQuit;
     private const string PLAYER_PREF_PILIHAN_BAHASA = "pilihanBahasa";
     public event EventHandler OnChange;
     [SerializeField]private FadeMainMenu fade;
@@ -48,6 +52,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField]private InventoryScriptableObject playerInvent, chest;
     [Header("ID EN")]
     [SerializeField]private string bahasaGame;
+
+    private Animator gameResetAnim;
     private void Awake() {
         if(playerSaveSO.isFirstTimeInGame){
             playerSaveSO.isFirstTimeInGame = false;
@@ -57,7 +63,6 @@ public class MainMenuUI : MonoBehaviour
             gameSaveManager.LoadData(playerSaveSO, playerInvent, chest);
 
         }
-        
     }
 
     
@@ -65,6 +70,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start() {
         selectLanguage = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
+        AssignGameObject();
         changeBahasa(selectLanguage);
 
         selection = 0;
@@ -210,6 +216,7 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
                     playerSaveSO.isFirstTime_Tutorial = true;
+                    StartCoroutine(TheGameIsResetNotif());
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
@@ -260,6 +267,11 @@ public class MainMenuUI : MonoBehaviour
         else if(selection == 1){
             type = mainMenuType.language;
             pilihanLanguage.SetActive(true);
+            buttonStart.SetActive(false);
+            buttonOption.SetActive(false);
+            buttonCredits.SetActive(false);
+            buttonQuit.SetActive(false);
+            if (buttonQuit != null) buttonQuit.SetActive(false);
             OnChange?.Invoke(this,EventArgs.Empty);
         }
         else if(selection == 2){
@@ -326,6 +338,11 @@ public class MainMenuUI : MonoBehaviour
                 
                 inputCooldownTimer = inputCooldownTimerMax;
                 pilihanLanguage.SetActive(false);
+                buttonStart.SetActive(true);
+                buttonOption.SetActive(true);
+                buttonCredits.SetActive(true);
+                buttonQuit.SetActive(true);
+                if (buttonQuit != null) buttonQuit.SetActive(true);
                 type = mainMenuType.normal;
                 OnChange?.Invoke(this,EventArgs.Empty);
             }
@@ -442,6 +459,21 @@ public class MainMenuUI : MonoBehaviour
     }
     public void ChangeToNormal(){
         type = mainMenuType.normal;
+    }
+
+    private void AssignGameObject()
+    {
+        mainMenu_NoButton = GameObject.Find("MainMenu_NoButton").gameObject;
+        buttonStart = mainMenu_NoButton.transform.GetChild(0).gameObject;
+        buttonOption = mainMenu_NoButton.transform.GetChild(2).gameObject;
+        buttonCredits = mainMenu_NoButton.transform.GetChild(3).gameObject;
+        buttonQuit = mainMenu_NoButton.transform.GetChild(4).gameObject;
+    }
+
+    private IEnumerator TheGameIsResetNotif()
+    {
+        gameResetAnim.Play("ResetNotifAnim");
+        yield return null;
     }
 
 }
