@@ -15,7 +15,7 @@ public class MainMenuAnimationManager : MonoBehaviour
             timer -= Time.deltaTime;
         }
         
-        Debug.Log(timer + " " + this.planeAnim.GetCurrentAnimatorStateInfo(0).IsName("PlaneAnim"));
+        //Debug.Log(timer + " " + this.planeAnim.GetCurrentAnimatorStateInfo(0).IsName("PlaneAnim"));
         if(timer < 0)
         {
             timer = Random.Range(10f, 20f);

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class MainMenuUI : MonoBehaviour
     [Header("Reset")]
     [SerializeField]private GameObject[] selectChoiceReset;
     private bool isYesReset;
+    [SerializeField] private GameObject resetNotif;
+    [SerializeField] private Animator gameResetAnim;
 
     [Header("Quit")]
     [SerializeField]private GameSaveManager gameSaveManager;
@@ -53,7 +56,7 @@ public class MainMenuUI : MonoBehaviour
     [Header("ID EN")]
     [SerializeField]private string bahasaGame;
 
-    private Animator gameResetAnim;
+
     private void Awake() {
         if(playerSaveSO.isFirstTimeInGame){
             playerSaveSO.isFirstTimeInGame = false;
@@ -61,7 +64,6 @@ public class MainMenuUI : MonoBehaviour
                 EditorUtility.SetDirty(playerSaveSO);
             #endif
             gameSaveManager.LoadData(playerSaveSO, playerInvent, chest);
-
         }
     }
 
@@ -78,6 +80,7 @@ public class MainMenuUI : MonoBehaviour
         pilihanLanguage.SetActive(false);
         UpdateSelectArrow();
 
+        resetNotif.SetActive(false);
 
         //pause
         optionUI.gameObject.SetActive(false);
@@ -216,7 +219,6 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
                     playerSaveSO.isFirstTime_Tutorial = true;
-                    StartCoroutine(TheGameIsResetNotif());
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
@@ -227,7 +229,10 @@ public class MainMenuUI : MonoBehaviour
                 isYesReset = false;
                 UpdateSelectChoice_Reset();
                 resetUI.SetActive(false);
-                
+                Debug.Log("Reached");
+
+                StartCoroutine(TheGameIsResetNotif());
+
                 type = mainMenuType.normal;
                 OnChange?.Invoke(this,EventArgs.Empty);
             }
@@ -287,7 +292,7 @@ public class MainMenuUI : MonoBehaviour
         else if(selection == 4){
             
             playerSaveSO.isFirstTimeInGame = true;
-            Application.Quit();
+            fade.QuitAndFadeOut();
         }
     }
     public void SelectToPlay(){
@@ -463,6 +468,10 @@ public class MainMenuUI : MonoBehaviour
 
     private void AssignGameObject()
     {
+        if(resetNotif == null)
+            resetNotif = GameObject.Find("CanvasForTransition").transform.GetChild(1).gameObject;
+        resetNotif.SetActive(true);
+        gameResetAnim = resetNotif.GetComponent<Animator>();
         mainMenu_NoButton = GameObject.Find("MainMenu_NoButton").gameObject;
         buttonStart = mainMenu_NoButton.transform.GetChild(0).gameObject;
         buttonOption = mainMenu_NoButton.transform.GetChild(2).gameObject;
@@ -472,7 +481,11 @@ public class MainMenuUI : MonoBehaviour
 
     private IEnumerator TheGameIsResetNotif()
     {
-        gameResetAnim.Play("ResetNotifAnim");
+        resetNotif.SetActive(true);
+        gameResetAnim.Play("NotifResetAnim");
+        Debug.Log((float)gameResetAnim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(gameResetAnim.GetCurrentAnimatorStateInfo(0).length - 0.2f);
+        resetNotif.SetActive(false);
         yield return null;
     }
 

@@ -28,6 +28,11 @@ public class FadeMainMenu : MonoBehaviour
             )
         );
     }
+
+    public void QuitAndFadeOut()
+    {
+        LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(() => Application.Quit());
+    }
     public void Show(){
         // Debug.Log("Show Loading UI");
         

@@ -17,6 +17,6 @@ MonoBehaviour:
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0
-  isResetSave: 0
+  isResetSave: 1
   isFirstTime_Tutorial: 1
   isFirstTimeInGame: 0
