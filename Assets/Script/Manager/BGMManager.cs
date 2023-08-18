@@ -11,8 +11,16 @@ public class BGMManager : MonoBehaviour
     [SerializeField]private bool isMainMenu;
     private const string PLAYER_PREF_BGM_VOLUME = "BGM_Volume";
     public static BGMManager Instance{get; private set;}
+    [SerializeField]private float fadeInDurationMax = 0.5f;
+    private float fadeInDuratiom;
     private void Awake() {
         if(!Instance){
+            volume = PlayerPrefs.GetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
+            fadeInDuratiom = 0;
+            BGM.volume = 0f;
+            
+            BGM.Play();
+            StartCoroutine(fadeIn());
             Instance = this;
             if(!isMainMenu){
                 DontDestroyOnLoad(gameObject);
@@ -26,9 +34,9 @@ public class BGMManager : MonoBehaviour
     }
 
     private void Start() {
-        volume = PlayerPrefs.GetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
+        
         bgmSlider.value = volume;
-        BGM.volume = volume;
+        // BGM.volume = volume;
     }
     private void Update() {
         if(bgmSlider == null){
@@ -45,5 +53,16 @@ public class BGMManager : MonoBehaviour
     }
     public void DestroyInstance(){
         Destroy(gameObject);
+    }
+    private IEnumerator fadeIn()
+    {
+        while(fadeInDuratiom < fadeInDurationMax )
+        {
+            fadeInDuratiom += 0.01f;
+            Debug.Log(fadeInDuratiom + " " + Mathf.Lerp(0f, volume, fadeInDuratiom/fadeInDurationMax));
+            BGM.volume = Mathf.Lerp(0f, volume, fadeInDuratiom/fadeInDurationMax);       
+            yield return new WaitForSeconds(0.1f);
+        }
+        BGM.volume = volume;
     }
 }

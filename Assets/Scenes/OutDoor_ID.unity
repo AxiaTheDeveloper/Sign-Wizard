@@ -11974,6 +11974,7 @@ MonoBehaviour:
   BGM: {fileID: 947262913}
   bgmSlider: {fileID: 720513677}
   isMainMenu: 0
+  fadeInDurationMax: 0.5
 --- !u!82 &947262913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11985,8 +11986,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 728acdf6f1ff9b64fac6a7b8e04d6397, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26526,7 +26527,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1862556877667357482, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.188
+      value: 0.807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742808056672144829, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742808056672144829, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1290179899
       objectReference: {fileID: 0}
     - target: {fileID: 4812652835122651045, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_RootOrder

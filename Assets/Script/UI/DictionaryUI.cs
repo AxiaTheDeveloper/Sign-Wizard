@@ -46,7 +46,7 @@ public class DictionaryUI : MonoBehaviour
     }
     private void Update() {
         if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.DictionaryTime){
-            if(gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()){
+            if(gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu() || gameInput.GetInputOpenInventory_ChestOpen()){
                 HideUI();
             }
             Vector2 keyArrowInput = gameInput.GetInputArrow_Dictionary();

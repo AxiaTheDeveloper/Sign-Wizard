@@ -226,12 +226,12 @@ public class MainMenuUI : MonoBehaviour
                 }
 
                 inputCooldownTimer = inputCooldownTimerMax;
-                isYesReset = false;
+                
                 UpdateSelectChoice_Reset();
                 resetUI.SetActive(false);
                 Debug.Log("Reached");
-
-                StartCoroutine(TheGameIsResetNotif());
+                if(isYesReset)  StartCoroutine(TheGameIsResetNotif());
+                isYesReset = false;
 
                 type = mainMenuType.normal;
                 OnChange?.Invoke(this,EventArgs.Empty);

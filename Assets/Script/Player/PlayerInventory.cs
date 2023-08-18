@@ -106,7 +106,7 @@ public class PlayerInventory : MonoBehaviour
                 isCauldronOpen = true;
             }
             else if(isCauldronOpen){
-                if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                if((gameInput.GetInputEscape() ||gameInput.GetInputEscapeMainMenu())&& inputCooldownTimer <= 0){
                     inputCooldownTimer = inputCooldownTimerMax;
                     OnQuitCauldron?.Invoke(this,EventArgs.Empty);
                     // isChestOpen = false;
@@ -169,7 +169,7 @@ public class PlayerInventory : MonoBehaviour
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndPenumbuk){
-            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+            if((gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitPenumbuk?.Invoke(this,EventArgs.Empty);
                 
@@ -198,7 +198,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
             if(inputCooldownTimer <= 0)InputArrowInventory(inventoryUI);
-            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+            if((gameInput.GetInputEscape()|| gameInput.GetInputEscapeMainMenu())&& inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
                 isInventoryOpen = false;
@@ -209,7 +209,7 @@ public class PlayerInventory : MonoBehaviour
             }
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.SubmitPotion){
-            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+            if((gameInput.GetInputEscape()|| gameInput.GetInputEscapeMainMenu())&& inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitSubmitPotion?.Invoke(this, EventArgs.Empty);
                 isInventoryOpen = false;
