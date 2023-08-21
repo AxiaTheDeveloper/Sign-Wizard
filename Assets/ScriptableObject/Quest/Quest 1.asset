@@ -22,25 +22,20 @@ MonoBehaviour:
     untuk memberikan kesegaran dan kelembutan yang menenangkan bagi tubuhku."'
   QuestDescription_EN: '"I would like a <b><color=#A46443>Dewdrop Elixir</color></b>
     potion to give my body a soothing freshness and softness."'
-  QuestTask_ID: '- Ke <b>rak buku</b> untuk cek Resep.
-
-    - Ke <b>peti</b> untuk
-    ambil bahan.
-
-    - Ke <b>cauldron</b>, masukin bahan, dan sesuaikan api.
+  QuestTask_ID: '- Ke <b><color=#A46443>rak buku</color></b> untuk cek Resep.
 
     -
-    Kirim lewat <b>kotak surat</b> di depan rumah.'
-  QuestTask_EN: '- Go to <b>shelf</b> to check the recipe.
+    Ke <b><color=#A46443>peti</color></b> untuk ambil bahan.
 
-    - Go to <b>chest</b>
-    to get the ingredients.
+    - Ke <b><color=#A46443>cauldron</color></b>,
+    masukin bahan, dan sesuaikan api.
 
-    - Go to <b>cauldron</b>, put the ingredients inside.
-    and adjust the fire
-
-    - Deliver the potion using the <b>mail box</b> in front
-    of the house.'
+    - Kirim lewat <b><color=#A46443>kotak
+    surat</color></b> di depan rumah.'
+  QuestTask_EN: "- Go to <b><color=#A46443>shelf</color></b> to check the recipe.\n-
+    Go to <b><color=#A46443>chest</color></b> to get the ingredients.\n- Go to <b><color=#A46443>cauldron</color></b>,
+    put the ingredients \n  inside. and adjust the fire\n- Deliver the potion using
+    the <b><color=#A46443>mail box</color></b> \n  in front of the house."
   QuestinMail_ID: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b><color=#A46443>Dewdrop
     Elixir</color></b> untuk memberikan kesegaran dan kelembutan yang menenangkan
     bagi tubuhku. \r\n\r\nTerimakasih yaa!"
