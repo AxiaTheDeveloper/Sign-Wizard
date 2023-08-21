@@ -92,6 +92,7 @@ public class GameSaveManager : MonoBehaviour
     }
     public void LoadData(PlayerSave playerSaveSO, InventoryScriptableObject playerInventSO, InventoryScriptableObject chestSO){
         string basePath = Application.persistentDataPath;
+        Debug.Log(basePath);
         // Debug.Log(basePath + "Hi");
         string playerSavePath = Path.Combine(basePath, "ps.dat");
         string playerInventPath = Path.Combine(basePath, "pi.dat");
@@ -116,7 +117,7 @@ public class GameSaveManager : MonoBehaviour
         playerInventSO.isFullyEmpty = piData.isFullyEmpty;
 
         for(int i = 0; i < 20; i++){
-            
+            Debug.Log(piData.itemSO[i] +" "+ piData.quantity[i]);
             playerInventSO.inventSlot[i].itemSO = piData.itemSO[i]; 
             playerInventSO.inventSlot[i].quantity = piData.quantity[i];
         }
