@@ -71,7 +71,9 @@ public class MainMenuUI : MonoBehaviour
     
 
     private void Start() {
-        selectLanguage = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
+        if(!PlayerPrefs.HasKey(PLAYER_PREF_PILIHAN_BAHASA))PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
+        selectLanguage = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA);
+        
         AssignGameObject();
         changeBahasa(selectLanguage);
 
@@ -88,7 +90,8 @@ public class MainMenuUI : MonoBehaviour
         pilihanIDEN.SetActive(false);
         SoundSlider.gameObject.SetActive(false);
         selectionPause = 0;
-        selectionOptionLanguage = PlayerPrefs.GetString("pilihanIDEN", bahasaGame);
+        if(!PlayerPrefs.HasKey("pilihanIDEN"))PlayerPrefs.SetString("pilihanIDEN", bahasaGame);
+        selectionOptionLanguage = PlayerPrefs.GetString("pilihanIDEN");
         UpdateVisualLanguageOption();
         UpdateSelectArrowPause();
 
@@ -229,7 +232,7 @@ public class MainMenuUI : MonoBehaviour
                 
                 UpdateSelectChoice_Reset();
                 resetUI.SetActive(false);
-                Debug.Log("Reached");
+                // Debug.Log("Reached");
                 if(isYesReset)  StartCoroutine(TheGameIsResetNotif());
                 isYesReset = false;
 
@@ -483,7 +486,7 @@ public class MainMenuUI : MonoBehaviour
     {
         resetNotif.SetActive(true);
         gameResetAnim.Play("NotifResetAnim");
-        Debug.Log((float)gameResetAnim.GetCurrentAnimatorStateInfo(0).length);
+        // Debug.Log((float)gameResetAnim.GetCurrentAnimatorStateInfo(0).length);
         yield return new WaitForSeconds(gameResetAnim.GetCurrentAnimatorStateInfo(0).length - 0.2f);
         resetNotif.SetActive(false);
         yield return null;

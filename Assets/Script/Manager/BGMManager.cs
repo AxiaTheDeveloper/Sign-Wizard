@@ -15,7 +15,9 @@ public class BGMManager : MonoBehaviour
     private float fadeInDuratiom;
     private void Awake() {
         if(!Instance){
-            volume = PlayerPrefs.GetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
+            if(!PlayerPrefs.HasKey(PLAYER_PREF_BGM_VOLUME))PlayerPrefs.SetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
+            volume = PlayerPrefs.GetFloat(PLAYER_PREF_BGM_VOLUME);
+            // Debug.Log(volume);
             fadeInDuratiom = 0;
             BGM.volume = 0f;
             
@@ -59,7 +61,7 @@ public class BGMManager : MonoBehaviour
         while(fadeInDuratiom < fadeInDurationMax )
         {
             fadeInDuratiom += 0.01f;
-            Debug.Log(fadeInDuratiom + " " + Mathf.Lerp(0f, volume, fadeInDuratiom/fadeInDurationMax));
+            // Debug.Log(fadeInDuratiom + " " + Mathf.Lerp(0f, volume, fadeInDuratiom/fadeInDurationMax));
             BGM.volume = Mathf.Lerp(0f, volume, fadeInDuratiom/fadeInDurationMax);       
             yield return new WaitForSeconds(0.1f);
         }

@@ -116,7 +116,7 @@ public class PlayerSaveManager : MonoBehaviour
     public void ResetDay_Sleep(){
        
         playerSaveSO.isResetDay = true;
-        if(PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID"){
+        if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
             SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{
@@ -128,7 +128,7 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public void ResetDay_SubmitPotion(){
         playerSaveSO.isSubmitPotion = true;
-        if(PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID"){
+        if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
             SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{
@@ -146,7 +146,7 @@ public class PlayerSaveManager : MonoBehaviour
             EditorUtility.SetDirty(playerSaveSO);
             #endif
         }
-        if(PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID"){
+        if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
             SceneManager.LoadSceneAsync("OutDoor_ID");
         }
         else{
@@ -154,7 +154,7 @@ public class PlayerSaveManager : MonoBehaviour
         }
     }
     public void Go_InsideNow(){
-        if(PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID"){
+        if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
             SceneManager.LoadSceneAsync("InDoor_ID");
         }
         else{

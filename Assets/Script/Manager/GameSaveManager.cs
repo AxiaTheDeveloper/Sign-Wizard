@@ -81,7 +81,7 @@ public class GameSaveManager : MonoBehaviour
             cData.itemSO[i] = chestSO.inventSlot[i].itemSO;
             
             cData.quantity[i] = chestSO.inventSlot[i].quantity;
-            Debug.Log(cData.itemSO[i] +" "+ cData.quantity[i]);
+            // Debug.Log(cData.itemSO[i] +" "+ cData.quantity[i]);
             // Debug.Log("done" + i);
         }
 
