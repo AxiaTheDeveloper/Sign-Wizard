@@ -217,6 +217,7 @@ public class InteractObject : MonoBehaviour
                 }
                 else if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
                     door.OpenUI(Door);
+                    
                 }
                 
             }

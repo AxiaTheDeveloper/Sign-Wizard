@@ -15,6 +15,7 @@ public class Door_Outside : MonoBehaviour
     [SerializeField]private PlayerInventory playerInventory;
     [SerializeField]private PlayerSaveManager playerSave;
     [SerializeField]private FadeNight_StartEnd fadeNight;
+    [SerializeField]private WantToSeeTutorialUI wantTutorial;
     
     [field : TextArea]
     [SerializeField]private string Go_outside_dialogue, Go_inside_dialogue;
@@ -54,14 +55,26 @@ public class Door_Outside : MonoBehaviour
                 fadeNight.ShowOutsideLight();
             }
             else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
-                SoundManager.Instance.PlayDoorOpen();
-                darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
-                    () => playerSave.Go_InsideNow()
-                );
+                if(playerSave.GetPlayerLevel() == 1 && playerSave.GetFirstTimeTutorial())
+                {
+                    gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceYesNoTutorial);
+                    wantTutorial.ShowWantTutorial();
+                }
+                else{
+                    PlayDoorOpenn();
+                }
+                
             }
             
         
         }
+    }
+    public void PlayDoorOpenn()
+    {
+        SoundManager.Instance.PlayDoorOpen();
+        darkBG_effect.LeanAlpha(1f, 1.2f).setOnComplete(
+            () => playerSave.Go_InsideNow()
+        );
     }
 
     private void playerInventory_OnQuitDoor(object sender, EventArgs e)

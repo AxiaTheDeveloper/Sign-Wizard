@@ -8,7 +8,7 @@ public class QuestLogUI : MonoBehaviour
     [SerializeReference]private RectTransform canvas_QuestUI;
     private bool isShow;
     [SerializeField]private GameInput gameInput;
-    [SerializeField]private TextMeshProUGUI questTitle, questDesc, questTaskList;
+    [SerializeField]private TextMeshProUGUI questTitle, questDesc, questTaskList, questSender;
 
     private void Start() {
         HideUI();
@@ -17,6 +17,7 @@ public class QuestLogUI : MonoBehaviour
         questTitle.text = questSO.Quest_Title;
         questDesc.text = questSO.QuestDescription;
         questTaskList.text = questSO.QuestTask;
+        questSender.text = "- "+questSO.nameSender;
     }
 
     private void Update() {

@@ -32,6 +32,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]private float inputCooldownTimerMax;
     private float inputCooldownTimer;
     [SerializeField]private PlayerSaveManager playerSave;
+    [SerializeField]private WantToSeeTutorialUI want;
     private void Awake() {
         Instance = this;
         inventorySize = inventory.size;
@@ -75,7 +76,7 @@ public class PlayerInventory : MonoBehaviour
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryTime){
             if(isInventoryOpen){
                 if(isChestOpen){
-                    if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen()) && inputCooldownTimer <= 0){
+                    if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory_ChestOpen() || gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                         inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
                         ChestInventoryUI.moveChestUI(false);
@@ -91,7 +92,7 @@ public class PlayerInventory : MonoBehaviour
                     // Debug.Log(gameInput.InputClearInventoryPlayer());
                 }
                 else{
-                    if(gameInput.GetInputEscape() || gameInput.GetInputOpenInventory() && inputCooldownTimer <= 0){
+                    if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()||gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                         inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
                         isInventoryOpen = false;
@@ -248,7 +249,14 @@ public class PlayerInventory : MonoBehaviour
                 inputCooldownTimer = inputCooldownTimerMax;
                 OnQuitQuestBox?.Invoke(this, EventArgs.Empty);
             }
-
+        }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceYesNoTutorial)
+        {
+            if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                want.Choose();
+            }
+            if(inputCooldownTimer <= 0)InputArrowInventory_TutorialChoice();
         }
         if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
             inputCooldownTimer -= Time.deltaTime;
@@ -330,6 +338,11 @@ public class PlayerInventory : MonoBehaviour
                 door.Change_YesNo();
             }
         }
+
+    }
+    private void InputArrowInventory_TutorialChoice(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        want.Change_YesNoTutorial(keyInputArrowUI.x);
 
     }
 

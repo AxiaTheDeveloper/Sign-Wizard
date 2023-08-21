@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Newtonsoft.Json;
 
 [System.Serializable]
 class PlayerData
@@ -20,6 +21,7 @@ class PlayerData
 [System.Serializable]
 class Inventory
 {
+    // public string[] itemSOListinString;
     public ItemScriptableObject[] itemSO;
     public int[] quantity;
     public bool isFull;
@@ -32,6 +34,15 @@ class Inventory
 
 public class GameSaveManager : MonoBehaviour
 {
+    public List<ItemScriptableObject> listItem;
+    // private void Start() {
+    //     Debug.Log(listItem.Count);
+    //     Debug.Log(this.gameObject);
+    //     foreach(ItemScriptableObject item in listItem)
+    //     {
+    //         Debug.Log(item.name);
+    //     }
+    // }
     public void SaveData(PlayerSave playerSaveSO, InventoryScriptableObject playerInventSO, InventoryScriptableObject chestSO){
         // if(PlayerPrefs.GetInt("PlayerHasSaveFile", 0) == 0){
         //     PlayerPrefs.SetInt("PlayerHasSaveFile", 1);
@@ -60,13 +71,9 @@ public class GameSaveManager : MonoBehaviour
         
         
         for(int i = 0; i < 20; i++){
-            // Debug.Log(i);
-            // Debug.Log("integer");
             piData.quantity[i] = playerInventSO.inventSlot[i].quantity;
-            // Debug.Log("item");
             piData.itemSO[i] = playerInventSO.inventSlot[i].itemSO;
-            // Debug.Log("done");
-            
+            // piData.itemSOListinString[i] = JsonConvert.SerializeObject(playerInventSO.inventSlot[i].itemSO);
         }
 
         // Debug.Log("chest");
@@ -81,8 +88,7 @@ public class GameSaveManager : MonoBehaviour
             cData.itemSO[i] = chestSO.inventSlot[i].itemSO;
             
             cData.quantity[i] = chestSO.inventSlot[i].quantity;
-            // Debug.Log(cData.itemSO[i] +" "+ cData.quantity[i]);
-            // Debug.Log("done" + i);
+            // cData.itemSOListinString[i] = JsonConvert.SerializeObject(chestSO.inventSlot[i].itemSO);
         }
 
         File.WriteAllText(playerSavePath, JsonUtility.ToJson(psData));
@@ -115,20 +121,54 @@ public class GameSaveManager : MonoBehaviour
 
         playerInventSO.isFull = piData.isFull;
         playerInventSO.isFullyEmpty = piData.isFullyEmpty;
+        Debug.Log("player");
 
         for(int i = 0; i < 20; i++){
-            Debug.Log(piData.itemSO[i] +" "+ piData.quantity[i]);
-            playerInventSO.inventSlot[i].itemSO = piData.itemSO[i]; 
-            playerInventSO.inventSlot[i].quantity = piData.quantity[i];
-        }
+            // Debug.Log("save " +piData.itemSO[i] +" "+ piData.quantity[i]);
 
+            // playerInventSO.inventSlot[i].itemSO = piData.itemSO[i]; 
+            // Debug.Log(listItem[1]);
+            foreach(ItemScriptableObject item in listItem)
+            {
+                // Debug.Log(piData.itemSO[i] + " " + item + " hmm");
+                if(piData.itemSO[i] == null)
+                {
+                    playerInventSO.inventSlot[i].itemSO = null;
+                    break;
+                }
+                if(item.name == piData.itemSO[i].name)
+                {
+                    // Debug.Log(item);
+                    playerInventSO.inventSlot[i].itemSO = item;
+                    break;
+                }
+            }
+            playerInventSO.inventSlot[i].quantity = piData.quantity[i];
+            // Debug.Log("isi " +playerInventSO.inventSlot[i].itemSO +" "+ playerInventSO.inventSlot[i].quantity);
+        }
+        Debug.Log("chest");
         chestSO.isFull = cData.isFull;
         chestSO.isFullyEmpty = cData.isFullyEmpty;
 
         for(int i = 0; i < 27; i++){
-            Debug.Log(cData.itemSO[i] +" "+ cData.quantity[i]);
-            chestSO.inventSlot[i].itemSO = cData.itemSO[i]; 
+            // Debug.Log("save " + cData.itemSO[i] +" "+ cData.quantity[i]);
+            
+            // chestSO.inventSlot[i].itemSO = cData.itemSO[i]; 
+            foreach(ItemScriptableObject item in listItem)
+            {
+                if(cData.itemSO[i] == null)
+                {
+                    chestSO.inventSlot[i].itemSO = null;
+                    break;
+                }
+                if(item.name == cData.itemSO[i].name)
+                {
+                    chestSO.inventSlot[i].itemSO = item;
+                    break;
+                }
+            }
             chestSO.inventSlot[i].quantity = cData.quantity[i];
+            // Debug.Log("isi " + chestSO.inventSlot[i].itemSO +" "+ chestSO.inventSlot[i].quantity);
         }
     }
 }

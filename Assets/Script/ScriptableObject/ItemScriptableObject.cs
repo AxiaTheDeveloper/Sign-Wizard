@@ -10,7 +10,7 @@ public enum ItemType{
 
 public class ItemScriptableObject : ScriptableObject
 {
-    public int itemID => GetInstanceID();
+    // public int itemID => GetInstanceID();
     public string itemNameID, itemNameEN;
     public string itemName
     {

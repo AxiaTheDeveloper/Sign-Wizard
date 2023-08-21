@@ -197,6 +197,7 @@ public class Cauldron : MonoBehaviour
                     bool isInTheRecipe = false;
                     foreach(PotionRecipeScriptableObject.Ingredients itemIngredient in recipe.ingredientArray){
                         if(cauldronItem.itemSO == itemIngredient.ingredientName){
+                            
                             isInTheRecipe = true;
                             break;
                         }
@@ -286,11 +287,19 @@ public class Cauldron : MonoBehaviour
         //ini bakal dipanggil pas timeline masak potion berakhir.
         for(int j=0;j<cauldronItems.Count;j++){
             if(!cauldronItems[j].isEmpty){
+                int quantityTaken = 0;
+                foreach(PotionRecipeScriptableObject.Ingredients itemIngredient in recipeChosen.ingredientArray){
+                    if(cauldronItems[j].itemSO == itemIngredient.ingredientName){
+                        quantityTaken = itemIngredient.quantity;
+                        break;
+                    }
+                }
                 int position = cauldronItems[j].position_InInventory;                    
-                playerInventory.GetPlayerInventory().TakeItemFromSlot(position, recipeChosen.ingredientArray[j].quantity);
+                playerInventory.GetPlayerInventory().TakeItemFromSlot(position, quantityTaken);
                         
             }
         }
+
         playerInventory.GetPlayerInventory().AddItemToSlot(recipeChosen.output_Potion, 1);
         #if UNITY_EDITOR
         EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
