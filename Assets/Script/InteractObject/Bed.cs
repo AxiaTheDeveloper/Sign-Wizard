@@ -15,7 +15,8 @@ public class Bed : MonoBehaviour
     [SerializeField]private PlayerInventory playerInventory;
 
     private bool isResetDay, isSubmitButton; // kalo reset change position player ke bed abis restart scene
-    private void Start(){
+    private void Start()
+    {
         playerInventory.OnQuitBed += playerInventory_OnQuitBed;
         playerInventory.OnSubmitBed += playerInventory_OnSubmitBed;
         BG.SetActive(false);
@@ -48,24 +49,28 @@ public class Bed : MonoBehaviour
         HideDialogue();
     }
 
-    private void Selected_On(){
-        if(isResetDay){
+    private void Selected_On()
+    {
+        if(isResetDay)
+        {
             Selected_Yes.SetActive(true);
             Selected_No.SetActive(false);
         }
-        else{
+        else
+        {
             Selected_Yes.SetActive(false);
             Selected_No.SetActive(true);
         }
         
     }
-    private IEnumerator dialogueSequence(){
+    private IEnumerator dialogueSequence()
+    {
         gameManager.ChangeToCinematic();
         dialogue.SetActive(true);
         DialogueSystem.DialogueLine line = dialogue.GetComponent<DialogueSystem.DialogueLine>();
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
-        // Debug.Log(line.finished);
+
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceBed);
         line.ChangeFinished_false();
         yesNoQuestion.SetActive(true);
@@ -75,14 +80,15 @@ public class Bed : MonoBehaviour
 
     }
 
-    public void ShowDialogue(){
+    public void ShowDialogue()
+    {
         yesNoQuestion.SetActive(false);
         BG.SetActive(true);
-        // charaImage.SetActive(true);
-        // gameObject.SetActive(true);
+
         StartCoroutine(dialogueSequence());
     }
-    public void HideDialogue(){
+    public void HideDialogue()
+    {
         BG.SetActive(false);
         isSubmitButton = false;
         isResetDay = false;
@@ -90,7 +96,7 @@ public class Bed : MonoBehaviour
         yesNoQuestion.SetActive(false);
         charaImage.SetActive(false);
         nameChara.SetActive(false);
-        // Debug.Log(charaImage.activeSelf);
+
         dialogue.SetActive(false);
         // gameObject.SetActive(false);
         if(!gameManager.IsInGame()){
@@ -98,11 +104,13 @@ public class Bed : MonoBehaviour
         }
     }
 
-    public void Change_YesNo(){
+    public void Change_YesNo()
+    {
         isResetDay = !isResetDay;
         Selected_On();
     }
-    public bool GetIsResetDay(){
+    public bool GetIsResetDay()
+    {
         return isResetDay;
     }
 }

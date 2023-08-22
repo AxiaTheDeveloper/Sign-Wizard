@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    public static QuestManager Instance {get; private set;}
     [SerializeField]private PlayerSaveManager playerSaveManager;
     [SerializeField]private QuestScriptableObject[] questList;
     private QuestScriptableObject quest;
@@ -16,6 +17,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField]private QuestLogUI questUI;
     [SerializeField]private QuestBox questBoxUI;
     private void Awake() {
+        Instance = this;
         levelNow = playerSaveManager.GetPlayerLevel();
         quest = questList[levelNow];
         totalPotion = quest.totalPotion;
@@ -87,5 +89,9 @@ public class QuestManager : MonoBehaviour
 
     public float GetProgressPerTumbuk_QuestNow(){
         return quest.progressPerTumbuk_Quest;
+    }
+    public string GetSendername()
+    {
+        return quest.nameSender;
     }
 }

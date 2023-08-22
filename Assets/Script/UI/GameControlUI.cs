@@ -88,4 +88,12 @@ public class GameControlUI : MonoBehaviour
         }
         image.sprite = MortarSelectItem;
     }
+    public void gameManager_OnShow_YesNoDialogue()
+    {
+        if(!image.gameObject.activeSelf){
+            image.gameObject.SetActive(true);
+        }
+        image.sprite = AnyChooseHorizontal;
+
+    }
 }

@@ -108,7 +108,6 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheSubmitPotion){
             submit = new TheSubmit();
-            questBox = new TheQuestBox();
         }
         if(type == ObjectType.TheDictionary){
             dictionary = new TheDictionary();
@@ -150,7 +149,7 @@ public class InteractObject : MonoBehaviour
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
                 if(playerSave.GetPlayerLevel() == 1){
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaPakaiPenumbuk);
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaPakaiPenumbuk_InteractObject);
                 }
                 else{
                     penumbuk.OpenUI(Penumbuk);
@@ -161,16 +160,53 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheSubmitPotion){
             if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
-                if(playerSave.GetPlayerLevel() == 6){
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest);
-                }
-                else{
+                if(QuestManager.Instance.GetSendername() == Submit.GetCharHouseName())
+                {
                     soundManager.PlayMailbox();
                     submit.OpenUI(Submit);
                 }
+                else{
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                }
+                
                 
             }
-            else if(playerSave.GetPlayerLevelMode() == levelMode.outside){
+            else if(playerSave.GetPlayerLevelMode() == levelMode.outside || playerSave.GetPlayerLevelMode() == levelMode.finishQuest){
+                if(playerSave.GetPlayerLevel() == 1 && playerSave.GetPlayerLevelMode() == levelMode.outside)
+                {
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumMengecekKotakSuratLevel1_InteractObject);
+                }
+                else{
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                }
+                
+            }
+
+        }
+        if(type == ObjectType.TheQuestBox)
+        {
+            if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion)
+            {
+                if(playerSave.GetPlayerLevel() == 6){
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
+                }
+                else{
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.SelesaikanQuestSekarang_InteractObject);
+                }
+                
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+            {
+                if(playerSave.GetPlayerLevel() == 6){
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
+                }
+                else{
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumAdaQuestYangDikirimTidur_InteractObject);
+                }
+                
+            }
+            else if(playerSave.GetPlayerLevelMode() == levelMode.outside)
+            {
                 if(playerSave.GetPlayerLevel() > 1 && playerSave.GetPlayerLevel() < playerSave.GetMaxLevel()){
                     if(!hasCheckGift){
                         hasCheckGift = true;
@@ -188,9 +224,7 @@ public class InteractObject : MonoBehaviour
                     soundManager.PlayMailbox();
                     questBox.OpenUI(QuestBox);
                 }
-                
             }
-
         }
         if(type == ObjectType.TheDictionary){
             dictionary.OpenUI(Dictionary);
@@ -221,11 +255,10 @@ public class InteractObject : MonoBehaviour
                 }
                 else if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.indoor){
                     door.OpenUI(Door);
-                    
                 }
                 
             }
-            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+            else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion || playerSave.GetPlayerLevelMode() == levelMode.finishQuest){
                 door.OpenUI(Door);
             }
         }

@@ -7,7 +7,8 @@ using UnityEngine.UI;
 namespace DialogueSystem{
     public class DialogueLine : DialogueBase
     {
-        private enum DialogueType{
+        private enum DialogueType
+        {
             character, announcement
         }
         [Header("Option")]
@@ -37,45 +38,53 @@ namespace DialogueSystem{
         [SerializeField]private TextMeshProUGUI name_textHolder;
         
 
-
-        private void Awake() {
+        private void Awake() 
+        {
             textHolder = GetComponent<TextMeshProUGUI>();
             pressToContinue_textHolder.SetActive(false);
         }
 
-        public void ChangeInputText(string inputTexts){
+        public void ChangeInputText(string inputTexts)
+        {
             inputText = inputTexts;
             // GoLineText();
         }
-        public void GoLineText(){
+        public void GoLineText()
+        {
             // Debug.Log(inputText);
-            if(isCharaHaveName){
+            if(isCharaHaveName)
+            {
                 name_textHolder.text = charaName;
                 name_textHolder.gameObject.SetActive(true);
             }
-            else{
+            else
+            {
                 name_textHolder.gameObject.SetActive(false);
             }
 
         
-            if(!isInputText_FromOtherCode){
+            if(!isInputText_FromOtherCode)
+            {
                 inputText = textHolder.text;
             }
             textHolder.text = "";
-            // Debug.Log("lewat sini tiap start?");
-            if(dialogueType == DialogueType.character){
-                if(isCharaHaveImage){
+
+            if(dialogueType == DialogueType.character)
+            {
+                if(isCharaHaveImage)
+                {
                     imageHolder.sprite = spriteCharacter;
                     imageHolder.gameObject.SetActive(true);
                 }
-                else{
+                else
+                {
                     imageHolder.gameObject.SetActive(false);
                 }
                 backGroundHolder.color = bgColor;
             }
             IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines);
             StartCoroutine(lineText);
-            // Debug.Log(finished);
+
         }
     }
 }

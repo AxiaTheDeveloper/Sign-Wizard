@@ -13,7 +13,6 @@ public class Chest : MonoBehaviour
     [SerializeField]private InventoryScriptableObject chestInventory, chestMain;
     private int chestInventorySize;
     [SerializeField]private InventoryUI ChestUI;
-    // private List<GameObject>
     
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private FinishWordDoFunction finishFunction;
@@ -21,10 +20,12 @@ public class Chest : MonoBehaviour
     [SerializeField]private DialogueManager dialogueManager;
     [SerializeField]private PlayerSaveManager playerSave;
 
-    private void Awake(){
+    private void Awake()
+    {
         // gameManager = WitchGameManager.Instance;
         //ntr dikasih syarat kalo bangun/hari baru reset chestinventory jd chestmain, playerinventory juga direset;
-        if(playerSave.GetIsReset() || playerSave.GetIsPlayerFromOutside()){
+        if(playerSave.GetIsReset() || playerSave.GetIsPlayerFromOutside())
+        {
             playerSave.player_HasReset_Place();
             
             chestInventory.inventSlot = CopyInventorySlot(chestMain.inventSlot);
@@ -41,37 +42,40 @@ public class Chest : MonoBehaviour
         
     }
 
-    private List<InventorySlot> CopyInventorySlot(List<InventorySlot> source){
+    private List<InventorySlot> CopyInventorySlot(List<InventorySlot> source)
+    {
         List<InventorySlot> newList = new List<InventorySlot>();
-        foreach(InventorySlot inventSlot in source){
+        foreach(InventorySlot inventSlot in source)
+        {
             InventorySlot newInvent = new InventorySlot();
             newList.Add(newInvent.ChangeQuantity(inventSlot.itemSO,inventSlot.quantity));
         }
 
         return newList;
     }
-    private void Start(){
+    private void Start()
+    {
         playerInventory.OnQuitChest += playerInventory_OnQuitChest;
         playerInventory.OnClearPlayerInventory += playerInventory_OnClearPlayerInventory;
         finishFunction.OnFinishChestWord += finishWord_OnFinishChestWord;
     }
     private void finishWord_OnFinishChestWord(object sender, EventArgs e)
     {
-
-        if(playerInventory.GetPlayerInventory().isFull){
+        if(playerInventory.GetPlayerInventory().isFull)
+        {
             dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.playerInventoryFull_Chest);
-            // Debug.Log("Keluarkan UI playerInventoryFull");
         }
-        else{
+        else
+        {
             int selectItem = ChestUI.GetSelectedItem();
             int quantityWant = ChestUI.GetQuantityWant();
-            if(quantityWant == 1 && chestInventory.inventSlot[selectItem].quantity == 0){
+            if(quantityWant == 1 && chestInventory.inventSlot[selectItem].quantity == 0)
+            {
                 dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.barangChestHabis_Chest);
                     // Debug.Log("Keluarkan UI barang habis, besok ambil kembali");
-                
             }
-            else{
-
+            else
+            {
                 chestInventory.TakeItemFromSlot(selectItem, quantityWant);
 
                 playerInventory.GetPlayerInventory().AddItemToSlot(chestInventory.inventSlot[selectItem].itemSO, quantityWant);
@@ -80,21 +84,15 @@ public class Chest : MonoBehaviour
                 EditorUtility.SetDirty(chestInventory);
                 EditorUtility.SetDirty(playerInventory.GetPlayerInventory());
                 #endif
-
-                
-
             }
         }
-
         ChestUI.ResetQuantityWant();
-
     }
 
     private void playerInventory_OnQuitChest(object sender, EventArgs e)
     {
         SoundManager.Instance.PlayChestClose();
         CloseWholeUI();
-        
     }
 
     private void playerInventory_OnClearPlayerInventory(object sender, EventArgs e)
@@ -103,10 +101,8 @@ public class Chest : MonoBehaviour
         // Debug.Log("hi");
     }
 
-    
-
-
-    public void ShowWholeUI(){
+    public void ShowWholeUI()
+    {
         //nyalain UI yg isinya kek gambar doang blm tulisan
         wordInput.GetWordManager(wordManager);
         // wordInput.ChangeisOnlyOneWord(false);
@@ -115,7 +111,8 @@ public class Chest : MonoBehaviour
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InventoryAndChest);
         // change game state
     }
-    public void CloseWholeUI(){
+    public void CloseWholeUI()
+    {
         gameManager.ChangeToInGame();
         ChestUI.HideInventoryUI();
         // wordUI.SetActive(true);
@@ -123,31 +120,39 @@ public class Chest : MonoBehaviour
         //di sini delete semua gameobject ???
     }
 
-    public InventoryScriptableObject GetChestInventory(){
+    public InventoryScriptableObject GetChestInventory()
+    {
         return chestInventory;
     }
-    public int GetChestSize(){
+    public int GetChestSize()
+    {
         return chestInventorySize;
     }
     private void ClearInventoryPlayer(){
-        if(playerInventory.GetPlayerInventory().isFullyEmpty > 0){
-            for(int i=0;i<playerInventory.GetPlayerInventory().size;i++){
+        if(playerInventory.GetPlayerInventory().isFullyEmpty > 0)
+        {
+            for(int i=0;i<playerInventory.GetPlayerInventory().size;i++)
+            {
                 InventorySlot inventSlot = playerInventory.GetPlayerInventory().inventSlot[i];
-                if(inventSlot.isEmpty){
+                if(inventSlot.isEmpty)
+                {
                     continue;
                 }
-                else if(!inventSlot.itemSO.isFromChest){
+                else if(!inventSlot.itemSO.isFromChest)
+                {
                     continue;
                 }
                 // Debug.Log(i);
                 int quantity = inventSlot.quantity;
                 // Debug.Log(quantity);
                 ItemScriptableObject item = inventSlot.itemSO;
-                if(quantity == 0){
+                if(quantity == 0)
+                {
                     // Debug.Log("kosong");
                     continue;
                 }
-                else{
+                else
+                {
                     // Debug.Log("berhasil");
                     playerInventory.GetPlayerInventory().TakeItemFromSlot(i, quantity);
                     playerInventory.GetPlayerInventory().TakeDataFromSlot(i);

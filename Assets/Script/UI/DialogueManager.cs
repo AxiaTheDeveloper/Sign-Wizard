@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest, tidakBisaPakaiPenumbuk
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
     private WitchGameManager.InterfaceType interfaceType;
     [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift;
+    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     [field : TextArea]
-    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekMailboxDulu_InteractObject,dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject, dialogue_tidakBisaPakaiPenumbuk;
+    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekMailboxDulu_InteractObject,dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject, dialogue_tidakBisaPakaiPenumbuk, dialogue_SelesaikanQuestSekarang_InteractObject, dialogue_belumAdaQuestYangDikirimTidur_InteractObject, dialogue_tidakAdaBarangYangDiminta1_InteractObject, dialogue_tidakAdaBarangYangDiminta2_InteractObject, dialogue_belumMengecekKotakSuratLevel1_InteractObject;
 
     [Header("Dialogue Kirim Potion")]
     [SerializeField]private FadeNight_StartEnd fadeNight;
@@ -62,6 +62,7 @@ public class DialogueManager : MonoBehaviour
         if(dialogueHolder_tutorial) dialogueLines_Tutorial = dialogueHolder_tutorial.GetComponentInChildren<DialogueSystem.DialogueLine>();
         if(dialogueHolder_NerimaGift) dialogueLines_NerimaGift = dialogueHolder_NerimaGift.GetComponentInChildren<DialogueSystem.DialogueLine>();
         
+        
         // Debug.Log(dialogueLines_WrongChoice);
     }
     
@@ -80,6 +81,11 @@ public class DialogueManager : MonoBehaviour
         dialogueHolder_Go_Out_Dialogue.OnDialogueFinish += dialogueHolder_Go_Out_Dialogue_OnDialogueFinish;
         if(dialogueHolder_tutorial) dialogueHolder_tutorial.OnDialogueFinish += dialogueHolder_tutorial_OnDialogueFinish;
         if(dialogueHolder_NerimaGift)dialogueHolder_NerimaGift.OnDialogueFinish += dialogueHolder_NerimaGift_OnDialogueFinish;
+        if(dialogueHolder_IstirahatHabisSelesaiQuest)dialogueHolder_IstirahatHabisSelesaiQuest.OnDialogueFinish += dialogueHolder_IstirahatHabisSelesaiQuest_OnDialogueFinish;
+    }
+    private void dialogueHolder_IstirahatHabisSelesaiQuest_OnDialogueFinish(object sender, EventArgs e)
+    {
+        fadeNight.ShowUI_Potion();
     }
     private void dialogueHolder_AfterReadingMail_OnDialogueFinish(object sender, EventArgs e)
     {
@@ -153,7 +159,9 @@ public class DialogueManager : MonoBehaviour
 
     private void dialogueHolder_KirimPotion_OnDialogueFinish(object sender, EventArgs e)
     {
-        fadeNight.ShowUI_Potion();
+        // fadeNight.ShowUI_Potion();
+        //jadi change to in game karena berarti uda selesai, dan masi bisa keliling
+        gameManager.ChangeToInGame();
     }
     private void dialogueHolder_Go_Out_Dialogue_OnDialogueFinish(object sender, EventArgs e)
     {
@@ -188,6 +196,12 @@ public class DialogueManager : MonoBehaviour
         
         gameManager.ChangeToCinematic();
         dialogueHolder_Go_Out_Dialogue.ShowDialogue();
+    }
+
+    public void ShowDialogue_IstirahatHabisSelesaiQuest(){
+        
+        gameManager.ChangeToCinematic();
+        dialogueHolder_IstirahatHabisSelesaiQuest.ShowDialogue();
     }
 
     public void ShowDialogue_Gift(DialogueNerimaGift dialogueNerimaGift){
@@ -284,11 +298,24 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueWrongChoice == DialogueWrongChoice.cekQuestDulu_InteractObject){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_cekQuestDulu_InteractObject);
         }
-        else if(dialogueWrongChoice == DialogueWrongChoice.sudahMenyelesaikanSemuaQuest){
+        else if(dialogueWrongChoice == DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_sudahMenyelesaikanSemuaQuest_InteractObject);
         }
-        else if(dialogueWrongChoice == DialogueWrongChoice.tidakBisaPakaiPenumbuk){
+        else if(dialogueWrongChoice == DialogueWrongChoice.tidakBisaPakaiPenumbuk_InteractObject){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakBisaPakaiPenumbuk);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.SelesaikanQuestSekarang_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_SelesaikanQuestSekarang_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.belumAdaQuestYangDikirimTidur_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_belumAdaQuestYangDikirimTidur_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.belumMengecekKotakSuratLevel1_InteractObject)
+        {
+            
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_belumMengecekKotakSuratLevel1_InteractObject);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
@@ -304,6 +331,9 @@ public class DialogueManager : MonoBehaviour
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.bukanPotion_InventoryUI){
             dialogueLines_WrongChoice.ChangeInputText(itemName + dialogue_bukanPotion_InventoryUI);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject){
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaBarangYangDiminta1_InteractObject + itemName + ". " + dialogue_tidakAdaBarangYangDiminta2_InteractObject);
         }
         
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();

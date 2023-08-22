@@ -5,7 +5,6 @@ using System;
 
 public class Door_Outside : MonoBehaviour
 {
-        // Start is called before the first frame update
     [SerializeField]private GameObject BG, charaImage, dialogue, nameChara;
     [SerializeField]private CanvasGroup darkBG_effect;
     
@@ -16,16 +15,16 @@ public class Door_Outside : MonoBehaviour
     [SerializeField]private PlayerSaveManager playerSave;
     [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private WantToSeeTutorialUI wantTutorial;
+    [SerializeField]private GameControlUI gameControl;
     
     [field : TextArea]
     [SerializeField]private string Go_outside_dialogue, Go_inside_dialogue;
     
 
     private bool wantTo_GoIn, isSubmitButton; // kalo reset change position player ke bed abis restart scene
-    private void Start(){
-        if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
-            darkBG_effect.alpha = 0f;
-        }
+    private void Start()
+    {
+        if(gameManager.GetPlace() == WitchGameManager.Place.outdoor) darkBG_effect.alpha = 0f;
         
         playerInventory.OnQuitDoor += playerInventory_OnQuitDoor;
         playerInventory.OnSubmitDoor += playerInventory_OnSubmitDoor;
@@ -38,35 +37,44 @@ public class Door_Outside : MonoBehaviour
         charaImage.SetActive(false);
 
         dialogue.SetActive(false);
-
     }
 
     private void playerInventory_OnSubmitDoor(object sender, EventArgs e)
     {
         isSubmitButton = true;
         
-        if(!wantTo_GoIn){
+        if(!wantTo_GoIn)
+        {
             HideDialogue();
         }
-        else{
+        else
+        {
             HideDialogue();
             gameManager.ChangeToCinematic();
-            if(gameManager.GetPlace() == WitchGameManager.Place.indoor){
+            if(gameManager.GetPlace() == WitchGameManager.Place.indoor)
+            {
                 fadeNight.ShowOutsideLight();
             }
-            else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+            else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor)
+            {
                 if(playerSave.GetPlayerLevel() == 1 && playerSave.GetFirstTimeTutorial())
                 {
                     gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceYesNoTutorial);
                     wantTutorial.ShowWantTutorial();
                 }
                 else{
-                    PlayDoorOpenn();
+                    if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+                    {
+                        playerSave.ChangePlayerLevel();
+                        playerSave.ChangePlayerMode(levelMode.outside);
+                        DialogueManager.Instance.ShowDialogue_IstirahatHabisSelesaiQuest();
+                    }
+                    else
+                    {
+                        PlayDoorOpenn();
+                    }
                 }
-                
             }
-            
-        
         }
     }
     public void PlayDoorOpenn()
@@ -82,7 +90,8 @@ public class Door_Outside : MonoBehaviour
         HideDialogue();
     }
 
-    private void Selected_On(){
+    private void Selected_On()
+    {
         if(wantTo_GoIn){
             Selected_Yes.SetActive(true);
             Selected_No.SetActive(false);
@@ -93,15 +102,18 @@ public class Door_Outside : MonoBehaviour
         }
         
     }
-    private IEnumerator dialogueSequence(){
+    private IEnumerator dialogueSequence()
+    {
         gameManager.ChangeToCinematic();
         
         dialogue.SetActive(true);
         DialogueSystem.DialogueLine line = dialogue.GetComponent<DialogueSystem.DialogueLine>();
-        if(gameManager.GetPlace() == WitchGameManager.Place.indoor){
+        if(gameManager.GetPlace() == WitchGameManager.Place.indoor)
+        {
             line.ChangeInputText(Go_outside_dialogue);
         }
-        else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor){
+        else if(gameManager.GetPlace() == WitchGameManager.Place.outdoor)
+        {
             line.ChangeInputText(Go_inside_dialogue);
         }
         line.GoLineText();
@@ -109,6 +121,7 @@ public class Door_Outside : MonoBehaviour
         // Debug.Log(line.finished);
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceDoor);
         line.ChangeFinished_false();
+        gameControl.gameManager_OnShow_YesNoDialogue();
         yesNoQuestion.SetActive(true);
 
         yield return new WaitUntil(()=> isSubmitButton);
@@ -116,14 +129,16 @@ public class Door_Outside : MonoBehaviour
 
     }
 
-    public void ShowDialogue(){
+    public void ShowDialogue()
+    {
         yesNoQuestion.SetActive(false);
         BG.SetActive(true);
         // charaImage.SetActive(true);
         // gameObject.SetActive(true);
         StartCoroutine(dialogueSequence());
     }
-    public void HideDialogue(){
+    public void HideDialogue()
+    {
         BG.SetActive(false);
         isSubmitButton = false;
         wantTo_GoIn = false;
@@ -139,11 +154,13 @@ public class Door_Outside : MonoBehaviour
         }
     }
 
-    public void Change_YesNo(){
+    public void Change_YesNo()
+    {
         wantTo_GoIn = !wantTo_GoIn;
         Selected_On();
     }
-    public bool GetWantToGoIn(){
+    public bool GetWantToGoIn()
+    {
         return wantTo_GoIn;
     }
 

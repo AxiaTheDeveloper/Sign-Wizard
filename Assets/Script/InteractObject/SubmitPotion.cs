@@ -5,6 +5,33 @@ using UnityEngine;
 
 public class SubmitPotion : MonoBehaviour
 {
+    public enum CharacterHouseName{
+        Chal, Vii, Eline, Cloter
+    }
+    [SerializeField]private CharacterHouseName charHouseName;
+    private string charName
+    {
+        get
+        {
+            if(charHouseName == CharacterHouseName.Chal)
+            {
+                return "Chal";
+            }
+            else if(charHouseName == CharacterHouseName.Vii)
+            {
+                return "Vii";
+            }
+            else if(charHouseName == CharacterHouseName.Eline)
+            {
+                return "Eline";
+            }
+            else if(charHouseName == CharacterHouseName.Cloter)
+            {
+                return "Cloter";
+            }
+            return "";
+        }
+    }
     [SerializeField]private PlayerInventory playerInventory;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private InventoryUI submitPotionUI_Inventory;
@@ -50,8 +77,11 @@ public class SubmitPotion : MonoBehaviour
                 foreach(CauldronItem item in ListItemTerpilih){
                     playerInventory.GetPlayerInventory().TakeItemFromSlot(item.position_InInventory, 1);
                 }
-                playerSaveManager.ChangePlayerLevel();
-                playerSaveManager.ChangePlayerMode(levelMode.outside);
+                //ini jadiin ke finisquest dl ini semua yg dibwh dipindah jadi pas di pintu masuk rumah
+                // playerSave.ChangePlayerLevel();
+                // playerSave.ChangePlayerMode(levelMode.outside);
+                playerSaveManager.ChangePlayerMode(levelMode.finishQuest);
+
             }
             
             HideWHoleUI();
@@ -141,5 +171,10 @@ public class SubmitPotion : MonoBehaviour
         submitPotionUI.HideAllUI();
         submitPotionUI_Inventory.HideInventoryUI_SubmitPotion();
         
+    }
+
+    public string GetCharHouseName()
+    {
+        return charName;
     }
 }

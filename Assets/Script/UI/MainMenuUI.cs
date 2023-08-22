@@ -299,7 +299,7 @@ public class MainMenuUI : MonoBehaviour
         }
     }
     public void SelectToPlay(){
-            if(playerSaveSO.modeLevel == levelMode.outside){
+            if(playerSaveSO.modeLevel == levelMode.outside || playerSaveSO.modeLevel == levelMode.finishQuest){
                 if(playerSaveSO.isFromOutside){
 
                     if(selectionOptionLanguage == "ID"){

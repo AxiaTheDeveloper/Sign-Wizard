@@ -23,7 +23,6 @@ public class Penumbuk : MonoBehaviour
     [SerializeField]private float maxProgress = 100, penguranganProgress;
     private float progressNow;
 
-
     [SerializeField]private WordInput wordInput;
     [SerializeField]private WordManager[] wordManager;
     [SerializeField]private FinishWordDoFunction finishFunction1;

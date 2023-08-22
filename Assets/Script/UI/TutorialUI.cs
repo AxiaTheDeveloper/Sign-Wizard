@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialUI : MonoBehaviour
 {
     [SerializeField]private GameObject[] pageList;
+    [SerializeField]private GameObject[] pageCheckers;
     [SerializeField]private GameObject pressSpaceToContinue;
     private int selection = 0;
     
@@ -53,7 +54,11 @@ public class TutorialUI : MonoBehaviour
         foreach(GameObject page in pageList){
             page.SetActive(false);
         }
+        foreach(GameObject pageChecker in pageCheckers){
+            pageChecker.SetActive(false);
+        }
         pageList[selection].SetActive(true);
+        pageCheckers[selection].SetActive(true);
     }
 
     public void Show_Tutorial(){
