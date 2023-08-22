@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum levelMode{
-    outside, MakingPotion
+    outside, MakingPotion, finishQuest
 }
 [CreateAssetMenu]
 public class PlayerSave : ScriptableObject

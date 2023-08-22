@@ -119,6 +119,10 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheDoor){
             door = new TheDoor();
         }
+        if(type == ObjectType.TheQuestBox)
+        {
+            questBox = new TheQuestBox();
+        }
     }
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
