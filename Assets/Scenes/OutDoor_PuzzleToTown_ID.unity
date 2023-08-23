@@ -21729,8 +21729,11 @@ MonoBehaviour:
   - {fileID: 1488278209}
   - {fileID: 1891860729}
   - {fileID: 1312470185}
+  tileWordManagers: []
   totalMoveBlock: 2
   moveBlockSpeed: 2
+  isAPuzzleTile: 1
+  tileType: 0
 --- !u!1 &1537915628
 GameObject:
   m_ObjectHideFlags: 0
