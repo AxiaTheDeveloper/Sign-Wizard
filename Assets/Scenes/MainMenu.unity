@@ -5612,7 +5612,7 @@ MonoBehaviour:
   gameSaveManager: {fileID: 1160408908}
   playerInvent: {fileID: 11400000, guid: fa8077cf64c9f1e4190c7b1fb21ca5df, type: 2}
   chest: {fileID: 11400000, guid: ea3fe1f328471604cbec0b8e21738387, type: 2}
-  bahasaGame: ID
+  bahasaGame: EN
 --- !u!4 &256544849
 Transform:
   m_ObjectHideFlags: 0
