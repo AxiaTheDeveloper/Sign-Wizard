@@ -26878,15 +26878,16 @@ MonoBehaviour:
     Oh iya, jangan
     lupa untuk mengecek kotak surat yang ada di depan rumah. Akan ada pesanan dari
     warga sekitar yang perlu kamu selesaikan. Kamu bisa mengirimkan pesanan-pesanan
-    tersebut melalui peliharaan yang aku tinggalkan untukmu.
+    tersebut dengan meletakkannya di kotak surat yang ada di depan rumah dan nanti
+    akan ada peliharaan kita yang mengantar.
 
 
-    Aku sangat berharap
-    kamu menikmati waktu di rumah ini dan mengasah kemampuanmu dalam sihir dan pembuatan
-    ramuan. Aku percaya bahwa kamu memiliki potensi yang luar biasa.
+    Aku sangat berharap kamu menikmati
+    waktu di rumah ini dan mengasah kemampuanmu dalam sihir dan pembuatan ramuan.
+    Aku percaya bahwa kamu memiliki potensi yang luar biasa.
 
-    Jaga dirimu
-    dengan baik, dan sampai jumpa segera!
+    Jaga dirimu dengan
+    baik, dan sampai jumpa segera!
 
 
 
@@ -26919,8 +26920,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41
-  m_fontSizeBase: 41
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

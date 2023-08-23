@@ -26880,21 +26880,22 @@ MonoBehaviour:
 
     Oh yes, don''t forget to check the mailbox in front of the
     house. There will be orders from local residents that you need to complete. You
-    can send these orders through the pets that I left for you.
+    can send these orders by putting it in the mail box in front of the house and
+    then our pets will send it.
 
 
-    I really hope
-    you enjoy your time in this house and hone your skills in magic and potion making.
-    I believe that you have great potential.
+    I really hope you enjoy your time in this house
+    and hone your skills in magic and potion making. I believe that you have great
+    potential.
 
-    Take good care of yourselves, and
-    see you soon!
+    Take good care of yourselves, and see you soon!
 
 
 
     With love,
 
-    Your Grandma'
+    Your
+    Grandma'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -26921,8 +26922,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 44.5
+  m_fontSizeBase: 44.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
