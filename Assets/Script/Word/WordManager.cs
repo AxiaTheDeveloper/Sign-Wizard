@@ -32,8 +32,7 @@ public class WordManager : MonoBehaviour
     private void Start() {
         hasWord = false;
         hasChooseWord = false;
-        
-        
+    
         createWord();
         
     }
@@ -53,13 +52,10 @@ public class WordManager : MonoBehaviour
 
             if(wordDisplay == null){
                 wordDisplay =  spawner.SpawnWord();
-                // Debug.Log("harusnya sekali aja");
+                chosenWord = new Word(choseWord, wordDisplay, true);
             }
             else{
-
                 chosenWord = new Word(choseWord, wordDisplay, true);
-
-                // Debug.Log(chosenWord);
             }
         }
         else if(templateType == TemplateType.SpawnTemplate){
@@ -170,6 +166,11 @@ public class WordManager : MonoBehaviour
         }
         return true;
 
+    }
+    public bool CheckCancelInputLetterOnWord()
+    {
+        //buat yg wordmanager banyak,inidipanggil wordinput
+        return chosenWord.GetIsAlreadyWrong_Reset();
     }
     private IEnumerator DelayedCreateWord(){
 

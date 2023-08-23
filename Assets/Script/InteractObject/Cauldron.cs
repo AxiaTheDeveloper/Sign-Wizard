@@ -341,7 +341,7 @@ public class Cauldron : MonoBehaviour
     }
     public void CloseWholeUI()
     {
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         cauldronUI_Cook.HideCookUI();
         cauldronUI_Inventory.HideInventoryUI();
         CountFireSpeed();

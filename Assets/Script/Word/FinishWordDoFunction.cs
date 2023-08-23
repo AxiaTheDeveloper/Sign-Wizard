@@ -7,16 +7,20 @@ public class FinishWordDoFunction : MonoBehaviour
 {
     //buat kirim sinyal aja kalo uda selesai tergantung mo ke siapa
     public event EventHandler OnFinishChestWord, OnStopCauldronFire, OnTumbuk;//ke chest, ke cauldron, ke penumbuk
+    public event EventHandler<OnTileMoveEventArgs> OnTileMove;//kirim ke TileControl di parent
+    public class OnTileMoveEventArgs : EventArgs{
+        public TypeTilePuzzleMove typeTilePuzzleMoveNow;
+    } 
     public enum Type{
-        AddObject, Cauldron, Chest, Penumbuk
+        AddObject, Cauldron, Chest, Penumbuk, TilePuzzle
     }
     public Type type;
 
-
-    // [SerializeField]private PlayerInventory playerInventory;
-    // [SerializeField]private ItemScriptableObject itemYangNambah;
-    // [SerializeField]private int quantity;
-
+    public enum TypeTilePuzzleMove
+    {
+        Top, Down, Left, Right
+    }
+    [SerializeField]private TypeTilePuzzleMove typeTilePuzzleMove;
 
     public void WordFinisheds(){
         // Debug.Log("PAK TOLONG");
@@ -34,6 +38,12 @@ public class FinishWordDoFunction : MonoBehaviour
         }
         else if(type == Type.Penumbuk){
             OnTumbuk?.Invoke(this,EventArgs.Empty);
+        }
+        else if(type == Type.TilePuzzle)
+        {
+            OnTileMove?.Invoke(this, new OnTileMoveEventArgs{
+                typeTilePuzzleMoveNow = typeTilePuzzleMove
+            });
         }
     }
 }

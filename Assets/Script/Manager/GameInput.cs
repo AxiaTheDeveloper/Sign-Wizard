@@ -7,7 +7,7 @@ public class GameInput : MonoBehaviour
 {
     public static GameInput Instance {get; private set;}
 
-    private Vector2 keyInput, lastKeyInput, lastKeyInputAnimation, lastDiagonalInput, keyArrowInputUI;
+    private Vector2 keyInput, lastKeyInput, lastKeyInputAnimation, lastDiagonalInput, keyArrowInputUI, keyInputPuzzle;
     private bool wasUsingArrowKeys, wasUsingArrowKeysDictionary;
     [SerializeField]private float arrowKeyCooldownMaxTime, arrowKeyCooldownDictionaryMaxTime;
     private float arrowKeyCooldown, arrowKeyCooldownDictionary;
@@ -50,8 +50,6 @@ public class GameInput : MonoBehaviour
             if(Input.GetKey(KeyCode.LeftArrow)) keyInput.x = -1;
         }
         
-
-        
         keyInput = keyInput.normalized;
 
         return keyInput;
@@ -68,6 +66,20 @@ public class GameInput : MonoBehaviour
 
         // Debug.Log(lastKeyInput);
         return lastKeyInput;
+    }
+
+    public Vector2 GetInputMovementPuzzle(){
+        
+        // keyInputPuzzle.Set(0f,0f);
+
+        if(WitchGameManager.Instance.IsInGame()){
+            if(Input.GetKeyDown(KeyCode.UpArrow)) return new Vector2(0,1);
+            else if(Input.GetKeyDown(KeyCode.DownArrow)) return new Vector2(0,-1);
+            else if(Input.GetKeyDown(KeyCode.RightArrow)) return new Vector2(1,0);
+            else if(Input.GetKeyDown(KeyCode.LeftArrow)) return new Vector2(-1,0);
+            // Debug.Log(keyInputPuzzle);
+        }
+        return new Vector2(0,0);
     }
 
     //yang lain

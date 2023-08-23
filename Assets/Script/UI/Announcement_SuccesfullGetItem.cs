@@ -45,6 +45,6 @@ public class Announcement_SuccesfullGetItem : MonoBehaviour
         particle.gameObject.SetActive(false);
         particle.Stop();
         gameObject.SetActive(false);
-        WitchGameManager.Instance.ChangeToInGame();
+        WitchGameManager.Instance.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
 }

@@ -89,12 +89,12 @@ public class DialogueManager : MonoBehaviour
     }
     private void dialogueHolder_AfterReadingMail_OnDialogueFinish(object sender, EventArgs e)
     {
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
 
     private void dialogueHolder_NerimaGift_OnDialogueFinish(object sender, EventArgs e)
     {
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
 
     private void dialogueHolder_tutorial_OnDialogueFinish(object sender, EventArgs e)
@@ -128,7 +128,7 @@ public class DialogueManager : MonoBehaviour
             tutorialSubmit.Show_Tutorial();
         }
         else if(dialogueTutorial == DialogueTutorial.playerStartMaking){
-            gameManager.ChangeToInGame();
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
             PlayerSaveManager.Instance.ChangeFirstTimeTutorial();
         }
     }
@@ -150,7 +150,7 @@ public class DialogueManager : MonoBehaviour
     private void dialogueHolder_WrongChoice_OnDialogueFinish(object sender, EventArgs e)
     {
         if(interfaceType == WitchGameManager.InterfaceType.none){
-            gameManager.ChangeToInGame();
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         }
         else{
             gameManager.ChangeInterfaceType(interfaceType);
@@ -161,12 +161,12 @@ public class DialogueManager : MonoBehaviour
     {
         // fadeNight.ShowUI_Potion();
         //jadi change to in game karena berarti uda selesai, dan masi bisa keliling
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
     private void dialogueHolder_Go_Out_Dialogue_OnDialogueFinish(object sender, EventArgs e)
     {
         PlayerSaveManager.Instance.HasDone_GoOutDialogue();
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         
         // TimelineManager.Instance.Start_GoOutside();
     }
@@ -176,6 +176,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void ShowDialogue_Intro(){
         gameManager.ChangeToCinematic();
+        
         dialogueHolder_Intro.ShowDialogue();
     }
     public void ShowDialogue_Intro2(){

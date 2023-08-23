@@ -109,7 +109,7 @@ public class QuestBox : MonoBehaviour
             }
             else{
                 LeanTween.move(questLetter, new Vector3(93.0238f, 1568.225f, 0f), 0.2f).setOnComplete(
-                    ()=> gameManager.ChangeToInGame()
+                    ()=> gameManager.ChangeToInGame(WitchGameManager.InGameType.normal)
                 );
             }
             

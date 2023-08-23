@@ -16,8 +16,6 @@ public class WordInput : MonoBehaviour
     [SerializeField]private float inputCooldownTimerMax;
     private float inputCooldownTimer;
 
-
-    
     private bool hasChosenWords, YesWordSame;//no word same di cek kedua
     private bool isUIFirstTimeShowing;
     private int choice;
@@ -40,7 +38,7 @@ public class WordInput : MonoBehaviour
         // YesWordSame = false;
     }
     private void Update() {
-        if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime){
+        if((gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndChest || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.CauldronFire || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.TumbukTime || (gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle && gameInput.GetInputMovementPuzzle() == Vector2.zero)) && wordManager.Length > 0){
             if(Input.anyKeyDown && !gameInput.GetInputCancelInputLetter() &&inputCooldownTimer <=0){
                 inputCooldownTimer = inputCooldownTimerMax;
                 foreach(char letter in Input.inputString){
@@ -114,6 +112,13 @@ public class WordInput : MonoBehaviour
                             if(!wordManager[chosenWordsList[0]].InputLetter(lowerLetter)){
                                 hasChosenWords = false;
                                 chosenWordsList.Clear();
+                            }
+                            else{
+                                if(wordManager[chosenWordsList[0]].CheckCancelInputLetterOnWord())
+                                {
+                                    hasChosenWords = false;
+                                    chosenWordsList.Clear();
+                                }
                             }
                         }
                         else if(chosenWordsList.Count < 1){

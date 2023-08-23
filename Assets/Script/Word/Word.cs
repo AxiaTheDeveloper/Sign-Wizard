@@ -8,7 +8,7 @@ public class Word
     public string word;
     private int no_Letter;
     private WordUI display;
-    private bool isSameTemplate, isAlreadyWrong;
+    private bool isSameTemplate, isAlreadyWrong, isAlreadyWrong_Reset;//already wrong reset cuma buat kalo wordmanager byk aja jadinya ga ngestuck di 1 orang
     public Word (string chosenWord, WordUI freeDisplay, bool GetisSameTemplate){
         word = chosenWord;
         
@@ -35,7 +35,7 @@ public class Word
 
     public void WrongLetter(){
         if(!isAlreadyWrong){
-            
+            isAlreadyWrong_Reset = false;
             isAlreadyWrong = true;
             if(no_Letter <= word.Length){
                 display.ChangeWrongColorUI(no_Letter);
@@ -43,6 +43,7 @@ public class Word
 
         }
         else{
+            isAlreadyWrong_Reset = true;
             CancelTypedOut();
         }
         
@@ -62,5 +63,9 @@ public class Word
             
         }
         return no_Letter >= word.Length;
+    }
+    public bool GetIsAlreadyWrong_Reset()
+    {
+        return isAlreadyWrong_Reset;
     }
 }

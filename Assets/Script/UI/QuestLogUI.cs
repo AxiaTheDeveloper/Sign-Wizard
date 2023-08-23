@@ -21,6 +21,7 @@ public class QuestLogUI : MonoBehaviour
     }
 
     private void Update() {
+        //ini ntr trgantung si mo di sini jg ato ga itunya
         if(WitchGameManager.Instance.IsInGame()){
             if(!isShow && gameInput.GetInputShowQuestLog()){
                 ShowUI();

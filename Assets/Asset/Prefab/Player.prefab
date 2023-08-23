@@ -100,6 +100,9 @@ MonoBehaviour:
   gameInput: {fileID: 0}
   rb: {fileID: 5684377240713654815}
   speedMovement: 6
+  totalMoveBlock: 1
+  speedMovementPuzzle: 0.5
+  playerAnimator: {fileID: 4812652835229335097}
 --- !u!114 &5684377240713654882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +144,7 @@ MonoBehaviour:
   door: {fileID: 0}
   inputCooldownTimerMax: 0.2
   playerSave: {fileID: 4812652835541765478}
+  want: {fileID: 0}
 --- !u!114 &4812652835541765478
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -186,6 +186,6 @@ public class DictionaryUI : MonoBehaviour
     }
     public void HideUI(){
         gameObject.SetActive(false);
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
 }

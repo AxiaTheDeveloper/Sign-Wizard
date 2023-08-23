@@ -10,6 +10,8 @@ public class PlayerSave : ScriptableObject
 {
     public int level;
     public levelMode modeLevel;
+    public WitchGameManager.Place placePlayerNow;
+    public WitchGameManager.OutDoorType outDoorTypeNow;
     public bool isResetDay;
     public bool isFromOutside;
     public bool isSubmitPotion;

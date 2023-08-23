@@ -113,7 +113,7 @@ public class Chest : MonoBehaviour
     }
     public void CloseWholeUI()
     {
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         ChestUI.HideInventoryUI();
         // wordUI.SetActive(true);
         //change game state

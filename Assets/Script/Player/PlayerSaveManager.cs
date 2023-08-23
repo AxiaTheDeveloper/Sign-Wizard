@@ -15,12 +15,17 @@ public class PlayerSaveManager : MonoBehaviour
 
     private void Awake() {
         Instance = this;
+        
         if(playerSaveSO.modeLevel == levelMode.outside && playerSaveSO.level == 1){
             Transform visualPos = transform.GetChild(0);
             // Debug.Log(visualPos.gameObject);
             visualPos.localPosition = new Vector3(0,-2.65f,0);
         }
         
+    }
+    private void Start() {
+        playerSaveSO.placePlayerNow = WitchGameManager.Instance.GetPlace();
+        playerSaveSO.outDoorTypeNow = WitchGameManager.Instance.GetOutDoorType();
     }
 
 
@@ -147,10 +152,10 @@ public class PlayerSaveManager : MonoBehaviour
             #endif
         }
         if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
-            SceneManager.LoadSceneAsync("OutDoor_ID");
+            SceneManager.LoadSceneAsync("OutDoor_InFrontHouse_ID");
         }
         else{
-            SceneManager.LoadSceneAsync("OutDoor_EN");
+            SceneManager.LoadSceneAsync("OutDoor_InFrontHouse_EN");
         }
     }
     public void Go_InsideNow(){

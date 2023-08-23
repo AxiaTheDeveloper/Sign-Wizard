@@ -10,6 +10,8 @@ class PlayerData
 {
     public int level;
     public levelMode modeLevel;
+    public WitchGameManager.Place placePlayerNow;
+    public WitchGameManager.OutDoorType outDoorTypeNow;
     public bool isResetDay;
     public bool isFromOutside;
     public bool isSubmitPotion;
@@ -57,6 +59,8 @@ public class GameSaveManager : MonoBehaviour
         PlayerData psData = new PlayerData();
         psData.level = playerSaveSO.level;
         psData.modeLevel = playerSaveSO.modeLevel;
+        psData.placePlayerNow = playerSaveSO.placePlayerNow;
+        psData.outDoorTypeNow = playerSaveSO.outDoorTypeNow;
         psData.isResetDay = playerSaveSO.isResetDay;
         psData.isFromOutside = playerSaveSO.isFromOutside;
         psData.isSubmitPotion = playerSaveSO.isSubmitPotion;

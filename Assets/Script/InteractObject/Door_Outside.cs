@@ -150,7 +150,7 @@ public class Door_Outside : MonoBehaviour
         dialogue.SetActive(false);
         // gameObject.SetActive(false);
         if(!gameManager.IsInGame()){
-            gameManager.ChangeToInGame();
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         }
     }
 

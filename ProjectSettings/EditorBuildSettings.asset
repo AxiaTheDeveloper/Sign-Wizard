@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InDoor_ID.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/OutDoor_ID.unity
+    path: Assets/Scenes/OutDoor_InFrontHouse_ID.unity
     guid: 95f6fcd8cfd01f54db9d0fc9b85a01e2
   - enabled: 1
     path: Assets/Scenes/EN/InDoor_EN.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EN/OutDoor_EN.unity
     guid: fbf3ae1758bc65c43a24ba1f898009b1
+  - enabled: 0
+    path: Assets/Scenes/OutDoor_PuzzleToTown_ID.unity
+    guid: 687317945b257bd478b3b006d258d16e
   m_configObjects: {}

@@ -58,7 +58,7 @@ public class PauseUI : MonoBehaviour
             
         }
         else if(gameManager.isPause()){
-            if(gameInput.GetInputEscape() && escapeCooldownTimer <= 0){
+            if((gameInput.GetInputEscape() ||gameInput.GetInputEscapeMainMenu()) && escapeCooldownTimer <= 0){
                 HideUI();
                 gameManager.PauseGame();
                 escapeCooldownTimer = escapeCooldownTimerMax;

@@ -60,12 +60,18 @@ public class FadeNight_StartEnd : MonoBehaviour
             }
             else{
                 if(playerSave.GetFirstTimeTutorial()){
+                    if(gameManager.GetPlace() == WitchGameManager.Place.indoor) dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTutorialStart);
+                    else{
+                        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+                    }
                     //ntr ini mainin timeline nya ,skrg smntr ini
-                    dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTutorialStart);
+                    
                 }
-                else{
-                    gameManager.ChangeToInGame();
+                else
+                {
+                    gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
                 }
+                
                 
             }
             

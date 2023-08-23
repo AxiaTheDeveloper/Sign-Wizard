@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   modeLevel: 1
+  placePlayerNow: 0
+  outDoorTypeNow: 3
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0
   isResetSave: 0
-  isFirstTime_Tutorial: 1
+  isFirstTime_Tutorial: 0
   isFirstTimeInGame: 0

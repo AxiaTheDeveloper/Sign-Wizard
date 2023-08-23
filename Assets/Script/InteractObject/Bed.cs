@@ -100,7 +100,7 @@ public class Bed : MonoBehaviour
         dialogue.SetActive(false);
         // gameObject.SetActive(false);
         if(!gameManager.IsInGame()){
-            gameManager.ChangeToInGame();
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         }
     }
 

@@ -217,7 +217,7 @@ public class MainMenuUI : MonoBehaviour
                 if(isYesReset){
                     playerSaveSO.level = 1;
                     playerSaveSO.modeLevel = levelMode.outside;
-                    playerSaveSO.isFromOutside = false;
+                    playerSaveSO.isFromOutside = true;
                     playerSaveSO.isResetDay = false;
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
@@ -299,14 +299,46 @@ public class MainMenuUI : MonoBehaviour
         }
     }
     public void SelectToPlay(){
-            if(playerSaveSO.modeLevel == levelMode.outside || playerSaveSO.modeLevel == levelMode.finishQuest){
+            if(playerSaveSO.modeLevel == levelMode.outside){
                 if(playerSaveSO.isFromOutside){
-
-                    if(selectionOptionLanguage == "ID"){
-                        LevelLoader.Instance.LoadScene("OutDoor_ID");
+                    if(playerSaveSO.level == 1)
+                    {
+                        if(selectionOptionLanguage == "ID"){
+                            LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
+                        }
+                        else{
+                            LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
+                        }
                     }
                     else{
-                        LevelLoader.Instance.LoadScene("OutDoor_EN");
+                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                        {
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
+                        {   
+                            // Debug.Log("harusnya ke sini???");
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
+                        {
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
+                            }
+                        }
                     }
                     
                 }
@@ -320,22 +352,97 @@ public class MainMenuUI : MonoBehaviour
                 }
                 else{
                     if(!playerSaveSO.isFromOutside){
-                        playerSaveSO.isFromOutside = true;
                         if(selectionOptionLanguage == "ID"){
-                            LevelLoader.Instance.LoadScene("OutDoor_ID");
+                            LevelLoader.Instance.LoadScene("InDoor_ID");
                         }
                         else{
-                            LevelLoader.Instance.LoadScene("OutDoor_EN");
+                            LevelLoader.Instance.LoadScene("InDoor_EN");
                         }
                     }
                 }
             }
             else if(playerSaveSO.modeLevel == levelMode.MakingPotion){
-                if(selectionOptionLanguage == "ID"){
-                    LevelLoader.Instance.LoadScene("InDoor_ID");
+                if(playerSaveSO.isFirstTime_Tutorial)
+                {
+                    playerSaveSO.isFromOutside = true;
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
+                    }
                 }
                 else{
-                    LevelLoader.Instance.LoadScene("InDoor_EN");
+                    if(playerSaveSO.placePlayerNow == WitchGameManager.Place.outdoor)
+                    {
+                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                        {
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
+                        {   
+                            // Debug.Log("harusnya ke sini???");
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
+                        {
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
+                            }
+                        }
+                    }
+                    else{
+                        if(selectionOptionLanguage == "ID"){
+                            LevelLoader.Instance.LoadScene("InDoor_ID");
+                        }
+                        else{
+                            LevelLoader.Instance.LoadScene("InDoor_EN");
+                        }
+                    }
+                    
+                }
+                
+            }
+            else if(playerSaveSO.modeLevel == levelMode.finishQuest){
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                {
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
+                    }
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
+                {
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
+                    }
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
+                {
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
+                    }
                 }
             }
     }

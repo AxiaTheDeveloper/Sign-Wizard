@@ -176,7 +176,7 @@ public class Penumbuk : MonoBehaviour
         // change game state
     }
     public void CloseWholeUI(){
-        gameManager.ChangeToInGame();
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
         PenumbukUI_Inventory.HideInventoryUI();
         PenumbukUI_Tumbuk.HidePenumbukUI();
         itemTerpilih = new CauldronItem().EmptyItem();

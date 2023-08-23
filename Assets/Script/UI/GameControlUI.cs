@@ -74,7 +74,15 @@ public class GameControlUI : MonoBehaviour
         if(!image.gameObject.activeSelf){
             image.gameObject.SetActive(true);
         }
-        image.sprite = InGame;
+        if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
+        {
+            image.sprite = InGame;
+        }
+        else if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
+        {
+            image.sprite = InGame;//ntr ini diganti
+        }
+        
     }
 
     private void gameManager_OnChangeToCinematic(object sender, EventArgs e)

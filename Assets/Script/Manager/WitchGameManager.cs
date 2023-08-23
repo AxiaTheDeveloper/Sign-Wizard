@@ -14,8 +14,12 @@ public class WitchGameManager : MonoBehaviour
     private gameState state;
 
     private bool pauseState;
-    private gameState saveState_WhilePause;
+    private InGameType saveInGameType_WhilePause;
     public event EventHandler OnChangeToCinematic, OnChangeToInGame, OnChangeToInterface, OnChangeToPause;
+    public enum InGameType{
+        normal, puzzle, none
+    }
+    private InGameType inGameType;
 
 
     public enum InterfaceType{
@@ -27,19 +31,46 @@ public class WitchGameManager : MonoBehaviour
         indoor, outdoor, none
     }
     [SerializeField]private Place place;
+    public enum OutDoorType{
+        town, inFrontOfHouse, puzzleToTown, none
+    }
+    [SerializeField]private OutDoorType outdoorType;
     private void Awake() {
         Instance = this;
         
         state = gameState.Cinematic;
         // Debug.Log(state);
     }
+    private void Update() {
+        if(inGameType == InGameType.normal)
+        {
+            if(Input.GetKeyDown(KeyCode.Alpha0)) inGameType = InGameType.puzzle;
+            OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+        }
+        else if(inGameType == InGameType.puzzle)
+        {
+            if(Input.GetKeyDown(KeyCode.KeypadEnter)) inGameType = InGameType.normal;
+            OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+        }
+        
+        
+    }
     public Place GetPlace(){
         return place;
     }
-    public void ChangeToInGame(){
+    public OutDoorType GetOutDoorType()
+    {
+        return outdoorType;
+    }
+    public void ChangeToInGame(InGameType inGameTypeNow){
         interfaceType = InterfaceType.none;
+        inGameType = inGameTypeNow;
         state = gameState.InGame;
         OnChangeToInGame?.Invoke(this, EventArgs.Empty);
+    }
+    public InGameType IsInGameType()
+    {
+        return inGameType;
     }
 
     //bagian urusan interface
@@ -54,6 +85,7 @@ public class WitchGameManager : MonoBehaviour
 
     public void ChangeInterfaceType(InterfaceType type){
         state = gameState.InterfaceTime;
+        inGameType = InGameType.none;
         interfaceType = type;
         OnChangeToInterface?.Invoke(this, EventArgs.Empty);
     }
@@ -67,13 +99,14 @@ public class WitchGameManager : MonoBehaviour
         pauseState = !pauseState;
         //ga mungkin bs pause kalo lg d state interface
         if(pauseState){
-            saveState_WhilePause = state;
+            saveInGameType_WhilePause = inGameType;
+            inGameType = InGameType.none;
             state = gameState.Pause; 
             OnChangeToPause?.Invoke(this, EventArgs.Empty);       
         }
         else{
-            
-            state = saveState_WhilePause;
+            state = gameState.InGame;
+            inGameType = saveInGameType_WhilePause;
             OnChangeToInGame?.Invoke(this,EventArgs.Empty);
         }
     }
@@ -89,6 +122,7 @@ public class WitchGameManager : MonoBehaviour
         return state == gameState.Pause;
     }
     public void ChangeToCinematic(){
+        inGameType = InGameType.none;
         interfaceType = InterfaceType.none;
         state = gameState.Cinematic;
         OnChangeToCinematic?.Invoke(this, EventArgs.Empty);

@@ -30,9 +30,11 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]private Door_Outside door;
     
     [SerializeField]private float inputCooldownTimerMax;
-    private float inputCooldownTimer;
+    private float inputCooldownTimer, inputCooldownForInventoryOnly;
     [SerializeField]private PlayerSaveManager playerSave;
     [SerializeField]private WantToSeeTutorialUI want;
+
+    private bool canStartOpen = false;
     private void Awake() {
         Instance = this;
         inventorySize = inventory.size;
@@ -47,7 +49,14 @@ public class PlayerInventory : MonoBehaviour
     private void Start(){
         isInventoryOpen = false;
         isCauldronOpen = false;
-
+        if(playerSave.GetIsPlayerFromOutside() || playerSave.GetIsSubmitPotion())
+        {
+            inputCooldownForInventoryOnly = 1.25f;
+        }
+        else{
+            inputCooldownForInventoryOnly = 0.95f;
+        }
+        
         if(inventory.inventSlot.Count != inventorySize){
             inventory.CreateInventory();
         }
@@ -59,14 +68,24 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         Inventory_Input();
+        if(!canStartOpen)
+        {
+            if(inputCooldownForInventoryOnly > 0)
+            {
+                inputCooldownForInventoryOnly -= Time.deltaTime;
+            }
+            else{
+                canStartOpen = true;
+            }
+        }
         // Debug.Log(inputCooldownTimer);
     }
 
     private void Inventory_Input(){
         //Open Inventory
-        if(gameManager.IsInGame()){
+        if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal){
             
-            if(gameInput.GetInputOpenInventory() && !isInventoryOpen){
+            if(gameInput.GetInputOpenInventory() && !isInventoryOpen && canStartOpen){
                 // Debug.Log("Hi Open");
                 inventoryUI.ShowInventoryUI();
                 isInventoryOpen = true;
@@ -92,7 +111,7 @@ public class PlayerInventory : MonoBehaviour
                     // Debug.Log(gameInput.InputClearInventoryPlayer());
                 }
                 else{
-                    if((gameInput.GetInputEscape() || gameInput.GetInputOpenInventory()||gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
+                    if((gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
                         inputCooldownTimer = inputCooldownTimerMax;
                         OnQuitInventory?.Invoke(this,EventArgs.Empty);
                         isInventoryOpen = false;

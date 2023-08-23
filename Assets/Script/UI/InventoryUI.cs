@@ -130,7 +130,7 @@ public class InventoryOnly{
         // UpdateVisual_InventDescription();
     }
     public void HideInventoryUI(GameObject UI){
-        WitchGameManager.Instance.ChangeToInGame();
+        WitchGameManager.Instance.ChangeToInGame(WitchGameManager.InGameType.normal);
         if(move){
             move = false;
             RectTransform ui_rect = UI.GetComponent<RectTransform>();
