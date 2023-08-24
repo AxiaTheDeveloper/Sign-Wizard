@@ -15,7 +15,7 @@ MonoBehaviour:
   level: 2
   modeLevel: 1
   placePlayerNow: 1
-  outDoorTypeNow: 1
+  outDoorTypeNow: 2
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0

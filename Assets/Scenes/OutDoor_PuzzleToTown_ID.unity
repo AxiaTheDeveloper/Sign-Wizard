@@ -7922,7 +7922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   place: 1
-  outdoorType: 1
+  outdoorType: 2
 --- !u!1001 &602804702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29581,6 +29581,10 @@ PrefabInstance:
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 1253066116}
+    - target: {fileID: 4812652835229335097, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 594276696}
     - target: {fileID: 4812652835229335097, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: maxDiagonalChecker
       value: 0.05

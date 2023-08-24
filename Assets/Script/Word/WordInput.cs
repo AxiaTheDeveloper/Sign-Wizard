@@ -58,7 +58,7 @@ public class WordInput : MonoBehaviour
                                 }
                             }
                         }
-                        else{
+                        else if(wordManager.Length > 1){
                             for(int i=0;i<wordManager.Length;i++){
                                 if(adaWord){
                                     if(wordManager[i].InputFirstLetter(lowerLetter)){

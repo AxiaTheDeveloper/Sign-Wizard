@@ -61,9 +61,7 @@ public class WitchGameManager : MonoBehaviour
                 inGameType = InGameType.normal;
                 OnChangeToInGame?.Invoke(this,EventArgs.Empty);
             }
-            
         }
-        
         
     }
     public Place GetPlace(){

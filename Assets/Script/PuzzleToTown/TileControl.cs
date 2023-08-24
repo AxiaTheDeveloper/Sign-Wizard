@@ -29,7 +29,7 @@ public class TileControl : MonoBehaviour
     [SerializeField]private bool isAPuzzleTile; //inibuat mastiin apakah ini trmasuk tile puzzle atau walopun trmasuk hitungan tile dia cuma tanah biasa == gabisa digerakin == player gabisa lewat, or probably visualnya diilangin aja 
     [SerializeField]private bool isPlayerOnTop;
     [SerializeField]private PuzzleTileType tileType;
-    [SerializeField]private bool isMoveAble;
+    [SerializeField]private bool isMoveable;
     [SerializeField]private int tilePuzzlePositionNow;
 
     private void Awake() 
@@ -87,6 +87,22 @@ public class TileControl : MonoBehaviour
             directionMove = new Vector2(1,0);
         }
         MoveTile();
+    }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            isPlayerOnTop = true;
+            PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            playerMovement.ChangePositionNow(tilePuzzlePositionNow);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            isPlayerOnTop = false;
+        }
     }
     private void MoveTile()
     {
@@ -165,13 +181,13 @@ public class TileControl : MonoBehaviour
     {
         return tileType;
     }
-    public bool IsMoveAble()
+    public bool IsMoveable()
     {
-        return isMoveAble;
+        return isMoveable;
     }
-    public void ChangeIsMoveAble(bool change)
+    public void ChangeIsMoveable(bool change)
     {
-        isMoveAble = change;
+        isMoveable = change;
     }
     public int TilePuzzlePositionNow()
     {

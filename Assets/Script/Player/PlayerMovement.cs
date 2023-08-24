@@ -133,9 +133,13 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public void GetPositionNow(int positionNow)
+    public void ChangePositionNow(int positionNow)
     {
         playerPuzzlePositionNow = positionNow;
+    }
+    public int GetPositionNow()
+    {
+        return playerPuzzlePositionNow;
     }
 
 

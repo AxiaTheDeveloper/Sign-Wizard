@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    private WitchGameManager gameManager;
+    [SerializeField]private WitchGameManager gameManager;
     [SerializeField]public Animator animator;
     private Vector2 keyInput, lastKeyInput, keyInputPuzzle;
 
@@ -16,7 +16,7 @@ public class PlayerAnimator : MonoBehaviour
     private float diagonalChecker;
     private SoundManager soundManager;
     private void Start() {
-        if(PlayerSaveManager.Instance.GetPlayerLevel() == 1 && PlayerSaveManager.Instance.GetPlayerLevelMode() == levelMode.outside) 
+        if(PlayerSaveManager.Instance.GetPlayerLevel() == 1 && PlayerSaveManager.Instance.GetPlayerLevelMode() == levelMode.outside && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse) 
         {
             animator.Play("Player_Idle_Up");
             animator.SetBool("idle", true);
@@ -24,7 +24,7 @@ public class PlayerAnimator : MonoBehaviour
         
         
         soundManager = SoundManager.Instance;
-        gameManager = WitchGameManager.Instance;
+        if(gameManager == null)gameManager = WitchGameManager.Instance;
     }
 
     private void Update() {
@@ -44,7 +44,7 @@ public class PlayerAnimator : MonoBehaviour
                     if(keyInput != Vector2.zero){
                         soundManager.StopSFX_PlayerWalk();
                         keyInput = Vector2.zero;
-                        animator.SetBool("idle", true);
+                        // animator.SetBool("idle", true);
                     }
                     keyInputPuzzle = gameInput.GetInputMovementPuzzle();
                     // Debug.Log(keyInputPuzzle);
@@ -197,7 +197,7 @@ public class PlayerAnimator : MonoBehaviour
         // Debug.Log(inputMovementPuzzle);
         if(inputMovementPuzzle != Vector2.zero)
         {
-            // Debug.Log("mainkan");
+            Debug.Log("mainkan");
             if(!soundManager.isPlayedSFX_PlayerWalk()){
                 soundManager.PlaySFX_PlayerWalk();
             }
@@ -208,8 +208,10 @@ public class PlayerAnimator : MonoBehaviour
             }
             else if(inputMovementPuzzle.y == -1)
             {
+                Debug.Log("Halo1" + animator.GetBool("idle"));
                 animator.Play("Player_Walk_Down");
                 animator.SetBool("idle", false);
+                Debug.Log("Halo2" + animator.GetBool("idle"));
             }
             else if(inputMovementPuzzle.x == 1)
             {
@@ -222,11 +224,11 @@ public class PlayerAnimator : MonoBehaviour
                 animator.SetBool("idle", false);
             }
         }
-        else
-        {
-            soundManager.StopSFX_PlayerWalk();
-            animator.SetBool("idle", true);
-        }
+        // else
+        // {
+        //     soundManager.StopSFX_PlayerWalk();
+        //     animator.SetBool("idle", true);
+        // }
         
         
     }

@@ -55,7 +55,7 @@ public class FadeNight_StartEnd : MonoBehaviour
         }
         else{
             //kalo lvl 1 ato 0 trgantung ntr di outside, mainin dialog da da da
-            if(playerSave.GetPlayerLevelMode() == levelMode.outside && playerSave.GetPlayerLevel() == 1){
+            if(playerSave.GetPlayerLevelMode() == levelMode.outside && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && playerSave.GetPlayerLevel() == 1){
                 dialogueManager.ShowDialogue_Intro();
             }
             else{

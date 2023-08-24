@@ -37,7 +37,7 @@ public class WordGenerator : MonoBehaviour
             firstTime = false;
             randChecker = random;
             sameChecker = 0;
-            Debug.Log(wordArray[random] + "checker" + randChecker);
+            // Debug.Log(wordArray[random] + "checker" + randChecker);
         }
         else{
             foundDifferent = false;
@@ -53,7 +53,7 @@ public class WordGenerator : MonoBehaviour
                 }
                 
             }
-            Debug.Log(wordArray[random] + "checker" + randChecker);
+            // Debug.Log(wordArray[random] + "checker" + randChecker);
         }
         if(sameChecker == 1){
             firstTime = true;

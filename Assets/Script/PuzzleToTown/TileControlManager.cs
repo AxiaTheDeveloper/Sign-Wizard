@@ -160,7 +160,7 @@ public class TileControlManager : MonoBehaviour
             {
                 if(positionInPuzzleThatHasTile[TileTopPosition] != null)
                 {
-                    if(positionInPuzzleThatHasTile[TileTopPosition].IsMoveAble() && !positionInPuzzleThatHasTile[TileTopPosition].IsPlayerOnTop())
+                    if(positionInPuzzleThatHasTile[TileTopPosition].IsMoveable() && !positionInPuzzleThatHasTile[TileTopPosition].IsPlayerOnTop())
                     {
                         positionInPuzzleThatHasTile[TileTopPosition].ShowWordInput(TileWordPosition.Down);
                         wordManagerList.Add(positionInPuzzleThatHasTile[TileTopPosition].GetWordManager(TileWordPosition.Down));
@@ -174,7 +174,7 @@ public class TileControlManager : MonoBehaviour
                 
                 if(positionInPuzzleThatHasTile[TileDownPosition] != null)
                 {
-                    if(positionInPuzzleThatHasTile[TileDownPosition].IsMoveAble())
+                    if(positionInPuzzleThatHasTile[TileDownPosition].IsMoveable() && !positionInPuzzleThatHasTile[TileDownPosition].IsPlayerOnTop())
                     {
                         positionInPuzzleThatHasTile[TileDownPosition].ShowWordInput(TileWordPosition.Top);
                         wordManagerList.Add(positionInPuzzleThatHasTile[TileDownPosition].GetWordManager(TileWordPosition.Top));
@@ -188,7 +188,7 @@ public class TileControlManager : MonoBehaviour
                 
                 if(positionInPuzzleThatHasTile[TileLeftPosition] != null)
                 {
-                    if(positionInPuzzleThatHasTile[TileLeftPosition].IsMoveAble())
+                    if(positionInPuzzleThatHasTile[TileLeftPosition].IsMoveable() && !positionInPuzzleThatHasTile[TileLeftPosition].IsPlayerOnTop())
                     {
                         positionInPuzzleThatHasTile[TileLeftPosition].ShowWordInput(TileWordPosition.Right);
                         wordManagerList.Add(positionInPuzzleThatHasTile[TileLeftPosition].GetWordManager(TileWordPosition.Right));
@@ -201,7 +201,7 @@ public class TileControlManager : MonoBehaviour
             {
                 if(positionInPuzzleThatHasTile[TileRightPosition] != null)
                 {
-                    if(positionInPuzzleThatHasTile[TileRightPosition].IsMoveAble())
+                    if(positionInPuzzleThatHasTile[TileRightPosition].IsMoveable() && !positionInPuzzleThatHasTile[TileRightPosition].IsPlayerOnTop())
                     {
                         positionInPuzzleThatHasTile[TileRightPosition].ShowWordInput(TileWordPosition.Left);
                         wordManagerList.Add(positionInPuzzleThatHasTile[TileRightPosition].GetWordManager(TileWordPosition.Left));
