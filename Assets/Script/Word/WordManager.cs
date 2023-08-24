@@ -80,12 +80,30 @@ public class WordManager : MonoBehaviour
             //kalo huruf pertama sama kita pilih kata itu
             hasChooseWord = true;
             chosenWord.TypeOutLetter();
+            
             return true;
         }
             
         return false;
         
         //mungkin di sini kirim kalo, haschooseword false brarti lsg false, tp kalo haschoosword true tp itu false, tp berarti perlu tanda apakah yglain ada haschooseword ato ga
+    }
+    //bisa dipake jg kalo ada yg bareng
+    public bool CheckAllTyped_OnlyForOneLetterWord()
+    {
+        if(hasChooseWord && chosenWord.AllTyped()){
+            
+
+            function.WordFinisheds();
+            hasChooseWord = false;
+            hasWord = false;
+
+            StartCoroutine(DelayedCreateWord());
+            return true;
+
+            //di sini suruh kerjain apa gitu
+        }
+        return false;
     }
     public bool checkerAdaYangSama(char letter){
         return hasChooseWord && chosenWord.GetLetter() == letter;

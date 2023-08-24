@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("This is for Player Movement Puzzle")]
     private bool canWalk = true;
     [SerializeField] private float totalMoveBlock;
-    [SerializeField]private float speedMovementPuzzle;
+    [SerializeField]private float durationMovementPuzzle;
     [SerializeField]private PlayerAnimator playerAnimator;
     [SerializeField]private int playerPuzzlePositionNow;
 
@@ -48,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
                         if(canWalk)
                         {
                             //checker kalo ke arah sini itu tuh bisa dilewatin ga
-                            if(CanMove())
-                            {
+                            // if(CanMove())
+                            // {
                                 canWalk = false;
                                 PlayerMoveInPuzzle();
                                 gameManager.ChangeToCinematic();
-                            }
+                            // }
                             
                             // movePuzzleCooldown = movePuzzleCooldownMax;
                         }
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 playerMovePosition = new Vector3(transform.position.x + keyInputPuzzle.x * totalMoveBlock, transform.position.y + keyInputPuzzle.y * totalMoveBlock, 0f);
         playerAnimator.PlayAnimatorWhileMovingPuzzle(keyInputPuzzle);
-        LeanTween.move(this.gameObject, playerMovePosition, speedMovementPuzzle).setOnComplete(
+        LeanTween.move(this.gameObject, playerMovePosition, durationMovementPuzzle).setOnComplete(
             ()=> FinishMoving()
         );
     }

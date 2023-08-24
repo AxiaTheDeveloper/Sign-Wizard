@@ -8,7 +8,6 @@ using UnityEngine;
 public class InventoryOnly{
     private bool keepMoveRight,keepMoveLeft, move;
     public int SelectItemRight(int totalRow, int totalColumn, int selectItem, List<InventoryItemUI> UI_ItemList, int inventorySize){
-        // Debug.Log("Hi bich");
         keepMoveRight = true;
         int selectItemNow = 0;// ini buat tau dia ada di row mana sih
         int selectItemHere = selectItem;

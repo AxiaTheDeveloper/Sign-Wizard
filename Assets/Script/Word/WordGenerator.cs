@@ -6,16 +6,17 @@ public class WordGenerator : MonoBehaviour
 {   
     private string[] wordArrayTumbuk = {"abc", "def", "ghi", "jkl", "mno", "pqr", "stu", "vwx", "yzc", "bde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "acd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "yza", "bcd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst"};
     private string[] wordArrayKompor = {"a", "i", "u", "e", "o"};
+    private string[] wordArrayPuzzleToTown = {"a", "b", "c", "d", "e"};
     // private static string[] wordArray = {"adil", "apa", "asik"};
     public enum TypeWord{
-        tumbuk, kompor
+        tumbuk, kompor, PuzzleToTown
     }
     [SerializeField]private TypeWord typeWord;
     private string[] wordArray;
     
     private int randChecker, sameChecker;
     private bool firstTime = true;
-    private bool firstRandom = false;
+    private bool foundDifferent = false;
     public string GetRandomWord(){
         
 
@@ -25,6 +26,9 @@ public class WordGenerator : MonoBehaviour
         else if(typeWord == TypeWord.kompor){
             wordArray = wordArrayKompor;
         }
+        else if(typeWord == TypeWord.PuzzleToTown){
+            wordArray = wordArrayPuzzleToTown;
+        }
 
         int random = Random.Range(0,wordArray.Length);
         
@@ -33,22 +37,29 @@ public class WordGenerator : MonoBehaviour
             firstTime = false;
             randChecker = random;
             sameChecker = 0;
+            Debug.Log(wordArray[random] + "checker" + randChecker);
         }
         else{
-            firstRandom = true;
-            while(random == randChecker){
-                random = Random.Range(0,wordArray.Length);
-                if(firstRandom){
+            foundDifferent = false;
+            while(!foundDifferent){
+                if(random == randChecker)
+                {
+                    random = Random.Range(0,wordArray.Length);
                     sameChecker++;
-                    firstRandom = false;
+                }
+                if(random != randChecker)
+                {
+                    foundDifferent = true;
                 }
                 
             }
+            Debug.Log(wordArray[random] + "checker" + randChecker);
         }
-        if(sameChecker == 5){
-            randChecker = random;
+        if(sameChecker == 1){
+            firstTime = true;
             sameChecker = 0;
         }
+        
         // Debug.Log(random);
         string chosenWord = wordArray[random];
 

@@ -67,9 +67,15 @@ public class WordInput : MonoBehaviour
                                         hasChosenWords = true;
                                     }
                                 }
-                                    
-        
                                 
+                            }
+                            if(chosenWordsList.Count == 1)
+                            {
+                                if(wordManager[chosenWordsList[0]].CheckAllTyped_OnlyForOneLetterWord())
+                                {
+                                    hasChosenWords = false;
+                                    chosenWordsList.Clear();
+                                }
                             }
                         }
                         

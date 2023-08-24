@@ -51,7 +51,7 @@ public class WordUI : MonoBehaviour
     public void RemoveWord(){
         Destroy(gameObject);
     }
-    public void ChangeFontSize(int fontSize){
+    public void ChangeFontSize(float fontSize){
         textNow.fontSize = fontSize;
     }
     public void ChangeFontColor(Color32 fontColor){

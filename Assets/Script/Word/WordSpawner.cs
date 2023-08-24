@@ -10,7 +10,7 @@ public class WordSpawner : MonoBehaviour
     private GameObject displayPrefab;
     [SerializeField]private Transform parentCanvas;
 
-    [SerializeField]private int fontSize;
+    [SerializeField]private float fontSize;
     [SerializeField]private Color32 colorFont;
     private const string PLAYER_PREF_PILIHAN_BAHASA = "pilihanBahasa";
     private void Awake() {

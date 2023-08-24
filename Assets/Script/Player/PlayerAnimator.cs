@@ -194,7 +194,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public void PlayAnimatorWhileMovingPuzzle(Vector2 inputMovementPuzzle)
     {
-        Debug.Log(inputMovementPuzzle);
+        // Debug.Log(inputMovementPuzzle);
         if(inputMovementPuzzle != Vector2.zero)
         {
             // Debug.Log("mainkan");

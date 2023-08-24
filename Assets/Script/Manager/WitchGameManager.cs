@@ -44,13 +44,24 @@ public class WitchGameManager : MonoBehaviour
     private void Update() {
         if(inGameType == InGameType.normal)
         {
-            if(Input.GetKeyDown(KeyCode.Alpha0)) inGameType = InGameType.puzzle;
-            OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+            if(Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                Debug.Log("Don't forget to delete this thing!");
+                inGameType = InGameType.puzzle;
+                OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+            }
+            
+            
         }
         else if(inGameType == InGameType.puzzle)
         {
-            if(Input.GetKeyDown(KeyCode.KeypadEnter)) inGameType = InGameType.normal;
-            OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+            if(Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                Debug.Log("Don't forget to delete this thing!");
+                inGameType = InGameType.normal;
+                OnChangeToInGame?.Invoke(this,EventArgs.Empty);
+            }
+            
         }
         
         

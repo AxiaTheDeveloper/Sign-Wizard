@@ -25,6 +25,7 @@ public class Word
     //     no_Letter 
     // }
     public void TypeOutLetter(){
+        isAlreadyWrong_Reset = false;
         display.ChangeColorLetterUI(no_Letter);
         
         
