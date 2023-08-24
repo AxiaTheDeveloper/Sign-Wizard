@@ -44,9 +44,10 @@ public class PlayerAnimator : MonoBehaviour
                     if(keyInput != Vector2.zero){
                         soundManager.StopSFX_PlayerWalk();
                         keyInput = Vector2.zero;
-                        // animator.SetBool("idle", true);
+                        animator.SetBool("idle", true);
                     }
                     keyInputPuzzle = gameInput.GetInputMovementPuzzle();
+                    animator.SetBool("idle", false);
                     // Debug.Log(keyInputPuzzle);
                     //ambil input yg satunya
                 }
