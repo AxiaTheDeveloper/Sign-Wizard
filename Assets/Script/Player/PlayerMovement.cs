@@ -32,13 +32,15 @@ public class PlayerMovement : MonoBehaviour
                 if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
                 {
                     keyInput = gameInput.GetInputMovement();
-                    if(keyInputPuzzle != Vector2.zero){
+                    if(keyInputPuzzle != Vector2.zero)
+                    {
                         keyInputPuzzle = Vector2.zero;
                     }
                 }
                 else if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
                 {
-                    if(keyInput != Vector2.zero){
+                    if(keyInput != Vector2.zero)
+                    {
                         keyInput = Vector2.zero;
                         PlayerWalk();
                     }
@@ -50,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
                             //checker kalo ke arah sini itu tuh bisa dilewatin ga
                             // if(CanMove())
                             // {
-                                canWalk = false;
-                                PlayerMoveInPuzzle();
-                                gameManager.ChangeToCinematic();
+                            canWalk = false;
+                            PlayerMoveInPuzzle();
+                            gameManager.ChangeToCinematic();
                             // }
                             
                             // movePuzzleCooldown = movePuzzleCooldownMax;

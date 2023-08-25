@@ -48,11 +48,11 @@ public class PlayerAnimator : MonoBehaviour
                     }
                     keyInputPuzzle = gameInput.GetInputMovementPuzzle();
                     animator.SetBool("idle", false);
-                    // Debug.Log(keyInputPuzzle);
-                    //ambil input yg satunya
+                    animator.SetBool("idle", false);
                 }
             }
-            else if(wasFromOtherInterface && gameInput.GetInputMovement() != Vector2.zero){
+            else if(wasFromOtherInterface && gameInput.GetInputMovement() != Vector2.zero)
+            {
                 wasFromOtherInterface = false;
             }   
             
@@ -142,7 +142,8 @@ public class PlayerAnimator : MonoBehaviour
                         }
                         else if(lastKeyInput.x == -1 && lastKeyInput.y == -1){
                             animator.Play("Player_Idle_Left");
-                            animator.SetBool("idle", true);
+                            Debug.Log(animator.GetBool("idle"));
+                            
                         }
                     }
                     
