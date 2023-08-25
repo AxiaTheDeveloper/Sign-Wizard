@@ -19,17 +19,23 @@ public class TileControlManager : MonoBehaviour
     [SerializeField]private float tileDistance;
     [SerializeField]private Vector3 tileStartPosition;
 
+    [Header("GAUSA DIISI GAUSA DIISI GAUSA DIISI")]
+
     [SerializeField]private List<TileControl> tileList = new List<TileControl>();
     [SerializeField]private List<int> isNotAPuzzleTile = new List<int>(); // ini ambil ini tile ke berapa dari list di atas, bukan berdasarkan posisinya
     [SerializeField]private List<WordManager> wordManagerList;
 
     [SerializeField]private List<TileControl> positionInPuzzleThatHasTile;
+    [Header("PERLU DIISI PERLU DIISI PERLU DIISI")]
     [Header("Tolong Posisi ditaro berurutan 0 ke bawah")]
     [Header("Start dari 0 (0,1,2,etc)")]
     [SerializeField]private List<int> EmptyPositionList;
-    [Header("Khusus nomor yang ada di ujung kanan or intinya ujung yang jadi garis finish karena ga semua finish line (bisa aja ketutup pohon)")]
-    [SerializeField]private List<int> FinishPosition;
+    [Header("Khusus nomor yang ada di ujung kanan or intinya ujung")]
+    [Header("yang jadi garis finish karena ga semua finish line")]
+    [Header("(bisa aja ketutup pohon), GABOLE SAMA")]
     [SerializeField]private List<int> StartPosition;
+    [SerializeField]private List<int> FinishPosition;
+    
     [SerializeField]private List<int> positionSaveTemporary;
     
     
