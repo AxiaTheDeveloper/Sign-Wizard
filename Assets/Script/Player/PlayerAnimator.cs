@@ -15,16 +15,17 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]private float maxDiagonalChecker;
     private float diagonalChecker;
     private SoundManager soundManager;
+    private WitchGameManager.InGameType LastInGameType;
     private void Start() {
+        if(gameManager == null)gameManager = WitchGameManager.Instance;
         if(PlayerSaveManager.Instance.GetPlayerLevel() == 1 && PlayerSaveManager.Instance.GetPlayerLevelMode() == levelMode.outside && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse) 
         {
             animator.Play("Player_Idle_Up");
             animator.SetBool("idle", true);
         }
         
-        
         soundManager = SoundManager.Instance;
-        if(gameManager == null)gameManager = WitchGameManager.Instance;
+        
     }
 
     private void Update() {
@@ -34,27 +35,29 @@ public class PlayerAnimator : MonoBehaviour
             if(!wasFromOtherInterface){
                 if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
                 {
+                    LastInGameType = gameManager.IsInGameType();
                     keyInput = gameInput.GetInputMovement();
                     if(keyInputPuzzle != Vector2.zero){
                         keyInputPuzzle = Vector2.zero;
                     }
                 }
+                
                 else if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
                 {
+                    LastInGameType = gameManager.IsInGameType();
                     if(keyInput != Vector2.zero){
                         soundManager.StopSFX_PlayerWalk();
                         keyInput = Vector2.zero;
                         animator.SetBool("idle", true);
                     }
                     keyInputPuzzle = gameInput.GetInputMovementPuzzle();
-                    animator.SetBool("idle", false);
-                    animator.SetBool("idle", false);
                 }
             }
             else if(wasFromOtherInterface && gameInput.GetInputMovement() != Vector2.zero)
             {
                 wasFromOtherInterface = false;
-            }   
+            } 
+              
             
         }
         else{
@@ -95,7 +98,17 @@ public class PlayerAnimator : MonoBehaviour
                 }
             }
             else{
-                soundManager.StopSFX_PlayerWalk();
+                if(gameManager.IsInGame())
+                {
+                    soundManager.StopSFX_PlayerWalk();
+                }
+                else{
+                    if(LastInGameType == WitchGameManager.InGameType.normal)
+                    {
+                        soundManager.StopSFX_PlayerWalk();
+                    }
+                }
+                
             }
             if(keyInput.y != 0 && keyInput.x != 0){
                 wasDiagonal = true;
@@ -124,25 +137,42 @@ public class PlayerAnimator : MonoBehaviour
             {   
                 case (0, 0):
                     if(!wasDiagonal){
-                        animator.SetBool("idle", true);
+                        if(LastInGameType == WitchGameManager.InGameType.normal) animator.SetBool("idle", true);
+                        
                     }
                     else{
                         wasDiagonal = false;
                         if(lastKeyInput.x == 1 && lastKeyInput.y == 1){
-                            animator.Play("Player_Idle_Up_Right");
-                            animator.SetBool("idle", true);
+                            if(LastInGameType == WitchGameManager.InGameType.normal)
+                            {
+                                animator.Play("Player_Idle_Up_Right");
+                                animator.SetBool("idle", true);
+                            }
+                            
                         }
                         else if(lastKeyInput.x == 1 && lastKeyInput.y == -1){
-                            animator.Play("Player_Idle_Right");
-                            animator.SetBool("idle", true);
+                            if(LastInGameType == WitchGameManager.InGameType.normal)
+                            {
+                                animator.Play("Player_Idle_Right");
+                                animator.SetBool("idle", true);
+                            }
+                            
                         }
                         else if(lastKeyInput.x == -1 && lastKeyInput.y == 1){
-                            animator.Play("Player_Idle_Up_Left");
-                            animator.SetBool("idle", true);
+                            if(LastInGameType == WitchGameManager.InGameType.normal)
+                            {
+                                animator.Play("Player_Idle_Up_Left");
+                                animator.SetBool("idle", true);
+                            }
+                            
                         }
                         else if(lastKeyInput.x == -1 && lastKeyInput.y == -1){
-                            animator.Play("Player_Idle_Left");
-                            Debug.Log(animator.GetBool("idle"));
+                            if(LastInGameType == WitchGameManager.InGameType.normal)
+                            {
+                                animator.Play("Player_Idle_Left");
+                                animator.SetBool("idle", true);
+                            }
+                            
                             
                         }
                     }
@@ -199,7 +229,7 @@ public class PlayerAnimator : MonoBehaviour
         // Debug.Log(inputMovementPuzzle);
         if(inputMovementPuzzle != Vector2.zero)
         {
-            Debug.Log("mainkan");
+            // Debug.Log("mainkan");
             if(!soundManager.isPlayedSFX_PlayerWalk()){
                 soundManager.PlaySFX_PlayerWalk();
             }
@@ -210,10 +240,10 @@ public class PlayerAnimator : MonoBehaviour
             }
             else if(inputMovementPuzzle.y == -1)
             {
-                Debug.Log("Halo1" + animator.GetBool("idle"));
+                // Debug.Log("Halo1" + animator.GetBool("idle"));
                 animator.Play("Player_Walk_Down");
                 animator.SetBool("idle", false);
-                Debug.Log("Halo2" + animator.GetBool("idle"));
+                // Debug.Log("Halo2" + animator.GetBool("idle"));
             }
             else if(inputMovementPuzzle.x == 1)
             {
@@ -226,11 +256,73 @@ public class PlayerAnimator : MonoBehaviour
                 animator.SetBool("idle", false);
             }
         }
-        // else
-        // {
-        //     soundManager.StopSFX_PlayerWalk();
-        //     animator.SetBool("idle", true);
-        // }
+        else
+        {
+            soundManager.StopSFX_PlayerWalk();
+            animator.SetBool("idle", true);
+        }
+        
+        
+    }
+    public void PlayAnimatorCinematic(Vector2 inputMovementPuzzle)
+    {
+        // Debug.Log(inputMovementPuzzle);
+        if(inputMovementPuzzle != Vector2.zero)
+        {
+            // Debug.Log("mainkan");
+            if(!soundManager.isPlayedSFX_PlayerWalk()){
+                soundManager.PlaySFX_PlayerWalk();
+            }
+            switch (inputMovementPuzzle.x, inputMovementPuzzle.y)
+            {   
+                case (0, 1):
+                    animator.Play("Player_Walk_Up");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (0, -1):
+                    animator.Play("Player_Walk_Down");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (1, 1):
+                    animator.Play("Player_Walk_Up_Right");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (1, 0):
+                    animator.Play("Player_Walk_Right");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (1, -1):
+                    animator.Play("Player_Walk_Right");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (-1, 0):
+                    animator.Play("Player_Walk_Left");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (-1, 1):
+                    animator.Play("Player_Walk_Up_Left");
+                    animator.SetBool("idle", false);
+                    break;
+
+                case (-1, -1):
+                    animator.Play("Player_Walk_Left");
+                    animator.SetBool("idle", false);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            soundManager.StopSFX_PlayerWalk();
+            animator.SetBool("idle", true);
+        }
         
         
     }

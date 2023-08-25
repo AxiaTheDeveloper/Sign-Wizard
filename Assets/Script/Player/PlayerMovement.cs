@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private WitchGameManager gameManager;
+    private TileControlManager tileControlManager;
+    private DialogueManager dialogueManager;
+
     [SerializeField]private GameInput gameInput;
     [SerializeField]private Rigidbody2D rb;
     private Vector2 keyInput, keyInputPuzzle;
@@ -20,8 +23,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private PlayerAnimator playerAnimator;
     [SerializeField]private int playerPuzzlePositionNow;
 
+    private bool isInsidePuzzle;
+
     private void Start() {
         gameManager = WitchGameManager.Instance;
+        tileControlManager = TileControlManager.Instance;
+        dialogueManager = DialogueManager.Instance;
         canWalk = true;
     }
 
@@ -50,14 +57,13 @@ public class PlayerMovement : MonoBehaviour
                         if(canWalk)
                         {
                             //checker kalo ke arah sini itu tuh bisa dilewatin ga
-                            // if(CanMove())
-                            // {
-                            canWalk = false;
-                            PlayerMoveInPuzzle();
-                            gameManager.ChangeToCinematic();
-                            // }
+                            if(CanMove())
+                            {
+                                canWalk = false;
+                                PlayerMoveInPuzzle();
+                                gameManager.ChangeToCinematic();
+                            }
                             
-                            // movePuzzleCooldown = movePuzzleCooldownMax;
                         }
                     }
                     
@@ -109,30 +115,64 @@ public class PlayerMovement : MonoBehaviour
 
     private void FinishMoving()
     {
-        // Debug.Log("Finish");
-        gameManager.ChangeToInGame(WitchGameManager.InGameType.puzzle);
+        if(isInsidePuzzle)
+        {
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.puzzle);
+        }
+        else{
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+        }
+        
         canWalk = true;
         playerAnimator.PlayAnimatorWhileMovingPuzzle(Vector2.zero);
     }
     private bool CanMove()
     {
+        int newPosition = 0;
         if(keyInputPuzzle.y == 1)
         {
-            //kasihtau ke tile manager dr posisi player sekarang, kalo dimajuin tu bisa ga, kek maksudnya apakah tile yg sekarang itu 
+            newPosition = tileControlManager.GetTileTopPosition(playerPuzzlePositionNow);
         }
         else if(keyInputPuzzle.y == -1)
         {
-
+            newPosition = tileControlManager.GetTileDownPosition(playerPuzzlePositionNow);
         }
         else if(keyInputPuzzle.x == 1)
         {
-
+            newPosition = tileControlManager.GetTileRightPosition(playerPuzzlePositionNow);
         }
         else if(keyInputPuzzle.x == -1)
         {
-
+            newPosition = tileControlManager.GetTileLeftPosition(playerPuzzlePositionNow);
         }
-        return false;
+        if(playerPuzzlePositionNow != newPosition)
+        {
+            if(!tileControlManager.IsTileNotAPuzzleTile(newPosition) && tileControlManager.CanPlayerStandThisTile(newPosition))
+            {
+                isInsidePuzzle = true;
+                return true;
+            }
+            else{
+                playerAnimator.PlayAnimatorWhileMovingPuzzle(keyInputPuzzle);
+                playerAnimator.PlayAnimatorWhileMovingPuzzle(Vector2.zero);
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement);
+                return false;
+            }
+        }
+        else{
+            if(tileControlManager.IsTileFinishLine(newPosition) || tileControlManager.IsTileStartLine(newPosition))
+            {
+                isInsidePuzzle = false;
+                return true;
+            }
+            else{
+                playerAnimator.PlayAnimatorWhileMovingPuzzle(keyInputPuzzle);
+                playerAnimator.PlayAnimatorWhileMovingPuzzle(Vector2.zero);
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement);
+                return false;
+            }
+            
+        }
     }
 
     public void ChangePositionNow(int positionNow)

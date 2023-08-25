@@ -20,17 +20,24 @@ public class TileControl : MonoBehaviour
     [SerializeField]private List<GameObject> UIWordInputs;
     private WitchGameManager gameManager;
     private TileControlManager tileControlManager;
+    
 
     [SerializeField]private float totalMoveBlock;
     private Vector2 directionMove;
     [SerializeField]private float moveBlockDuration;
     
     [Header("All The checker of Tile Control")]
+    [Header("Ini tandain ini termasuk tile puzzle atau tanah biasa saja")]
     [SerializeField]private bool isAPuzzleTile; //inibuat mastiin apakah ini trmasuk tile puzzle atau walopun trmasuk hitungan tile dia cuma tanah biasa == gabisa digerakin == player gabisa lewat, or probably visualnya diilangin aja 
     [SerializeField]private bool isPlayerOnTop;
     [SerializeField]private PuzzleTileType tileType;
+    [Header("Ini tandain PuzzleTilenya bisa digerakkin atau ga (tapi tetep bisa dilewatin)")]
     [SerializeField]private bool isMoveable;
+    [Header("Ini tandain PuzzleTilenya, player bisa jalan di sini ga")]
+    [SerializeField]private bool canPlayerStandHere;
+    [SerializeField]private bool isTileToFinish;//tile yang terakhir + bisa ke tanah, kalo misal tile akhir tp ke pohon kan sama aja boong
     [SerializeField]private int tilePuzzlePositionNow;
+    
 
     private void Awake() 
     {
@@ -95,6 +102,10 @@ public class TileControl : MonoBehaviour
             isPlayerOnTop = true;
             PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement>();
             playerMovement.ChangePositionNow(tilePuzzlePositionNow);
+            if(isTileToFinish && !tileControlManager.IsPuzzleSolved())
+            {
+                tileControlManager.PuzzleSolved();
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other) 
@@ -189,6 +200,18 @@ public class TileControl : MonoBehaviour
     {
         isMoveable = change;
     }
+    public bool CanPlayerStandHere()
+    {
+        return canPlayerStandHere;
+    }
+    public bool IsTileToFinish()
+    {
+        return isTileToFinish;
+    }
+    public void ChangeIsTileToFinish(bool change)
+    {
+        isTileToFinish = change;
+    }
     public int TilePuzzlePositionNow()
     {
         return tilePuzzlePositionNow;
@@ -196,5 +219,12 @@ public class TileControl : MonoBehaviour
     public void ChangeTilePuzzlePositionNow(int positionNow)
     {
         tilePuzzlePositionNow = positionNow;
+    }
+    public void GiveWordGeneratorToAllWordManager(WordGenerator wordGen)
+    {
+        for(int i=0;i<tileWordManagers.Count;i++)
+        {
+            tileWordManagers[i].GetWordGenerator(wordGen);
+        }
     }
 }

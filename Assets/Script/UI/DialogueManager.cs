@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     
     // private DialogueType dialogueType;
     private WitchGameManager.InterfaceType interfaceType;
+    private WitchGameManager.InGameType inGameType;
     [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest;
@@ -33,7 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     [field : TextArea]
-    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekMailboxDulu_InteractObject,dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject, dialogue_tidakBisaPakaiPenumbuk, dialogue_SelesaikanQuestSekarang_InteractObject, dialogue_belumAdaQuestYangDikirimTidur_InteractObject, dialogue_tidakAdaBarangYangDiminta1_InteractObject, dialogue_tidakAdaBarangYangDiminta2_InteractObject, dialogue_belumMengecekKotakSuratLevel1_InteractObject;
+    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekMailboxDulu_InteractObject,dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject, dialogue_tidakBisaPakaiPenumbuk, dialogue_SelesaikanQuestSekarang_InteractObject, dialogue_belumAdaQuestYangDikirimTidur_InteractObject, dialogue_tidakAdaBarangYangDiminta1_InteractObject, dialogue_tidakAdaBarangYangDiminta2_InteractObject, dialogue_belumMengecekKotakSuratLevel1_InteractObject, dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement;
 
     [Header("Dialogue Kirim Potion")]
     [SerializeField]private FadeNight_StartEnd fadeNight;
@@ -150,7 +151,7 @@ public class DialogueManager : MonoBehaviour
     private void dialogueHolder_WrongChoice_OnDialogueFinish(object sender, EventArgs e)
     {
         if(interfaceType == WitchGameManager.InterfaceType.none){
-            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+            gameManager.ChangeToInGame(inGameType);
         }
         else{
             gameManager.ChangeInterfaceType(interfaceType);
@@ -258,6 +259,10 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowDialogue_WrongChoice_WithoutBahan(DialogueWrongChoice dialogueWrongChoice){
         interfaceType = gameManager.IsInterfaceType();
+        if(gameManager.IsInGameType() != WitchGameManager.InGameType.none)
+        {
+            inGameType = gameManager.IsInGameType();
+        }
         gameManager.ChangeToCinematic();
         if(dialogueWrongChoice == DialogueWrongChoice.playerInventoryFull_Chest){
             dialogueLines_WrongChoice.ChangeInputText(dialogue_playerInventoryFull_Chest);
@@ -318,10 +323,18 @@ public class DialogueManager : MonoBehaviour
             
             dialogueLines_WrongChoice.ChangeInputText(dialogue_belumMengecekKotakSuratLevel1_InteractObject);
         }
+        else if(dialogueWrongChoice == DialogueWrongChoice.tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement);
+        }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
     public void ShowDialogue_WrongChoice_WithBahan(DialogueWrongChoice dialogueWrongChoice, string itemName){
         interfaceType = gameManager.IsInterfaceType();
+        if(gameManager.IsInGameType() != WitchGameManager.InGameType.none)
+        {
+            inGameType = gameManager.IsInGameType();
+        }
         gameManager.ChangeToCinematic();
         // dialogueWrongChoice_GameObject.SetActive(true);
         if(dialogueWrongChoice == DialogueWrongChoice.bukanBahanPotion_InventoryUI){

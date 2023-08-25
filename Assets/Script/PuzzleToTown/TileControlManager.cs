@@ -6,7 +6,12 @@ using UnityEngine;
 public class TileControlManager : MonoBehaviour
 {
     private WitchGameManager gameManager;
+    public static TileControlManager Instance{get; private set;}
     private WordInput wordInput;
+    [SerializeField]private WordGenerator wordGenerator;
+    private bool hasPembatasStartSet = false, hasPembatasEndSet = false;
+    [SerializeField]private PuzzleToTown_Pembatas puzzleToTown_Pembatas_Start, puzzleToTown_Pembatas_End;
+
 
     [SerializeField]private bool isPuzzleSolved = false;
     [SerializeField]private int totalRow, totalColumn;
@@ -16,17 +21,24 @@ public class TileControlManager : MonoBehaviour
 
     [SerializeField]private List<TileControl> tileList = new List<TileControl>();
     [SerializeField]private List<int> isNotAPuzzleTile = new List<int>(); // ini ambil ini tile ke berapa dari list di atas, bukan berdasarkan posisinya
-    [Header("Tolong Posisi ditaro berurutan 0 ke bawah")]
-    [Header("Start dari 0 (0,1,2,etc)")]
-    [SerializeField]private List<int> EmptyPositionList;
-    [SerializeField]private List<int> positionSaveTemporary;
-    
     [SerializeField]private List<WordManager> wordManagerList;
 
     [SerializeField]private List<TileControl> positionInPuzzleThatHasTile;
+    [Header("Tolong Posisi ditaro berurutan 0 ke bawah")]
+    [Header("Start dari 0 (0,1,2,etc)")]
+    [SerializeField]private List<int> EmptyPositionList;
+    [Header("Khusus nomor yang ada di ujung kanan or intinya ujung yang jadi garis finish karena ga semua finish line (bisa aja ketutup pohon)")]
+    [SerializeField]private List<int> FinishPosition;
+    [SerializeField]private List<int> StartPosition;
+    [SerializeField]private List<int> positionSaveTemporary;
+    
+    
     
     private void Awake() 
     {
+        Instance = this;
+        wordGenerator = GetComponent<WordGenerator>();
+
         positionInPuzzleThatHasTile = new List<TileControl>();
         totalPuzzleSize = totalColumn * totalRow;
         for(int i=0;i<(totalPuzzleSize); i++)
@@ -36,6 +48,7 @@ public class TileControlManager : MonoBehaviour
         for(int i=0; i<transform.childCount; i++)
         {
             TileControl tileNow = transform.GetChild(i).GetComponent<TileControl>();
+            tileNow.GiveWordGeneratorToAllWordManager(wordGenerator);
             if(!tileNow.IsAPuzzleTile()) isNotAPuzzleTile.Add(i);
             tileNow.HideAllWordInput();
 
@@ -64,8 +77,15 @@ public class TileControlManager : MonoBehaviour
     {
         if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
         {
-            // Debug.Log("HALOOOOO");
-            GetAllWordManagerAroundEmptyPosition();
+            if(isPuzzleSolved)
+            {
+                WordManager[] wordManagers = {};
+                wordInput.GetWordManager(wordManagers);
+            }
+            else{
+                GetAllWordManagerAroundEmptyPosition();
+            }
+            
         }
         else{
             foreach(TileControl tile in tileList)
@@ -102,13 +122,67 @@ public class TileControlManager : MonoBehaviour
                     }
                 }
                 tileNow.ChangeTilePuzzlePositionNow(positionCounter);
+                
                 ++positionCounter;
             }
             // Debug.Log(tileNow.TilePuzzlePositionNow());
             tileNow.transform.localPosition = TilePosition_Selector_AtStart(tileNow.TilePuzzlePositionNow());
+            if(IsTileFinishLine(tileNow.TilePuzzlePositionNow()))
+            {
+                tileNow.ChangeIsTileToFinish(true);
+            }
+            else{
+                tileNow.ChangeIsTileToFinish(false);
+            }
             positionInPuzzleThatHasTile[tileNow.TilePuzzlePositionNow()] = tileNow;
-            // Debug.Log(tileNow.TilePuzzlePositionNow() + " " + i);
+
+            //this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar 
+            // if(!hasPembatasStartSet)
+            // {
+                
+            //     foreach(int startPos in StartPosition)
+            //     {
+            //         if(tileNow.TilePuzzlePositionNow() == startPos)
+            //         {
+            //             if(tileNow.CanPlayerStandHere())
+            //             {
+            //                 puzzleToTown_Pembatas_Start.SetNextPosition(tileNow.transform.localPosition);
+            //                 hasPembatasStartSet = true;
+            //             }
+            //         }
+            //     }
+            // }
+            //this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar perlu
         }
+    }
+    public bool IsTileFinishLine(int positionNow)
+    {
+        bool isFinishLine = false;
+        foreach(int finishPosition in FinishPosition)
+        {
+            // Debug.Log(finishPosition + " dan " + positionNow);
+            if(positionNow == finishPosition)
+            {
+                
+                isFinishLine = true;
+                break;
+            }
+        }
+        return isFinishLine;
+    }
+    public bool IsTileStartLine(int positionNow)
+    {
+        bool isStartLine = false;
+        foreach(int startPosition in StartPosition)
+        {
+            // Debug.Log(finishPosition + " dan " + positionNow);
+            if(positionNow == startPosition)
+            {
+                isStartLine = true;
+                break;
+            }
+        }
+        return isStartLine;
     }
     private Vector3 TilePosition_Selector_AtStart(int positionNow)
     {
@@ -139,10 +213,7 @@ public class TileControlManager : MonoBehaviour
             int TileDownPosition = GetTileDownPosition(emptyPosition);
             int TileLeftPosition = GetTileLeftPosition(emptyPosition);
             int TileRightPosition = GetTileRightPosition(emptyPosition);
-            // Debug.Log("Top" + TileTopPosition);
-            // Debug.Log("Down" + TileDownPosition);
-            // Debug.Log("Left" + TileLeftPosition);
-            // Debug.Log("Right" + TileRightPosition);
+
             foreach(int notAPuzzleTile in isNotAPuzzleTile)
             {
                 //INGET NOT A PUZZLE TILE DICEK DR URUTAN ANAK si tilemanager
@@ -151,11 +222,7 @@ public class TileControlManager : MonoBehaviour
                 if(tileList[notAPuzzleTile] == positionInPuzzleThatHasTile[TileLeftPosition]) TileLeftPosition = emptyPosition;
                 if(tileList[notAPuzzleTile] == positionInPuzzleThatHasTile[TileRightPosition]) TileRightPosition = emptyPosition;
             }
-            // Debug.Log("Top" + TileTopPosition);
-            // Debug.Log("Down" + TileDownPosition);
-            // Debug.Log("Left" + TileLeftPosition);
-            // Debug.Log("Right" + TileRightPosition);
-            //Top
+
             if(TileTopPosition != emptyPosition)
             {
                 if(positionInPuzzleThatHasTile[TileTopPosition] != null)
@@ -217,19 +284,19 @@ public class TileControlManager : MonoBehaviour
         wordInput.GetWordManager(wordManagerArray);
     }
     //ngecek posisi atas,bawah kiri kanan dari posisi sekarang itu termasuk dalam tabel ga, tabel itu ya itu templatenya, dia bakal balikin angka yang sama ama positionNow kalo gabisa ke mana-mana
-    private int GetTileTopPosition(int positionNow)
+    public int GetTileTopPosition(int positionNow)
     {
         int newPosition = positionNow;
-        if(newPosition - totalColumn > 0) newPosition -= totalColumn;
+        if(newPosition - totalColumn >= 0) newPosition -= totalColumn;
         return newPosition;
     }
-    private int GetTileDownPosition(int positionNow)
+    public int GetTileDownPosition(int positionNow)
     {
         int newPosition = positionNow;
         if(newPosition + totalColumn < totalPuzzleSize) newPosition += totalColumn;
         return newPosition;
     }
-    private int GetTileLeftPosition(int positionNow)
+    public int GetTileLeftPosition(int positionNow)
     {
         bool canGoLeft = true;
         int newPosition = positionNow;
@@ -249,7 +316,7 @@ public class TileControlManager : MonoBehaviour
         }
         return newPosition;
     }
-    private int GetTileRightPosition(int positionNow)
+    public int GetTileRightPosition(int positionNow)
     {
         bool canGoRight = true;
         int newPosition = positionNow;
@@ -277,7 +344,18 @@ public class TileControlManager : MonoBehaviour
     }
     public void UpdateTilePositioninPuzzle(int oldTilePosition, int oldEmptyPosition)
     {
+        
         positionInPuzzleThatHasTile[oldEmptyPosition] = positionInPuzzleThatHasTile[oldTilePosition];
+        if(IsTileFinishLine(oldEmptyPosition))
+        {
+            // Debug.Log(positionInPuzzleThatHasTile[oldEmptyPosition] + "finish line");
+            positionInPuzzleThatHasTile[oldEmptyPosition].ChangeIsTileToFinish(true);
+        }
+        else{
+            // Debug.Log(positionInPuzzleThatHasTile[oldEmptyPosition] + "not finish line");
+            positionInPuzzleThatHasTile[oldEmptyPosition].ChangeIsTileToFinish(false);
+        }
+        
         positionInPuzzleThatHasTile[oldTilePosition] = null;
         for(int i = 0; i<EmptyPositionList.Count;i++)
         {
@@ -287,6 +365,14 @@ public class TileControlManager : MonoBehaviour
                 break;
             }
         }
+        
+    }
+    public bool IsTileNotAPuzzleTile(int tilePosition){
+        foreach(int notAPuzzleTile in isNotAPuzzleTile)
+        {
+            if(tileList[notAPuzzleTile] == positionInPuzzleThatHasTile[tilePosition]) return true;
+        }
+        return false;
     }
     public int GetTotalRow()
     {
@@ -299,5 +385,25 @@ public class TileControlManager : MonoBehaviour
     public float GetTileDistance()
     {
         return tileDistance;
+    }
+    public bool IsPuzzleSolved()
+    {
+        return isPuzzleSolved;
+    }
+    public void PuzzleSolved()
+    {
+        isPuzzleSolved = true;
+        WordManager[] wordManagers = {};
+        wordInput.GetWordManager(wordManagers);
+        //save data posisi puzzle
+
+    }
+    public bool CanPlayerStandThisTile(int tilePosition)
+    {
+        if(positionInPuzzleThatHasTile[tilePosition] == null)
+        {
+            return false;
+        }
+        return positionInPuzzleThatHasTile[tilePosition].CanPlayerStandHere();
     }
 }

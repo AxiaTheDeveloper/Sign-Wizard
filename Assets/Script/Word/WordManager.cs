@@ -32,7 +32,7 @@ public class WordManager : MonoBehaviour
     private void Start() {
         hasWord = false;
         hasChooseWord = false;
-    
+
         createWord();
         
     }
@@ -206,5 +206,9 @@ public class WordManager : MonoBehaviour
     public void CancelInputLetter_OnlyOneWordManager(){
         chosenWord.CancelTypedOut();
         hasChooseWord = false;
+    }
+    public void GetWordGenerator(WordGenerator wordGen)
+    {
+        wordGenerator = wordGen;
     }
 }

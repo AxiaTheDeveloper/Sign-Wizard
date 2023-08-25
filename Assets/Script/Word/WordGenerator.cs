@@ -6,7 +6,8 @@ public class WordGenerator : MonoBehaviour
 {   
     private string[] wordArrayTumbuk = {"abc", "def", "ghi", "jkl", "mno", "pqr", "stu", "vwx", "yzc", "bde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "acd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst", "uvw", "xyz", "yza", "bcd", "efg", "hij", "klm", "nop", "qrs", "tuv", "wxy", "zab", "cde", "fgh", "ijk", "lmn", "opq", "rst"};
     private string[] wordArrayKompor = {"a", "i", "u", "e", "o"};
-    private string[] wordArrayPuzzleToTown = {"a", "b", "c", "d", "e"};
+    private string[] wordArrayPuzzleToTown = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"};
+
     // private static string[] wordArray = {"adil", "apa", "asik"};
     public enum TypeWord{
         tumbuk, kompor, PuzzleToTown
@@ -17,8 +18,9 @@ public class WordGenerator : MonoBehaviour
     private int randChecker, sameChecker;
     private bool firstTime = true;
     private bool foundDifferent = false;
+    private int counterStart;
     public string GetRandomWord(){
-        
+        string chosenWord;
 
         if(typeWord == TypeWord.tumbuk){
             wordArray = wordArrayTumbuk;
@@ -30,38 +32,54 @@ public class WordGenerator : MonoBehaviour
             wordArray = wordArrayPuzzleToTown;
         }
 
-        int random = Random.Range(0,wordArray.Length);
+        if(typeWord != TypeWord.PuzzleToTown)
+        {
+            int random = Random.Range(0,wordArray.Length);
         
-        //ngecek biar random ga dapet huruf sama lagi sebanyak sameChecker (2 kali utk skrg)
-        if(firstTime){
-            firstTime = false;
-            randChecker = random;
-            sameChecker = 0;
-            // Debug.Log(wordArray[random] + "checker" + randChecker);
+            //ngecek biar random ga dapet huruf sama lagi sebanyak sameChecker (2 kali utk skrg)
+            if(firstTime){
+                firstTime = false;
+                randChecker = random;
+                sameChecker = 0;
+                // Debug.Log(wordArray[random] + "checker" + randChecker);
+            }
+            else{
+                foundDifferent = false;
+                while(!foundDifferent){
+                    if(random == randChecker)
+                    {
+                        random = Random.Range(0,wordArray.Length);
+                        sameChecker++;
+                    }
+                    if(random != randChecker)
+                    {
+                        foundDifferent = true;
+                    }
+                    
+                }
+                // Debug.Log(wordArray[random] + "checker" + randChecker);
+            }
+            if(sameChecker == 1){
+                firstTime = true;
+                sameChecker = 0;
+            }
+            
+            // Debug.Log(random);
+            chosenWord = wordArray[random];
         }
         else{
-            foundDifferent = false;
-            while(!foundDifferent){
-                if(random == randChecker)
-                {
-                    random = Random.Range(0,wordArray.Length);
-                    sameChecker++;
-                }
-                if(random != randChecker)
-                {
-                    foundDifferent = true;
-                }
-                
+            if(counterStart < wordArrayPuzzleToTown.Length)
+            {
+                chosenWord = wordArray[counterStart];
+                counterStart++;
             }
-            // Debug.Log(wordArray[random] + "checker" + randChecker);
-        }
-        if(sameChecker == 1){
-            firstTime = true;
-            sameChecker = 0;
+            else{
+                counterStart = 0;
+                chosenWord = wordArray[counterStart];
+                counterStart++;
+            }
         }
         
-        // Debug.Log(random);
-        string chosenWord = wordArray[random];
 
         return chosenWord;
     }
