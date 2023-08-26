@@ -71,7 +71,7 @@ public class MainMenuUI : MonoBehaviour
     
 
     private void Start() {
-        if(!PlayerPrefs.HasKey(PLAYER_PREF_PILIHAN_BAHASA))PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, "BISINDO");
+        if(!PlayerPrefs.HasKey(PLAYER_PREF_PILIHAN_BAHASA))PlayerPrefs.SetString(PLAYER_PREF_PILIHAN_BAHASA, "ASL");
         selectLanguage = PlayerPrefs.GetString(PLAYER_PREF_PILIHAN_BAHASA);
         
         AssignGameObject();
