@@ -311,26 +311,43 @@ public class MainMenuUI : MonoBehaviour
                         }
                     }
                     else{
-                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.forest)
                         {
                             if(selectionOptionLanguage == "ID"){
-                                LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_ID");
                             }
                             else{
-                                LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
                             }
                         }
-                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
-                        {   
-                            // Debug.Log("harusnya ke sini???");
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
+                        {
                             if(selectionOptionLanguage == "ID"){
-                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
+                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
                             }
                             else{
-                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
                             }
                         }
-                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
+                        {
+                            if(selectionOptionLanguage == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Graveyard)
+                        {
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_EN");
+                            }
+                        }
+                        else
                         {
                             if(selectionOptionLanguage == "ID"){
                                 LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
@@ -375,28 +392,76 @@ public class MainMenuUI : MonoBehaviour
                 else{
                     if(playerSaveSO.placePlayerNow == WitchGameManager.Place.outdoor)
                     {
-                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                        if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.forest)
                         {
-                            if(selectionOptionLanguage == "ID"){
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
+                            }
+                            
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
+                        {
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.magicalBridge)
+                        {
+                            if(playerSaveSO.isMagicalBridgeSolved)
+                            {
+                                if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                    LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
+                                }
+                                else{
+                                    LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
+                                }
+                            }
+                            else{
+                                if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                    LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_ID");
+                                }
+                                else{
+                                    LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_EN");
+                                }
+                            }
+                            
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Graveyard)
+                        {
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_ID");
+                            }
+                            else{
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_EN");
+                            }
+                        }
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                        {
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
                                 LevelLoader.Instance.LoadScene("OutDoor_Town_ID");
                             }
                             else{
                                 LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
                             }
                         }
-                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
-                        {   
-                            // Debug.Log("harusnya ke sini???");
-                            if(selectionOptionLanguage == "ID"){
-                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
+                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Town)
+                        {
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeTown_ID");
                             }
                             else{
-                                LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
+                                LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeTown_EN");
                             }
                         }
                         else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
                         {
-                            if(selectionOptionLanguage == "ID"){
+                            if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
                                 LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_ID");
                             }
                             else{
@@ -426,15 +491,6 @@ public class MainMenuUI : MonoBehaviour
                         LevelLoader.Instance.LoadScene("OutDoor_Town_EN");
                     }
                 }
-                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.puzzleToTown)
-                {
-                    if(selectionOptionLanguage == "ID"){
-                        LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_ID");
-                    }
-                    else{
-                        LevelLoader.Instance.LoadScene("OutDoor_PuzzleToTown_EN");
-                    }
-                }
                 else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.inFrontOfHouse)
                 {
                     if(selectionOptionLanguage == "ID"){
@@ -444,6 +500,44 @@ public class MainMenuUI : MonoBehaviour
                         LevelLoader.Instance.LoadScene("OutDoor_InFrontHouse_EN");
                     }
                 }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Town)
+                {
+                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeTown_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeTown_EN");
+                    }
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Graveyard)
+                {
+                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_BrokenBridgeGraveyard_EN");
+                    }
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.forest)
+                {
+                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_Forest_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
+                    }
+                            
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
+                {
+                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_Graveyard_EN");
+                    }
+                }
+                
             }
     }
     private void Deselect(){

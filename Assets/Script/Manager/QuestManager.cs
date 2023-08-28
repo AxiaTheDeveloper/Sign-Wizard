@@ -36,10 +36,7 @@ public class QuestManager : MonoBehaviour
         if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor && playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
             questBoxUI.SetData(quest);
         }
-        
 
-        
-        
         isPotionCheck_Right = new List<bool>();
         for(int i=0;i<totalPotion;i++){
             isPotionCheck_Right.Add(false);
@@ -93,5 +90,23 @@ public class QuestManager : MonoBehaviour
     public string GetSendername()
     {
         return quest.nameSender;
+    }
+    public bool CheckPotion_BeforeGoToForest(InventoryScriptableObject playerInventory)
+    {
+        bool isPotionMatch = true;
+        for(int i=0;i<totalPotion;i++){
+            isPotionMatch = false;
+            foreach(InventorySlot item in playerInventory.inventSlot)
+            {
+                if(potionList[i] == item.itemSO){
+                    isPotionMatch = true;
+                    break;
+                }
+            }
+            if(!isPotionMatch){
+                break;
+            }
+        }
+        return isPotionMatch;
     }
 }

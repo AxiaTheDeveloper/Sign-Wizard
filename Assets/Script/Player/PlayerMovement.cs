@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private WitchGameManager gameManager;
+    [SerializeField]private TileControlManager[] tileControlManagerList;
     private TileControlManager tileControlManager;
     private DialogueManager dialogueManager;
 
@@ -27,8 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() {
         gameManager = WitchGameManager.Instance;
-        tileControlManager = TileControlManager.Instance;
-        dialogueManager = DialogueManager.Instance;
+        if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
+        {
+            tileControlManager = tileControlManagerList[PlayerSaveManager.Instance.GetPlayerLevel()-1];
+            dialogueManager = DialogueManager.Instance;
+        }
+        
         canWalk = true;
     }
 

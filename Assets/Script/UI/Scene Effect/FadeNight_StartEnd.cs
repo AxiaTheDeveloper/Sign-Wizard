@@ -100,7 +100,7 @@ public class FadeNight_StartEnd : MonoBehaviour
     }
     public void ShowUI_Potion(){
         gameManager.ChangeToCinematic();
-        nightBG.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
+        nightBG.gameObject.GetComponent<Image>().color = new Color32(0,6,19,0);
         LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
             () => nextDay_Text.LeanAlpha(1f, 1f).setOnComplete(
                 () => nextDay_Text.LeanAlpha(0f, 0.5f).setOnComplete(
@@ -111,7 +111,8 @@ public class FadeNight_StartEnd : MonoBehaviour
     }
 
     public void ShowUI_Option(){
-        nightBG.gameObject.GetComponent<Image>().color = new Color(0,0,0,0);
+        gameManager.ChangeToCinematic();
+        nightBG.gameObject.GetComponent<Image>().color = new Color32(0,6,19,0);
         LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
             () => pause.GoToMainMenu()
         );

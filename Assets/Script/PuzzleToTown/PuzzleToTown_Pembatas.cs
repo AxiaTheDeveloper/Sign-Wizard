@@ -38,7 +38,7 @@ public class PuzzleToTown_Pembatas : MonoBehaviour
                     playerAnimator.PlayAnimatorCinematic(new Vector2(1,1));
                 }
             }
-            else if (direction == PlayerDirection.Right)
+            else if (direction == PlayerDirection.Left)
             {
                 if(other.transform.position.y >= NextPosition1.y)
                 {
@@ -49,6 +49,7 @@ public class PuzzleToTown_Pembatas : MonoBehaviour
                     playerAnimator.PlayAnimatorCinematic(new Vector2(-1,1));
                 }
             }
+            
             
             
             LeanTween.move(player, NextPosition1, playerMoveDuration1).setOnComplete(
@@ -82,7 +83,11 @@ public class PuzzleToTown_Pembatas : MonoBehaviour
     }
     public void SetNextPosition(Vector3 tilePosition)
     {
-        NextPosition2 = new Vector3(tilePosition.x, tilePosition.y+1,0f);
-        NextPosition1 = new Vector3(transform.position.x,tilePosition.y+1,0f); 
+        if(direction == PlayerDirection.Left || direction == PlayerDirection.Right)
+        {
+            NextPosition2 = new Vector3(tilePosition.x, tilePosition.y+1,0f);
+            NextPosition1 = new Vector3(transform.position.x,tilePosition.y+1,0f); 
+        }
+        
     }
 }

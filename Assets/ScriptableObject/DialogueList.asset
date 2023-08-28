@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1769b559bc967844cbf4b3a92a76a702, type: 3}
+  m_Name: DialogueList
+  m_EditorClassIdentifier: 
+  dialogue_playerInventoryFull_Chest_ID: Tasku sudah full.
+  dialogue_playerInventoryFull_Chest_EN: My bag is full.
+  dialogue_barangChestHabis_Chest_ID: Barang ini sudah habis, besok baru akan diisi
+    kembali. Mungkin aku bisa tidur dulu.
+  dialogue_barangChestHabis_Chest_EN: This item is out of stock, The magic chest
+    will refill it tomorrow. Maybe I can sleep first.
+  dialogue_tidakBerhasilJadi_Cauldron_ID: Sepertinya ukuran apinya salah.
+  dialogue_tidakBerhasilJadi_Cauldron_EN: It seems I got the size of the fire wrong.
+  dialogue_tidakAdaIngredientMasuk_Cauldron_ID: Tidak ada bahan di cauldron.
+  dialogue_tidakAdaIngredientMasuk_Cauldron_EN: There's no ingredients inside the
+    cauldron.
+  dialogue_tidakAdaTempatPotion_Cauldron_ID: Tidak ada tempat kosong untuk meletakkan
+    potion ini di tasku.
+  dialogue_tidakAdaTempatPotion_Cauldron_EN: There's no empty place to put the potion
+    in my bag.
+  dialogue_tidakAdaTempat_Penumbuk_ID: Tidak ada tempat kosong untuk meletakkannya
+    di tasku.
+  dialogue_tidakAdaTempat_Penumbuk_EN: There's no empty place to put it in my bag.
+  dialogue_tidakAdaResep_CauldronPenumbuk_ID: Hmm.. sepertinya aku tidak membaca
+    resep dengan benar.
+  dialogue_tidakAdaResep_CauldronPenumbuk_EN: Hmm.. I think I read the recipe wrong.
+  dialogue_sudahPenuh_Cauldron_ID: Tempat meletakkan bahan sudah penuh.
+  dialogue_sudahPenuh_Cauldron_EN: The places to put the ingredients are already
+    full.
+  dialogue_ingredientKurang_Cauldron_ID: Sepertinya bahan yang dibutuhkan kurang.
+  dialogue_ingredientKurang_Cauldron_EN: The ingredients for this recipe are lacking.
+  dialogue_bukanBahanPotion_InventoryUI_ID: ' bukan bahan untuk membuat potion.'
+  dialogue_bukanBahanPotion_InventoryUI_EN: ' is not an ingredient for potion.'
+  dialogue_bukanBahanTumbukan_InventoryUI_ID: ' bukan bahan yang perlu ditumbuk.'
+  dialogue_bukanBahanTumbukan_InventoryUI_EN: ' is not an item that needs to be mash.'
+  dialogue_bukanPotion_InventoryUI_ID: ' bukan potion.'
+  dialogue_bukanPotion_InventoryUI_EN: ' is not a potion.'
+  dialogue_potionTidakSesuaiQuest_SubmitPotion_ID: Ah, sepertinya potion yang ingin
+    aku antar bukan itu. Coba ku cek suratnya lagi.
+  dialogue_potionTidakSesuaiQuest_SubmitPotion_EN: Ah, I think this is not the potion
+    that I need to deliver. Time to check the quest again.
+  dialogue_sedangTidakAdaQuest_InteractObject_ID: Saat ini, sedang tidak ada potion
+    yang perlu diantar, mungkin aku bisa check quest lain yang dikirim ke kotak surat.
+  dialogue_sedangTidakAdaQuest_InteractObject_EN: There is no potion that I need
+    to deliver right now, maybe I can try to check a new quest that was sent to the
+    mail box.
+  dialogue_cekMailboxDulu_InteractObject_ID: Aku belum cek kotak surat sama sekali
+  dialogue_cekMailboxDulu_InteractObject_EN: I haven't check the mail box at all.
+  dialogue_cekQuestDulu_InteractObject_ID: Aku belum cek quest di kotak surat sama
+    sekali
+  dialogue_cekQuestDulu_InteractObject_EN: I haven't check the new quest in the mail
+    box.
+  dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_ID: Belum ada quest yang dikirim.
+    Mungkin sekarang aku bisa coba-coba membuat potion saja.
+  dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_EN: There's no new quest.
+    Maybe I can just try to brew potions now.
+  dialogue_tidakBisaPakaiPenumbuk_ID: Penumbuknya rusak. Aku harus menyempatkan diri
+    mencari yang baru.
+  dialogue_tidakBisaPakaiPenumbuk_EN: The mortar is broken. I have to find a time
+    to search for a new one.
+  dialogue_SelesaikanQuestSekarang_InteractObject_ID: Sedang tidak ada quest baru,
+    lagipula aku harus menyelesaikan quest yang sekarang dulu.
+  dialogue_SelesaikanQuestSekarang_InteractObject_EN: There's no new quest right
+    now, besides I have to finish the current quest first.
+  dialogue_belumAdaQuestYangDikirimTidur_InteractObject_ID: Sepertinya masih belum
+    ada quest baru saat ini, saatnya istirahat dulu di rumah. Mungkin besok akan
+    ada quest baru.
+  dialogue_belumAdaQuestYangDikirimTidur_InteractObject_EN: It looks like there's
+    no new quest right now, Time to rest at the house. Maybe there will be a new
+    quest tomorrow.
+  dialogue_tidakAdaBarangYangDiminta1_InteractObject_ID: 'Belum ada potion yang harus
+    kuberikan pada '
+  dialogue_tidakAdaBarangYangDiminta1_InteractObject_EN: 'There''s no potion that
+    I need to give to '
+  dialogue_tidakAdaBarangYangDiminta2_InteractObject_ID: Mungkin aku bisa cek kotak
+    surat terlebih dahulu untuk mengecek permintaan potion.
+  dialogue_tidakAdaBarangYangDiminta2_InteractObject_EN: Maybe I could check the
+    mailbox first to check the potion requests.
+  dialogue_belumMengecekKotakSuratLevel1_InteractObject_ID: Saat ini belum ada potion
+    yang perlu kuantar jadi aku tidak perlu ke kota dulu. Sebaiknya aku mengecek
+    kotak surat yang ada di depan.
+  dialogue_belumMengecekKotakSuratLevel1_InteractObject_EN: Right now there aren't
+    any potions that I need to deliver so I don't need to go to the town yet. I'd
+    better go back to grandma's shack and check the mailbox.
+  dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_ID: Aku tidak bisa maju
+    ke arah sana.
+  dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_EN: I can't go there.
+  dialogue_tidakPerluKeKota_GoingToOtherPlace_ID: Saat ini belum ada potion yang
+    perlu kuantar jadi aku tidak perlu ke kota dulu.
+  dialogue_tidakPerluKeKota_GoingToOtherPlace_EN: Right now there aren't any potions
+    that I need to deliver so I don't need to go to the town yet.
+  dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_ID: Tunggu dulu.. Sepertinya
+    aku belum membawa semua potion yang perlu kuantar. Coba ku cek lagi.
+  dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_EN: Wait a minute.. It looks
+    like I haven't brought the right potion that I need to deliver. I should check
+    it again.
+  dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_ID: 'Aku belum
+    bisa kembali dulu. Aku belum mengantarkan potionnya ke '
+  dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_EN: 'I can''t
+    go back just yet. I haven''t delivered the potion to '
+  dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
+    nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
+  dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that
+    Grandma left for me. It looks like she also gave explanations of these tools
+    in her letter.
+  dialogueTutorial_Cauldron_ID: Ini cauldron, Sepertinya aku akan mencampurkan bahan-bahan
+    ramuan itu disini...
+  dialogueTutorial_Cauldron_EN: This is cauldron, I think this is the place where
+    I mix the ingredients and brew the potion.
+  dialogueTutorial_Chest_ID: Ini adalah peti ajaib. Di sini tempat aku mengambil
+    bahan untuk ramuannya? Baiklah. Nenek bilang setiap hari, peti ajaib ini akan
+    mengisi ulang bahan-bahan di dalamnya.
+  dialogueTutorial_Chest_EN: This is magical chest. Is this the place where I get
+    the potion's ingredients ? Okay. Grandma also said that every day the chest will
+    refill the ingredients itself.
+  dialogueTutorial_Dictionary_ID: Hmm.. Apa ini? Banyak runes dan resep yang asing
+    bagiku.. OH! sepertinya ini buku potion. Jika aku lupa resep atau runes, aku
+    bisa melihatnya di sini.
+  dialogueTutorial_Dictionary_EN: Hmm.. What's this ? There so many runes and recipes
+    that are foreign to me.. OH ! Looks like this is the potion book. If I forgot
+    a recipe or rune, I can check it again here.
+  dialogueTutorial_Bed_ID: Ini adalah tempat tidur. Kalau lelah, aku bisa tidur saja
+    di sini. Kelihatannya nyaman.
+  dialogueTutorial_Bed_EN: This is the bed. If I'm tired, I can just go here and
+    sleep. It looks comfy.
+  dialogueTutorial_Tumbuk_ID: Ini adalah penumbuk. Alat ini untuk menumbuk bahan-bahan
+    tertentu sebelum dimasukan ke cauldron. Tapi sepertinya saat ini penumbuknya
+    rusak.
+  dialogueTutorial_Tumbuk_EN: This is the mortar and pestle. I can mash some ingredients
+    that need to be mashed before I put it in the cauldron. But it looks like it's
+    broken rignt now.
+  dialogueTutorial_SubmitPotion_ID: Setelah potion yang perlu dikirim berhasil kubuat,
+    aku tinggal keluar rumah, pergi ke kota, dan meletakkannya di kotak surat di
+    depan rumah orang yang memesan.
+  dialogueTutorial_SubmitPotion_EN: After I finished brewing the potion, All I need
+    to do is leave the house, go to the city, and put it in the mail box in front
+    of the house of the person who ordered.
+  dialogueTutorial_StartMaking_ID: Oke, sekarang saatnya memulai membuat potion sesuai
+    quest.
+  dialogueTutorial_StartMaking_EN: Okay, Now time to brew some potions that the quest
+    requested.
+  dialogueNerimaGift_1_ID: Wah tumbukan baru!! Sekarang aku bisa membuat potion yang
+    bahan-bahannya perlu ditumbuk.
+  dialogueNerimaGift_1_EN: 
+  dialogueNerimaGift_2_ID: Keranjang dan flask baru ini bisa membantu mempercepat
+    proses tumbukkan.
+  dialogueNerimaGift_2_EN: 
+  dialogueNerimaGift_3_ID: Wah rak dan vial baru ini bisa membantu mempercepat proses
+    tumbukkan.
+  dialogueNerimaGift_3_EN: 
+  dialogueNerimaGift_4_ID: Yay, rumah kucing baru !!
+  dialogueNerimaGift_4_EN: 

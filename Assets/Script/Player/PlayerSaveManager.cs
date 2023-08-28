@@ -6,8 +6,10 @@ using UnityEditor;
 
 public class PlayerSaveManager : MonoBehaviour
 {
+    private WitchGameManager gameManager;
     public static PlayerSaveManager Instance{get; private set;}
     [SerializeField]private PlayerSave playerSaveSO;
+    [SerializeField]private PlayerAnimator playerAnimator;
     private Transform playerPosition;
     [SerializeField]private Transform bedPlayerPosition;
     [SerializeField]private int maxLevel;
@@ -23,9 +25,24 @@ public class PlayerSaveManager : MonoBehaviour
         }
         
     }
-    private void Start() {
-        playerSaveSO.placePlayerNow = WitchGameManager.Instance.GetPlace();
-        playerSaveSO.outDoorTypeNow = WitchGameManager.Instance.GetOutDoorType();
+    private void Start(){
+        gameManager = WitchGameManager.Instance;
+        if(gameManager.GetPlace() == WitchGameManager.Place.outdoor)
+        {
+            if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse)
+            {
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.none)
+                {
+                    //dr dalam rumah
+                }
+                else //posisi yang 1 nya
+                {
+
+                }
+            }
+        }
+        playerSaveSO.placePlayerNow = gameManager.GetPlace();
+        playerSaveSO.outDoorTypeNow = gameManager.GetOutDoorType();
     }
 
 
@@ -64,8 +81,6 @@ public class PlayerSaveManager : MonoBehaviour
         playerPosition = GetComponent<Transform>();
         playerPosition.position = bedPlayerPosition.position;
     }
-
-
     public int GetPlayerLevel(){
         return playerSaveSO.level;
     }
@@ -191,6 +206,14 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public PlayerSave GetPlayerSave(){
         return playerSaveSO;
+    }
+    public bool GetIsMagicalPuzzleThisLevelSolved()
+    {
+        return playerSaveSO.isMagicalBridgeSolved;
+    }
+    public void ChangeIsMagicalBridgeSolve(bool change)
+    {
+        playerSaveSO.isMagicalBridgeSolved = change;
     }
 
 

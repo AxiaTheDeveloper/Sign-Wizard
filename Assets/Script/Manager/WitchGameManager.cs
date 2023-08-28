@@ -32,7 +32,7 @@ public class WitchGameManager : MonoBehaviour
     }
     [SerializeField]private Place place;
     public enum OutDoorType{
-        town, inFrontOfHouse, puzzleToTown, none
+        town, inFrontOfHouse, forest, graveyard, magicalBridge, brokenBridge_Graveyard, brokenBridge_Town ,none
     }
     [SerializeField]private OutDoorType outdoorType;
     private void Awake() {

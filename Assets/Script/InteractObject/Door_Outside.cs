@@ -16,9 +16,26 @@ public class Door_Outside : MonoBehaviour
     [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private WantToSeeTutorialUI wantTutorial;
     [SerializeField]private GameControlUI gameControl;
-    
+    [SerializeField]
     [field : TextArea]
-    [SerializeField]private string Go_outside_dialogue, Go_inside_dialogue;
+    private string Go_outside_dialogue_ID, Go_outside_dialogue_EN;
+    private string Go_outside_dialogue
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Go_outside_dialogue_ID : Go_outside_dialogue_EN;
+        }
+    }
+    [SerializeField]
+    [field : TextArea]
+    private string Go_inside_dialogue_ID, Go_inside_dialogue_EN;
+    private string Go_inside_dialogue
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Go_inside_dialogue_ID : Go_inside_dialogue_EN;
+        }
+    }
     
 
     private bool wantTo_GoIn, isSubmitButton; // kalo reset change position player ke bed abis restart scene

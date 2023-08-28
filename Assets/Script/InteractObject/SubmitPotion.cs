@@ -68,9 +68,6 @@ public class SubmitPotion : MonoBehaviour
     {
         if(submitPotionUI.GetIsChosePotion()){
 
-            // ini sebenarnya nunggu final gmn sih, kalo msl final tetep dikirim walopun salah ya, brarti playerinventory tetep dihapus tanpa nunggu hasil pengecekan, kalo ga dikirim ya brarti diapus trgantung hsl pengecekan
-
-            //utk skrg kalo bener dikirim, kalo ga ga dikirim aja dl
             bool isPotionMatch = questManager.CheckPotion(ListItemTerpilih);
             
             if(isPotionMatch){
@@ -177,4 +174,6 @@ public class SubmitPotion : MonoBehaviour
     {
         return charName;
     }
+
+
 }

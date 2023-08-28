@@ -6,13 +6,15 @@ using UnityEngine;
 public class TileControlManager : MonoBehaviour
 {
     private WitchGameManager gameManager;
+    [SerializeField]private PlayerSaveManager playerSave;
     public static TileControlManager Instance{get; private set;}
     private WordInput wordInput;
     [SerializeField]private WordGenerator wordGenerator;
-    private bool hasPembatasStartSet = false, hasPembatasEndSet = false;
-    [SerializeField]private PuzzleToTown_Pembatas puzzleToTown_Pembatas_Start, puzzleToTown_Pembatas_End;
+    private bool hasPembatasStartSet = false;
+    [SerializeField]private PuzzleToTown_Pembatas puzzleToTown_Pembatas_Start;
 
 
+    [SerializeField]private int levelPuzzle;
     [SerializeField]private bool isPuzzleSolved = false;
     [SerializeField]private int totalRow, totalColumn;
     int totalPuzzleSize;
@@ -43,24 +45,31 @@ public class TileControlManager : MonoBehaviour
     private void Awake() 
     {
         Instance = this;
-        wordGenerator = GetComponent<WordGenerator>();
-
-        positionInPuzzleThatHasTile = new List<TileControl>();
-        totalPuzzleSize = totalColumn * totalRow;
-        for(int i=0;i<(totalPuzzleSize); i++)
+        if(levelPuzzle != playerSave.GetPlayerLevel())
         {
-            positionInPuzzleThatHasTile.Add(null);
+            gameObject.SetActive(false);
         }
-        for(int i=0; i<transform.childCount; i++)
-        {
-            TileControl tileNow = transform.GetChild(i).GetComponent<TileControl>();
-            tileNow.GiveWordGeneratorToAllWordManager(wordGenerator);
-            if(!tileNow.IsAPuzzleTile()) isNotAPuzzleTile.Add(i);
-            tileNow.HideAllWordInput();
+        else{
+            wordGenerator = GetComponent<WordGenerator>();
 
-            tileList.Add(tileNow);
+            positionInPuzzleThatHasTile = new List<TileControl>();
+            totalPuzzleSize = totalColumn * totalRow;
+            for(int i=0;i<(totalPuzzleSize); i++)
+            {
+                positionInPuzzleThatHasTile.Add(null);
+            }
+            for(int i=0; i<transform.childCount; i++)
+            {
+                TileControl tileNow = transform.GetChild(i).GetComponent<TileControl>();
+                tileNow.GiveWordGeneratorToAllWordManager(wordGenerator);
+                if(!tileNow.IsAPuzzleTile()) isNotAPuzzleTile.Add(i);
+                tileNow.HideAllWordInput();
+
+                tileList.Add(tileNow);
+            }
+            TilePositionStart();
         }
-        TilePositionStart();
+        
     }
     private void Start() 
     {
@@ -142,23 +151,20 @@ public class TileControlManager : MonoBehaviour
             }
             positionInPuzzleThatHasTile[tileNow.TilePuzzlePositionNow()] = tileNow;
 
-            //this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar 
-            // if(!hasPembatasStartSet)
-            // {
-                
-            //     foreach(int startPos in StartPosition)
-            //     {
-            //         if(tileNow.TilePuzzlePositionNow() == startPos)
-            //         {
-            //             if(tileNow.CanPlayerStandHere())
-            //             {
-            //                 puzzleToTown_Pembatas_Start.SetNextPosition(tileNow.transform.localPosition);
-            //                 hasPembatasStartSet = true;
-            //             }
-            //         }
-            //     }
-            // }
-            //this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar this part belum benar perlu
+            if(!hasPembatasStartSet)
+            {
+                foreach(int startPos in StartPosition)
+                {
+                    if(tileNow.TilePuzzlePositionNow() == startPos)
+                    {
+                        if(tileNow.CanPlayerStandHere())
+                        {
+                            puzzleToTown_Pembatas_Start.SetNextPosition(tileNow.transform.localPosition);
+                            hasPembatasStartSet = true;
+                        }
+                    }
+                }
+            }
         }
     }
     public bool IsTileFinishLine(int positionNow)
@@ -399,6 +405,7 @@ public class TileControlManager : MonoBehaviour
     public void PuzzleSolved()
     {
         isPuzzleSolved = true;
+        PlayerSaveManager.Instance.ChangeIsMagicalBridgeSolve(true);
         WordManager[] wordManagers = {};
         wordInput.GetWordManager(wordManagers);
         //save data posisi puzzle

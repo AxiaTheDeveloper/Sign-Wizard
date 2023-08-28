@@ -49,6 +49,11 @@ namespace DialogueSystem{
             inputText = inputTexts;
             // GoLineText();
         }
+        public void ChangeDelayTypeText(float delay)
+        {
+            delayTypeText = delay;
+            // GoLineText();
+        }
         public void GoLineText()
         {
             // Debug.Log(inputText);

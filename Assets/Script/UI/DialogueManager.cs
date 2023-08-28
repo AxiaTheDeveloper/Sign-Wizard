@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
@@ -30,11 +30,7 @@ public class DialogueManager : MonoBehaviour
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
     private DialogueWrongChoice dialogueWrongChoice;
     private DialogueSystem.DialogueLine dialogueLines_WrongChoice, dialogueLines_Tutorial, dialogueLines_NerimaGift;
-    private string mainDialogue_WrongChoice;
 
-    [SerializeField]
-    [field : TextArea]
-    private string dialogue_playerInventoryFull_Chest, dialogue_barangChestHabis_Chest, dialogue_tidakBerhasilJadi_Cauldron, dialogue_tidakAdaIngredientMasuk_Cauldron, dialogue_tidakAdaTempatPotion_Cauldron, dialogue_tidakAdaTempat_Penumbuk,dialogue_tidakAdaResep_CauldronPenumbuk, dialogue_sudahPenuh_Cauldron, dialogue_ingredientKurang_Cauldron,dialogue_bukanBahanPotion_InventoryUI, dialogue_bukanBahanTumbukan_InventoryUI, dialogue_bukanPotion_InventoryUI, dialogue_potionTidakSesuaiQuest_SubmitPotion, dialogue_sedangTidakAdaQuest_InteractObject, dialogue_cekMailboxDulu_InteractObject,dialogue_cekQuestDulu_InteractObject, dialogue_sudahMenyelesaikanSemuaQuest_InteractObject, dialogue_tidakBisaPakaiPenumbuk, dialogue_SelesaikanQuestSekarang_InteractObject, dialogue_belumAdaQuestYangDikirimTidur_InteractObject, dialogue_tidakAdaBarangYangDiminta1_InteractObject, dialogue_tidakAdaBarangYangDiminta2_InteractObject, dialogue_belumMengecekKotakSuratLevel1_InteractObject, dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement;
 
     [Header("Dialogue Kirim Potion")]
     [SerializeField]private FadeNight_StartEnd fadeNight;
@@ -42,20 +38,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]private PlayerAnimator playerAnimator;
 
     [Header("Dialogue Tutorial")]
-    [SerializeField]
-    [field : TextArea]
-    private string dialogueTutorial_StartTutorial,dialogueTutorial_Cauldron, dialogueTutorial_Chest, dialogueTutorial_Dictionary, dialogueTutorial_Bed, dialogueTutorial_Tumbuk, dialogueTutorial_SubmitPotion, dialogueTutorial_StartMaking;
+
     private DialogueTutorial dialogueTutorial;
 
     [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit;
 
     [Header("Dialogue Nerima Gift")]
-    [SerializeField]
-    [field : TextArea]
-    private string dialogueNerimaGift_1, dialogueNerimaGift_2, dialogueNerimaGift_3, dialogueNerimaGift_4;
+
     private DialogueNerimaGift dialogueNerimaGift;
 
-
+    [SerializeField]private DialogueListScriptableObject dialogueList;
     
     private void Awake() {
         Instance = this;
@@ -209,16 +201,16 @@ public class DialogueManager : MonoBehaviour
     public void ShowDialogue_Gift(DialogueNerimaGift dialogueNerimaGift){
         gameManager.ChangeToCinematic();
         if(dialogueNerimaGift == DialogueNerimaGift.gift1){
-            dialogueLines_NerimaGift.ChangeInputText(dialogueNerimaGift_1);
+            dialogueLines_NerimaGift.ChangeInputText(dialogueList.dialogueNerimaGift_1);
         }
         else if(dialogueNerimaGift == DialogueNerimaGift.gift2){
-            dialogueLines_NerimaGift.ChangeInputText(dialogueNerimaGift_2);
+            dialogueLines_NerimaGift.ChangeInputText(dialogueList.dialogueNerimaGift_2);
         }
         else if(dialogueNerimaGift == DialogueNerimaGift.gift3){
-            dialogueLines_NerimaGift.ChangeInputText(dialogueNerimaGift_3);
+            dialogueLines_NerimaGift.ChangeInputText(dialogueList.dialogueNerimaGift_3);
         }
         else if(dialogueNerimaGift == DialogueNerimaGift.gift4){
-            dialogueLines_NerimaGift.ChangeInputText(dialogueNerimaGift_4);
+            dialogueLines_NerimaGift.ChangeInputText(dialogueList.dialogueNerimaGift_4);
         }
         dialogueHolder_NerimaGift.ShowDialogue();
     }
@@ -229,28 +221,28 @@ public class DialogueManager : MonoBehaviour
         dialogueTutorial = dialogueTutorials;
         // Debug.Log(dialogueTutorial);
         if(dialogueTutorials == DialogueTutorial.playerTutorialStart){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_StartTutorial);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_StartTutorial);
         }
         if(dialogueTutorials == DialogueTutorial.playerCauldron){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Cauldron);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Cauldron);
         }
         else if(dialogueTutorials == DialogueTutorial.playerChest){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Chest);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Chest);
         }
         else if(dialogueTutorials == DialogueTutorial.playerDictionary){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Dictionary);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Dictionary);
         }
         else if(dialogueTutorials == DialogueTutorial.playerBed){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Bed);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Bed);
         }
         else if(dialogueTutorials == DialogueTutorial.playerTumbuk){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_Tumbuk);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Tumbuk);
         }
         else if(dialogueTutorials == DialogueTutorial.playerSubmitPotion){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_SubmitPotion);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_SubmitPotion);
         }
         else if(dialogueTutorials == DialogueTutorial.playerStartMaking){
-            dialogueLines_Tutorial.ChangeInputText(dialogueTutorial_StartMaking);
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_StartMaking);
         }
         dialogueHolder_tutorial.ShowDialogue();
     }
@@ -265,67 +257,75 @@ public class DialogueManager : MonoBehaviour
         }
         gameManager.ChangeToCinematic();
         if(dialogueWrongChoice == DialogueWrongChoice.playerInventoryFull_Chest){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_playerInventoryFull_Chest);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_playerInventoryFull_Chest);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.barangChestHabis_Chest){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_barangChestHabis_Chest);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_barangChestHabis_Chest);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakBerhasilJadi_Cauldron){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakBerhasilJadi_Cauldron);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakBerhasilJadi_Cauldron);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaIngredientMasuk_Cauldron){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaIngredientMasuk_Cauldron);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaIngredientMasuk_Cauldron);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaTempatPotion_Cauldron){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaTempatPotion_Cauldron);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaTempatPotion_Cauldron);
             
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaTempat_Penumbuk){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaTempat_Penumbuk);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaTempat_Penumbuk);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaResep_CauldronPenumbuk){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaResep_CauldronPenumbuk);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaResep_CauldronPenumbuk);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.sudahPenuh_Cauldron){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_sudahPenuh_Cauldron);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_sudahPenuh_Cauldron);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.ingredientKurang_Cauldron){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_ingredientKurang_Cauldron);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_ingredientKurang_Cauldron);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_potionTidakSesuaiQuest_SubmitPotion);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_potionTidakSesuaiQuest_SubmitPotion);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.sedangTidakAdaQuest_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_sedangTidakAdaQuest_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_sedangTidakAdaQuest_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.cekMailboxDulu_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_cekMailboxDulu_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_cekMailboxDulu_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.cekQuestDulu_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_cekQuestDulu_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_cekQuestDulu_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_sudahMenyelesaikanSemuaQuest_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_sudahMenyelesaikanSemuaQuest_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakBisaPakaiPenumbuk_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakBisaPakaiPenumbuk);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakBisaPakaiPenumbuk);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.SelesaikanQuestSekarang_InteractObject)
         {
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_SelesaikanQuestSekarang_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_SelesaikanQuestSekarang_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.belumAdaQuestYangDikirimTidur_InteractObject)
         {
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_belumAdaQuestYangDikirimTidur_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumAdaQuestYangDikirimTidur_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.belumMengecekKotakSuratLevel1_InteractObject)
         {
             
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_belumMengecekKotakSuratLevel1_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumMengecekKotakSuratLevel1_InteractObject);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement)
         {
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.tidakPerluKeKota_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakPerluKeKota_GoingToOtherPlace);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.potionYangDibawaTidakSesuai_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
@@ -338,16 +338,20 @@ public class DialogueManager : MonoBehaviour
         gameManager.ChangeToCinematic();
         // dialogueWrongChoice_GameObject.SetActive(true);
         if(dialogueWrongChoice == DialogueWrongChoice.bukanBahanPotion_InventoryUI){
-            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogue_bukanBahanPotion_InventoryUI);
+            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogueList.dialogue_bukanBahanPotion_InventoryUI);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.bukanBahanTumbukan_InventoryUI){
-            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogue_bukanBahanTumbukan_InventoryUI);
+            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogueList.dialogue_bukanBahanTumbukan_InventoryUI);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.bukanPotion_InventoryUI){
-            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogue_bukanPotion_InventoryUI);
+            dialogueLines_WrongChoice.ChangeInputText(itemName + dialogueList.dialogue_bukanPotion_InventoryUI);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogue_tidakAdaBarangYangDiminta1_InteractObject + itemName + ". " + dialogue_tidakAdaBarangYangDiminta2_InteractObject);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaBarangYangDiminta1_InteractObject + itemName + ". " + dialogueList.dialogue_tidakAdaBarangYangDiminta2_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace + itemName + ". ");
         }
         
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
