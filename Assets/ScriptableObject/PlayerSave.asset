@@ -19,4 +19,4 @@ MonoBehaviour:
   isSubmitPotion: 0
   isResetSave: 1
   isFirstTime_Tutorial: 1
-  isFirstTimeInGame: 1
+  isFirstTimeInGame: 0
