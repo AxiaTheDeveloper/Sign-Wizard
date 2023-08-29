@@ -16,8 +16,16 @@ public class QuestLogUI : MonoBehaviour
     public void SetData(QuestScriptableObject questSO){
         questTitle.text = questSO.Quest_Title;
         questDesc.text = questSO.QuestDescription;
-        questTaskList.text = questSO.QuestTask;
+        if(WitchGameManager.Instance.GetOutDoorType() != WitchGameManager.OutDoorType.town)
+        {
+            questTaskList.text = questSO.QuestTask;
+        }
+        else{
+            questTaskList.text = questSO.QuestTaskPlace;
+        }
+        
         questSender.text = "- "+questSO.nameSender;
+        //di questtask list blg kirim ke aaaa kalo lg d town diganti jadi itu
     }
 
     private void Update() {

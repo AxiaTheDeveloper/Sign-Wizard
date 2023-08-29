@@ -13,11 +13,22 @@ public class PlayerSaveManager : MonoBehaviour
     private Transform playerPosition;
     [SerializeField]private Transform bedPlayerPosition;
     [SerializeField]private int maxLevel;
+
+    [Header("Di In front of House")]
+    [SerializeField]private Transform spawnPlaceFromForest;
+    [Header("Di Forest")]
+    [SerializeField]private Transform spawnPlaceFromMagicalBridge;
+    [SerializeField]private Transform spawnPlaceFromGraveyard;
+    [Header("Di Graveyard")]
+    [SerializeField]private Transform spawnPlaceFromBrokenBridge;
+    [Header("Di Town")]
+    [SerializeField]private Transform spawnPlaceFromBrokenBridge_Town;
+
     
 
     private void Awake() {
         Instance = this;
-        
+        playerAnimator = transform.GetChild(0).GetComponent<PlayerAnimator>();
         if(playerSaveSO.modeLevel == levelMode.outside && playerSaveSO.level == 1){
             Transform visualPos = transform.GetChild(0);
             // Debug.Log(visualPos.gameObject);
@@ -31,13 +42,44 @@ public class PlayerSaveManager : MonoBehaviour
         {
             if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse)
             {
-                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.none)
+                if(playerSaveSO.outDoorTypeNow != WitchGameManager.OutDoorType.none && playerSaveSO.outDoorTypeNow != WitchGameManager.OutDoorType.inFrontOfHouse)
                 {
-                    //dr dalam rumah
+                    transform.position = spawnPlaceFromForest.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Up");
+                    playerAnimator.animator.SetBool("idle", true);
                 }
-                else //posisi yang 1 nya
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest)
+            {
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.magicalBridge)
                 {
-
+                    transform.position = spawnPlaceFromMagicalBridge.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Left");
+                    playerAnimator.animator.SetBool("idle", true);
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
+                {
+                    transform.position = spawnPlaceFromGraveyard.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Up");
+                    playerAnimator.animator.SetBool("idle", true);
+                }
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.graveyard)
+            {
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Graveyard)
+                {
+                    transform.position = spawnPlaceFromBrokenBridge.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Left");
+                    playerAnimator.animator.SetBool("idle", true);
+                }
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.town)
+            {
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Town)
+                {
+                    transform.position = spawnPlaceFromBrokenBridge_Town.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Right");
+                    playerAnimator.animator.SetBool("idle", true);
                 }
             }
         }

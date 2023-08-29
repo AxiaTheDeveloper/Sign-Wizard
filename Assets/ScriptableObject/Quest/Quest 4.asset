@@ -28,14 +28,16 @@ MonoBehaviour:
   QuestTask_ID: "- Ke <b><color=#A46443>rak buku</color></b> untuk cek Resep.\n-
     Ke <b><color=#A46443>peti</color></b> untuk ambil bahan.\n- Ke <b><color=#A46443>penumbuk</color></b>
     untuk menumbuk \n  beberapa bahan yang perlu ditumbuk.\n- Ke <b><color=#A46443>cauldron</color></b>,
-    masukin bahan, dan \n  sesuaikan api.\n- Kirim lewat <b><color=#A46443>kotak
-    surat</color></b> di depan \n  rumah."
+    masukin bahan, dan \n  sesuaikan api.\n- Pergi ke <b><color=#A46443>kota</color></b>.\n-
+    Letakkan potion di <b><color=#A46443>kotak surat</color></b> di depan rumah milik
+    pemesan."
   QuestTask_EN: "- Go to <b><color=#A46443>shelf</color></b> to check the recipe.\n-
     Go to <b><color=#A46443>chest</color></b> to get the ingredients.\n- Go to <b><color=#A46443>mortar
     & pestle</color></b> to mash the \n  ingredients that need to be mashed.\n- Go
-    to <b><color=#A46443>cauldron</color></b>, put the ingredients \n  inside. and
-    adjust the fire\n- Deliver the potion using the <b><color=#A46443>mail box</color></b>
-    \n  in front of the house."
+    to <b><color=#A46443>cauldron</color></b>, put the ingredients \n  inside, and
+    adjust the fire.\n- Go to the <b><color=#A46443>town</color></b>.\n- Put the
+    potion inside the <b><color=#A46443>mail box</color></b> in \n  front of the
+    customer's house."
   QuestinMail_ID: "Selamat Pagi!!!\r\n\r\nKali ini Aku mau pesan ramuan <b><color=#A46443>Harmony
     Fish Brew & Tropical Bliss Elixir</color></b> yaa, lagi pengen yang sehat dan
     segar aja gitu. \r\n\r\nTerimakasih banyak, ditunggu ya!"

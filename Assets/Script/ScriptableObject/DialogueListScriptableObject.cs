@@ -11,7 +11,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_playerInventoryFull_Chest_ID : dialogue_playerInventoryFull_Chest_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_playerInventoryFull_Chest_ID : dialogue_playerInventoryFull_Chest_EN;
         }
     }
     [field : TextArea]
@@ -20,7 +20,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_barangChestHabis_Chest_ID : dialogue_barangChestHabis_Chest_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_barangChestHabis_Chest_ID : dialogue_barangChestHabis_Chest_EN;
         }
     }
     [field : TextArea]
@@ -29,7 +29,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakBerhasilJadi_Cauldron_ID : dialogue_tidakBerhasilJadi_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakBerhasilJadi_Cauldron_ID : dialogue_tidakBerhasilJadi_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -38,7 +38,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaIngredientMasuk_Cauldron_ID : dialogue_tidakAdaIngredientMasuk_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaIngredientMasuk_Cauldron_ID : dialogue_tidakAdaIngredientMasuk_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -47,7 +47,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaTempatPotion_Cauldron_ID : dialogue_tidakAdaTempatPotion_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaTempatPotion_Cauldron_ID : dialogue_tidakAdaTempatPotion_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -56,7 +56,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaTempat_Penumbuk_ID : dialogue_tidakAdaTempat_Penumbuk_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaTempat_Penumbuk_ID : dialogue_tidakAdaTempat_Penumbuk_EN;
         }
     }
     [field : TextArea]
@@ -65,7 +65,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaResep_CauldronPenumbuk_ID : dialogue_tidakAdaResep_CauldronPenumbuk_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaResep_CauldronPenumbuk_ID : dialogue_tidakAdaResep_CauldronPenumbuk_EN;
         }
     }
     [field : TextArea]
@@ -74,7 +74,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_sudahPenuh_Cauldron_ID : dialogue_sudahPenuh_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_sudahPenuh_Cauldron_ID : dialogue_sudahPenuh_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -83,7 +83,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_ingredientKurang_Cauldron_ID : dialogue_ingredientKurang_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_ingredientKurang_Cauldron_ID : dialogue_ingredientKurang_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -92,7 +92,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_bukanBahanPotion_InventoryUI_ID : dialogue_bukanBahanPotion_InventoryUI_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_bukanBahanPotion_InventoryUI_ID : dialogue_bukanBahanPotion_InventoryUI_EN;
         }
     }
     [field : TextArea]
@@ -101,7 +101,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_bukanBahanTumbukan_InventoryUI_ID : dialogue_bukanBahanTumbukan_InventoryUI_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_bukanBahanTumbukan_InventoryUI_ID : dialogue_bukanBahanTumbukan_InventoryUI_EN;
         }
     }
     [field : TextArea]
@@ -110,7 +110,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_bukanPotion_InventoryUI_ID : dialogue_bukanPotion_InventoryUI_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_bukanPotion_InventoryUI_ID : dialogue_bukanPotion_InventoryUI_EN;
         }
     }
     [field : TextArea]
@@ -119,7 +119,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_potionTidakSesuaiQuest_SubmitPotion_ID : dialogue_potionTidakSesuaiQuest_SubmitPotion_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_potionTidakSesuaiQuest_SubmitPotion_ID : dialogue_potionTidakSesuaiQuest_SubmitPotion_EN;
         }
     }
     [field : TextArea]
@@ -128,7 +128,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_sedangTidakAdaQuest_InteractObject_ID : dialogue_sedangTidakAdaQuest_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_sedangTidakAdaQuest_InteractObject_ID : dialogue_sedangTidakAdaQuest_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -137,7 +137,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_cekMailboxDulu_InteractObject_ID : dialogue_cekMailboxDulu_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_cekMailboxDulu_InteractObject_ID : dialogue_cekMailboxDulu_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -146,7 +146,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_cekQuestDulu_InteractObject_ID : dialogue_cekQuestDulu_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_cekQuestDulu_InteractObject_ID : dialogue_cekQuestDulu_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -155,7 +155,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_ID : dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_ID : dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -164,7 +164,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakBisaPakaiPenumbuk_ID : dialogue_tidakBisaPakaiPenumbuk_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakBisaPakaiPenumbuk_ID : dialogue_tidakBisaPakaiPenumbuk_EN;
         }
     }
     [field : TextArea]
@@ -173,7 +173,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_SelesaikanQuestSekarang_InteractObject_ID : dialogue_SelesaikanQuestSekarang_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_SelesaikanQuestSekarang_InteractObject_ID : dialogue_SelesaikanQuestSekarang_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -182,7 +182,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_belumAdaQuestYangDikirimTidur_InteractObject_ID : dialogue_belumAdaQuestYangDikirimTidur_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_belumAdaQuestYangDikirimTidur_InteractObject_ID : dialogue_belumAdaQuestYangDikirimTidur_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -191,7 +191,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaBarangYangDiminta1_InteractObject_ID : dialogue_tidakAdaBarangYangDiminta1_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaBarangYangDiminta1_InteractObject_ID : dialogue_tidakAdaBarangYangDiminta1_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -200,7 +200,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakAdaBarangYangDiminta2_InteractObject_ID : dialogue_tidakAdaBarangYangDiminta2_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakAdaBarangYangDiminta2_InteractObject_ID : dialogue_tidakAdaBarangYangDiminta2_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -209,7 +209,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_belumMengecekKotakSuratLevel1_InteractObject_ID : dialogue_belumMengecekKotakSuratLevel1_InteractObject_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_belumMengecekKotakSuratLevel1_InteractObject_ID : dialogue_belumMengecekKotakSuratLevel1_InteractObject_EN;
         }
     }
     [field : TextArea]
@@ -218,7 +218,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_ID : dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_ID : dialogue_tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement_EN;
         }
     }
     [field : TextArea]
@@ -227,7 +227,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_tidakPerluKeKota_GoingToOtherPlace_ID : dialogue_tidakPerluKeKota_GoingToOtherPlace_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_tidakPerluKeKota_GoingToOtherPlace_ID : dialogue_tidakPerluKeKota_GoingToOtherPlace_EN;
         }
     }
     [field : TextArea]
@@ -236,7 +236,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_ID : dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_ID : dialogue_potionYangDibawaTidakSesuai_GoingToOtherPlace_EN;
         }
     }
     [field : TextArea]
@@ -245,7 +245,16 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_ID : dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_ID : dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_ID, dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_EN;
+    public string dialogue_sudahMenyelesaikanPuzzle_PembatasEnding
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_ID : dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_EN;
         }
     }
     [Header("Dialogue Tutorial")]
@@ -255,7 +264,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_StartTutorial_ID : dialogueTutorial_StartTutorial_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_StartTutorial_ID : dialogueTutorial_StartTutorial_EN;
         }
     }
     [field : TextArea]
@@ -264,7 +273,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_Cauldron_ID : dialogueTutorial_Cauldron_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Cauldron_ID : dialogueTutorial_Cauldron_EN;
         }
     }
     [field : TextArea]
@@ -273,7 +282,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_Chest_ID : dialogueTutorial_Chest_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Chest_ID : dialogueTutorial_Chest_EN;
         }
     }
     [field : TextArea]
@@ -282,7 +291,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_Dictionary_ID : dialogueTutorial_Dictionary_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Dictionary_ID : dialogueTutorial_Dictionary_EN;
         }
     }
     [field : TextArea]
@@ -291,7 +300,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_Bed_ID : dialogueTutorial_Bed_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Bed_ID : dialogueTutorial_Bed_EN;
         }
     }
     [field : TextArea]
@@ -300,7 +309,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_Tumbuk_ID : dialogueTutorial_Tumbuk_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Tumbuk_ID : dialogueTutorial_Tumbuk_EN;
         }
     }
     [field : TextArea]
@@ -309,7 +318,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_SubmitPotion_ID : dialogueTutorial_SubmitPotion_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_SubmitPotion_ID : dialogueTutorial_SubmitPotion_EN;
         }
     }
     [field : TextArea]
@@ -318,7 +327,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueTutorial_StartMaking_ID : dialogueTutorial_StartMaking_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_StartMaking_ID : dialogueTutorial_StartMaking_EN;
         }
     }
 
@@ -329,7 +338,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueNerimaGift_1_ID : dialogueNerimaGift_1_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueNerimaGift_1_ID : dialogueNerimaGift_1_EN;
         }
     }
     [field : TextArea]
@@ -338,7 +347,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueNerimaGift_2_ID : dialogueNerimaGift_2_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueNerimaGift_2_ID : dialogueNerimaGift_2_EN;
         }
     }
     [field : TextArea]
@@ -347,7 +356,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueNerimaGift_3_ID : dialogueNerimaGift_3_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueNerimaGift_3_ID : dialogueNerimaGift_3_EN;
         }
     }
     [field : TextArea]
@@ -356,7 +365,7 @@ public class DialogueListScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? dialogueNerimaGift_4_ID : dialogueNerimaGift_4_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueNerimaGift_4_ID : dialogueNerimaGift_4_EN;
         }
     }
 }

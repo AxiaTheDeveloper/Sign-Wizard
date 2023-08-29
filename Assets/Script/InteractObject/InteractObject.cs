@@ -166,7 +166,14 @@ public class InteractObject : MonoBehaviour
                     submit.OpenUI(Submit);
                 }
                 else{
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                    if(!Submit.IsCharacterATravelingMerchant())
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                    }
+                    else{
+                        //kasih
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                    }
                 }
                 
                 

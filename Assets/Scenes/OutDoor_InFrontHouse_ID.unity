@@ -631,15 +631,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Ke Book Shelf untuk cek Resep untuk Dewdrop Elixir
-
-    - Ke Chest ambil
-    1 Air, 2 Daun. 1 Herbal.
-
-    - Ke Cauldron masukin bahan sesuai urutan kemudian
-    lock api di suhu kecil.
-
-    - Kirim lewat Magical Owl.'
+  m_text: "- Ke <b><color=#A46443>rak buku</color></b> untuk cek Resep.\n- Ke <b><color=#A46443>peti</color></b>
+    untuk ambil bahan.\n- Ke <b><color=#A46443>penumbuk</color></b> untuk menumbuk
+    \n  beberapa bahan yang perlu ditumbuk.\n- Ke <b><color=#A46443>cauldron</color></b>,
+    masukin bahan, dan \n  sesuaikan api.\n- Pergi ke <b><color=#A46443>kota</color></b>.\n-
+    Letakkan potion di <b><color=#A46443>kotak surat</color></b> di depan rumah milik
+    pemesan."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -666,8 +663,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.5
-  m_fontSizeBase: 39.5
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -901,6 +898,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3755188029374768499, guid: 3acd19f63349fef49a61572267a93281, type: 3}
   m_PrefabInstance: {fileID: 456127660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &48416571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48416572}
+  m_Layer: 0
+  m_Name: PlayerSpawnPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48416572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48416571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 970335730}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &55707333
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,6 +6792,7 @@ RectTransform:
   - {fileID: 1168063117}
   - {fileID: 442943757}
   - {fileID: 1085877842}
+  - {fileID: 1696616118}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13345,6 +13375,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
+--- !u!1 &970335729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970335730}
+  m_Layer: 0
+  m_Name: PlayerSpawnPlace_FromForest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970335730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970335729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.85, y: -14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 48416572}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &971098298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18624,7 +18685,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -22854,6 +22915,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd43c7e4bba25424f87f713fec3eaaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1696616117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 499594690}
+    m_Modifications:
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035031987768084392, guid: ecafd134485f65541a909319fec613f6, type: 3}
+      propertyPath: m_Name
+      value: MapUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ecafd134485f65541a909319fec613f6, type: 3}
+--- !u!224 &1696616118 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
+  m_PrefabInstance: {fileID: 1696616117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704590198
 GameObject:
   m_ObjectHideFlags: 0
@@ -22921,6 +23096,8 @@ MonoBehaviour:
   dialogueHolder_tutorial: {fileID: 0}
   dialogueHolder_NerimaGift: {fileID: 954780842}
   dialogueHolder_IstirahatHabisSelesaiQuest: {fileID: 1361976308}
+  dialogueHolder_PulangDariKota: {fileID: 0}
+  dialogueHolder_MenujuKeKotaLevel6: {fileID: 0}
   fadeNight: {fileID: 1442504013}
   questBoxUI: {fileID: 1980060517}
   playerAnimator: {fileID: 1688367218}
@@ -22931,6 +23108,7 @@ MonoBehaviour:
   tutorialTumbuk: {fileID: 0}
   tutorialSubmit: {fileID: 0}
   dialogueList: {fileID: 11400000, guid: 80ce59044f4afb8409785925bcfd042e, type: 2}
+  goingToOtherPlace: {fileID: 0}
 --- !u!1 &1718706615
 GameObject:
   m_ObjectHideFlags: 0
@@ -26097,6 +26275,7 @@ MonoBehaviour:
   StartFire: {fileID: 1876853756}
   WalkSoundForTimeLineOnly: {fileID: 293766351}
   CauldronBoil: {fileID: 0}
+  MenuSound: {fileID: 0}
   soundSlider: {fileID: 971254056}
 --- !u!4 &1876853768
 Transform:
@@ -29742,6 +29921,10 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1650326003}
+    - target: {fileID: 4812652835541765478, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
+      propertyPath: spawnPlaceFromForest
+      value: 
+      objectReference: {fileID: 970335730}
     - target: {fileID: 5684377240713654815, guid: eca22d1c253ac4b4681a4839996af1cf, type: 3}
       propertyPath: m_Material
       value: 

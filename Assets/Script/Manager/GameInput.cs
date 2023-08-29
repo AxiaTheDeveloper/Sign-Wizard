@@ -184,6 +184,16 @@ public class GameInput : MonoBehaviour
     public bool GetInputHideQuestLog(){
         return Input.GetKeyUp(KeyCode.LeftShift);
     }
+    public bool GetInputShowMap(){
+        return Input.GetKeyDown(KeyCode.M);
+    }
+    public bool GetInputShowRuneinPuzzle(){
+        return Input.GetKeyDown(KeyCode.LeftAlt);
+    }
+    public bool GetInputHideRuneinPuzzle(){
+        return Input.GetKeyUp(KeyCode.LeftAlt);
+    }
+
 
     
 

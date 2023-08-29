@@ -15,7 +15,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Quest_Title_ID : Quest_Title_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? Quest_Title_ID : Quest_Title_EN;
         }
     }
 
@@ -25,7 +25,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestDescription_ID : QuestDescription_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? QuestDescription_ID : QuestDescription_EN;
         }
     }
     [field : TextArea]
@@ -34,7 +34,16 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestTask_ID : QuestTask_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? QuestTask_ID : QuestTask_EN;
+        }
+    }
+    [field : TextArea]
+    public string QuestTaskPlace_ID, QuestTaskPlace_EN;
+    public string QuestTaskPlace
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? QuestTaskPlace_ID : QuestTaskPlace_EN;
         }
     }
     [field : TextArea]
@@ -43,7 +52,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? QuestinMail_ID : QuestinMail_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? QuestinMail_ID : QuestinMail_EN;
         }
     }
 
@@ -54,7 +63,7 @@ public class QuestScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? GiftDescinMail_ID : GiftDescinMail_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? GiftDescinMail_ID : GiftDescinMail_EN;
         }
     }
     public string giftSender;

@@ -23,7 +23,7 @@ public class Door_Outside : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Go_outside_dialogue_ID : Go_outside_dialogue_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? Go_outside_dialogue_ID : Go_outside_dialogue_EN;
         }
     }
     [SerializeField]
@@ -33,7 +33,7 @@ public class Door_Outside : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Go_inside_dialogue_ID : Go_inside_dialogue_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? Go_inside_dialogue_ID : Go_inside_dialogue_EN;
         }
     }
     

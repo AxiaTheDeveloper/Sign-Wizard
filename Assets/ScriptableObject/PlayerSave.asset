@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59921e1701671d24ba17d5887a55ecc6, type: 3}
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
   modeLevel: 1
   placePlayerNow: 1
-  outDoorTypeNow: 4
+  outDoorTypeNow: 1
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0
   isResetSave: 0
   isFirstTime_Tutorial: 0
-  isMagicalBridgeSolved: 0
+  isMagicalBridgeSolved: 1
   isFirstTimeInGame: 0

@@ -59,8 +59,8 @@ MonoBehaviour:
     sekali
   dialogue_cekQuestDulu_InteractObject_EN: I haven't check the new quest in the mail
     box.
-  dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_ID: Belum ada quest yang dikirim.
-    Mungkin sekarang aku bisa coba-coba membuat potion saja.
+  dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_ID: Belum ada quest yang perlu
+    diantar. Mungkin sekarang aku bisa coba-coba membuat potion saja.
   dialogue_sudahMenyelesaikanSemuaQuest_InteractObject_EN: There's no new quest.
     Maybe I can just try to brew potions now.
   dialogue_tidakBisaPakaiPenumbuk_ID: Penumbuknya rusak. Aku harus menyempatkan diri
@@ -107,6 +107,12 @@ MonoBehaviour:
     bisa kembali dulu. Aku belum mengantarkan potionnya ke '
   dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_EN: 'I can''t
     go back just yet. I haven''t delivered the potion to '
+  dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_ID: Untunglah aku berhasil menyelesaikan
+    puzzlenya.. Sebaiknya aku segera mengantar potion ini dan pulang sebelum puzzlenya
+    berubah lagi.
+  dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_EN: Luckily I managed to complete
+    the puzzle. I'd better hurry deliver this potion and get home before the puzzle
+    changes again.
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that
@@ -150,12 +156,15 @@ MonoBehaviour:
     requested.
   dialogueNerimaGift_1_ID: Wah tumbukan baru!! Sekarang aku bisa membuat potion yang
     bahan-bahannya perlu ditumbuk.
-  dialogueNerimaGift_1_EN: 
+  dialogueNerimaGift_1_EN: Wow, A new mortar & pestle !! Now I can brew potions that
+    need its ingredients to be mashed.
   dialogueNerimaGift_2_ID: Keranjang dan flask baru ini bisa membantu mempercepat
     proses tumbukkan.
-  dialogueNerimaGift_2_EN: 
+  dialogueNerimaGift_2_EN: This new basket and flask can help me to speed up my mash
+    process.
   dialogueNerimaGift_3_ID: Wah rak dan vial baru ini bisa membantu mempercepat proses
     tumbukkan.
-  dialogueNerimaGift_3_EN: 
+  dialogueNerimaGift_3_EN: Woah, this new vial and shelf can help me to speed up
+    my mash process.
   dialogueNerimaGift_4_ID: Yay, rumah kucing baru !!
-  dialogueNerimaGift_4_EN: 
+  dialogueNerimaGift_4_EN: Yay, a new cat house for decorations.

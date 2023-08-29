@@ -55,6 +55,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField]private InventoryScriptableObject playerInvent, chest;
     [Header("ID EN")]
     [SerializeField]private string bahasaGame;
+    
 
 
     private void Awake() {
@@ -127,11 +128,13 @@ public class MainMenuUI : MonoBehaviour
             
             moveSelection_normal(keyInputArrow);
             if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                soundManager.PlayMenuSound();
                 inputCooldownTimer = inputCooldownTimerMax;
                 // Debug.Log("Load 1");
                 Select();
             }
             if(gameInput.GetInputOpenInventory() && inputCooldownTimer <= 0){
+                soundManager.PlayMenuSound();
                 inputCooldownTimer = inputCooldownTimerMax;
                 resetUI.SetActive(true);
                 type = mainMenuType.reset;
@@ -140,18 +143,22 @@ public class MainMenuUI : MonoBehaviour
         else if(type == mainMenuType.language){
             Deselect();
             if(keyInputArrow.y == -1 && selectLanguage == "BISINDO"){
+                soundManager.PlayMenuSound();
                 selectLanguage = "SIBI";
                 changeBahasa(selectLanguage);
             }
             else if(keyInputArrow.y == -1 && selectLanguage == "SIBI"){
+                soundManager.PlayMenuSound();
                 selectLanguage = "ASL";
                 changeBahasa(selectLanguage);
             }
             else if(keyInputArrow.y == 1 && selectLanguage == "SIBI"){
+                soundManager.PlayMenuSound();
                 selectLanguage = "BISINDO";
                 changeBahasa(selectLanguage);
             }
             else if(keyInputArrow.y == 1 && selectLanguage == "ASL"){
+                soundManager.PlayMenuSound();
                 selectLanguage = "SIBI";
                 changeBahasa(selectLanguage);
             }
@@ -162,22 +169,28 @@ public class MainMenuUI : MonoBehaviour
             moveSelection_option(keyInputArrow);
             if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
                 inputCooldownTimer = inputCooldownTimerMax;
+                soundManager.PlayMenuSound();
                 Select_Option();
             }
             if(isMusicOn && keyInputArrow.x == 1){
+                soundManager.PlayMenuSound();
                 bgmManager.UpdateBGM_Volume(0.1f);
             }
             else if(isMusicOn && keyInputArrow.x == -1){
+                soundManager.PlayMenuSound();
                 bgmManager.UpdateBGM_Volume(-0.1f);
             }
             if(isSoundOn && keyInputArrow.x == 1){
+                soundManager.PlayMenuSound();
                 soundManager.UpdateSound_Volume(0.1f);
             }
             else if(isSoundOn && keyInputArrow.x == -1){
+                soundManager.PlayMenuSound();
                 soundManager.UpdateSound_Volume(-0.1f);
             }
             if(isLanguageOn && keyInputArrow.x == 1){
                 if(selectionOptionLanguage == "ID"){
+                    soundManager.PlayMenuSound();
                     selectionOptionLanguage = "EN";
                     UpdateVisualLanguageOption();
                     PlayerPrefs.SetString("pilihanIDEN", selectionOptionLanguage);
@@ -185,6 +198,7 @@ public class MainMenuUI : MonoBehaviour
             }
             else if(isLanguageOn && keyInputArrow.x == -1){
                 if(selectionOptionLanguage == "EN"){
+                    soundManager.PlayMenuSound();
                     selectionOptionLanguage = "ID";
                     UpdateVisualLanguageOption();
                     PlayerPrefs.SetString("pilihanIDEN", selectionOptionLanguage);
@@ -196,6 +210,7 @@ public class MainMenuUI : MonoBehaviour
         }
         else if(type == mainMenuType.reset){
             if((gameInput.GetInputOpenInventory() || gameInput.GetInputEscape()|| gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
+                // soundManager.PlayMenuSound();
                 inputCooldownTimer = inputCooldownTimerMax;
                 isYesReset = false;
                 UpdateSelectChoice_Reset();
@@ -205,15 +220,17 @@ public class MainMenuUI : MonoBehaviour
                 OnChange?.Invoke(this,EventArgs.Empty);
             }
             if(keyInputArrow.x == -1 && !isYesReset){
+                soundManager.PlayMenuSound();
                 isYesReset = true;
                 UpdateSelectChoice_Reset();
             }
             else if(keyInputArrow.x == 1 && isYesReset){
+                soundManager.PlayMenuSound();
                 isYesReset = false;
                 UpdateSelectChoice_Reset();
             }
             if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
-
+                soundManager.PlayMenuSound();
                 if(isYesReset){
                     playerSaveSO.level = 1;
                     playerSaveSO.modeLevel = levelMode.outside;
@@ -222,6 +239,8 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
                     playerSaveSO.isFirstTime_Tutorial = true;
+                    playerSaveSO.placePlayerNow = WitchGameManager.Place.outdoor;
+                    playerSaveSO.outDoorTypeNow = WitchGameManager.OutDoorType.inFrontOfHouse;
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
@@ -246,9 +265,11 @@ public class MainMenuUI : MonoBehaviour
     }
     private void moveSelection_normal(Vector2 keyInputArrow){
         if(keyInputArrow.y == 1 && selection > 0 ){
+            soundManager.PlayMenuSound();
             selection--;
         }
         else if(keyInputArrow.y == -1 && selection < selectArrows.Length-1){
+            soundManager.PlayMenuSound();
             selection++;
         }
         
@@ -257,9 +278,11 @@ public class MainMenuUI : MonoBehaviour
     private void moveSelection_option(Vector2 keyInputArrow){
         if(!isMusicOn && !isSoundOn && !isLanguageOn){
             if(keyInputArrow.y == 1 && selectionPause > 0 ){
+                soundManager.PlayMenuSound();
                 selectionPause--;
             }
             else if(keyInputArrow.y == -1 && selectionPause < selectArrowsPause.Length-1){
+                soundManager.PlayMenuSound();
                 selectionPause++;
             }
             
@@ -544,7 +567,7 @@ public class MainMenuUI : MonoBehaviour
         
         if(type == mainMenuType.language){
             if((gameInput.GetInputSelectItemForCauldron() || gameInput.GetInputEscape() || gameInput.GetInputEscapeMainMenu()) && inputCooldownTimer <= 0){
-                
+
                 inputCooldownTimer = inputCooldownTimerMax;
                 pilihanLanguage.SetActive(false);
                 buttonStart.SetActive(true);

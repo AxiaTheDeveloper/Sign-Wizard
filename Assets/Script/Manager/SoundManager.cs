@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance{get; private set;}
-    [SerializeField]private AudioSource SoundEffect_Run_Grass, SoundEffect_Run_House, Chest_Open, Chest_Close, DoorOpen, FlipPage, Mailbox, Mortar, OpenEnvelope, PotionJadi, StartFire, WalkSoundForTimeLineOnly, CauldronBoil;
+    [SerializeField]private AudioSource SoundEffect_Run_Grass, SoundEffect_Run_House, Chest_Open, Chest_Close, DoorOpen, FlipPage, Mailbox, Mortar, OpenEnvelope, PotionJadi, StartFire, WalkSoundForTimeLineOnly, CauldronBoil, MenuSound;
     
     private float volume;
     [SerializeField]private Slider soundSlider;
@@ -46,6 +46,7 @@ public class SoundManager : MonoBehaviour
         if(StartFire)StartFire.volume = volume;
         if(WalkSoundForTimeLineOnly)WalkSoundForTimeLineOnly.volume = volume;
         if(CauldronBoil)CauldronBoil.volume = volume;
+        if(MenuSound)MenuSound.volume = volume;
         
     }
     public void PlaySFX_PlayerWalk(){
@@ -101,5 +102,9 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayStartFire(){
         StartFire.Play();
+    }
+    public void PlayMenuSound()
+    {
+        if(MenuSound)MenuSound.Play();
     }
 }

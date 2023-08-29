@@ -26,8 +26,7 @@ public class GoingToOtherPlace : MonoBehaviour
             () => GoToDestination()
         );
     }
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
+    private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Player"))
         {
             if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && playerSave.GetPlayerLevel() == 1 && playerSave.GetPlayerLevelMode() == levelMode.outside)
@@ -36,28 +35,54 @@ public class GoingToOtherPlace : MonoBehaviour
             }
             else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest && destination == Destination_Outside.magicalBridge)
             {
-                if(playerSave.GetPlayerLevelMode() != levelMode.MakingPotion)
+                if(playerSave.GetPlayerLevel() < playerSave.GetMaxLevel())
                 {
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakPerluKeKota_GoingToOtherPlace);
-                }
-                else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
-                    if(!QuestManager.Instance.CheckPotion_BeforeGoToForest(PlayerInventory.Instance.GetPlayerInventory()))
+                    if(playerSave.GetPlayerLevelMode() != levelMode.MakingPotion)
                     {
-                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionYangDibawaTidakSesuai_GoingToOtherPlace);
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakPerluKeKota_GoingToOtherPlace);
+                    }
+                    else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                        if(!QuestManager.Instance.CheckPotion_BeforeGoToForest(PlayerInventory.Instance.GetPlayerInventory()))
+                        {
+                            DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionYangDibawaTidakSesuai_GoingToOtherPlace);
+                        }
+                        else{
+                            FadeGetOutScene();
+                        }
                     }
                 }
+                else
+                {
+                    if(playerSave.GetPlayerLevelMode() != levelMode.MakingPotion)
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakPerluKeKota_GoingToOtherPlace);
+                    }
+                    else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                        DialogueManager.Instance.ShowDialogue_MenujuKotaLevel6();
+                    }
+                }
+                
             }
             else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.town && destination == Destination_Outside.magicalBridge)
             {
-                if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion)
+                if(playerSave.GetPlayerLevel() < playerSave.GetMaxLevel())
                 {
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, QuestManager.Instance.GetSendername());
+                    if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion)
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, QuestManager.Instance.GetSendername());
+                    }
+                    else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+                    {
+                        DialogueManager.Instance.ShowDialogue_PulangDariKota();
+                    }
                 }
-                else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+                else
                 {
-                    destination = Destination_Outside.inFrontOfHouse;
-                    FadeGetOutScene();
+                    if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
+                        DialogueManager.Instance.ShowDialogue_PulangDariKota();
+                    }
                 }
+                
 
             }
             else
@@ -65,6 +90,16 @@ public class GoingToOtherPlace : MonoBehaviour
                 FadeGetOutScene();
             }
         }
+    }
+    public void StraightToTown()
+    {
+        destination = Destination_Outside.town;
+        FadeGetOutScene();
+    }
+    public void StraightToHome()
+    {
+        destination = Destination_Outside.inFrontOfHouse;
+        FadeGetOutScene();
     }
     private void GoToDestination()
     {

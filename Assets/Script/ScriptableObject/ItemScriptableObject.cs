@@ -16,7 +16,7 @@ public class ItemScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? itemNameID : itemNameEN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? itemNameID : itemNameEN;
         }
     }
     public ItemType type;
@@ -29,7 +29,7 @@ public class ItemScriptableObject : ScriptableObject
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "EN") == "ID" ? Desc_ID : Desc_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? Desc_ID : Desc_EN;
         }
     }
 

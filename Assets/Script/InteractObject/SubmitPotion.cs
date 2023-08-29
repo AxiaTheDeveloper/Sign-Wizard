@@ -9,6 +9,7 @@ public class SubmitPotion : MonoBehaviour
         Chal, Vii, Eline, Cloter
     }
     [SerializeField]private CharacterHouseName charHouseName;
+    [SerializeField]private bool isCharacterATravelingMerchant;
     private string charName
     {
         get
@@ -84,13 +85,29 @@ public class SubmitPotion : MonoBehaviour
             HideWHoleUI();
             playerInventory.ClosePlayerInventory();
 
+
+            //kalo jd ada traveling merchant, ini dibikin aja ke 1 org itu, kalo si 1 org itu showdialoguenya beda(bikin baru_, kalo yg lain ya itu doang)
             //mulai timeline or anything
-            if(isPotionMatch){
-                dialogueManager.ShowDialogue_KirimPotion();
+            if(!isCharacterATravelingMerchant)
+            {
+                if(isPotionMatch){
+                    dialogueManager.ShowDialogue_KirimPotion();
+                }
+                else{
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion);
+                }
             }
             else{
-                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion);
+                if(isPotionMatch){
+                    //ntr ganti
+                    dialogueManager.ShowDialogue_KirimPotion();
+                }
+                else{
+                    //ntr ganti
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionTidakSesuaiQuest_SubmitPotion);
+                }
             }
+            
             
             //quest manager ngecheck apakah potionnya bener ato salah.
             
@@ -173,6 +190,10 @@ public class SubmitPotion : MonoBehaviour
     public string GetCharHouseName()
     {
         return charName;
+    }
+    public bool IsCharacterATravelingMerchant()
+    {
+        return isCharacterATravelingMerchant;
     }
 
 
