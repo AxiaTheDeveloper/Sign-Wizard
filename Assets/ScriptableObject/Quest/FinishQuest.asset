@@ -10,22 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebcd416cb1b9e5499770b2189f454c3, type: 3}
-  m_Name: No_Quest
+  m_Name: FinishQuest
   m_EditorClassIdentifier: 
   levelQuest: 0
   nameSender: 
   potionWantList: []
   Quest_Title_ID: Tidak Ada Quest
   Quest_Title_EN: No Quest
-  QuestDescription_ID: Sedang tidak ada quest coba cek kotak surat untuk mendapatkannya.
-  QuestDescription_EN: There's no quest try to check the mail box for more.
-  QuestTask_ID: '- Cek kotak surat yang ada di depan rumah.'
-  QuestTask_EN: '- Check <b>mail box</b> in front of the house.'
-  QuestTaskPlace_ID: '- Cek kotak surat yang ada di depan rumah.'
-  QuestTaskPlace_EN: '- Check <b>mail box</b> in front of the house.'
+  QuestDescription_ID: Berhasil mengirimkan potion saatnya pulang ke rumah.
+  QuestDescription_EN: Potion succesfully delivered. Time to go back to Grandma's
+    house.
+  QuestTask_ID: '- Kembali ke rumah nenek.
+
+    - Istirahat.'
+  QuestTask_EN: '- Go back to Grandma''s house.
+
+    - Take a rest.'
+  QuestTaskPlace_ID: '- Kembali ke rumah nenek.
+
+    - Istirahat.'
+  QuestTaskPlace_EN: '- Go back to Grandma''s house.
+
+    - Take a rest.'
   QuestinMail_ID: 
   QuestinMail_EN: 
   GiftDescinMail_ID: 
   GiftDescinMail_EN: 
   giftSender: 
-  progressPerTumbuk_Quest: 45
+  progressPerTumbuk_Quest: 0

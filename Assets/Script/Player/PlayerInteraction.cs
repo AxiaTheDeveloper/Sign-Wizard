@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Update() {
         
         HandleSelectObjectInteractions();
-        if(WitchGameManager.Instance.IsInGame()){
+        if(WitchGameManager.Instance.IsInGame() && WitchGameManager.Instance.IsInGameType() == WitchGameManager.InGameType.normal){
             if(GameInput.Instance.GetInputInteract() && selectedObject && inputCooldownTimer <= 0){
                 // HandleInteractions();
                 selectedObject.Interacts();

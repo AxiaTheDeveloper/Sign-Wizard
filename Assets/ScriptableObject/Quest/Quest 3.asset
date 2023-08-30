@@ -37,6 +37,12 @@ MonoBehaviour:
     adjust the fire.\n- Go to the <b><color=#A46443>town</color></b>.\n- Put the
     potion inside the <b><color=#A46443>mail box</color></b> in \n  front of the
     customer's house."
+  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Cloter. \n- Letakkan
+    potion di <b><color=#A46443>kotak surat</color></b> milik Cloter."
+  QuestTaskPlace_EN: '- Find Cloter''s <b><color=#A46443>house</color></b>.
+
+    -
+    Put the potion inside Cloter''s <b><color=#A46443>mail box</color></b>.'
   QuestinMail_ID: 'Haloo, ku dengar dari Chal ramuannya lebih bagus dari biasanya
     dan sepertinya bukan buatan nenek lagi ya?
 

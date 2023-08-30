@@ -59,6 +59,7 @@ public class MainMenuUI : MonoBehaviour
 
 
     private void Awake() {
+        UnityEngine.Cursor.visible = false;
         if(playerSaveSO.isFirstTimeInGame){
             playerSaveSO.isFirstTimeInGame = false;
             #if UNITY_EDITOR
@@ -241,6 +242,7 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isFirstTime_Tutorial = true;
                     playerSaveSO.placePlayerNow = WitchGameManager.Place.outdoor;
                     playerSaveSO.outDoorTypeNow = WitchGameManager.OutDoorType.inFrontOfHouse;
+                    playerSaveSO.isMagicalBridgeSolved = false;
                     #if UNITY_EDITOR
                     EditorUtility.SetDirty(playerSaveSO);
                     #endif
@@ -349,16 +351,7 @@ public class MainMenuUI : MonoBehaviour
                                 LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
                             }
                             else{
-                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
-                            }
-                        }
-                        else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.graveyard)
-                        {
-                            if(selectionOptionLanguage == "ID"){
-                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_ID");
-                            }
-                            else{
-                                LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
+                                LevelLoader.Instance.LoadScene("OutDoor_Graveyard_EN");
                             }
                         }
                         else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Graveyard)

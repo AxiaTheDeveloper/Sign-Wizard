@@ -25,14 +25,14 @@ MonoBehaviour:
     until the end.
 
     Please wait for the next update.'
-  QuestTask_ID: '- Cobalah untuk membuat potion lagi dari resep yang ada atau reset
-    gamenya di bagian main menu.
-
-    - Tunggu update berikutnya.'
-  QuestTask_EN: '- Try to create potion from the recipe list again or reset the game
-    from the main menu.
-
-    - Wait for the next update.'
+  QuestTask_ID: "- Cobalah untuk membuat potion lagi dari \n  resep yang ada atau
+    reset gamenya di \n  bagian main menu.\n- Tunggu update berikutnya."
+  QuestTask_EN: "- Try to create potion from the recipe list \n  again or reset the
+    game from the main \n  menu.\n- Wait for the next update."
+  QuestTaskPlace_ID: "- Cobalah untuk membuat potion lagi dari \n  resep yang ada
+    atau reset gamenya di \n  bagian main menu.\n- Tunggu update berikutnya."
+  QuestTaskPlace_EN: "- Try to create potion from the recipe list \n  again or reset
+    the game from the main \n  menu.\n- Wait for the next update."
   QuestinMail_ID: "Sudah tidak ada quest lagi.\nTerima kasih telah memainkan game
     kami sampai selesai. \nSilahkan menunggu update berikutnya"
   QuestinMail_EN: 'There''s no more quest.

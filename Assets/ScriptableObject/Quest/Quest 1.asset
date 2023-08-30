@@ -32,6 +32,12 @@ MonoBehaviour:
     put the ingredients \n  inside, and adjust the fire.\n- Go to the <b><color=#A46443>town</color></b>.
     \n- Put the potion inside the <b><color=#A46443>mail box</color></b> in \n  front
     of the customer's house."
+  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Chal. \n- Letakkan
+    potion di <b><color=#A46443>kotak surat</color></b> milik Chal."
+  QuestTaskPlace_EN: '- Find Chal''s <b><color=#A46443>house</color></b>.
+
+    -
+    Put the potion inside Chal''s <b><color=#A46443>mail box</color></b>.'
   QuestinMail_ID: "Selamat pagi Nenek, \r\n\r\nAku mau pesan ramuan <b><color=#A46443>Dewdrop
     Elixir</color></b> untuk memberikan kesegaran dan kelembutan yang menenangkan
     bagi tubuhku. \r\n\r\nTerimakasih yaa!"

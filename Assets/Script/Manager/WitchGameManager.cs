@@ -37,6 +37,7 @@ public class WitchGameManager : MonoBehaviour
     [SerializeField]private OutDoorType outdoorType;
     private void Awake() {
         Instance = this;
+        UnityEngine.Cursor.visible = false;
         
         state = gameState.Cinematic;
         // Debug.Log(state);

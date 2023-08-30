@@ -84,6 +84,7 @@ public class Door_Outside : MonoBehaviour
                     {
                         playerSave.ChangePlayerLevel();
                         playerSave.ChangePlayerMode(levelMode.outside);
+                        playerSave.ChangeIsMagicalBridgeSolve(false);
                         DialogueManager.Instance.ShowDialogue_IstirahatHabisSelesaiQuest();
                     }
                     else

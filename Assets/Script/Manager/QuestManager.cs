@@ -8,7 +8,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField]private PlayerSaveManager playerSaveManager;
     [SerializeField]private QuestScriptableObject[] questList;
     private QuestScriptableObject quest;
-    [SerializeField]private QuestScriptableObject noQuest;
+    [SerializeField]private QuestScriptableObject noQuest, finishQuest;
     private int levelNow, totalPotion;
     private ItemScriptableObject[] potionList;
     private List<bool> isPotionCheck_Right; // untuk check apakah si potion di array yang sama uda sama dengan potion yang dikirim belom
@@ -33,6 +33,10 @@ public class QuestManager : MonoBehaviour
             // Debug.Log("gelooo");
             questUI.SetData(quest);
         }
+        else if(playerSaveManager.GetPlayerLevelMode() == levelMode.finishQuest){
+            // Debug.Log("gelooo");
+            questUI.SetData(finishQuest);
+        }
         if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor && playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
             questBoxUI.SetData(quest);
         }
@@ -45,6 +49,9 @@ public class QuestManager : MonoBehaviour
     }
     public void UpdateData_QuestLog(){
         questUI.SetData(quest);
+    }
+    public void UpdateData_FinishQuest(){
+        questUI.SetData(finishQuest);
     }
 
     public bool CheckPotion(List<CauldronItem> cauldronItems){

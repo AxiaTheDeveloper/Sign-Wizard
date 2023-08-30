@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameControlUI : MonoBehaviour
 {
-    [SerializeField]private Sprite AnyChoose, AnyChooseHorizontal, AnyChooseVertical, Cauldron, CauldronFire, ChestInvent, ChestQuantity, Chest, CloseLetter, Dictionary, InGame, MortarInProgress, MortarSelectItem, submitPotion, tutorial;
+    [SerializeField]private Sprite AnyChoose, AnyChooseHorizontal, AnyChooseVertical, Cauldron, CauldronFire, ChestInvent, ChestQuantity, Chest, CloseLetter, Dictionary, InGame_Indoor, InGame_Outdoor, InGame_Puzzle, MortarInProgress, MortarSelectItem, submitPotion, tutorial;
     [SerializeField]private Image image;
     [SerializeField]private WitchGameManager gameManager;
     private void Start() {
@@ -76,11 +76,20 @@ public class GameControlUI : MonoBehaviour
         }
         if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
         {
-            image.sprite = InGame;
+            if(gameManager.GetPlace() == WitchGameManager.Place.indoor)
+            {
+                image.sprite = InGame_Indoor;
+            }
+            else 
+            if(gameManager.GetPlace() == WitchGameManager.Place.outdoor)
+            {
+                image.sprite = InGame_Outdoor;
+            }
+            
         }
         else if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
         {
-            image.sprite = InGame;//ntr ini diganti
+            image.sprite = InGame_Puzzle;//ntr ini diganti
         }
         
     }

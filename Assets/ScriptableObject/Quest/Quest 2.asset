@@ -38,6 +38,12 @@ MonoBehaviour:
     adjust the fire.\n- Go to the <b><color=#A46443>town</color></b>.\n- Put the
     potion inside the <b><color=#A46443>mail box</color></b> in \n  front of the
     customer's house."
+  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Vii. \n- Letakkan
+    potion di <b><color=#A46443>kotak surat</color></b> milik Vii."
+  QuestTaskPlace_EN: '- Find Vii''s <b><color=#A46443>house</color></b>.
+
+    - Put
+    the potion inside Vii''s <b><color=#A46443>mail box</color></b>.'
   QuestinMail_ID: "Pagi Nek, apa kabar? semoga baik baik saja yaa.. \r\n\r\nAku mau
     pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
     karena belakangan ini aku sedang stress dan butuh dorongan tambahan nih hehe.

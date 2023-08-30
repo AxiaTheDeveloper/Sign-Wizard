@@ -59,6 +59,7 @@ public class PauseUI : MonoBehaviour
         }
         else if(gameManager.isPause()){
             if((gameInput.GetInputEscape() ||gameInput.GetInputEscapeMainMenu()) && escapeCooldownTimer <= 0){
+                soundManager.PlayMenuSound();
                 HideUI();
                 gameManager.PauseGame();
                 escapeCooldownTimer = escapeCooldownTimerMax;
@@ -69,19 +70,24 @@ public class PauseUI : MonoBehaviour
             Vector2 keyInputArrow = gameInput.GetInputArrow();
             moveSelection_option(keyInputArrow);
             if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                soundManager.PlayMenuSound();
                 inputCooldownTimer = inputCoolDownTimerMax;
                 Select_Option();
             }
             if(isMusicOn && keyInputArrow.x == 1){
+                soundManager.PlayMenuSound();
                 bgmManager.UpdateBGM_Volume(0.1f);
             }
             else if(isMusicOn && keyInputArrow.x == -1){
+                soundManager.PlayMenuSound();
                 bgmManager.UpdateBGM_Volume(-0.1f);
             }
             if(isSoundOn && keyInputArrow.x == 1){
+                soundManager.PlayMenuSound();
                 soundManager.UpdateSound_Volume(0.1f);
             }
             else if(isSoundOn && keyInputArrow.x == -1){
+                soundManager.PlayMenuSound();
                 soundManager.UpdateSound_Volume(-0.1f);
             }
 
@@ -100,9 +106,11 @@ public class PauseUI : MonoBehaviour
     private void moveSelection_option(Vector2 keyInputArrow){
         if(!isMusicOn && !isSoundOn){
             if(keyInputArrow.y == 1 && selectionPause > 0 ){
+                soundManager.PlayMenuSound();
                 selectionPause--;
             }
             else if(keyInputArrow.y == -1 && selectionPause < selectArrowsPause.Length-1){
+                soundManager.PlayMenuSound();
                 selectionPause++;
             }
             

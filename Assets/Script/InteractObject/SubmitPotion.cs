@@ -79,6 +79,7 @@ public class SubmitPotion : MonoBehaviour
                 // playerSave.ChangePlayerLevel();
                 // playerSave.ChangePlayerMode(levelMode.outside);
                 playerSaveManager.ChangePlayerMode(levelMode.finishQuest);
+                questManager.UpdateData_FinishQuest();
 
             }
             
