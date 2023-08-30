@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
             // Debug.Log("gelooo");
             questUI.SetData(finishQuest);
         }
-        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor && playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
+        if(WitchGameManager.Instance.GetPlace() == WitchGameManager.Place.outdoor && WitchGameManager.Instance.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && playerSaveManager.GetPlayerLevelMode() == levelMode.outside){
             questBoxUI.SetData(quest);
         }
 

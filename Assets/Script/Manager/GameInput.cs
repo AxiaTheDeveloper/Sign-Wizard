@@ -67,6 +67,9 @@ public class GameInput : MonoBehaviour
         // Debug.Log(lastKeyInput);
         return lastKeyInput;
     }
+    public bool GetInputRun(){
+        return Input.GetKey(KeyCode.LeftShift);
+    }
 
     public Vector2 GetInputMovementPuzzle(){
         
@@ -179,10 +182,10 @@ public class GameInput : MonoBehaviour
     }
 
     public bool GetInputShowQuestLog(){
-        return Input.GetKeyDown(KeyCode.LeftShift);
+        return Input.GetKeyDown(KeyCode.Tab);
     }
     public bool GetInputHideQuestLog(){
-        return Input.GetKeyUp(KeyCode.LeftShift);
+        return Input.GetKeyUp(KeyCode.Tab);
     }
     public bool GetInputShowMap(){
         return Input.GetKeyDown(KeyCode.M);
@@ -193,6 +196,8 @@ public class GameInput : MonoBehaviour
     public bool GetInputHideRuneinPuzzle(){
         return Input.GetKeyUp(KeyCode.LeftAlt);
     }
+
+    
 
 
     

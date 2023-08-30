@@ -97,12 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d3008c1d705a04f827ddffdac959b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileControlManagerList: []
   gameInput: {fileID: 0}
   rb: {fileID: 5684377240713654815}
-  speedMovement: 6
+  speedMovementNormal: 6
+  speedMovementRun: 12
+  speedMovement: 0
   totalMoveBlock: 1
-  speedMovementPuzzle: 0.5
+  durationMovementPuzzle: 0
   playerAnimator: {fileID: 4812652835229335097}
+  playerPuzzlePositionNow: 0
 --- !u!114 &5684377240713654882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSaveSO: {fileID: 11400000, guid: e941e1b9749bf9c4e81831e58f2d982e, type: 2}
+  playerAnimator: {fileID: 0}
   bedPlayerPosition: {fileID: 0}
   maxLevel: 6
+  spawnPlaceFromForest: {fileID: 0}
+  spawnPlaceFromMagicalBridge: {fileID: 0}
+  spawnPlaceFromGraveyard: {fileID: 0}
+  spawnPlaceFromBrokenBridge: {fileID: 0}
+  spawnPlaceFromBrokenBridge_Town: {fileID: 0}
 --- !u!1 &4812652835229335099
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd43c7e4bba25424f87f713fec3eaaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   animator: {fileID: 4812652835229335096}
   gameInput: {fileID: 0}
   maxDiagonalChecker: 0.05

@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 keyInput, keyInputPuzzle;
 
     [Header("This is for Player Movement")]
+    [SerializeField]private float speedMovementNormal;
+    [SerializeField]private float speedMovementRun;
     [SerializeField]private float speedMovement;
 
     private bool wasFromOtherInterface = false;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() {
         gameManager = WitchGameManager.Instance;
+        speedMovement = speedMovementNormal;
         if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
         {
             tileControlManager = tileControlManagerList[PlayerSaveManager.Instance.GetPlayerLevel()-1];
@@ -44,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
                 if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
                 {
                     keyInput = gameInput.GetInputMovement();
+                    if(gameInput.GetInputRun())
+                    {
+                        speedMovement = speedMovementRun;
+                    }
+                    else{
+                        speedMovement = speedMovementNormal;
+                    }
                     if(keyInputPuzzle != Vector2.zero)
                     {
                         keyInputPuzzle = Vector2.zero;
