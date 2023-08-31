@@ -52,7 +52,7 @@ public class GameControlUI : MonoBehaviour
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryAndSubmit){
             image.sprite = MortarSelectItem;
         }
-        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceBed || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceDoor || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceYesNoTutorial){
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceBed || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceDoor || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceYesNoTutorial || gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceYesNoResetPuzzle){
             image.sprite = AnyChooseHorizontal;
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.SubmitPotion){

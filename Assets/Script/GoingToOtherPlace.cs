@@ -101,6 +101,11 @@ public class GoingToOtherPlace : MonoBehaviour
         destination = Destination_Outside.inFrontOfHouse;
         FadeGetOutScene();
     }
+    public void ResetPuzzle()
+    {
+        destination = Destination_Outside.magicalBridge;
+        FadeGetOutScene();
+    }
     private void GoToDestination()
     {
         if(destination == Destination_Outside.forest)

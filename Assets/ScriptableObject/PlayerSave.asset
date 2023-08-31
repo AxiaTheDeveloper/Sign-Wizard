@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
   level: 2
-  modeLevel: 0
-  placePlayerNow: 0
-  outDoorTypeNow: 7
+  modeLevel: 1
+  placePlayerNow: 1
+  outDoorTypeNow: 4
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0

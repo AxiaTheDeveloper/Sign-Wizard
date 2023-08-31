@@ -2,30 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WantToSeeTutorialUI : MonoBehaviour
+public class WantToResetPuzzle : MonoBehaviour
 {
-    private bool wantTutorial = true;
+    private bool wantReset = true;
     [SerializeField]private GameObject panelUI;
     [SerializeField]private GameObject arrowYes, arrowNo;
-    [SerializeField]private PlayerSaveManager saveManager;
-    [SerializeField]private Door_Outside door;
+    [SerializeField]private GoingToOtherPlace goingToOtherPlace_SalahSatu;
     private void Awake() 
     {
         panelUI.SetActive(false);
-        wantTutorial = true;
+        wantReset = false;
         UpdateArrow();
     }
     public void Change_YesNoTutorial(float input)
     {
-        if(input == 1 && wantTutorial)
+        if(input == 1 && wantReset)
         {
             SoundManager.Instance.PlayMenuSound();
-            wantTutorial = false;
+            wantReset = false;
             UpdateArrow();
         }
-        else if(input == -1 && !wantTutorial){
+        else if(input == -1 && !wantReset){
             SoundManager.Instance.PlayMenuSound();
-            wantTutorial = true;
+            wantReset = true;
             UpdateArrow();
         }
     }
@@ -33,24 +32,26 @@ public class WantToSeeTutorialUI : MonoBehaviour
     {
         SoundManager.Instance.PlayMenuSound();
         WitchGameManager.Instance.ChangeToCinematic();
-        if(!wantTutorial)
-        {
-            saveManager.ChangeFirstTimeTutorial();
-        }
         panelUI.SetActive(false);
-        door.PlayDoorOpenn();
+        if(wantReset)
+        {
+            DialogueManager.Instance.ShowDialogue_ResetPuzzle();
+        }
+        else{
+            WitchGameManager.Instance.ChangeToInGame(WitchGameManager.InGameType.puzzle);
+        }
     }
 
     private void UpdateArrow()
     {
-        arrowYes.SetActive(wantTutorial);
-        arrowNo.SetActive(!wantTutorial);
+        arrowYes.SetActive(wantReset);
+        arrowNo.SetActive(!wantReset);
     }
-    public bool wantToSeeTutorial()
+    public bool wantToSeeReset()
     {
-        return wantTutorial;
+        return wantReset;
     }
-    public void ShowWantTutorial()
+    public void ShowWantReset()
     {
         panelUI.SetActive(true);
     }

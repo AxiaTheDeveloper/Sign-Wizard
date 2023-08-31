@@ -113,6 +113,10 @@ MonoBehaviour:
   dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_EN: Luckily I managed to complete
     the puzzle. I'd better hurry deliver this potion and get home before the puzzle
     changes again.
+  dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_ID: 'Aku tidak perlu reset puzzle
+    lagi. Aku sudah sampai di tile terakhir yang membuatku bisa menyebrang. '
+  dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_EN: I don't need to rearrange
+    the puzzle anymore. I've reached the last tile that allows me to cross.
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that

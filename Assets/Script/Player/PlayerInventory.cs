@@ -33,6 +33,7 @@ public class PlayerInventory : MonoBehaviour
     private float inputCooldownTimer, inputCooldownForInventoryOnly;
     [SerializeField]private PlayerSaveManager playerSave;
     [SerializeField]private WantToSeeTutorialUI want;
+    [SerializeField]private WantToResetPuzzle wantReset;
 
     private bool canStartOpen = false;
     private void Awake() {
@@ -83,14 +84,34 @@ public class PlayerInventory : MonoBehaviour
 
     private void Inventory_Input(){
         //Open Inventory
-        if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal){
+        if(gameManager.IsInGame()){
             
-            if(gameInput.GetInputOpenInventory() && !isInventoryOpen && canStartOpen){
-                // Debug.Log("Hi Open");
-                inventoryUI.ShowInventoryUI();
-                isInventoryOpen = true;
-                inputCooldownTimer = inputCooldownTimerMax;
+            if(gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
+            {
+                if(gameInput.GetInputOpenInventory() && !isInventoryOpen && canStartOpen){
+                    // Debug.Log("Hi Open");
+                    inventoryUI.ShowInventoryUI();
+                    isInventoryOpen = true;
+                    inputCooldownTimer = inputCooldownTimerMax;
+                }
             }
+            else if(gameManager.IsInGameType() == WitchGameManager.InGameType.puzzle)
+            {
+                if(gameInput.GetInputRun())
+                {
+                    if(playerSave.GetIsMagicalPuzzleThisLevelSolved())
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.SudahMenyelesaikanPuzzle_PlayerInventory);
+                    }
+                    else
+                    {
+                        gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceYesNoResetPuzzle);
+                        wantReset.ShowWantReset();
+                    }
+                    
+                }
+            }
+            
         }
         else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InventoryTime){
             if(isInventoryOpen){
@@ -277,12 +298,21 @@ public class PlayerInventory : MonoBehaviour
             }
             if(inputCooldownTimer <= 0)InputArrowInventory_TutorialChoice();
         }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceYesNoResetPuzzle)
+        {
+            if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                wantReset.Choose();
+            }
+            if(inputCooldownTimer <= 0)InputArrowInventory_ResetPuzzleChoice();
+        }
         if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
             inputCooldownTimer -= Time.deltaTime;
         }
         if(gameManager.IsInGame() && inputCooldownTimer <= 0 ){
             inputCooldownTimer = inputCooldownTimerMax;
         }
+        
         
         
     }
@@ -362,6 +392,11 @@ public class PlayerInventory : MonoBehaviour
     private void InputArrowInventory_TutorialChoice(){
         keyInputArrowUI = gameInput.GetInputArrow();
         want.Change_YesNoTutorial(keyInputArrowUI.x);
+
+    }
+    private void InputArrowInventory_ResetPuzzleChoice(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        wantReset.Change_YesNoTutorial(keyInputArrowUI.x);
 
     }
 
