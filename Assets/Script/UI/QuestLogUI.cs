@@ -24,7 +24,15 @@ public class QuestLogUI : MonoBehaviour
             questTaskList.text = questSO.QuestTaskPlace;
         }
         
-        questSender.text = "- "+questSO.nameSender;
+        if(questSO.nameSender != "")
+        {
+            questSender.text = "- "+questSO.nameSender;
+        }
+        else
+        {
+            questSender.text = "";
+        }
+        
         //di questtask list blg kirim ke aaaa kalo lg d town diganti jadi itu
     }
 

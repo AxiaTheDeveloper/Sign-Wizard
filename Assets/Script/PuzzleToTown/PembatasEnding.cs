@@ -10,7 +10,16 @@ public class PembatasEnding : MonoBehaviour
         {
             if(WitchGameManager.Instance.IsInGameType() == WitchGameManager.InGameType.normal)
             {
-                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanPuzzle_PembatasEnding);
+                if(PlayerSaveManager.Instance.GetPlayerLevelMode() != levelMode.finishQuest)
+                {
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanPuzzle_PembatasEnding);
+                }
+                else
+                {
+                    //wah magic uda ilang etc 
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.MagicalBridgeHilangFinishQuest_PembatasEnding);
+                }
+                
             }
             
         }

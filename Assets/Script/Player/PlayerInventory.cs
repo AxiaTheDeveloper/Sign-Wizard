@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("This is for Player Input")]
     [SerializeField]private GameInput gameInput;
     [SerializeField]private WitchGameManager gameManager;
-    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice, OnQuitBed, OnSubmitBed, OnQuitDoor, OnSubmitDoor, OnQuitQuestBox; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion, OnQuitBed & OnSubmitBed buat Bed, OnQuitDoor & OnSubmitDoor buat Door_Outside, OnQuitQuestBox di QuestBox
+    public event EventHandler OnQuitInventory, OnQuitChest, OnClearPlayerInventory, OnQuitCauldron, OnStartCookingCauldron, OnQuitPenumbuk, OnStopTumbuk, OnQuitSubmitPotion, OnSubmitPotionChoice, OnQuitBed, OnSubmitBed, OnQuitDoor, OnSubmitDoor, OnQuitQuestBox, OnQuitTravelingMerchant, OnSubmitTravelingMerchant; //OnQuitInventory nyambung ke InventoryUI, OnQuitChest ke function ExampleChest, OnClearPlayerInventory masuk ke Chest, OnQuit dan OnstartCookingCauldroin ke function Cauldron, OnQuitPenumbuk di Penumbuk, OnQuitSubmitPotion & OnSubmitPotionChoice di submitPotion, OnQuitBed & OnSubmitBed buat Bed, OnQuitDoor & OnSubmitDoor buat Door_Outside, OnQuitQuestBox di QuestBox, OnQuitTravelingMerchant & OnSubmitTravelingMerchant di TravelingMerchant
     private bool isInventoryOpen, isChestOpen, isCauldronOpen;
 
     private Vector2 keyInputArrowUI;
@@ -34,6 +34,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]private PlayerSaveManager playerSave;
     [SerializeField]private WantToSeeTutorialUI want;
     [SerializeField]private WantToResetPuzzle wantReset;
+    [SerializeField]private TravelingMerchant travelingMerchant;
 
     private bool canStartOpen = false;
     private void Awake() {
@@ -306,6 +307,18 @@ public class PlayerInventory : MonoBehaviour
             }
             if(inputCooldownTimer <= 0)InputArrowInventory_ResetPuzzleChoice();
         }
+        else if(gameManager.IsInterfaceType() == WitchGameManager.InterfaceType.InterfaceTravelingMerchant)
+        {
+            if(gameInput.GetInputEscape() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnQuitTravelingMerchant?.Invoke(this, EventArgs.Empty);
+            }
+            else if(gameInput.GetInputSelectItemForCauldron() && inputCooldownTimer <= 0){
+                inputCooldownTimer = inputCooldownTimerMax;
+                OnSubmitTravelingMerchant?.Invoke(this,EventArgs.Empty);
+            }
+            if(inputCooldownTimer <= 0)InputArrowInventory_TravelingMerchant();
+        }
         if(inputCooldownTimer > 0 && !gameManager.IsInGame()){
             inputCooldownTimer -= Time.deltaTime;
         }
@@ -397,6 +410,20 @@ public class PlayerInventory : MonoBehaviour
     private void InputArrowInventory_ResetPuzzleChoice(){
         keyInputArrowUI = gameInput.GetInputArrow();
         wantReset.Change_YesNoTutorial(keyInputArrowUI.x);
+
+    }
+    private void InputArrowInventory_TravelingMerchant(){
+        keyInputArrowUI = gameInput.GetInputArrow();
+        if(keyInputArrowUI.x == -1){
+            if(!travelingMerchant.WantToGoHome()){
+                travelingMerchant.Change_YesNo();
+            }
+        }
+        else if(keyInputArrowUI.x == 1){
+            if(travelingMerchant.WantToGoHome()){
+                travelingMerchant.Change_YesNo();
+            }
+        }
 
     }
 

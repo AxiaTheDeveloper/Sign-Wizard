@@ -266,6 +266,16 @@ public class DialogueListScriptableObject : ScriptableObject
             return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_ID : dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_EN;
         }
     }
+    [field : TextArea]
+    public string dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID, dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN;
+    public string dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID : dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN;
+        }
+    }
+    
     [Header("Dialogue Tutorial")]
     [field : TextArea]
     public string dialogueTutorial_StartTutorial_ID, dialogueTutorial_StartTutorial_EN;

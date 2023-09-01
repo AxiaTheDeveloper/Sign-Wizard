@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest_PembatasEnding
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     private WitchGameManager.InGameType inGameType;
     [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle;
+    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle, dialogueHolder_GerbangKuburan, dialogueHolder_ChatWithTravelingMerchant;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
@@ -50,6 +50,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]private DialogueListScriptableObject dialogueList;
     [Header("Hubungan ama GoingToOtherPlace")]
     [SerializeField] private GoingToOtherPlace goingToOtherPlace;
+
+    [Header("Dialogue ChatWithTravelingMerchant")]
+    [SerializeField]private TravelingMerchant travelingMerchant;
     
     private void Awake() {
         Instance = this;
@@ -81,8 +84,18 @@ public class DialogueManager : MonoBehaviour
         if(dialogueHolder_PulangDariKota) dialogueHolder_PulangDariKota.OnDialogueFinish += dialogueHolder_PulangDariKota_OnDialogueFinish;
         if(dialogueHolder_MenujuKeKotaLevel6) dialogueHolder_MenujuKeKotaLevel6.OnDialogueFinish += dialogueHolder_MenujuKeKotaLevel6_OnDialogueFinish;
         if(dialogueHolder_ResetPuzzle) dialogueHolder_ResetPuzzle.OnDialogueFinish += dialogueHolder_ResetPuzzle_OnDialogueFinish;
+        if(dialogueHolder_GerbangKuburan)dialogueHolder_GerbangKuburan.OnDialogueFinish += dialogueHolder_GerbangKuburan_OnDialogueFinish;
+        if(dialogueHolder_ChatWithTravelingMerchant) dialogueHolder_ChatWithTravelingMerchant.OnDialogueFinish += dialogueHolder_ChatWithTravelingMerchant_OnDialogueFinish;
     }
 
+    private void dialogueHolder_ChatWithTravelingMerchant_OnDialogueFinish(object sender, EventArgs e)
+    {
+        travelingMerchant.ChatGoHome();
+    }
+    private void dialogueHolder_GerbangKuburan_OnDialogueFinish(object sender, EventArgs e)
+    {
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+    }
     private void dialogueHolder_ResetPuzzle_OnDialogueFinish(object sender, EventArgs e)
     {
         goingToOtherPlace.ResetPuzzle();
@@ -233,6 +246,16 @@ public class DialogueManager : MonoBehaviour
         gameManager.ChangeToCinematic();
         dialogueHolder_ResetPuzzle.ShowDialogue();
     }
+    public void ShowDialogue_GerbangKuburan()
+    {
+        gameManager.ChangeToCinematic();
+        dialogueHolder_GerbangKuburan.ShowDialogue();
+    }
+    public void ShowDialogue_ChatWithTravelingMerchant()
+    {
+        gameManager.ChangeToCinematic();
+        dialogueHolder_ChatWithTravelingMerchant.ShowDialogue();
+    }
 
     public void ShowDialogue_Gift(DialogueNerimaGift dialogueNerimaGift){
         gameManager.ChangeToCinematic();
@@ -371,6 +394,11 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_SudahMenyelesaikanPuzzle_PlayerInventory);
         }
+        else if(dialogueWrongChoice == DialogueWrongChoice.MagicalBridgeHilangFinishQuest_PembatasEnding)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding);
+        }
+        
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
     public void ShowDialogue_WrongChoice_WithBahan(DialogueWrongChoice dialogueWrongChoice, string itemName){

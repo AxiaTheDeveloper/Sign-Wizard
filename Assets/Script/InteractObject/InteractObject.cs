@@ -61,11 +61,12 @@ public class TheQuestBox
     }
 }
 
+
 public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly
     }
     public ObjectType type;
 
@@ -88,15 +89,19 @@ public class InteractObject : MonoBehaviour
     [SerializeField]private QuestBox QuestBox;
     private PlayerSaveManager playerSave;
     private SoundManager soundManager;
+    private DialogueManager dialogueManager;
 
     private bool hasCheckGift = false;
     [SerializeField]private InteractObject interactObject_QuestBox;
+    [SerializeField]private TravelingMerchant travelingMerchant;
 
-
+    [Header("INI KHUSUS INTERACT YANG GA PENTING AJA YA")]
+    [SerializeField]private bool firsTimeInteractOnly = false;
 
     private void Start() {
         soundManager = SoundManager.Instance;
         playerSave = PlayerSaveManager.Instance;
+        dialogueManager = DialogueManager.Instance;
         if(type == ObjectType.TheCauldron){
             cauldron = new TheCauldron();
         }
@@ -126,7 +131,7 @@ public class InteractObject : MonoBehaviour
     public void Interacts(){
         if(type == ObjectType.TheCauldron){
             if(playerSave.GetPlayerLevelMode() == levelMode.outside){
-                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
                 cauldron.OpenUI(Cauldron);
@@ -135,7 +140,7 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.TheChest){
             if(playerSave.GetPlayerLevelMode() == levelMode.outside){
-                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
                 soundManager.PlayChestOpen();
@@ -145,11 +150,11 @@ public class InteractObject : MonoBehaviour
         }
         if(type == ObjectType.ThePenumbuk){
             if(playerSave.GetPlayerLevelMode() == levelMode.outside){
-                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
+                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sedangTidakAdaQuest_InteractObject);
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
                 if(playerSave.GetPlayerLevel() == 1){
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaPakaiPenumbuk_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.tidakBisaPakaiPenumbuk_InteractObject);
                 }
                 else{
                     penumbuk.OpenUI(Penumbuk);
@@ -168,11 +173,19 @@ public class InteractObject : MonoBehaviour
                 else{
                     if(!Submit.IsCharacterATravelingMerchant())
                     {
-                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                        dialogueManager.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
                     }
                     else{
-                        //kasih
-                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                        //aku tidak memesan potion lalalalala, bikin dialogue baru
+                        if(playerSave.GetPlayerLevel() == playerSave.GetMaxLevel())
+                        {
+                            travelingMerchant.ChatWithMerchant();
+                        }
+                        else
+                        {
+                            dialogueManager.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                        }
+                        
                     }
                 }
                 
@@ -181,10 +194,18 @@ public class InteractObject : MonoBehaviour
             else if(playerSave.GetPlayerLevelMode() == levelMode.outside || playerSave.GetPlayerLevelMode() == levelMode.finishQuest){
                 if(playerSave.GetPlayerLevel() == 1 && playerSave.GetPlayerLevelMode() == levelMode.outside)
                 {
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumMengecekKotakSuratLevel1_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumMengecekKotakSuratLevel1_InteractObject);
                 }
                 else{
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                    if(Submit.IsCharacterATravelingMerchant())
+                    {
+                        travelingMerchant.ChatWithMerchant();
+                    }
+                    else
+                    {
+                        dialogueManager.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject, Submit.GetCharHouseName());
+                    }
+                    
                 }
                 
             }
@@ -195,20 +216,20 @@ public class InteractObject : MonoBehaviour
             if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion)
             {
                 if(playerSave.GetPlayerLevel() == 6){
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
                 }
                 else{
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.SelesaikanQuestSekarang_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.SelesaikanQuestSekarang_InteractObject);
                 }
                 
             }
             else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
             {
                 if(playerSave.GetPlayerLevel() == 6){
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.sudahMenyelesaikanSemuaQuest_InteractObject);
                 }
                 else{
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumAdaQuestYangDikirimTidur_InteractObject);
+                    dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.belumAdaQuestYangDikirimTidur_InteractObject);
                 }
                 
             }
@@ -248,14 +269,14 @@ public class InteractObject : MonoBehaviour
                     else{
                         if(playerSave.GetPlayerLevel() > 1 && playerSave.GetPlayerLevel() < playerSave.GetMaxLevel()){
                             if(!interactObject_QuestBox.GetHasCheckGift()){
-                                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
+                                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
                             }
                             else{
-                                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
+                                dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekQuestDulu_InteractObject);
                             }
                         }
                         else{
-                            DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
+                            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.cekMailboxDulu_InteractObject);
                         }
                         
                     }
@@ -269,10 +290,18 @@ public class InteractObject : MonoBehaviour
                 door.OpenUI(Door);
             }
         }
+        if(type == ObjectType.TheGraveyard_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_GerbangKuburan();
+        }
 
     }
     public bool GetHasCheckGift(){
         //ini hanya utk door sadja, dikirim dari inter object punya potion,dikirim ke door
         return hasCheckGift;
+    }
+    public bool FirsTimeInteractOnly()
+    {
+        return firsTimeInteractOnly;
     }
 }

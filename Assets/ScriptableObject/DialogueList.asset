@@ -117,6 +117,12 @@ MonoBehaviour:
     lagi. Aku sudah sampai di tile terakhir yang membuatku bisa menyebrang. '
   dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_EN: I don't need to rearrange
     the puzzle anymore. I've reached the last tile that allows me to cross.
+  dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID: Jembatannya hilang setelah
+    aku kembali dari kota. Sebaiknya aku pinjam sapu terbang miliki ... agar bisa
+    kembali ke rumah.
+  dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN: "\rThe bridge disappeared
+    after I returned from the city. I'd better borrow ...'s flying broomstick so
+    I can get back home."
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that

@@ -8,6 +8,7 @@ public class PopUpInteractUI : MonoBehaviour
 {
     [SerializeField]private InteractObject interactObject;
     [SerializeField]private GameObject popUpUImessage;
+    private bool isFirsTimeInteract = true;
     private void Start() {
         PlayerInteraction.Instance.OnSelectedInteractObject += playerInteraction_OnSelectedInteractObject;
         HidePopUp();
@@ -20,8 +21,12 @@ public class PopUpInteractUI : MonoBehaviour
 
     private void playerInteraction_OnSelectedInteractObject(object sender, PlayerInteraction.OnSelectedInteractObjectEventArgs e)
     {
-        if(e.selectedObject == interactObject){
+        if(e.selectedObject == interactObject && isFirsTimeInteract){
             ShowPopUp();
+            if(interactObject.FirsTimeInteractOnly())
+            {
+                isFirsTimeInteract = false;
+            }
         }
         else{
             HidePopUp();

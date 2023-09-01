@@ -23,6 +23,8 @@ public class PlayerSaveManager : MonoBehaviour
     [SerializeField]private Transform spawnPlaceFromBrokenBridge;
     [Header("Di Town")]
     [SerializeField]private Transform spawnPlaceFromBrokenBridge_Town;
+    [Header("Di MagicalBridge")]
+    [SerializeField]private Transform spawnPlaceFromTown;
 
     
 
@@ -79,6 +81,21 @@ public class PlayerSaveManager : MonoBehaviour
                 {
                     transform.position = spawnPlaceFromBrokenBridge_Town.localPosition;
                     playerAnimator.animator.Play("Player_Idle_Right");
+                    playerAnimator.animator.SetBool("idle", true);
+                }
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
+            {
+                if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
+                {
+                    transform.position = spawnPlaceFromTown.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Left");
+                    playerAnimator.animator.SetBool("idle", true);
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.magicalBridge && playerSaveSO.modeLevel == levelMode.finishQuest)
+                {
+                    transform.position = spawnPlaceFromTown.localPosition;
+                    playerAnimator.animator.Play("Player_Idle_Left");
                     playerAnimator.animator.SetBool("idle", true);
                 }
             }

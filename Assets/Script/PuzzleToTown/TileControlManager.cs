@@ -50,24 +50,32 @@ public class TileControlManager : MonoBehaviour
             gameObject.SetActive(false);
         }
         else{
-            wordGenerator = GetComponent<WordGenerator>();
-
-            positionInPuzzleThatHasTile = new List<TileControl>();
-            totalPuzzleSize = totalColumn * totalRow;
-            for(int i=0;i<(totalPuzzleSize); i++)
+            if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
             {
-                positionInPuzzleThatHasTile.Add(null);
+                gameObject.SetActive(false);
             }
-            for(int i=0; i<transform.childCount; i++)
+            else
             {
-                TileControl tileNow = transform.GetChild(i).GetComponent<TileControl>();
-                tileNow.GiveWordGeneratorToAllWordManager(wordGenerator);
-                if(!tileNow.IsAPuzzleTile()) isNotAPuzzleTile.Add(i);
-                tileNow.HideAllWordInput();
+                wordGenerator = GetComponent<WordGenerator>();
 
-                tileList.Add(tileNow);
+                positionInPuzzleThatHasTile = new List<TileControl>();
+                totalPuzzleSize = totalColumn * totalRow;
+                for(int i=0;i<(totalPuzzleSize); i++)
+                {
+                    positionInPuzzleThatHasTile.Add(null);
+                }
+                for(int i=0; i<transform.childCount; i++)
+                {
+                    TileControl tileNow = transform.GetChild(i).GetComponent<TileControl>();
+                    tileNow.GiveWordGeneratorToAllWordManager(wordGenerator);
+                    if(!tileNow.IsAPuzzleTile()) isNotAPuzzleTile.Add(i);
+                    tileNow.HideAllWordInput();
+
+                    tileList.Add(tileNow);
+                }
+                TilePositionStart();
             }
-            TilePositionStart();
+            
         }
         
     }

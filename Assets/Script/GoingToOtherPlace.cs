@@ -73,7 +73,8 @@ public class GoingToOtherPlace : MonoBehaviour
                     }
                     else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
                     {
-                        DialogueManager.Instance.ShowDialogue_PulangDariKota();
+                        // DialogueManager.Instance.ShowDialogue_PulangDariKota();
+                        FadeGetOutScene();
                     }
                 }
                 else
