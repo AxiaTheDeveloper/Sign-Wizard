@@ -80,24 +80,39 @@ public class PlayerSaveManager : MonoBehaviour
                 if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.brokenBridge_Town)
                 {
                     transform.position = spawnPlaceFromBrokenBridge_Town.localPosition;
-                    playerAnimator.animator.Play("Player_Idle_Right");
-                    playerAnimator.animator.SetBool("idle", true);
+                    
                 }
+                playerAnimator.animator.Play("Player_Idle_Right");
+                playerAnimator.animator.SetBool("idle", true);
             }
             else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
             {
+                playerAnimator.animator.Play("Player_Idle_Right");
+                playerAnimator.animator.SetBool("idle", true);
                 if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town)
                 {
                     transform.position = spawnPlaceFromTown.localPosition;
                     playerAnimator.animator.Play("Player_Idle_Left");
                     playerAnimator.animator.SetBool("idle", true);
                 }
-                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.magicalBridge && playerSaveSO.modeLevel == levelMode.finishQuest)
+                else if(playerSaveSO.modeLevel == levelMode.finishQuest)
                 {
                     transform.position = spawnPlaceFromTown.localPosition;
                     playerAnimator.animator.Play("Player_Idle_Left");
                     playerAnimator.animator.SetBool("idle", true);
                 }
+
+                
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.brokenBridge_Graveyard)
+            {
+                playerAnimator.animator.Play("Player_Idle_Right");
+                playerAnimator.animator.SetBool("idle", true);
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.brokenBridge_Town)
+            {
+                playerAnimator.animator.Play("Player_Idle_Left");
+                playerAnimator.animator.SetBool("idle", true);
             }
         }
         playerSaveSO.placePlayerNow = gameManager.GetPlace();
@@ -152,6 +167,12 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public bool GetFirstTimeTutorial(){
         return playerSaveSO.isFirstTime_Tutorial;
+    }
+    public void ChangeFirstTimeTutorialPuzzle(){
+        playerSaveSO.isFirstTime_TutorialPuzzle = false;
+    }
+    public bool IsFirstTime_TutorialPuzzle(){
+        return playerSaveSO.isFirstTime_TutorialPuzzle;
     }
 
     public void ChangePlayerLevel(){

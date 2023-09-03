@@ -9,6 +9,7 @@ public class WantToSeeTutorialUI : MonoBehaviour
     [SerializeField]private GameObject arrowYes, arrowNo;
     [SerializeField]private PlayerSaveManager saveManager;
     [SerializeField]private Door_Outside door;
+    [SerializeField]private GoingToOtherPlace goingToOtherPlace;
     private void Awake() 
     {
         panelUI.SetActive(false);
@@ -32,13 +33,29 @@ public class WantToSeeTutorialUI : MonoBehaviour
     public void Choose()
     {
         SoundManager.Instance.PlayMenuSound();
-        WitchGameManager.Instance.ChangeToCinematic();
+        WitchGameManager gameManager = WitchGameManager.Instance;
+        gameManager.ChangeToCinematic();
         if(!wantTutorial)
         {
-            saveManager.ChangeFirstTimeTutorial();
+            if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse)
+            {
+                saveManager.ChangeFirstTimeTutorial();
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest)
+            {
+                saveManager.ChangeFirstTimeTutorialPuzzle();
+            }
         }
         panelUI.SetActive(false);
-        door.PlayDoorOpenn();
+        if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse)
+        {
+            door.PlayDoorOpenn();
+        }
+        else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest)
+        {
+            goingToOtherPlace.FadeGetOutScene();
+        }
+        
     }
 
     private void UpdateArrow()

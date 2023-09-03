@@ -63,7 +63,9 @@ public class PlayerInteraction : MonoBehaviour
 
         hitObject = Physics2D.Raycast(transform.position, directionMovement, interactDistance, (int)layerMask);
         if(hitObject.collider != null){
+            // Debug.Log(hitObject);
             InteractObject interactObject = hitObject.collider.transform.GetComponent<InteractObject>();
+            
             if(selectedObject != interactObject){
                 SetSelectedInteractObject(interactObject);
             }

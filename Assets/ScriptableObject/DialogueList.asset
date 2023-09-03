@@ -72,11 +72,11 @@ MonoBehaviour:
   dialogue_SelesaikanQuestSekarang_InteractObject_EN: There's no new quest right
     now, besides I have to finish the current quest first.
   dialogue_belumAdaQuestYangDikirimTidur_InteractObject_ID: Sepertinya masih belum
-    ada quest baru saat ini, saatnya istirahat dulu di rumah. Mungkin besok akan
-    ada quest baru.
+    ada quest baru saat ini. Lagipula sudah malam, saatnya istirahat dulu di rumah.
+    Mungkin besok akan ada quest baru.
   dialogue_belumAdaQuestYangDikirimTidur_InteractObject_EN: It looks like there's
-    no new quest right now, Time to rest at the house. Maybe there will be a new
-    quest tomorrow.
+    no new quest right now. Besides, it's already late, Time to rest. Maybe there
+    will be a new quest tomorrow.
   dialogue_tidakAdaBarangYangDiminta1_InteractObject_ID: 'Belum ada potion yang harus
     kuberikan pada '
   dialogue_tidakAdaBarangYangDiminta1_InteractObject_EN: 'There''s no potion that
@@ -104,9 +104,9 @@ MonoBehaviour:
     like I haven't brought the right potion that I need to deliver. I should check
     it again.
   dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_ID: 'Aku belum
-    bisa kembali dulu. Aku belum mengantarkan potionnya ke '
+    bisa pergi dulu. Aku belum mengantarkan potionnya ke '
   dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace_EN: 'I can''t
-    go back just yet. I haven''t delivered the potion to '
+    go just yet. I haven''t delivered the potion to '
   dialogue_sudahMenyelesaikanPuzzle_PembatasEnding_ID: Untunglah aku berhasil menyelesaikan
     puzzlenya.. Sebaiknya aku segera mengantar potion ini dan pulang sebelum puzzlenya
     berubah lagi.
@@ -117,12 +117,38 @@ MonoBehaviour:
     lagi. Aku sudah sampai di tile terakhir yang membuatku bisa menyebrang. '
   dialogue_SudahMenyelesaikanPuzzle_PlayerInventory_EN: I don't need to rearrange
     the puzzle anymore. I've reached the last tile that allows me to cross.
-  dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID: Jembatannya hilang setelah
-    aku kembali dari kota. Sebaiknya aku pinjam sapu terbang miliki ... agar bisa
-    kembali ke rumah.
-  dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN: "\rThe bridge disappeared
-    after I returned from the city. I'd better borrow ...'s flying broomstick so
-    I can get back home."
+  dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_ID: 'Jembatan ajaibnya
+    hilang setelah aku kembali dari kota. Mungkin aku bisa coba membeli sapu terbang
+    yang dijual pedagang itu agar bisa pulang ke rumah. '
+  dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_EN: "\rThe magic bridge
+    disappeared after I came back from the city. Maybe I cam buy that merchant's
+    broomstick to help me get back home."
+  dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_ID: 'Jembatan ajaibnya
+    hilang setelah aku kembali dari kota. Saatnya minta tolong Vii lagi. '
+  dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_EN: The magic bridge disappeared
+    after I came back from the city. It's time to ask Vii's help again.
+  dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_ID: Ini sudah malam. Jalanan
+    juga sangat gelap. Sebaiknya aku istirahat saja.
+  dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_EN: 'It''s already late and
+    there''s no light at all. I think it''s better to just rest at the house. '
+  dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_ID: Saatnya minta tolong Vii
+    untuk kembali ke rumah.
+  dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_EN: Time to ask Vii's help
+    again so I can go back home.
+  dialogue_TruckBridgeGraveyard_InteractObject_ID: Woah, Truknya keren juga.
+  dialogue_TruckBridgeGraveyard_InteractObject_EN: Woah, This truck is really cool.
+  dialogue_CementBridgeGraveyard_InteractObject_ID: Banyak juga semennya. Bahkan
+    tumpukan yang ini setinggi aku.
+  dialogue_CementBridgeGraveyard_InteractObject_EN: That's a lot of cement. Even
+    this pile is as tall as me.
+  dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_ID: Aku masih ingin berkeliling
+    di kota.
+  dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_EN: "\rI still want to go
+    around the town."
+  dialogue_CepatPulangDariKota_GoingToOtherPlace_ID: Sudah sore. Sebelum malam tiba,
+    lebih baik aku cepat pulang ke rumah daripada jalan-jalan.
+  dialogue_CepatPulangDariKota_GoingToOtherPlace_EN: 'Rather than going out for a
+    walk, I''d better hurry home before night falls. '
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that
@@ -154,16 +180,22 @@ MonoBehaviour:
   dialogueTutorial_Tumbuk_EN: This is the mortar and pestle. I can mash some ingredients
     that need to be mashed before I put it in the cauldron. But it looks like it's
     broken rignt now.
-  dialogueTutorial_SubmitPotion_ID: Setelah potion yang perlu dikirim berhasil kubuat,
-    aku tinggal keluar rumah, pergi ke kota, dan meletakkannya di kotak surat di
-    depan rumah orang yang memesan.
-  dialogueTutorial_SubmitPotion_EN: After I finished brewing the potion, All I need
-    to do is leave the house, go to the city, and put it in the mail box in front
-    of the house of the person who ordered.
+  dialogueTutorial_SubmitPotion_ID: Setelah potion berhasil kubuat, aku tinggal pergi
+    ke kota lewat jembatan ajaib dan meletakkannya di kotak surat di depan rumah
+    orang yang memesan.
+  dialogueTutorial_SubmitPotion_EN: After I finished the potion, All I need to do
+    is go to the city via magical bridge, and put it in the mail box in front of
+    the house of the person who ordered.
   dialogueTutorial_StartMaking_ID: Oke, sekarang saatnya memulai membuat potion sesuai
     quest.
   dialogueTutorial_StartMaking_EN: Okay, Now time to brew some potions that the quest
     requested.
+  dialogueTutorial_Puzzle_ID: Ini adalah jembatan ajaib yang nenek buat agar kita
+    bisa pergi ke kota. Tapi aku harus memecahkan puzzlenya dulu baru ku bisa menyeberang
+  dialogueTutorial_Puzzle_EN: This is the magical bridge that Grandma created so
+    we can go to the town. But to cross the bridge, I have to solve the puzzle first.
+  dialogueTutorial_StartPuzzle_ID: Saatnya kupecahkan puzzlenya.
+  dialogueTutorial_StartPuzzle_EN: Time to solve the puzzle.
   dialogueNerimaGift_1_ID: Wah tumbukan baru!! Sekarang aku bisa membuat potion yang
     bahan-bahannya perlu ditumbuk.
   dialogueNerimaGift_1_EN: Wow, A new mortar & pestle !! Now I can brew potions that

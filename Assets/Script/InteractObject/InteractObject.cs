@@ -66,7 +66,7 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly
     }
     public ObjectType type;
 
@@ -293,6 +293,18 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.TheGraveyard_DialogueOnly)
         {
             dialogueManager.ShowDialogue_GerbangKuburan();
+        }
+        if(type == ObjectType.BrokenBridgeGraveSign_DialogueOnly)
+        {
+            dialogueManager.dShowDialogue_ReadBrokenBridgeGraveyardSigns();
+        }
+        if(type == ObjectType.TruckBridgeGraveyard_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TruckBridgeGraveyard_InteractObject);
+        }
+        if(type == ObjectType.CementBridgeGraveyard_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.CementBridgeGraveyard_InteractObject);
         }
 
     }

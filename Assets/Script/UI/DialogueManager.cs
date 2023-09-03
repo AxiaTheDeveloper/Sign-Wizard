@@ -10,10 +10,10 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest_PembatasEnding
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest1_PembatasEnding, MagicalBridgeHilangFinishQuest2_PembatasEnding, TidakPergiKeluarSudahMalam_GoingToOtherPlace, Level6TownKeMagicalBridge_GoingToOtherPlace, TruckBridgeGraveyard_InteractObject, CementBridgeGraveyard_InteractObject, JalanTidakKemanaManaLevel6_GoingToOtherPlace, CepatPulangDariKota_GoingToOtherPlace
     }
     public enum DialogueTutorial{
-        playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking
+        playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking, playerPuzzle, playerStartPuzzle
     }
     public enum DialogueNerimaGift{
         gift1, gift2, gift3, gift4
@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     private WitchGameManager.InGameType inGameType;
     [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle, dialogueHolder_GerbangKuburan, dialogueHolder_ChatWithTravelingMerchant;
+    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle, dialogueHolder_GerbangKuburan, dialogueHolder_ChatWithTravelingMerchant, dialogueHolder_KirimPotionTravelingMerchant, dialogueHolder_ReadBrokenBridgeGraveyardSigns;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
@@ -41,18 +41,19 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueTutorial dialogueTutorial;
 
-    [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit;
+    [SerializeField]private TutorialUI tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit, tutorialPuzzle;
 
     [Header("Dialogue Nerima Gift")]
 
     private DialogueNerimaGift dialogueNerimaGift;
 
-    [SerializeField]private DialogueListScriptableObject dialogueList;
+    
     [Header("Hubungan ama GoingToOtherPlace")]
     [SerializeField] private GoingToOtherPlace goingToOtherPlace;
 
     [Header("Dialogue ChatWithTravelingMerchant")]
     [SerializeField]private TravelingMerchant travelingMerchant;
+    [SerializeField]private DialogueListScriptableObject dialogueList;
     
     private void Awake() {
         Instance = this;
@@ -86,6 +87,18 @@ public class DialogueManager : MonoBehaviour
         if(dialogueHolder_ResetPuzzle) dialogueHolder_ResetPuzzle.OnDialogueFinish += dialogueHolder_ResetPuzzle_OnDialogueFinish;
         if(dialogueHolder_GerbangKuburan)dialogueHolder_GerbangKuburan.OnDialogueFinish += dialogueHolder_GerbangKuburan_OnDialogueFinish;
         if(dialogueHolder_ChatWithTravelingMerchant) dialogueHolder_ChatWithTravelingMerchant.OnDialogueFinish += dialogueHolder_ChatWithTravelingMerchant_OnDialogueFinish;
+        if(dialogueHolder_KirimPotionTravelingMerchant) dialogueHolder_KirimPotionTravelingMerchant.OnDialogueFinish += dialogueHolder_KirimPotionTravelingMerchant_OnDialogueFinish;
+        if(dialogueHolder_ReadBrokenBridgeGraveyardSigns)dialogueHolder_ReadBrokenBridgeGraveyardSigns.OnDialogueFinish += dialogueHolder_ReadBrokenBridgeGraveyardSigns_OnDialogueFinish;
+    }
+
+    private void dialogueHolder_ReadBrokenBridgeGraveyardSigns_OnDialogueFinish(object sender, EventArgs e)
+    {
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+    }
+
+    private void dialogueHolder_KirimPotionTravelingMerchant_OnDialogueFinish(object sender, EventArgs e)
+    {
+        gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
     }
 
     private void dialogueHolder_ChatWithTravelingMerchant_OnDialogueFinish(object sender, EventArgs e)
@@ -157,6 +170,13 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueTutorial == DialogueTutorial.playerStartMaking){
             gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
             PlayerSaveManager.Instance.ChangeFirstTimeTutorial();
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerPuzzle){
+            tutorialPuzzle.Show_Tutorial();
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerStartPuzzle){
+            gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+            PlayerSaveManager.Instance.ChangeFirstTimeTutorialPuzzle();
         }
     }
 
@@ -256,6 +276,16 @@ public class DialogueManager : MonoBehaviour
         gameManager.ChangeToCinematic();
         dialogueHolder_ChatWithTravelingMerchant.ShowDialogue();
     }
+    public void ShowDialogue_KirimPotionTravelingMerchant()
+    {
+        gameManager.ChangeToCinematic();
+        dialogueHolder_KirimPotionTravelingMerchant.ShowDialogue();
+    }
+    public void dShowDialogue_ReadBrokenBridgeGraveyardSigns()
+    {
+        gameManager.ChangeToCinematic();
+        dialogueHolder_ReadBrokenBridgeGraveyardSigns.ShowDialogue();
+    }
 
     public void ShowDialogue_Gift(DialogueNerimaGift dialogueNerimaGift){
         gameManager.ChangeToCinematic();
@@ -302,6 +332,12 @@ public class DialogueManager : MonoBehaviour
         }
         else if(dialogueTutorials == DialogueTutorial.playerStartMaking){
             dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_StartMaking);
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerPuzzle){
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_Puzzle);
+        }
+        else if(dialogueTutorial == DialogueTutorial.playerStartPuzzle){
+            dialogueLines_Tutorial.ChangeInputText(dialogueList.dialogueTutorial_StartPuzzle);
         }
         dialogueHolder_tutorial.ShowDialogue();
     }
@@ -394,11 +430,38 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_SudahMenyelesaikanPuzzle_PlayerInventory);
         }
-        else if(dialogueWrongChoice == DialogueWrongChoice.MagicalBridgeHilangFinishQuest_PembatasEnding)
+        else if(dialogueWrongChoice == DialogueWrongChoice.MagicalBridgeHilangFinishQuest1_PembatasEnding)
         {
-            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding);
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding);
         }
-        
+        else if(dialogueWrongChoice == DialogueWrongChoice.MagicalBridgeHilangFinishQuest2_PembatasEnding)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TidakPergiKeluarSudahMalam_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.Level6TownKeMagicalBridge_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TruckBridgeGraveyard_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TruckBridgeGraveyard_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.CementBridgeGraveyard_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_CementBridgeGraveyard_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.JalanTidakKemanaManaLevel6_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.CepatPulangDariKota_GoingToOtherPlace)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_CepatPulangDariKota_GoingToOtherPlace);
+        }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }
     public void ShowDialogue_WrongChoice_WithBahan(DialogueWrongChoice dialogueWrongChoice, string itemName){

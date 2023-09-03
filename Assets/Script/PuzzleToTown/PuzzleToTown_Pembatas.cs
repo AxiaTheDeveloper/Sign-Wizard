@@ -26,6 +26,7 @@ public class PuzzleToTown_Pembatas : MonoBehaviour
         if(other.gameObject.CompareTag("Player") && gameManager.IsInGameType() == WitchGameManager.InGameType.normal)
         {
             gameManager.ChangeToInGame(WitchGameManager.InGameType.puzzle);
+            playerAnimator.changeLastInGameType(WitchGameManager.InGameType.puzzle);
             gameManager.ChangeToCinematic();
             if(direction == PlayerDirection.Right)
             {

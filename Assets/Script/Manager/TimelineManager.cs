@@ -9,7 +9,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private PlayableDirector director;
 
     public enum TimelineType{
-        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk, TutorialSubmit,none
+        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk, TutorialSubmit, TutorialPuzzle,none
     }
     private TimelineType type;
 
@@ -17,7 +17,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private TimelineAsset cauldronSuccess;
     [SerializeField]private TimelineAsset goOutside;
     [SerializeField]private TimelineAsset introWalk;
-    [SerializeField]private TimelineAsset tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit;
+    [SerializeField]private TimelineAsset tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit, tutorialPuzzle;
     [SerializeField]private Cauldron cauldron;
     [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private DialogueManager dialogueManager;
@@ -69,7 +69,14 @@ public class TimelineManager : MonoBehaviour
             type = TimelineType.none;
             dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerSubmitPotion);
         }
-        
+        else if(type == TimelineType.TutorialSubmit){
+            type = TimelineType.none;
+            dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerSubmitPotion);
+        }
+        else if(type == TimelineType.TutorialPuzzle){
+            type = TimelineType.none;
+            dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerPuzzle);
+        }
     }
 
     public void Start_CauldronSuccess(){
@@ -108,6 +115,9 @@ public class TimelineManager : MonoBehaviour
         }
         else if(type == TimelineType.TutorialSubmit){
             director.playableAsset = tutorialSubmit;
+        }
+        else if(type == TimelineType.TutorialPuzzle){
+            director.playableAsset = tutorialPuzzle;
         }
         director.Play();
     }

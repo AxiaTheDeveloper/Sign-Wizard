@@ -267,12 +267,75 @@ public class DialogueListScriptableObject : ScriptableObject
         }
     }
     [field : TextArea]
-    public string dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID, dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN;
-    public string dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding
+    public string dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_ID, dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_EN;
+    public string dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding
     {
         get
         {
-            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_ID : dialogue_MagicalBridgeHilangFinishQuest_PembatasEnding_EN;
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_ID : dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_ID, dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_EN;
+    public string dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_ID : dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_ID, dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_EN;
+    public string dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_ID : dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_ID, dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_EN;
+    public string dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_ID : dialogue_Level6TownKeMagicalBridge_GoingToOtherPlace_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TruckBridgeGraveyard_InteractObject_ID, dialogue_TruckBridgeGraveyard_InteractObject_EN;
+    public string dialogue_TruckBridgeGraveyard_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TruckBridgeGraveyard_InteractObject_ID : dialogue_TruckBridgeGraveyard_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_CementBridgeGraveyard_InteractObject_ID, dialogue_CementBridgeGraveyard_InteractObject_EN;
+    public string dialogue_CementBridgeGraveyard_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CementBridgeGraveyard_InteractObject_ID : dialogue_CementBridgeGraveyard_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_ID, dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_EN;
+    public string dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_ID : dialogue_JalanTidakKemanaManaLevel6_GoingToOtherPlace_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_CepatPulangDariKota_GoingToOtherPlace_ID, dialogue_CepatPulangDariKota_GoingToOtherPlace_EN;
+    public string dialogue_CepatPulangDariKota_GoingToOtherPlace
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CepatPulangDariKota_GoingToOtherPlace_ID : dialogue_CepatPulangDariKota_GoingToOtherPlace_EN;
         }
     }
     
@@ -347,6 +410,24 @@ public class DialogueListScriptableObject : ScriptableObject
         get
         {
             return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_StartMaking_ID : dialogueTutorial_StartMaking_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogueTutorial_Puzzle_ID, dialogueTutorial_Puzzle_EN;
+    public string dialogueTutorial_Puzzle
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_Puzzle_ID : dialogueTutorial_Puzzle_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogueTutorial_StartPuzzle_ID, dialogueTutorial_StartPuzzle_EN;
+    public string dialogueTutorial_StartPuzzle
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogueTutorial_StartPuzzle_ID : dialogueTutorial_StartPuzzle_EN;
         }
     }
 

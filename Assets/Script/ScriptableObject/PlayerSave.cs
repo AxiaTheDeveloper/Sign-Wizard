@@ -18,6 +18,7 @@ public class PlayerSave : ScriptableObject
     public bool isResetSave;
 
     public bool isFirstTime_Tutorial;
+    public bool isFirstTime_TutorialPuzzle;
     public bool isMagicalBridgeSolved; // tiap ganti jd outside di false
 
     public bool isFirstTimeInGame = true;

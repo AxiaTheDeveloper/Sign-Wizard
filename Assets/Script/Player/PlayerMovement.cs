@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
         {
             tileControlManager = tileControlManagerList[PlayerSaveManager.Instance.GetPlayerLevel()-1];
+            totalMoveBlock = tileControlManager.GetTileDistance();
             dialogueManager = DialogueManager.Instance;
         }
         

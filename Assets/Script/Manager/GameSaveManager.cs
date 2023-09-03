@@ -18,6 +18,7 @@ class PlayerData
     public bool isResetSave;
 
     public bool isFirstTime_Tutorial;
+    public bool isFirstTime_TutorialPuzzle;
     public bool isMagicalBridgeSolved;
 }
 
@@ -67,6 +68,7 @@ public class GameSaveManager : MonoBehaviour
         psData.isSubmitPotion = playerSaveSO.isSubmitPotion;
         psData.isResetSave = playerSaveSO.isResetSave;
         psData.isFirstTime_Tutorial = playerSaveSO.isFirstTime_Tutorial;
+        psData.isFirstTime_TutorialPuzzle = playerSaveSO.isFirstTime_TutorialPuzzle;
         psData.isMagicalBridgeSolved = playerSaveSO.isMagicalBridgeSolved;
 
         Inventory piData = new Inventory();
@@ -124,6 +126,7 @@ public class GameSaveManager : MonoBehaviour
         playerSaveSO.isSubmitPotion = psData.isSubmitPotion;
         playerSaveSO.isResetSave = psData.isResetSave;
         playerSaveSO.isFirstTime_Tutorial = psData.isFirstTime_Tutorial;
+        playerSaveSO.isFirstTime_TutorialPuzzle = psData.isFirstTime_TutorialPuzzle;
         playerSaveSO.isMagicalBridgeSolved = psData.isMagicalBridgeSolved;
 
         playerInventSO.isFull = piData.isFull;

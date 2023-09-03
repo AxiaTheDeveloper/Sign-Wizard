@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum Destination_Outside
 {
-    forest, graveyard, magicalBridge, brokenBridge_Graveyard, brokenBridge_Town, town, inFrontOfHouse
+    forest, graveyard, magicalBridge, brokenBridge_Graveyard, brokenBridge_Town, town, inFrontOfHouse, noWhere
 }
 public class GoingToOtherPlace : MonoBehaviour
 {
@@ -13,7 +13,8 @@ public class GoingToOtherPlace : MonoBehaviour
     private PlayerSaveManager playerSave;
 
     [SerializeField]private Destination_Outside destination;
-    [SerializeField]private CanvasGroup darkBG_effect;    
+    [SerializeField]private CanvasGroup darkBG_effect;   
+    [SerializeField]private WantToSeeTutorialUI wantToSeeTutorialUI; 
     private void Start() 
     {
         gameManager = WitchGameManager.Instance;
@@ -47,7 +48,14 @@ public class GoingToOtherPlace : MonoBehaviour
                             DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.potionYangDibawaTidakSesuai_GoingToOtherPlace);
                         }
                         else{
-                            FadeGetOutScene();
+                            if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest && destination == Destination_Outside.magicalBridge && PlayerSaveManager.Instance.IsFirstTime_TutorialPuzzle())
+                            {
+                                gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceYesNoTutorial);
+                                wantToSeeTutorialUI.ShowWantTutorial();
+                            }
+                            else{
+                                FadeGetOutScene();
+                            }
                         }
                     }
                 }
@@ -80,11 +88,34 @@ public class GoingToOtherPlace : MonoBehaviour
                 else
                 {
                     if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){
-                        DialogueManager.Instance.ShowDialogue_PulangDariKota();
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.Level6TownKeMagicalBridge_GoingToOtherPlace);
                     }
                 }
                 
 
+            }
+            else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && PlayerSaveManager.Instance.GetPlayerLevelMode() == levelMode.finishQuest)
+            {
+                DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TidakPergiKeluarSudahMalam_GoingToOtherPlace);
+            }
+            else if(destination == Destination_Outside.noWhere)
+            {
+                if(playerSave.GetPlayerLevel() < playerSave.GetMaxLevel())
+                {
+                    if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion)
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithBahan(DialogueManager.DialogueWrongChoice.belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, QuestManager.Instance.GetSendername());
+                    }
+                    else if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.CepatPulangDariKota_GoingToOtherPlace);
+                    }
+                }
+                else
+                {
+                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.JalanTidakKemanaManaLevel6_GoingToOtherPlace);
+                }
+                
             }
             else
             {

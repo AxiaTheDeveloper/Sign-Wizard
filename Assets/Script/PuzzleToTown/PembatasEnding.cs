@@ -17,7 +17,15 @@ public class PembatasEnding : MonoBehaviour
                 else
                 {
                     //wah magic uda ilang etc 
-                    DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.MagicalBridgeHilangFinishQuest_PembatasEnding);
+                    if(PlayerSaveManager.Instance.GetPlayerLevel() == 1)
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.MagicalBridgeHilangFinishQuest1_PembatasEnding);
+                    }
+                    else
+                    {
+                        DialogueManager.Instance.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.MagicalBridgeHilangFinishQuest2_PembatasEnding);
+                    }
+                    
                 }
                 
             }

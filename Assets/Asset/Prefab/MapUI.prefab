@@ -56,10 +56,10 @@ MonoBehaviour:
   playerChecker: {fileID: 5035031989033933995}
   placeInFrontOfHouse: {x: -555, y: 250, z: 0}
   placeInForest: {x: -555, y: 0, z: 0}
-  placeInGraveyard: {x: -555, y: 275, z: 0}
-  placeInBrokenBridgeGraveyard: {x: -125, y: 275, z: 0}
+  placeInGraveyard: {x: -555, y: -275, z: 0}
+  placeInBrokenBridgeGraveyard: {x: -125, y: -275, z: 0}
   placeInMagicalBridge: {x: 0, y: 100, z: 0}
-  placeInBrokenBridgeTown: {x: 125, y: 275, z: 0}
+  placeInBrokenBridgeTown: {x: 125, y: -275, z: 0}
   placeInTown: {x: 500, y: -25, z: 0}
   inputCoolDownTimerMax: 0.2
 --- !u!1 &5035031989033933995
@@ -97,7 +97,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: -25}
+  m_AnchoredPosition: {x: -555, y: -275}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5035031989033933992

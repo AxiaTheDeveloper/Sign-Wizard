@@ -240,6 +240,7 @@ public class MainMenuUI : MonoBehaviour
                     playerSaveSO.isSubmitPotion = false;
                     playerSaveSO.isResetSave = true;
                     playerSaveSO.isFirstTime_Tutorial = true;
+                    playerSaveSO.isFirstTime_TutorialPuzzle = true;
                     playerSaveSO.placePlayerNow = WitchGameManager.Place.outdoor;
                     playerSaveSO.outDoorTypeNow = WitchGameManager.OutDoorType.inFrontOfHouse;
                     playerSaveSO.isMagicalBridgeSolved = false;
@@ -439,12 +440,25 @@ public class MainMenuUI : MonoBehaviour
                                 }
                             }
                             else{
-                                if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                if(playerSaveSO.isFirstTime_TutorialPuzzle)
+                                {
+                                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
+                                        LevelLoader.Instance.LoadScene("OutDoor_Forest_ID");
+                                    }
+                                    else{
+                                        LevelLoader.Instance.LoadScene("OutDoor_Forest_EN");
+                                    }
+                                }
+                                else
+                                {
+                                    if(PlayerPrefs.GetString("pilihanIDEN") == "ID"){
                                     LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_ID");
+                                    }
+                                    else{
+                                        LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_EN");
+                                    }
                                 }
-                                else{
-                                    LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_EN");
-                                }
+                                
                             }
                             
                         }
@@ -551,6 +565,15 @@ public class MainMenuUI : MonoBehaviour
                     }
                     else{
                         LevelLoader.Instance.LoadScene("OutDoor_Graveyard_EN");
+                    }
+                }
+                else if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.magicalBridge)
+                {
+                    if(selectionOptionLanguage == "ID"){
+                        LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_ID");
+                    }
+                    else{
+                        LevelLoader.Instance.LoadScene("OutDoor_MagicalBridge_EN");
                     }
                 }
                 

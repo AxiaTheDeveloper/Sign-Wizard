@@ -28,16 +28,16 @@ MonoBehaviour:
   QuestTask_ID: "- Ke <b><color=#A46443>rak buku</color></b> untuk cek Resep.\n-
     Ke <b><color=#A46443>peti</color></b> untuk ambil bahan.\n- Ke <b><color=#A46443>penumbuk</color></b>
     untuk menumbuk \n  beberapa bahan yang perlu ditumbuk.\n- Ke <b><color=#A46443>cauldron</color></b>,
-    masukin bahan, dan \n  sesuaikan api.\n- Pergi ke <b><color=#A46443>kota</color></b>.\n-
-    Letakkan potion di <b><color=#A46443>kotak surat</color></b> di depan rumah milik
-    pemesan."
+    masukin bahan, dan \n  sesuaikan api.\n- Pergi ke <b><color=#A46443>kota</color></b>
+    lewat <b><color=#A46443>jembatan ajaib</color></b>.\n- Letakkan potion di <b><color=#A46443>kotak
+    surat</color></b> di depan \n  rumah milik pemesan."
   QuestTask_EN: "- Go to <b><color=#A46443>shelf</color></b> to check the recipe.\n-
     Go to <b><color=#A46443>chest</color></b> to get the ingredients.\n- Go to <b><color=#A46443>mortar
     & pestle</color></b> to mash the \n  ingredients that need to be mashed.\n- Go
     to <b><color=#A46443>cauldron</color></b>, put the ingredients \n  inside, and
-    adjust the fire.\n- Go to the <b><color=#A46443>town</color></b>.\n- Put the
-    potion inside the <b><color=#A46443>mail box</color></b> in \n  front of the
-    customer's house."
+    adjust the fire.\n- Go to the <b><color=#A46443>town</color></b> via <b><color=#A46443>magical
+    bridge</color></b>.\n- Put the potion inside the <b><color=#A46443>mail box</color></b>
+    in \n  front of the customer's house."
   QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Chal. \n- Letakkan
     potion di <b><color=#A46443>kotak surat</color></b> milik Chal."
   QuestTaskPlace_EN: '- Find Chal''s <b><color=#A46443>house</color></b>.

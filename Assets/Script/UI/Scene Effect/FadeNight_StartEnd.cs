@@ -58,6 +58,10 @@ public class FadeNight_StartEnd : MonoBehaviour
             if(playerSave.GetPlayerLevelMode() == levelMode.outside && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && playerSave.GetPlayerLevel() == 1){
                 dialogueManager.ShowDialogue_Intro();
             }
+            else if(playerSave.IsFirstTime_TutorialPuzzle() && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
+            {
+                TimelineManager.Instance.Start_Tutorials(TimelineManager.TimelineType.TutorialPuzzle);
+            }
             else{
                 if(playerSave.GetFirstTimeTutorial()){
                     if(gameManager.GetPlace() == WitchGameManager.Place.indoor) dialogueManager.ShowDialogue_Tutorial(DialogueManager.DialogueTutorial.playerTutorialStart);

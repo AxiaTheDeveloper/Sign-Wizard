@@ -326,4 +326,8 @@ public class PlayerAnimator : MonoBehaviour
         
         
     }
+    public void changeLastInGameType(WitchGameManager.InGameType lastInGameType)
+    {
+        LastInGameType = lastInGameType;
+    }
 }
