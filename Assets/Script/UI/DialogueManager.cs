@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     private WitchGameManager.InGameType inGameType;
     [SerializeField]private TimelineManager timelineManager;
     [SerializeField]private WitchGameManager gameManager;
-    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle, dialogueHolder_GerbangKuburan, dialogueHolder_ChatWithTravelingMerchant, dialogueHolder_KirimPotionTravelingMerchant, dialogueHolder_ReadBrokenBridgeGraveyardSigns;
+    [SerializeField]private DialogueSystem.DialogueHolder dialogueHolder_Intro, dialogueHolder_Intro2, dialogueHolder_AfterReadingMail,dialogueHolder_WrongChoice_Dialogue, dialogueHolder_KirimPotion, dialogueHolder_Go_Out_Dialogue, dialogueHolder_tutorial, dialogueHolder_NerimaGift, dialogueHolder_IstirahatHabisSelesaiQuest, dialogueHolder_PulangDariKota, dialogueHolder_MenujuKeKotaLevel6, dialogueHolder_ResetPuzzle, dialogueHolder_GerbangKuburan, dialogueHolder_ChatWithTravelingMerchant, dialogueHolder_KirimPotionTravelingMerchant, dialogueHolder_ReadBrokenBridgeGraveyardSigns, dialogueHolder_FinishQuestDiantar;
     //wrong choice itu kek ah inventory player penuh, ah itu bukan itemnya buat ditumbuk
     [Header("Dialogue Wrong Choice")]
     // [SerializeField]private GameObject dialogueWrongChoice_GameObject;
@@ -89,8 +89,13 @@ public class DialogueManager : MonoBehaviour
         if(dialogueHolder_ChatWithTravelingMerchant) dialogueHolder_ChatWithTravelingMerchant.OnDialogueFinish += dialogueHolder_ChatWithTravelingMerchant_OnDialogueFinish;
         if(dialogueHolder_KirimPotionTravelingMerchant) dialogueHolder_KirimPotionTravelingMerchant.OnDialogueFinish += dialogueHolder_KirimPotionTravelingMerchant_OnDialogueFinish;
         if(dialogueHolder_ReadBrokenBridgeGraveyardSigns)dialogueHolder_ReadBrokenBridgeGraveyardSigns.OnDialogueFinish += dialogueHolder_ReadBrokenBridgeGraveyardSigns_OnDialogueFinish;
+        if(dialogueHolder_FinishQuestDiantar)dialogueHolder_FinishQuestDiantar.OnDialogueFinish += dialogueHolder_FinishQuestDiantar_OnDialogueFinish;
     }
 
+    private void dialogueHolder_FinishQuestDiantar_OnDialogueFinish(object sender, EventArgs e)
+    {
+        timelineManager.Start_FinishQuest(TimelineManager.TimelineType.finishQuest_Diantar2);
+    }
     private void dialogueHolder_ReadBrokenBridgeGraveyardSigns_OnDialogueFinish(object sender, EventArgs e)
     {
         gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
@@ -285,6 +290,15 @@ public class DialogueManager : MonoBehaviour
     {
         gameManager.ChangeToCinematic();
         dialogueHolder_ReadBrokenBridgeGraveyardSigns.ShowDialogue();
+    }
+    public void ShowDialogue_dialogueHolder_FinishQuestDiantar()
+    {
+        gameManager.ChangeToCinematic();
+        if(playerAnimator){
+            playerAnimator.animator.Play("Player_Idle_Up_Right");
+            playerAnimator.animator.SetBool("idle", true);
+        }
+        dialogueHolder_FinishQuestDiantar.ShowDialogue();
     }
 
     public void ShowDialogue_Gift(DialogueNerimaGift dialogueNerimaGift){
@@ -482,11 +496,27 @@ public class DialogueManager : MonoBehaviour
             dialogueLines_WrongChoice.ChangeInputText(itemName + dialogueList.dialogue_bukanPotion_InventoryUI);
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.tidakAdaBarangYangDiminta_InteractObject){
-            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaBarangYangDiminta1_InteractObject + itemName + ". " + dialogueList.dialogue_tidakAdaBarangYangDiminta2_InteractObject);
+            
+            if(itemName != "Vii")
+            {
+                dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaBarangYangDiminta1_InteractObject + itemName + ". " + dialogueList.dialogue_tidakAdaBarangYangDiminta2_InteractObject);
+            }
+            else
+            {
+                dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_tidakAdaBarangYangDiminta1_InteractObject + "Bu "+ itemName + ". " + dialogueList.dialogue_tidakAdaBarangYangDiminta2_InteractObject);
+            }
         }
         else if(dialogueWrongChoice == DialogueWrongChoice.belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace)
         {
-            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace + itemName + ". ");
+            if(itemName != "Vii")
+            {
+                dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace + itemName + ". ");
+            }
+            else
+            {
+                dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace + "Bu "+ itemName + ". ");
+            }
+            
         }
         
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();

@@ -16,6 +16,7 @@ public class FadeNight_StartEnd : MonoBehaviour
     [SerializeField]private DialogueManager dialogueManager;
 
     [SerializeField]private CanvasGroup nextDay_Text, outsideLight;
+    private bool doFinishQuestAnimation;
     private bool hasFadeNight = false;
     private void Update() {
         if(!hasFadeNight){
@@ -61,6 +62,10 @@ public class FadeNight_StartEnd : MonoBehaviour
             else if(playerSave.IsFirstTime_TutorialPuzzle() && gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
             {
                 TimelineManager.Instance.Start_Tutorials(TimelineManager.TimelineType.TutorialPuzzle);
+            }
+            else if(doFinishQuestAnimation)
+            {
+                TimelineManager.Instance.Start_FinishQuest(TimelineManager.TimelineType.finishQuest_Diantar1);
             }
             else{
                 if(playerSave.GetFirstTimeTutorial()){
@@ -120,6 +125,10 @@ public class FadeNight_StartEnd : MonoBehaviour
         LeanTween.alpha(nightBG, 1f, 1.2f).setOnComplete(
             () => pause.GoToMainMenu()
         );
+    }
+    public void DoFinishQuestAnimation()
+    {
+        doFinishQuestAnimation = true;
     }
 
 

@@ -17,12 +17,12 @@ MonoBehaviour:
   isFull: 0
   isFullyEmpty: 1
   inventSlot:
-  - itemSO: {fileID: 11400000, guid: d8a54c2c15c5e1f43b88cf0e494a55fb, type: 2}
-    quantity: 1
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}
     quantity: 0
+  - itemSO: {fileID: 11400000, guid: 1f724aeb1170d8940b8d641bd05d89c6, type: 2}
+    quantity: 3
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}

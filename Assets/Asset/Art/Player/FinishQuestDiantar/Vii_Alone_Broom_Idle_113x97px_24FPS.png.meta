@@ -1,0 +1,555 @@
+fileFormatVersion: 2
+guid: 45ace54d5119d044db55a2b5b8abf3ad
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4769b8b67f2993441bdcd19bfdc50ad0
+      internalID: -1686096687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140edf88e22e655429978d87d010c55d
+      internalID: 162542364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917b76d5b766d354f87053f0cd123b87
+      internalID: 1914420297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_3
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6eb80b23e19822498f25a82a3d8c763
+      internalID: 2007343787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_4
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2ee2a0dd6808845bc77a621f8a81a8
+      internalID: -376274355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_5
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000770398aaf538498b7d90f54bb8fba
+      internalID: 1836753352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_6
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f35c16fb644512428c79bbe9083b393
+      internalID: -1436780688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_7
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326c13d655bd43f43bf43f60a09adf46
+      internalID: -148906481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_8
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4427ae6eda8adc64f8ac4eb5eda92d45
+      internalID: 1937844828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_9
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c78c0ff30f32e44938492ac59b328a
+      internalID: -1310798788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_10
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f09d54b2bcb7b841ae785fe287f53cb
+      internalID: -1557456387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_11
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a0daaad3c113e4aa17041412c4c281
+      internalID: 1844440735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_12
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc920cc85a212d4f93889fc198890fa
+      internalID: -1226069193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_13
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5f1072dfd13f44984923d9eb60340f
+      internalID: 492501662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_14
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5d76ce3c8d09c4e83e52291aa2cdbb
+      internalID: 1106340877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_15
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a392cfed03a54458a0c43e1db23e96
+      internalID: 1925500341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_16
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d0a29d0f29b5e459181f537c6e8da0
+      internalID: 916173980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_Alone_Broom_Idle_113x97px_24FPS_17
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ed331c597a6d34580b0fee980cbb44
+      internalID: 179684858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Vii_Alone_Broom_Idle_113x97px_24FPS_15: 1925500341
+      Vii_Alone_Broom_Idle_113x97px_24FPS_8: 1937844828
+      Vii_Alone_Broom_Idle_113x97px_24FPS_2: 1914420297
+      Vii_Alone_Broom_Idle_113x97px_24FPS_14: 1106340877
+      Vii_Alone_Broom_Idle_113x97px_24FPS_1: 162542364
+      Vii_Alone_Broom_Idle_113x97px_24FPS_5: 1836753352
+      Vii_Alone_Broom_Idle_113x97px_24FPS_11: 1844440735
+      Vii_Alone_Broom_Idle_113x97px_24FPS_3: 2007343787
+      Vii_Alone_Broom_Idle_113x97px_24FPS_4: -376274355
+      Vii_Alone_Broom_Idle_113x97px_24FPS_9: -1310798788
+      Vii_Alone_Broom_Idle_113x97px_24FPS_6: -1436780688
+      Vii_Alone_Broom_Idle_113x97px_24FPS_10: -1557456387
+      Vii_Alone_Broom_Idle_113x97px_24FPS_12: -1226069193
+      Vii_Alone_Broom_Idle_113x97px_24FPS_17: 179684858
+      Vii_Alone_Broom_Idle_113x97px_24FPS_7: -148906481
+      Vii_Alone_Broom_Idle_113x97px_24FPS_13: 492501662
+      Vii_Alone_Broom_Idle_113x97px_24FPS_16: 916173980
+      Vii_Alone_Broom_Idle_113x97px_24FPS_0: -1686096687
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

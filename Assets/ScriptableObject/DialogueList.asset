@@ -119,14 +119,14 @@ MonoBehaviour:
     the puzzle anymore. I've reached the last tile that allows me to cross.
   dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_ID: 'Jembatan ajaibnya
     hilang setelah aku kembali dari kota. Mungkin aku bisa coba membeli sapu terbang
-    yang dijual pedagang itu agar bisa pulang ke rumah. '
+    yang dijual pedagang kucing itu agar bisa pulang ke rumah. '
   dialogue_MagicalBridgeHilangFinishQuest1_PembatasEnding_EN: "\rThe magic bridge
-    disappeared after I came back from the city. Maybe I cam buy that merchant's
+    disappeared after I came back from the city. Maybe I cam buy that cat merchant's
     broomstick to help me get back home."
   dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_ID: 'Jembatan ajaibnya
-    hilang setelah aku kembali dari kota. Saatnya minta tolong Vii lagi. '
+    hilang setelah aku kembali dari kota. Saatnya minta tolong Bu Vii lagi. '
   dialogue_MagicalBridgeHilangFinishQuest2_PembatasEnding_EN: The magic bridge disappeared
-    after I came back from the city. It's time to ask Vii's help again.
+    after I came back from the city. It's time to ask Ma'am Vii's help again.
   dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_ID: Ini sudah malam. Jalanan
     juga sangat gelap. Sebaiknya aku istirahat saja.
   dialogue_TidakPergiKeluarSudahMalam_GoingToOtherPlace_EN: 'It''s already late and

@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: 8a08decf978b62b41a9fc99d3cf03dce
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8be3a0d322cfe4ea25f7be3b99d5ab
+      internalID: 293098556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347c1d6ad03532d4fba265bfe8889f09
+      internalID: -1848520265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7419eac8c570af84eb7b780e96ffd70d
+      internalID: -1216567416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_3
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f399b276110f4459a7600cae102dde
+      internalID: 467658971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_4
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3dc2a64d243e774392c53e8ee4c05f6
+      internalID: 1549810946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_5
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c6d29f6e4a48a47b5cd8965af3b96b
+      internalID: 1959309591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_6
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69751724af806c14bbbfaffcc09c22c7
+      internalID: 294819183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_7
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f48a568445c6f479dfc4d128f240ff
+      internalID: -1244684482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_8
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29efeb603fd73f43996a56d820c757b
+      internalID: 1474497643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_9
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0156d95ad741bde409a240ad0d817954
+      internalID: -1766433963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_10
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751279ac47c707a4eb7ccb2851888b28
+      internalID: 632808412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_11
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b07bf56f5b0e441a127b9b30155dbb
+      internalID: -526726680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_12
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f087dbf9c3cf7604db53c11be29420a2
+      internalID: 1825089496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_13
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12fb11a5719d02d438ce5d3fed957a8a
+      internalID: 392615651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_14
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63845368ea32b7d46bf4f3de4785e47d
+      internalID: -469849766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_15
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8852ce60de6a84f4981e9a5ee8b50dde
+      internalID: 617008934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_16
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633b323786f4edf4ca6bbd9ad47fde14
+      internalID: 1271035271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_17
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e6c0ce10baf7342bf0f69f5224a285
+      internalID: 1250048712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_18
+      rect:
+        serializedVersion: 2
+        x: 2034
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b347e38f1431cf547be07f825158e9c8
+      internalID: -218443832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_19
+      rect:
+        serializedVersion: 2
+        x: 2147
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314343270ae4f8a4899dae5492c33cf4
+      internalID: -119664130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_20
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a9fce54224aa154dad423d86a745ce6
+      internalID: 490080228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_21
+      rect:
+        serializedVersion: 2
+        x: 2373
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc2c2fb19da8524bb9d66fab007453f
+      internalID: 1270200657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_22
+      rect:
+        serializedVersion: 2
+        x: 2486
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562046d1da082934d9f020367c944002
+      internalID: 1542692170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_23
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9e0986fff875d43861274f6dedf82c
+      internalID: 837438494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_24
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a71a6ef23dcbe349ae038a47c34c18a
+      internalID: -544255891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_25
+      rect:
+        serializedVersion: 2
+        x: 2825
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ad18804eca3e045a8d1c93a8c0a2dc
+      internalID: -1463164782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_26
+      rect:
+        serializedVersion: 2
+        x: 2938
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0853a41b18dc74f821b8a0233d592f
+      internalID: -1861632210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_27
+      rect:
+        serializedVersion: 2
+        x: 3051
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5eb5b0a30656f443b2c1bf8e76d0730
+      internalID: -279387207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_28
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa736d1124d5454784a6c66605d9e6b
+      internalID: -113852546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_29
+      rect:
+        serializedVersion: 2
+        x: 3277
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29727d348c67794f8421136c9ea62f0
+      internalID: 1384152882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_30
+      rect:
+        serializedVersion: 2
+        x: 3390
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be44edbf64e01d46a2c90832717c7cd
+      internalID: 769972475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_31
+      rect:
+        serializedVersion: 2
+        x: 3503
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40dd938334393948b53a365fb1237e4
+      internalID: -1862316643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_32
+      rect:
+        serializedVersion: 2
+        x: 3616
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f804d040fa5b5a468ae9d5d282e086e
+      internalID: -1247002647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_33
+      rect:
+        serializedVersion: 2
+        x: 3729
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab2d08138022434382d17d6848939e1
+      internalID: 548434022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_34
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92c0984538b9854797702eb0eeed991
+      internalID: 2110041617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vii_AxiaHopOff_113x97px_24FPS_35
+      rect:
+        serializedVersion: 2
+        x: 3955
+        y: 0
+        width: 113
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71aedb8b9e7d25442a64d2bd90c2a3a7
+      internalID: -666766703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Vii_AxiaHopOff_113x97px_24FPS_8: 1474497643
+      Vii_AxiaHopOff_113x97px_24FPS_12: 1825089496
+      Vii_AxiaHopOff_113x97px_24FPS_18: -218443832
+      Vii_AxiaHopOff_113x97px_24FPS_35: -666766703
+      Vii_AxiaHopOff_113x97px_24FPS_27: -279387207
+      Vii_AxiaHopOff_113x97px_24FPS_32: -1247002647
+      Vii_AxiaHopOff_113x97px_24FPS_4: 1549810946
+      Vii_AxiaHopOff_113x97px_24FPS_1: -1848520265
+      Vii_AxiaHopOff_113x97px_24FPS_21: 1270200657
+      Vii_AxiaHopOff_113x97px_24FPS_13: 392615651
+      Vii_AxiaHopOff_113x97px_24FPS_24: -544255891
+      Vii_AxiaHopOff_113x97px_24FPS_30: 769972475
+      Vii_AxiaHopOff_113x97px_24FPS_22: 1542692170
+      Vii_AxiaHopOff_113x97px_24FPS_23: 837438494
+      Vii_AxiaHopOff_113x97px_24FPS_19: -119664130
+      Vii_AxiaHopOff_113x97px_24FPS_15: 617008934
+      Vii_AxiaHopOff_113x97px_24FPS_10: 632808412
+      Vii_AxiaHopOff_113x97px_24FPS_11: -526726680
+      Vii_AxiaHopOff_113x97px_24FPS_2: -1216567416
+      Vii_AxiaHopOff_113x97px_24FPS_16: 1271035271
+      Vii_AxiaHopOff_113x97px_24FPS_33: 548434022
+      Vii_AxiaHopOff_113x97px_24FPS_7: -1244684482
+      Vii_AxiaHopOff_113x97px_24FPS_9: -1766433963
+      Vii_AxiaHopOff_113x97px_24FPS_14: -469849766
+      Vii_AxiaHopOff_113x97px_24FPS_26: -1861632210
+      Vii_AxiaHopOff_113x97px_24FPS_34: 2110041617
+      Vii_AxiaHopOff_113x97px_24FPS_0: 293098556
+      Vii_AxiaHopOff_113x97px_24FPS_5: 1959309591
+      Vii_AxiaHopOff_113x97px_24FPS_6: 294819183
+      Vii_AxiaHopOff_113x97px_24FPS_28: -113852546
+      Vii_AxiaHopOff_113x97px_24FPS_17: 1250048712
+      Vii_AxiaHopOff_113x97px_24FPS_25: -1463164782
+      Vii_AxiaHopOff_113x97px_24FPS_29: 1384152882
+      Vii_AxiaHopOff_113x97px_24FPS_3: 467658971
+      Vii_AxiaHopOff_113x97px_24FPS_20: 490080228
+      Vii_AxiaHopOff_113x97px_24FPS_31: -1862316643
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

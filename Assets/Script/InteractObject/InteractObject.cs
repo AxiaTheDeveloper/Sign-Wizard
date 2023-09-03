@@ -66,7 +66,7 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly, TruckMerchant_DialogueOnly
     }
     public ObjectType type;
 
@@ -161,7 +161,6 @@ public class InteractObject : MonoBehaviour
                 }
                 
             }
-            
         }
         if(type == ObjectType.TheSubmitPotion){
             if(playerSave.GetPlayerLevelMode() == levelMode.MakingPotion){

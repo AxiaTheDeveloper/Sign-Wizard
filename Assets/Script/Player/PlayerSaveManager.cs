@@ -26,6 +26,8 @@ public class PlayerSaveManager : MonoBehaviour
     [Header("Di MagicalBridge")]
     [SerializeField]private Transform spawnPlaceFromTown;
 
+    [SerializeField]private FadeNight_StartEnd fade;
+
     
 
     private void Awake() {
@@ -49,6 +51,11 @@ public class PlayerSaveManager : MonoBehaviour
                     transform.position = spawnPlaceFromForest.localPosition;
                     playerAnimator.animator.Play("Player_Idle_Up");
                     playerAnimator.animator.SetBool("idle", true);
+                    if(playerSaveSO.outDoorTypeNow == WitchGameManager.OutDoorType.town && playerSaveSO.modeLevel == levelMode.finishQuest)
+                    {
+                        gameObject.SetActive(false);
+                        fade.DoFinishQuestAnimation();
+                    }
                 }
             }
             else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest)

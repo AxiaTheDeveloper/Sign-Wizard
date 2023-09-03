@@ -37,19 +37,19 @@ MonoBehaviour:
     to <b><color=#A46443>cauldron</color></b>, put the ingredients \n  inside, and
     adjust the fire.\n- Go to the <b><color=#A46443>town</color></b> via <b><color=#A46443>magical
     bridge</color></b>.\n- Give the potion to the customer."
-  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Vii. \n- Berikan
-    potion langsung pada Vii."
-  QuestTaskPlace_EN: '- Find Vii''s <b><color=#A46443>house</color></b>.
+  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Bu Vii menggunakan
+    peta. \n- Berikan potion langsung pada Bu Vii."
+  QuestTaskPlace_EN: '- Find Ma''am Vii''s <b><color=#A46443>house</color></b> using
+    the map.
 
-    - Give
-    the potion to Vii. '
-  QuestinMail_ID: "Pagi Axia ! \rKudengar kamu bisa membuat ramuan ya?\n\r\nAku mau
-    pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
-    karena belakangan ini aku sedang stress dan butuh dorongan tambahan nih hehe.
-    \n\nTerimakasih yaa!"
-  QuestinMail_EN: "Morning Axia ! I heard you can brew a potion. \n\nI would like
+    - Give the potion to Ma''am Vii. '
+  QuestinMail_ID: "Pagi nak Axia ! \rKamu bisa membuat ramuan kan ya ?\n\r\nSaya
+    mau pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
+    karena belakangan ini saya sedang butuh dorongan tambahan, haha. \n\nTerimakasih
+    ya!"
+  QuestinMail_EN: "Morning sweety ! I heard you can brew a potion. \n\nI would like
     <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b> potions
-    \nbecause lately I'm stressed and need some extra push, hehe.\n\nThank youu!"
+    \nbecause lately I need some extra push, haha.\n\nThank you sweety!"
   GiftDescinMail_ID: Halo, terimakasih ya buat ramuannya kemarin, ini kuberikan alat
     punyaku karena tidak pernah dipakai, semoga berguna ya!
   GiftDescinMail_EN: Hello, thank you for the potion yesterday, please take my gift,

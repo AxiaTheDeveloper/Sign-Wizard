@@ -11,7 +11,7 @@ namespace DialogueSystem{
         public bool finished {get; protected set;}
         [SerializeField]protected GameObject pressToContinue_textHolder;
 
-        protected IEnumerator typeText(string inputText, TextMeshProUGUI textHolder, float delayTypeText, float delayBetweenLines){
+        protected IEnumerator typeText(string inputText, TextMeshProUGUI textHolder, float delayTypeText, float delayBetweenLines, GameObject backgroundHolder, GameObject imageHolder, GameObject nameHolder){
             //kalo mau
             // textHolder.color = textColor;
             // textHolder.font = textFont;
@@ -32,7 +32,11 @@ namespace DialogueSystem{
 
             yield return new WaitUntil(()=>GameInput.Instance.GetInputNextLine_Dialogue());
             pressToContinue_textHolder.SetActive(false);
+            
             finished = true;
+            backgroundHolder.SetActive(false);
+            imageHolder.SetActive(false);
+            nameHolder.SetActive(false);
         }
         public void ChangeFinished_false()
         {

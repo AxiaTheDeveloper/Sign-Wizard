@@ -137,6 +137,9 @@ public class Door_Outside : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
         // Debug.Log(line.finished);
+        BG.SetActive(true);
+        charaImage.SetActive(true);
+        nameChara.SetActive(true);
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceDoor);
         line.ChangeFinished_false();
         gameControl.gameManager_OnShow_YesNoDialogue();

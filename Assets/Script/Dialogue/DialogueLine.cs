@@ -57,6 +57,7 @@ namespace DialogueSystem{
         public void GoLineText()
         {
             // Debug.Log(inputText);
+            backGroundHolder.gameObject.SetActive(true);
             if(isCharaHaveName)
             {
                 name_textHolder.text = charaName;
@@ -87,7 +88,7 @@ namespace DialogueSystem{
                 }
                 backGroundHolder.color = bgColor;
             }
-            IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines);
+            IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines, backGroundHolder.gameObject, imageHolder.gameObject, name_textHolder.gameObject);
             StartCoroutine(lineText);
 
         }

@@ -8,6 +8,7 @@ namespace DialogueSystem{
     public class DialogueHolder : MonoBehaviour
     {
         [SerializeField]private GameObject BG, charaImage, nameChara;
+        [SerializeField]private GameObject BGVii, charaImageVii, nameCharaVii;
         public event EventHandler OnDialogueFinish;//ke dialogue manager
         public bool startOnAwake;
 
@@ -48,7 +49,8 @@ namespace DialogueSystem{
         }
         public void ShowDialogue()
         {
-            BG.SetActive(true);
+            // BG.SetActive(true);
+            // if(BGVii) BGVii.SetActive(true);
             // charaImage.SetActive(true);
             gameObject.SetActive(true);
             StartCoroutine(dialogueSequence());
@@ -58,6 +60,10 @@ namespace DialogueSystem{
             BG.SetActive(false);
             nameChara.SetActive(false);
             charaImage.SetActive(false);
+
+            if(BGVii) BGVii.SetActive(false);
+            if(nameCharaVii) nameCharaVii.SetActive(false);
+            if(charaImageVii) charaImageVii.SetActive(false);
             gameObject.SetActive(false);
         }
 

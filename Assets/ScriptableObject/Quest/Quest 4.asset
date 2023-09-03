@@ -38,12 +38,13 @@ MonoBehaviour:
     adjust the fire.\n- Go to the <b><color=#A46443>town</color></b> via <b><color=#A46443>magical
     bridge</color></b>.\n- Put the potion inside the <b><color=#A46443>mail box</color></b>
     in \n  front of the customer's house."
-  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Chal. \n- Letakkan
-    potion di <b><color=#A46443>kotak surat</color></b> milik Chal."
-  QuestTaskPlace_EN: '- Find Chal''s <b><color=#A46443>house</color></b>.
+  QuestTaskPlace_ID: "- Cari <b><color=#A46443>rumah</color></b> Chal menggunakan
+    peta.  \n- Letakkan potion di <b><color=#A46443>kotak surat</color></b> milik
+    Chal."
+  QuestTaskPlace_EN: '- Find Chal''s <b><color=#A46443>house</color></b> using the
+    map.
 
-    -
-    Put the potion inside Chal''s <b><color=#A46443>mail box</color></b>.'
+    - Put the potion inside Chal''s <b><color=#A46443>mail box</color></b>.'
   QuestinMail_ID: "Selamat Pagi!!!\r\n\r\nKali ini Aku mau pesan ramuan <b><color=#A46443>Harmony
     Fish Brew & Tropical Bliss Elixir</color></b> yaa, lagi pengen yang sehat dan
     segar aja gitu. \r\n\r\nTerimakasih banyak, ditunggu ya!"

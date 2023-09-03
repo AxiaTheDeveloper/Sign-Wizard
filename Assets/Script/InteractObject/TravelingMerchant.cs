@@ -79,6 +79,9 @@ public class TravelingMerchant : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
 
+        BG.SetActive(true);
+        charaImage.SetActive(true);
+        nameChara.SetActive(true);
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceTravelingMerchant);
         line.ChangeFinished_false();
         yesNoQuestion.SetActive(true);

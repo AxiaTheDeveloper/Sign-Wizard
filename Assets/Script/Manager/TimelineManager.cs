@@ -9,7 +9,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private PlayableDirector director;
 
     public enum TimelineType{
-        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk, TutorialSubmit, TutorialPuzzle,none
+        intro, cauldron_Success, Go_Outside, TutorialCauldron, TutorialChest, TutorialDictionary, TutorialBed, TutorialTumbuk, TutorialSubmit, TutorialPuzzle,none, finishQuest_Diantar1, finishQuest_Diantar2
     }
     private TimelineType type;
 
@@ -18,6 +18,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField]private TimelineAsset goOutside;
     [SerializeField]private TimelineAsset introWalk;
     [SerializeField]private TimelineAsset tutorialCauldron, tutorialChest, tutorialDictionary, tutorialBed, tutorialTumbuk, tutorialSubmit, tutorialPuzzle;
+    [SerializeField]private TimelineAsset finishQuestDiantar1, finishQuestDiantar2;
     [SerializeField]private Cauldron cauldron;
     [SerializeField]private FadeNight_StartEnd fadeNight;
     [SerializeField]private DialogueManager dialogueManager;
@@ -44,6 +45,18 @@ public class TimelineManager : MonoBehaviour
         else if(type == TimelineType.intro){
             type = TimelineType.none;
             dialogueManager.ShowDialogue_Intro2();
+        }
+        else if(type == TimelineType.finishQuest_Diantar1){
+            type = TimelineType.none;
+            dialogueManager.ShowDialogue_dialogueHolder_FinishQuestDiantar();
+        }
+        else if(type == TimelineType.finishQuest_Diantar2){
+            type = TimelineType.none;
+            WitchGameManager.Instance.ChangeToInGame(WitchGameManager.InGameType.normal);
+            if(playerAnimator){
+                playerAnimator.Play("Player_Idle_Up_Left");
+                playerAnimator.SetBool("idle", true);
+            }
         }
         else if(type == TimelineType.TutorialCauldron){
             type = TimelineType.none;
@@ -93,6 +106,20 @@ public class TimelineManager : MonoBehaviour
         director.playableAsset = introWalk;
         type = TimelineType.intro;
         director.Play();
+    }
+    public void Start_FinishQuest(TimelineType typeFinishQuest){
+        type = typeFinishQuest;
+        WitchGameManager.Instance.ChangeToCinematic();
+        if(type == TimelineType.finishQuest_Diantar1)
+        {
+            director.playableAsset = finishQuestDiantar1;
+        }
+        else if(type == TimelineType.finishQuest_Diantar2)
+        {
+            director.playableAsset = finishQuestDiantar2;
+        }
+        director.Play();
+        
     }
 
     public void Start_Tutorials(TimelineType typeTutorial){
