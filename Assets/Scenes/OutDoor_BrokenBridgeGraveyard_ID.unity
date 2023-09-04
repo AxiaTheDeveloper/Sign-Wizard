@@ -5148,7 +5148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144836189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.06951, y: -10.85057, z: -10}
+  m_LocalPosition: {x: -22.79292, y: -10.85073, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5959,6 +5959,8 @@ MonoBehaviour:
   tutorialTumbuk: {fileID: 0}
   tutorialSubmit: {fileID: 0}
   tutorialPuzzle: {fileID: 0}
+  finishQuestDiantar1: {fileID: 0}
+  finishQuestDiantar2: {fileID: 0}
   cauldron: {fileID: 0}
   fadeNight: {fileID: 0}
   dialogueManager: {fileID: 1704590200}
@@ -7876,9 +7878,12 @@ MonoBehaviour:
   dialogueHolder_MenujuKeKotaLevel6: {fileID: 0}
   dialogueHolder_ResetPuzzle: {fileID: 0}
   dialogueHolder_GerbangKuburan: {fileID: 0}
-  dialogueHolder_ChatWithTravelingMerchant: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant1: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant2: {fileID: 0}
   dialogueHolder_KirimPotionTravelingMerchant: {fileID: 0}
   dialogueHolder_ReadBrokenBridgeGraveyardSigns: {fileID: 623013974}
+  dialogueHolder_FinishQuestDiantar: {fileID: 0}
+  dialogueHolder_ViiMerchantSign: {fileID: 0}
   fadeNight: {fileID: 1442504013}
   questBoxUI: {fileID: 0}
   playerAnimator: {fileID: 1688367218}
@@ -7891,6 +7896,7 @@ MonoBehaviour:
   tutorialPuzzle: {fileID: 0}
   goingToOtherPlace: {fileID: 0}
   travelingMerchant: {fileID: 0}
+  colliderVisualVii: {fileID: 0}
   dialogueList: {fileID: 11400000, guid: 80ce59044f4afb8409785925bcfd042e, type: 2}
 --- !u!1 &1745057142
 GameObject:

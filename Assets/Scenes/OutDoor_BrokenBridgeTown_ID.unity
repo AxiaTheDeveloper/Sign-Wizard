@@ -3000,7 +3000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5035031987768084391, guid: ecafd134485f65541a909319fec613f6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3652,7 +3652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -0.000061035156}
+  m_AnchoredPosition: {x: 480, y: 0}
   m_SizeDelta: {x: -960, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870834249
@@ -4646,7 +4646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144836189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3156085, y: -10.50972, z: -10}
+  m_LocalPosition: {x: 11.022274, y: -10.51229, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7621,10 +7621,12 @@ MonoBehaviour:
   dialogueHolder_MenujuKeKotaLevel6: {fileID: 0}
   dialogueHolder_ResetPuzzle: {fileID: 0}
   dialogueHolder_GerbangKuburan: {fileID: 0}
-  dialogueHolder_ChatWithTravelingMerchant: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant1: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant2: {fileID: 0}
   dialogueHolder_KirimPotionTravelingMerchant: {fileID: 0}
   dialogueHolder_ReadBrokenBridgeGraveyardSigns: {fileID: 2033989334}
   dialogueHolder_FinishQuestDiantar: {fileID: 0}
+  dialogueHolder_ViiMerchantSign: {fileID: 0}
   fadeNight: {fileID: 1442504013}
   questBoxUI: {fileID: 0}
   playerAnimator: {fileID: 1688367218}
@@ -7637,6 +7639,7 @@ MonoBehaviour:
   tutorialPuzzle: {fileID: 0}
   goingToOtherPlace: {fileID: 0}
   travelingMerchant: {fileID: 0}
+  colliderVisualVii: {fileID: 0}
   dialogueList: {fileID: 11400000, guid: 80ce59044f4afb8409785925bcfd042e, type: 2}
 --- !u!1 &1745057142
 GameObject:
@@ -10240,6 +10243,7 @@ MonoBehaviour:
   MorningLight: {fileID: 1999435177}
   EveningLight: {fileID: 786137775}
   NightLight: {fileID: 0}
+  witchLight: {fileID: 0}
 --- !u!114 &2147137814
 MonoBehaviour:
   m_ObjectHideFlags: 0
