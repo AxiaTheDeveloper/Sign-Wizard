@@ -8704,6 +8704,7 @@ MonoBehaviour:
   MorningLight: {fileID: 451242930}
   EveningLight: {fileID: 0}
   NightLight: {fileID: 14154318}
+  witchLight: {fileID: 865639473}
 --- !u!1 &623441011
 GameObject:
   m_ObjectHideFlags: 0
@@ -12778,7 +12779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &865639474
 Transform:
   m_ObjectHideFlags: 0

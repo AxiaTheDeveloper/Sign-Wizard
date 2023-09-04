@@ -163,6 +163,13 @@ MonoBehaviour:
     ya di kolamnya?
   dialogue_FountainTown_InteractObject_EN: Woah, This fountain is big. Is there any
     coin in there?
+  dialogue_TruckTown_InteractObject_ID: Truknya keren. Aku jadi pengen punya truk.
+  dialogue_TruckTown_InteractObject_EN: This truck is so cool. Now, I want to have
+    a truck too.
+  dialogue_CauldronMerchantTown_InteractObject_ID: Banyak sekali barang yang dijual
+    Bu Vii.
+  dialogue_CauldronMerchantTown_InteractObject_EN: There's so many things that Ma'am
+    Vii sell.
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that

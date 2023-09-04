@@ -66,7 +66,7 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly, TruckMerchant_DialogueOnly, TebingInFrontOfHouse_DialogueOnly, PangganganInFrontOfHouse_DialogueOnly, FlowersInFrontOfHouse_DialogueOnly, FountainTown_DialogueOnly, TruckTown_DialogueOnly
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly, TruckMerchant_DialogueOnly, TebingInFrontOfHouse_DialogueOnly, PangganganInFrontOfHouse_DialogueOnly, FlowersInFrontOfHouse_DialogueOnly, FountainTown_DialogueOnly, TruckTown_DialogueOnly, SignMerchantTown_DialogueOnly, CauldronMerchantTown_DialogueOnly
     }
     public ObjectType type;
 
@@ -320,6 +320,18 @@ public class InteractObject : MonoBehaviour
         if(type == ObjectType.FountainTown_DialogueOnly)
         {
             dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.FountainTown_InteractObject);
+        }
+        if(type == ObjectType.TruckTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TruckTown_InteractObject);
+        }
+        if(type == ObjectType.SignMerchantTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_ViiMerchantSign();
+        }
+        if(type == ObjectType.CauldronMerchantTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.CauldronMerchantTown_InteractObject);
         }
 
     }

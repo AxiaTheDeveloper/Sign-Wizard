@@ -53,7 +53,7 @@ public class TravelingMerchant : MonoBehaviour
             if(isFirstTimeChat)
             {
                 isFirstTimeChat = false;
-                DialogueManager.Instance.ShowDialogue_ChatWithTravelingMerchant();
+                DialogueManager.Instance.ShowDialogue_ChatWithTravelingMerchant1();
             }
             else
             {

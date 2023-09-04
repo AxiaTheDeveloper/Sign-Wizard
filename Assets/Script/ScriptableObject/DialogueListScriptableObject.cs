@@ -383,6 +383,15 @@ public class DialogueListScriptableObject : ScriptableObject
             return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TruckTown_InteractObject_ID : dialogue_TruckTown_InteractObject_EN;
         }
     }
+    [field : TextArea]
+    public string dialogue_CauldronMerchantTown_InteractObject_ID, dialogue_CauldronMerchantTown_InteractObject_EN;
+    public string dialogue_CauldronMerchantTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CauldronMerchantTown_InteractObject_ID : dialogue_CauldronMerchantTown_InteractObject_EN;
+        }
+    }
     
     [Header("Dialogue Tutorial")]
     [field : TextArea]

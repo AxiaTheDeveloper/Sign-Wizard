@@ -8,12 +8,14 @@ public class Lighting : MonoBehaviour
     [SerializeField]private GameObject MorningLight;
     [SerializeField]private GameObject EveningLight;
     [SerializeField]private GameObject NightLight;
+    [SerializeField]private GameObject witchLight;
     private void Start() 
     {
         gameManager = WitchGameManager.Instance;
         if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse)
         {
-            if(PlayerSaveManager.Instance.GetPlayerLevelMode() != levelMode.finishQuest)
+            PlayerSaveManager playerSave = PlayerSaveManager.Instance;
+            if(playerSave.GetPlayerLevelMode() != levelMode.finishQuest)
             {
                 MorningLight.SetActive(true);
                 NightLight.SetActive(false);
@@ -22,6 +24,17 @@ public class Lighting : MonoBehaviour
             {
                 MorningLight.SetActive(false);
                 NightLight.SetActive(true);
+            }
+            if(playerSave.GetPlayerLevelMode() == levelMode.finishQuest)
+            {
+                if(playerSave.GetPlayerLevel()< playerSave.GetMaxLevel())
+                {
+                    witchLight.SetActive(true);
+                }
+                else
+                {
+                    witchLight.SetActive(false);
+                }
             }
         }
         else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.magicalBridge)
