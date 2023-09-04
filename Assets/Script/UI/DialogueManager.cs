@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest1_PembatasEnding, MagicalBridgeHilangFinishQuest2_PembatasEnding, TidakPergiKeluarSudahMalam_GoingToOtherPlace, Level6TownKeMagicalBridge_GoingToOtherPlace, TruckBridgeGraveyard_InteractObject, CementBridgeGraveyard_InteractObject, JalanTidakKemanaManaLevel6_GoingToOtherPlace, CepatPulangDariKota_GoingToOtherPlace
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest1_PembatasEnding, MagicalBridgeHilangFinishQuest2_PembatasEnding, TidakPergiKeluarSudahMalam_GoingToOtherPlace, Level6TownKeMagicalBridge_GoingToOtherPlace, TruckBridgeGraveyard_InteractObject, CementBridgeGraveyard_InteractObject, JalanTidakKemanaManaLevel6_GoingToOtherPlace, CepatPulangDariKota_GoingToOtherPlace, PangganganInFrontOfHouse_InteractObject, TebingInFrontOfHouse_InteractObject, FlowersInFrontOfHouse_InteractObject, FountainTown_InteractObject, TruckTown_InteractObject
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking, playerPuzzle, playerStartPuzzle
@@ -475,6 +475,26 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueWrongChoice == DialogueWrongChoice.CepatPulangDariKota_GoingToOtherPlace)
         {
             dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_CepatPulangDariKota_GoingToOtherPlace);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.PangganganInFrontOfHouse_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_PangganganInFrontOfHouse_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TebingInFrontOfHouse_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TebingInFrontOfHouse_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.FlowersInFrontOfHouse_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_FlowersInFrontOfHouse_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.FountainTown_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_FountainTown_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TruckTown_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TruckTown_InteractObject);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }

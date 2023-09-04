@@ -60,9 +60,9 @@ MonoBehaviour:
   Chest: {fileID: 21300000, guid: 66434edd261a1784bb37bffa0b1b2a0a, type: 3}
   CloseLetter: {fileID: 21300000, guid: a838f208878f19b45b6ab7a88436573e, type: 3}
   Dictionary: {fileID: 21300000, guid: 519ee73e2d743e546880ce73ce171776, type: 3}
-  InGame_Indoor: {fileID: 21300000, guid: 3d4b9295f23035b499d4f880fa613633, type: 3}
-  InGame_Outdoor: {fileID: 21300000, guid: f8b361b69c965f44d99629222e984db3, type: 3}
-  InGame_Puzzle: {fileID: 21300000, guid: 499dfe182c441564cb83b88e51d8c028, type: 3}
+  InGame_Indoor: {fileID: 21300000, guid: 12d9c0ec40eb18b478d11feca9ce7c4e, type: 3}
+  InGame_Outdoor: {fileID: 21300000, guid: 982ff938a76ae8e4ea7a29291999d1a7, type: 3}
+  InGame_Puzzle: {fileID: 21300000, guid: dd75456c96d7a8944aff150e1fad57f7, type: 3}
   MortarInProgress: {fileID: 21300000, guid: 73bbb6254db83a14f966bf25f63f21be, type: 3}
   MortarSelectItem: {fileID: 21300000, guid: 385c12198302fb6469a710d27eab6ef5, type: 3}
   submitPotion: {fileID: 21300000, guid: ee86c182d7beb6341959af39da9c02ee, type: 3}

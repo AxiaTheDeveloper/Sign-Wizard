@@ -338,6 +338,51 @@ public class DialogueListScriptableObject : ScriptableObject
             return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CepatPulangDariKota_GoingToOtherPlace_ID : dialogue_CepatPulangDariKota_GoingToOtherPlace_EN;
         }
     }
+    [field : TextArea]
+    public string dialogue_PangganganInFrontOfHouse_InteractObject_ID, dialogue_PangganganInFrontOfHouse_InteractObject_EN;
+    public string dialogue_PangganganInFrontOfHouse_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_PangganganInFrontOfHouse_InteractObject_ID : dialogue_PangganganInFrontOfHouse_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TebingInFrontOfHouse_InteractObject_ID, dialogue_TebingInFrontOfHouse_InteractObject_EN;
+    public string dialogue_TebingInFrontOfHouse_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TebingInFrontOfHouse_InteractObject_ID : dialogue_TebingInFrontOfHouse_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_FlowersInFrontOfHouse_InteractObject_ID, dialogue_FlowersInFrontOfHouse_InteractObject_EN;
+    public string dialogue_FlowersInFrontOfHouse_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_FlowersInFrontOfHouse_InteractObject_ID : dialogue_FlowersInFrontOfHouse_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_FountainTown_InteractObject_ID, dialogue_FountainTown_InteractObject_EN;
+    public string dialogue_FountainTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_FountainTown_InteractObject_ID : dialogue_FountainTown_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TruckTown_InteractObject_ID, dialogue_TruckTown_InteractObject_EN;
+    public string dialogue_TruckTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TruckTown_InteractObject_ID : dialogue_TruckTown_InteractObject_EN;
+        }
+    }
     
     [Header("Dialogue Tutorial")]
     [field : TextArea]

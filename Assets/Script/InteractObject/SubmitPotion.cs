@@ -82,7 +82,8 @@ public class SubmitPotion : MonoBehaviour
                     // playerSave.ChangePlayerMode(levelMode.outside);
                     playerSaveManager.ChangePlayerMode(levelMode.finishQuest);
                     questManager.UpdateData_FinishQuest();
-
+                    MapUI map = MapUI.Instance;
+                    if(map) map.finishQuest();
                 }
                 
                 HideWHoleUI();

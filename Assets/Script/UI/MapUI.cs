@@ -4,19 +4,47 @@ using UnityEngine;
 
 public class MapUI : MonoBehaviour
 {
+    public static MapUI Instance{get;private set;}
     [SerializeField]private RectTransform canvas_MapUI;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
     [SerializeField]private GameObject playerChecker;
+    [SerializeField]private GameObject chalHouse, viiHouse, elineHouse, cloterHouse, viiFinishQuestChecker;
     [SerializeField]private Vector3 placeInFrontOfHouse, placeInForest, placeInGraveyard, placeInBrokenBridgeGraveyard, placeInMagicalBridge, placeInBrokenBridgeTown, placeInTown;
     [SerializeField]private float inputCoolDownTimerMax;
     private float inputCooldownTimer = 0;
+    private void Awake() {
+        Instance = this;
+    }
     void Start()
     {
         gameInput = GameInput.Instance;
         gameManager = WitchGameManager.Instance;
+        QuestManager questManager = QuestManager.Instance;
         HideUI();
         SetPlayerVisualinMap();
+        if(PlayerSaveManager.Instance.GetPlayerLevelMode() != levelMode.finishQuest)
+        {
+            if(questManager.GetSendername() == "Chal")
+            {
+                chalHouse.SetActive(true);
+            }
+            else if(questManager.GetSendername() == "Vii")
+            {
+                viiHouse.SetActive(true);
+            }
+            else if(questManager.GetSendername() == "Cloter")
+            {
+                cloterHouse.SetActive(true);
+            }
+            else if(questManager.GetSendername() == "Eline")
+            {
+                elineHouse.SetActive(true);
+            }
+        }
+        else{
+            viiFinishQuestChecker.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -89,5 +117,14 @@ public class MapUI : MonoBehaviour
     }
     private void HideUI(){
         LeanTween.move(canvas_MapUI, new Vector3(0, -1125f, 0f), 0.2f);
+    }
+    public void finishQuest()
+    {
+        chalHouse.SetActive(false);
+        chalHouse.SetActive(false);
+        chalHouse.SetActive(false);
+        chalHouse.SetActive(false);
+
+        viiFinishQuestChecker.SetActive(true);
     }
 }

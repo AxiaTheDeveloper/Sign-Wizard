@@ -149,6 +149,20 @@ MonoBehaviour:
     lebih baik aku cepat pulang ke rumah daripada jalan-jalan.
   dialogue_CepatPulangDariKota_GoingToOtherPlace_EN: 'Rather than going out for a
     walk, I''d better hurry home before night falls. '
+  dialogue_PangganganInFrontOfHouse_InteractObject_ID: Woah, ada alat pemanggang,
+    aku tidak sabar untuk bakar-bakaran bersama nenek.
+  dialogue_PangganganInFrontOfHouse_InteractObject_EN: Woah, There's a grill, I can't
+    wait to have a barbecue with grandma.
+  dialogue_TebingInFrontOfHouse_InteractObject_ID: Ah, sepertinya nenek menutup jalan
+    ini karena takut aku akan tidak sengaja jatuh dari tebing.
+  dialogue_TebingInFrontOfHouse_InteractObject_EN: Ah, It seems like grandma closed
+    this road because she's afraid I'll accidentally fall off the cliff.
+  dialogue_FlowersInFrontOfHouse_InteractObject_ID: Bunga-bunganya indah sekali!
+  dialogue_FlowersInFrontOfHouse_InteractObject_EN: These flowers are very beautiful!
+  dialogue_FountainTown_InteractObject_ID: Air mancurnya besar juga. Ada koin tidak
+    ya di kolamnya?
+  dialogue_FountainTown_InteractObject_EN: Woah, This fountain is big. Is there any
+    coin in there?
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that

@@ -15,12 +15,12 @@ MonoBehaviour:
   level: 1
   modeLevel: 2
   placePlayerNow: 1
-  outDoorTypeNow: 0
+  outDoorTypeNow: 1
   isResetDay: 0
   isFromOutside: 0
   isSubmitPotion: 0
   isResetSave: 0
   isFirstTime_Tutorial: 0
   isFirstTime_TutorialPuzzle: 0
-  isMagicalBridgeSolved: 1
+  isMagicalBridgeSolved: 0
   isFirstTimeInGame: 0
