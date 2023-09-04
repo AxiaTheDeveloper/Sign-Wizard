@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3740419808113616292}
   - component: {fileID: 3740419808113616293}
   - component: {fileID: 7682229413310817536}
-  m_Layer: 0
+  - component: {fileID: 159575429041857929}
+  m_Layer: 9
   m_Name: Scene_City_TinyBin
-  m_TagString: Untagged
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e855c3fb1ccfeec40bbefaf5b5272198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 20
   Chest: {fileID: 0}
   Cauldron: {fileID: 0}
   Penumbuk: {fileID: 0}
@@ -136,7 +137,33 @@ MonoBehaviour:
   QuestBox: {fileID: 0}
   interactObject_QuestBox: {fileID: 0}
   travelingMerchant: {fileID: 0}
-  firsTimeInteractOnly: 0
+  firsTimeInteractOnly: 1
+--- !u!61 &159575429041857929
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740419808113616299}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00538826, y: -1.0086827}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 0.8125, y: 1.5}
+    newSize: {x: 0.8125, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9310646, y: 2.0173655}
+  m_EdgeRadius: 0
 --- !u!1 &5375277963301447662
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5375277963301447662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: -1.01, z: 0}
+  m_LocalPosition: {x: 0.43, y: -1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -182,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11dfe05f83ce1424ca2a96afda955dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactObject: {fileID: 0}
+  interactObject: {fileID: 7682229413310817536}
   popUpUImessage: {fileID: 7687916036801676144}
 --- !u!1 &7687916036801676144
 GameObject:

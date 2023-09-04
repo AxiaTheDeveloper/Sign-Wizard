@@ -392,6 +392,69 @@ public class DialogueListScriptableObject : ScriptableObject
             return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CauldronMerchantTown_InteractObject_ID : dialogue_CauldronMerchantTown_InteractObject_EN;
         }
     }
+    [field : TextArea]
+    public string dialogue_TongSampahKecilTown_InteractObject_ID, dialogue_TongSampahKecilTown_InteractObject_EN;
+    public string dialogue_TongSampahKecilTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TongSampahKecilTown_InteractObject_ID : dialogue_TongSampahKecilTown_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TongSampahBesarTown_InteractObject_ID, dialogue_TongSampahBesarTown_InteractObject_EN;
+    public string dialogue_TongSampahBesarTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TongSampahBesarTown_InteractObject_ID : dialogue_TongSampahBesarTown_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_BicycleTown_InteractObject_ID, dialogue_BicycleTown_InteractObject_EN;
+    public string dialogue_BicycleTown_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_BicycleTown_InteractObject_ID : dialogue_BicycleTown_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_CafeTable_InteractObject_ID, dialogue_CafeTable_InteractObject_EN;
+    public string dialogue_CafeTable_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_CafeTable_InteractObject_ID : dialogue_CafeTable_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TableFox_InteractObject_ID, dialogue_TableFox_InteractObject_EN;
+    public string dialogue_TableFox_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TableFox_InteractObject_ID : dialogue_TableFox_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_EmberFox_InteractObject_ID, dialogue_EmberFox_InteractObject_EN;
+    public string dialogue_EmberFox_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_EmberFox_InteractObject_ID : dialogue_EmberFox_InteractObject_EN;
+        }
+    }
+    [field : TextArea]
+    public string dialogue_TongSampahBesarBelakang_InteractObject_ID, dialogue_TongSampahBesarBelakang_InteractObject_EN;
+    public string dialogue_TongSampahBesarBelakang_InteractObject
+    {
+        get
+        {
+            return PlayerPrefs.GetString("pilihanIDEN", "ID") == "ID" ? dialogue_TongSampahBesarBelakang_InteractObject_ID : dialogue_TongSampahBesarBelakang_InteractObject_EN;
+        }
+    }
     
     [Header("Dialogue Tutorial")]
     [field : TextArea]

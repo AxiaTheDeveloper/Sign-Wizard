@@ -70,6 +70,8 @@ public class Bed : MonoBehaviour
         DialogueSystem.DialogueLine line = dialogue.GetComponent<DialogueSystem.DialogueLine>();
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
+
+        dialogue.SetActive(true);
         BG.SetActive(true);
         charaImage.SetActive(true);
         nameChara.SetActive(true);

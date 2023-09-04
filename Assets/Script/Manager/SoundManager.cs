@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance{get; private set;}
-    [SerializeField]private AudioSource SoundEffect_Run_Grass, SoundEffect_Run_House, Chest_Open, Chest_Close, DoorOpen, FlipPage, Mailbox, Mortar, OpenEnvelope, PotionJadi, StartFire, WalkSoundForTimeLineOnly, CauldronBoil, MenuSound;
+    [SerializeField]private AudioSource SoundEffect_Run_Grass, SoundEffect_Run_House, Chest_Open, Chest_Close, DoorOpen, FlipPage, Mailbox, Mortar, OpenEnvelope, PotionJadi, StartFire, WalkSoundForTimeLineOnly, CauldronBoil, MenuSound, WindSoundForTimeLineOnly, TileWaterMoveSound;
     
     private float volume;
     [SerializeField]private Slider soundSlider;
@@ -45,8 +45,10 @@ public class SoundManager : MonoBehaviour
         if(PotionJadi)PotionJadi.volume = volume;
         if(StartFire)StartFire.volume = volume;
         if(WalkSoundForTimeLineOnly)WalkSoundForTimeLineOnly.volume = volume;
+        if(WindSoundForTimeLineOnly)WindSoundForTimeLineOnly.volume = volume;
         if(CauldronBoil)CauldronBoil.volume = volume;
         if(MenuSound)MenuSound.volume = volume;
+        if(TileWaterMoveSound)TileWaterMoveSound.volume = volume;
         
     }
     public void PlaySFX_PlayerWalk(){
@@ -106,5 +108,17 @@ public class SoundManager : MonoBehaviour
     public void PlayMenuSound()
     {
         if(MenuSound)MenuSound.Play();
+    }
+    public void PlayWaterMoveSound()
+    {
+        TileWaterMoveSound.Play();
+    }
+    public void StopWaterMoveSound()
+    {
+        TileWaterMoveSound.Stop();
+    }
+    public bool isWaterMovePlay()
+    {
+        return TileWaterMoveSound.isPlaying;
     }
 }

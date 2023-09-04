@@ -28,6 +28,8 @@ public class PlayerSaveManager : MonoBehaviour
 
     [SerializeField]private FadeNight_StartEnd fade;
 
+    [SerializeField]private ArrowPositionChecker arrowPositionChecker;
+
     
 
     private void Awake() {
@@ -48,6 +50,7 @@ public class PlayerSaveManager : MonoBehaviour
             {
                 if(playerSaveSO.outDoorTypeNow != WitchGameManager.OutDoorType.none && playerSaveSO.outDoorTypeNow != WitchGameManager.OutDoorType.inFrontOfHouse)
                 {
+                    
                     transform.position = spawnPlaceFromForest.localPosition;
                     playerAnimator.animator.Play("Player_Idle_Up");
                     playerAnimator.animator.SetBool("idle", true);
@@ -56,6 +59,10 @@ public class PlayerSaveManager : MonoBehaviour
                         gameObject.SetActive(false);
                         fade.DoFinishQuestAnimation();
                     }
+                }
+                if(playerSaveSO.modeLevel == levelMode.finishQuest)
+                {
+                    if(BGMManager.Instance.isPlayedBGM())BGMManager.Instance.StopBGM();
                 }
             }
             else if(gameManager.GetOutDoorType() == WitchGameManager.OutDoorType.forest)
@@ -209,9 +216,13 @@ public class PlayerSaveManager : MonoBehaviour
     }
     public void ChangePlayerMode(levelMode mode){
         playerSaveSO.modeLevel = mode;
+        
         #if UNITY_EDITOR
         EditorUtility.SetDirty(playerSaveSO);
         #endif
+        MapUI map = MapUI.Instance;
+        if(arrowPositionChecker)arrowPositionChecker.SearchTarget();
+        if(map) map.OpenHouseQuest();
     }
     public void resetDay(){
         playerSaveSO.isResetDay = true;

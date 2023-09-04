@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     // }
     public static DialogueManager Instance{get; private set;}
     public enum DialogueWrongChoice{
-        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest1_PembatasEnding, MagicalBridgeHilangFinishQuest2_PembatasEnding, TidakPergiKeluarSudahMalam_GoingToOtherPlace, Level6TownKeMagicalBridge_GoingToOtherPlace, TruckBridgeGraveyard_InteractObject, CementBridgeGraveyard_InteractObject, JalanTidakKemanaManaLevel6_GoingToOtherPlace, CepatPulangDariKota_GoingToOtherPlace, PangganganInFrontOfHouse_InteractObject, TebingInFrontOfHouse_InteractObject, FlowersInFrontOfHouse_InteractObject, FountainTown_InteractObject, TruckTown_InteractObject, CauldronMerchantTown_InteractObject, TongSampahKecilTown_InteractObject, TongSampahBesarTown_InteractObject, BicycleTown_InteractObject, CafeTable_InteractObject, TableFox_InteractObject, EmberFox_InteractObject
+        playerInventoryFull_Chest, barangChestHabis_Chest, tidakBerhasilJadi_Cauldron, tidakAdaIngredientMasuk_Cauldron, tidakAdaTempatPotion_Cauldron, tidakAdaTempat_Penumbuk, tidakAdaResep_CauldronPenumbuk, sudahPenuh_Cauldron, ingredientKurang_Cauldron,bukanBahanPotion_InventoryUI, bukanBahanTumbukan_InventoryUI, bukanPotion_InventoryUI, potionTidakSesuaiQuest_SubmitPotion, sedangTidakAdaQuest_InteractObject, cekMailboxDulu_InteractObject,cekQuestDulu_InteractObject,sudahMenyelesaikanSemuaQuest_InteractObject, tidakBisaPakaiPenumbuk_InteractObject, SelesaikanQuestSekarang_InteractObject, belumAdaQuestYangDikirimTidur_InteractObject, tidakAdaBarangYangDiminta_InteractObject, belumMengecekKotakSuratLevel1_InteractObject, tidakBisaGerakKeArahSana_ForPuzzle_PlayerMovement, tidakPerluKeKota_GoingToOtherPlace, potionYangDibawaTidakSesuai_GoingToOtherPlace, belumMengantarkanPotionKeRumahPemesan_GoingToOtherPlace, sudahMenyelesaikanPuzzle_PembatasEnding, SudahMenyelesaikanPuzzle_PlayerInventory, MagicalBridgeHilangFinishQuest1_PembatasEnding, MagicalBridgeHilangFinishQuest2_PembatasEnding, TidakPergiKeluarSudahMalam_GoingToOtherPlace, Level6TownKeMagicalBridge_GoingToOtherPlace, TruckBridgeGraveyard_InteractObject, CementBridgeGraveyard_InteractObject, JalanTidakKemanaManaLevel6_GoingToOtherPlace, CepatPulangDariKota_GoingToOtherPlace, PangganganInFrontOfHouse_InteractObject, TebingInFrontOfHouse_InteractObject, FlowersInFrontOfHouse_InteractObject, FountainTown_InteractObject, TruckTown_InteractObject, CauldronMerchantTown_InteractObject, TongSampahKecilTown_InteractObject, TongSampahBesarTown_InteractObject, BicycleTown_InteractObject, CafeTable_InteractObject, TableFox_InteractObject, EmberFox_InteractObject, TongSampahBesarBelakang_InteractObject
     }
     public enum DialogueTutorial{
         playerTutorialStart, playerCauldron, playerChest, playerDictionary, playerBed, playerTumbuk, playerSubmitPotion, playerStartMaking, playerPuzzle, playerStartPuzzle
@@ -146,6 +146,7 @@ public class DialogueManager : MonoBehaviour
     private void dialogueHolder_AfterReadingMail_OnDialogueFinish(object sender, EventArgs e)
     {
         gameManager.ChangeToInGame(WitchGameManager.InGameType.normal);
+        PauseUI.Instance.SaveData();
     }
 
     private void dialogueHolder_NerimaGift_OnDialogueFinish(object sender, EventArgs e)
@@ -520,6 +521,34 @@ public class DialogueManager : MonoBehaviour
         else if(dialogueWrongChoice == DialogueWrongChoice.CauldronMerchantTown_InteractObject)
         {
             dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_CauldronMerchantTown_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TongSampahKecilTown_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TongSampahKecilTown_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TongSampahBesarTown_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TongSampahBesarTown_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.BicycleTown_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_BicycleTown_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.CafeTable_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_CafeTable_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TableFox_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TableFox_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.EmberFox_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_EmberFox_InteractObject);
+        }
+        else if(dialogueWrongChoice == DialogueWrongChoice.TongSampahBesarBelakang_InteractObject)
+        {
+            dialogueLines_WrongChoice.ChangeInputText(dialogueList.dialogue_TongSampahBesarBelakang_InteractObject);
         }
         dialogueHolder_WrongChoice_Dialogue.ShowDialogue();
     }

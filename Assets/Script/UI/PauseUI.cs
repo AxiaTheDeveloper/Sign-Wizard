@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
+    public static PauseUI Instance{get;private set;}
     [SerializeField]private GameObject pauseUI, gameControlUI;
     [SerializeField]private WitchGameManager gameManager;
     [SerializeField]private GameInput gameInput;
@@ -26,6 +27,9 @@ public class PauseUI : MonoBehaviour
     [SerializeField]private InventoryScriptableObject chest;
     [SerializeField]private GameSaveManager gameSaveManager;
     private bool hasClickMainMenu = false;
+    private void Awake() {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -180,6 +184,10 @@ public class PauseUI : MonoBehaviour
         bgmManager.DestroyInstance();
         SceneManager.LoadScene("MainMenu");
         
+    }
+    public void SaveData()
+    {
+        gameSaveManager.SaveData(playerSaveManager.GetPlayerSave(), playerInventory.GetPlayerInventory(), chest);
     }
 
 

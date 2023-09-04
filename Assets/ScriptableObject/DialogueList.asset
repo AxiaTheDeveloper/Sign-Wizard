@@ -170,6 +170,31 @@ MonoBehaviour:
     Bu Vii.
   dialogue_CauldronMerchantTown_InteractObject_EN: There's so many things that Ma'am
     Vii sell.
+  dialogue_TongSampahKecilTown_InteractObject_ID: Tong sampahnya bersih juga ya.
+  dialogue_TongSampahKecilTown_InteractObject_EN: The trash bin is really clean.
+  dialogue_TongSampahBesarTown_InteractObject_ID: Ugh, bau bangett, aku harus cepat
+    pergi.
+  dialogue_TongSampahBesarTown_InteractObject_EN: Ugh, it's smell so bad, I need
+    to leave.
+  dialogue_BicycleTown_InteractObject_ID: Sepedanya lupa dikunci. Untunglah, tempatnya
+    aman.
+  dialogue_BicycleTown_InteractObject_EN: I think someone forgot to lock their bike.
+    Thankfully, it seems like it's a safe place.
+  dialogue_CafeTable_InteractObject_ID: Wah ada kursi kosong. Mungkin aku bisa coba
+    makan di sini.
+  dialogue_CafeTable_InteractObject_EN: "\rOh, there's an empty seat. Maybe I can
+    try to eat here."
+  dialogue_TableFox_InteractObject_ID: Tempatnya sangat enak untuk bersantai ya.
+  dialogue_TableFox_InteractObject_EN: It's a cozy place to relax.
+  dialogue_EmberFox_InteractObject_ID: Aku ingin sekali menendang ember ini.
+  dialogue_EmberFox_InteractObject_EN: I'm trying to hold back the urge to kick this
+    bucket.
+  dialogue_TongSampahBesarBelakang_InteractObject_ID: Di sini seperti ada tertulis
+    sesuatu, tapi tidak kelihatan.
+  dialogue_TongSampahBesarBelakang_InteractObject_EN: 'It''s as if something is written
+    here, but I can''t see it.
+
+'
   dialogueTutorial_StartTutorial_ID: Baik coba kita cek alat-alat yang ditinggalkan
     nenek. Di pesan nenek juga sepertinya ada penjelasan per alatnya.
   dialogueTutorial_StartTutorial_EN: Okay, Time for me to check these tools that

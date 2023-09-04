@@ -33,6 +33,7 @@ public class TravelingMerchant : MonoBehaviour
     {
         if(wantToGoHome)
         {
+            PauseUI.Instance.SaveData();
             HideDialogue();
             goingToOtherPlace.StraightToHome();
         }
@@ -79,6 +80,7 @@ public class TravelingMerchant : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
 
+        dialogue.SetActive(true);
         BG.SetActive(true);
         charaImage.SetActive(true);
         nameChara.SetActive(true);

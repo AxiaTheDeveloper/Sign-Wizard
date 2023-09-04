@@ -13,6 +13,7 @@ public class BGMManager : MonoBehaviour
     public static BGMManager Instance{get; private set;}
     [SerializeField]private float fadeInDurationMax = 0.5f;
     private float fadeInDuratiom;
+    private bool wasStop;
     private void Awake() {
         if(!Instance){
             if(!PlayerPrefs.HasKey(PLAYER_PREF_BGM_VOLUME))PlayerPrefs.SetFloat(PLAYER_PREF_BGM_VOLUME, 0.3f);
@@ -45,6 +46,20 @@ public class BGMManager : MonoBehaviour
             bgmSlider = GameObject.FindWithTag("BGMSlider").GetComponent<PauseUI>().GetBGMSlider();
             bgmSlider.value = volume;
         }
+        if(!isMainMenu && !BGM.isPlaying && !(WitchGameManager.Instance.GetOutDoorType() == WitchGameManager.OutDoorType.inFrontOfHouse && PlayerSaveManager.Instance.GetPlayerLevelMode() == levelMode.finishQuest))
+        {
+            if(wasStop)
+            {
+                if(WitchGameManager.Instance.GetOutDoorType() != WitchGameManager.OutDoorType.inFrontOfHouse)
+                {
+                    PlayBGM();
+                    wasStop = false;
+                }
+                
+                
+            }
+            
+        }
     }
 
     public void UpdateBGM_Volume(float upVolume){
@@ -66,5 +81,21 @@ public class BGMManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         BGM.volume = volume;
+    }
+    public void PlayBGM()
+    {
+        BGM.Play();
+        StartCoroutine(fadeIn());
+    }
+    public void StopBGM()
+    {
+        BGM.Stop();
+        volume = BGM.volume;
+        BGM.volume = 0f;
+        wasStop = true;
+    }
+    public bool isPlayedBGM()
+    {
+        return BGM.isPlaying;
     }
 }

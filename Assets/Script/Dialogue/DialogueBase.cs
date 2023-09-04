@@ -34,9 +34,12 @@ namespace DialogueSystem{
             pressToContinue_textHolder.SetActive(false);
             
             finished = true;
-            backgroundHolder.SetActive(false);
+            textHolder.gameObject.SetActive(false);
             imageHolder.SetActive(false);
             nameHolder.SetActive(false);
+            backgroundHolder.SetActive(false);
+            
+            
         }
         public void ChangeFinished_false()
         {

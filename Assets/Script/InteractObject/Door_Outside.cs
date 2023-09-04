@@ -137,6 +137,7 @@ public class Door_Outside : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
         // Debug.Log(line.finished);
+        dialogue.SetActive(true);
         BG.SetActive(true);
         charaImage.SetActive(true);
         nameChara.SetActive(true);

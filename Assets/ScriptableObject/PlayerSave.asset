@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerSave
   m_EditorClassIdentifier: 
   level: 1
-  modeLevel: 2
+  modeLevel: 0
   placePlayerNow: 1
   outDoorTypeNow: 1
   isResetDay: 0
-  isFromOutside: 0
+  isFromOutside: 1
   isSubmitPotion: 0
-  isResetSave: 0
-  isFirstTime_Tutorial: 0
-  isFirstTime_TutorialPuzzle: 0
+  isResetSave: 1
+  isFirstTime_Tutorial: 1
+  isFirstTime_TutorialPuzzle: 1
   isMagicalBridgeSolved: 0
-  isFirstTimeInGame: 0
+  isFirstTimeInGame: 1

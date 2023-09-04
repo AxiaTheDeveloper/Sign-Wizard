@@ -118,12 +118,15 @@ public class TileControl : MonoBehaviour
     private void MoveTile()
     {
         Vector3 newPosition = new Vector3(transform.position.x + directionMove.x * totalMoveBlock, transform.position.y + directionMove.y* totalMoveBlock, 0f);
+        if(!SoundManager.Instance.isWaterMovePlay())SoundManager.Instance.PlayWaterMoveSound();
+        
         LeanTween.move(this.gameObject, newPosition, moveBlockDuration).setOnComplete(
             ()=> FinishMovingTile()
         );
     }
     private void FinishMovingTile()
     {
+        SoundManager.Instance.StopWaterMoveSound();
         gameManager.ChangeToInGame(WitchGameManager.InGameType.puzzle);
     }
     public WordManager GetWordManager(TileWordPosition tileWordPosition) //buat dikirim ke wordinput

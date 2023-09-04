@@ -57,13 +57,14 @@ namespace DialogueSystem{
         }
         public void HideDialogue()
         {
-            BG.SetActive(false);
             nameChara.SetActive(false);
             charaImage.SetActive(false);
-
-            if(BGVii) BGVii.SetActive(false);
+            BG.SetActive(false);
+            
             if(nameCharaVii) nameCharaVii.SetActive(false);
             if(charaImageVii) charaImageVii.SetActive(false);
+            if(BGVii) BGVii.SetActive(false);
+            
             gameObject.SetActive(false);
         }
 

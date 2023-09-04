@@ -1501,6 +1501,134 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &91896659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 91896661}
+  - component: {fileID: 91896660}
+  m_Layer: 0
+  m_Name: SoundWindForTimeline (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &91896660
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91896659}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d686ee7cb84b3454dbbf3f0dbf72af43, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &91896661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91896659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24648848, y: -1.2389843, z: -0.0537484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99549213
 GameObject:
   m_ObjectHideFlags: 0
@@ -18421,7 +18549,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1274972592}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 1eeec528aba055c45966acc9a4fcc2cc, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 9569bf7a7d345324e9448dcdd5bb61ff, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -18471,6 +18599,10 @@ PlayableDirector:
     value: {fileID: 893969017}
   - key: {fileID: 8734319614921599139, guid: 9569bf7a7d345324e9448dcdd5bb61ff, type: 2}
     value: {fileID: 293766351}
+  - key: {fileID: -6075218309635998195, guid: 1eeec528aba055c45966acc9a4fcc2cc, type: 2}
+    value: {fileID: 91896660}
+  - key: {fileID: 3909204537585396240, guid: 9569bf7a7d345324e9448dcdd5bb61ff, type: 2}
+    value: {fileID: 91896660}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1274972594
@@ -22684,10 +22816,12 @@ MonoBehaviour:
   dialogueHolder_MenujuKeKotaLevel6: {fileID: 0}
   dialogueHolder_ResetPuzzle: {fileID: 0}
   dialogueHolder_GerbangKuburan: {fileID: 0}
-  dialogueHolder_ChatWithTravelingMerchant: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant1: {fileID: 0}
+  dialogueHolder_ChatWithTravelingMerchant2: {fileID: 0}
   dialogueHolder_KirimPotionTravelingMerchant: {fileID: 0}
   dialogueHolder_ReadBrokenBridgeGraveyardSigns: {fileID: 0}
   dialogueHolder_FinishQuestDiantar: {fileID: 9143843976903614390}
+  dialogueHolder_ViiMerchantSign: {fileID: 0}
   fadeNight: {fileID: 1442504013}
   questBoxUI: {fileID: 1980060517}
   playerAnimator: {fileID: 1688367218}
@@ -22700,6 +22834,7 @@ MonoBehaviour:
   tutorialPuzzle: {fileID: 0}
   goingToOtherPlace: {fileID: 0}
   travelingMerchant: {fileID: 0}
+  colliderVisualVii: {fileID: 0}
   dialogueList: {fileID: 11400000, guid: 80ce59044f4afb8409785925bcfd042e, type: 2}
 --- !u!1 &1718706615
 GameObject:
@@ -26037,6 +26172,7 @@ MonoBehaviour:
   WalkSoundForTimeLineOnly: {fileID: 293766351}
   CauldronBoil: {fileID: 0}
   MenuSound: {fileID: 1876853769}
+  WindSoundForTimeLineOnly: {fileID: 91896660}
   soundSlider: {fileID: 971254056}
 --- !u!4 &1876853768
 Transform:

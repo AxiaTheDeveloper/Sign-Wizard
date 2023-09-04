@@ -86,8 +86,9 @@ public class PuzzleToTown_Pembatas : MonoBehaviour
     {
         if(direction == PlayerDirection.Left || direction == PlayerDirection.Right)
         {
-            NextPosition2 = new Vector3(tilePosition.x, tilePosition.y+1,0f);
-            NextPosition1 = new Vector3(transform.position.x,tilePosition.y+1,0f); 
+            Debug.Log(tilePosition + "Di sini");
+            NextPosition2 = new Vector3(tilePosition.x, tilePosition.y+1.8f,0f);
+            NextPosition1 = new Vector3(transform.position.x,tilePosition.y+1.8f,0f); 
         }
         
     }

@@ -89,6 +89,7 @@ public class ColliderVisualVii : MonoBehaviour
     {
         playerAnimator.animator.Play("Player_Idle_Up");
         playerAnimator.animator.SetBool("idle", true);
+        playerAnimator.PlayAnimatorCinematic(new Vector2(0, 0));
         DialogueManager.Instance.ShowDialogue_ChatWithTravelingMerchant2();
     }
     private void OnTriggerEnter2D(Collider2D other) 

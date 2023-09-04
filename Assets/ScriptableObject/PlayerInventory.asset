@@ -15,14 +15,14 @@ MonoBehaviour:
   size: 20
   type: 0
   isFull: 0
-  isFullyEmpty: 1
+  isFullyEmpty: 0
   inventSlot:
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}
     quantity: 0
-  - itemSO: {fileID: 11400000, guid: 1f724aeb1170d8940b8d641bd05d89c6, type: 2}
-    quantity: 3
+  - itemSO: {fileID: 0}
+    quantity: 0
   - itemSO: {fileID: 0}
     quantity: 0
   - itemSO: {fileID: 0}

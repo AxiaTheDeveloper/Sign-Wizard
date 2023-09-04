@@ -168,6 +168,7 @@ public class TileControlManager : MonoBehaviour
                         if(tileNow.CanPlayerStandHere())
                         {
                             puzzleToTown_Pembatas_Start.SetNextPosition(tileNow.transform.localPosition);
+                            Debug.Log(tileNow.transform.position + "Di sina" + tileNow.transform.localPosition);
                             hasPembatasStartSet = true;
                         }
                     }
@@ -414,6 +415,7 @@ public class TileControlManager : MonoBehaviour
     {
         isPuzzleSolved = true;
         PlayerSaveManager.Instance.ChangeIsMagicalBridgeSolve(true);
+        PauseUI.Instance.SaveData();
         WordManager[] wordManagers = {};
         wordInput.GetWordManager(wordManagers);
         //save data posisi puzzle

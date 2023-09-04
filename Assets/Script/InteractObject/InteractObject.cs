@@ -66,7 +66,7 @@ public class InteractObject : MonoBehaviour
 {
     
     public enum ObjectType{
-        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly, TruckMerchant_DialogueOnly, TebingInFrontOfHouse_DialogueOnly, PangganganInFrontOfHouse_DialogueOnly, FlowersInFrontOfHouse_DialogueOnly, FountainTown_DialogueOnly, TruckTown_DialogueOnly, SignMerchantTown_DialogueOnly, CauldronMerchantTown_DialogueOnly
+        TheCauldron, TheChest, ThePenumbuk, TheSubmitPotion, TheDictionary, TheBed, TheDoor, TheQuestBox, TheGraveyard_DialogueOnly, BrokenBridgeGraveSign_DialogueOnly, TruckBridgeGraveyard_DialogueOnly, CementBridgeGraveyard_DialogueOnly, TruckMerchant_DialogueOnly, TebingInFrontOfHouse_DialogueOnly, PangganganInFrontOfHouse_DialogueOnly, FlowersInFrontOfHouse_DialogueOnly, FountainTown_DialogueOnly, TruckTown_DialogueOnly, SignMerchantTown_DialogueOnly, CauldronMerchantTown_DialogueOnly, TongSampahKecilTown_DialogueOnly, TongSampahBesarTown_DialogueOnly, BicycleTown_DialogueOnly, CafeTable_DialogueOnly, TableFox_DialogueOnly, EmberFox_DialogueOnly, TongSampahBesarBelakang_DialogueOnly
     }
     public ObjectType type;
 
@@ -333,7 +333,34 @@ public class InteractObject : MonoBehaviour
         {
             dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.CauldronMerchantTown_InteractObject);
         }
-
+        if(type == ObjectType.TongSampahKecilTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TongSampahKecilTown_InteractObject);
+        }
+        if(type == ObjectType.TongSampahBesarTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TongSampahBesarTown_InteractObject);
+        }
+        if(type == ObjectType.BicycleTown_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.BicycleTown_InteractObject);
+        }
+        if(type == ObjectType.CafeTable_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.CafeTable_InteractObject);
+        }
+        if(type == ObjectType.TableFox_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TableFox_InteractObject);
+        }
+        if(type == ObjectType.EmberFox_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.EmberFox_InteractObject);
+        }
+        if(type == ObjectType.TongSampahBesarBelakang_DialogueOnly)
+        {
+            dialogueManager.ShowDialogue_WrongChoice_WithoutBahan(DialogueManager.DialogueWrongChoice.TongSampahBesarBelakang_InteractObject);
+        }
     }
     public bool GetHasCheckGift(){
         //ini hanya utk door sadja, dikirim dari inter object punya potion,dikirim ke door

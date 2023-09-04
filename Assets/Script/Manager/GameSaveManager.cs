@@ -121,6 +121,8 @@ public class GameSaveManager : MonoBehaviour
 
         playerSaveSO.level = psData.level;
         playerSaveSO.modeLevel = psData.modeLevel;
+        playerSaveSO.placePlayerNow = psData.placePlayerNow;
+        playerSaveSO.outDoorTypeNow = psData.outDoorTypeNow;
         playerSaveSO.isResetDay = psData.isResetDay;
         playerSaveSO.isFromOutside = psData.isFromOutside;
         playerSaveSO.isSubmitPotion = psData.isSubmitPotion;
