@@ -11,7 +11,9 @@ namespace DialogueSystem{
         [SerializeField]private GameObject BGVii, charaImageVii, nameCharaVii;
         public event EventHandler OnDialogueFinish;//ke dialogue manager
         public bool startOnAwake;
-
+        private DialogueLine.LeftRightImagePosition lastImagePosition;
+        private DialogueLine.LeftRightNamePosition lastNamePosition;
+        private bool isFirstTimeLine = true;
         private void Awake() 
         {
             if(startOnAwake)
@@ -30,6 +32,28 @@ namespace DialogueSystem{
                 Deactivate();
                 transform.GetChild(i).gameObject.SetActive(true);
                 DialogueSystem.DialogueLine line = transform.GetChild(i).GetComponent<DialogueLine>();
+                if(isFirstTimeLine)
+                {
+                    isFirstTimeLine = false;
+                    lastImagePosition = line.GetImagePosition();
+                    lastNamePosition = line.GetNamePosition();
+                }
+                else
+                {
+                    if(lastImagePosition != line.GetImagePosition())
+                    {
+                        if(lastImagePosition == DialogueLine.LeftRightImagePosition.Left) charaImage.SetActive(false);
+                        else if(lastImagePosition == DialogueLine.LeftRightImagePosition.Right) charaImageVii.SetActive(false);
+                    }
+                    if(lastNamePosition != line.GetNamePosition())
+                    {
+                        if(lastNamePosition == DialogueLine.LeftRightNamePosition.Left) nameChara.SetActive(false);
+                        else if(lastNamePosition == DialogueLine.LeftRightNamePosition.Right) nameCharaVii.SetActive(false);
+                    }
+                    lastImagePosition = line.GetImagePosition();
+                    lastNamePosition = line.GetNamePosition();
+                }
+                
                 line.GoLineText();
                 yield return new WaitUntil(()=> line.finished);
                 line.ChangeFinished_false();
@@ -43,6 +67,8 @@ namespace DialogueSystem{
         {
             for(int i=0;i< transform.childCount;i++)
             {
+                
+
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             
@@ -57,6 +83,7 @@ namespace DialogueSystem{
         }
         public void HideDialogue()
         {
+            isFirstTimeLine = true;
             nameChara.SetActive(false);
             charaImage.SetActive(false);
             BG.SetActive(false);

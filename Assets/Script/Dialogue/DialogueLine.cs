@@ -29,13 +29,23 @@ namespace DialogueSystem{
         [SerializeField]private bool isCharaHaveImage;
         [SerializeField]private Image imageHolder;
         [SerializeField]private Sprite spriteCharacter;
+        public enum LeftRightImagePosition{
+            Left, Right
+        }
+        [SerializeField]private LeftRightImagePosition imagePosition;
+
         [Header("BG")]
         [SerializeField]private Color bgColor;
         [SerializeField]private Image backGroundHolder;
+        [SerializeField]private Sprite spriteBG;
         [Header("Name")]
         [SerializeField]private bool isCharaHaveName;
         [SerializeField]private string charaName;
         [SerializeField]private TextMeshProUGUI name_textHolder;
+        public enum LeftRightNamePosition{
+            Left, Right
+        }
+        [SerializeField]private LeftRightNamePosition namePosition;
         
 
         private void Awake() 
@@ -57,6 +67,8 @@ namespace DialogueSystem{
         public void GoLineText()
         {
             // Debug.Log(inputText);
+            if(spriteBG)backGroundHolder.sprite = spriteBG;
+            
             backGroundHolder.gameObject.SetActive(true);
             if(isCharaHaveName)
             {
@@ -91,6 +103,14 @@ namespace DialogueSystem{
             IEnumerator lineText = typeText(inputText, textHolder, delayTypeText, delayBetweenLines, backGroundHolder.gameObject, imageHolder.gameObject, name_textHolder.gameObject);
             StartCoroutine(lineText);
 
+        }
+        public LeftRightImagePosition GetImagePosition()
+        {
+            return imagePosition;
+        }
+        public LeftRightNamePosition GetNamePosition()
+        {
+            return namePosition;
         }
     }
 }

@@ -71,8 +71,8 @@ public class Bed : MonoBehaviour
         line.GoLineText();
         yield return new WaitUntil(()=> line.finished);
 
-        dialogue.SetActive(true);
-        BG.SetActive(true);
+        // dialogue.SetActive(true);
+        // BG.SetActive(true);
         charaImage.SetActive(true);
         nameChara.SetActive(true);
         gameManager.ChangeInterfaceType(WitchGameManager.InterfaceType.InterfaceBed);
