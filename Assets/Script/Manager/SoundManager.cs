@@ -25,7 +25,16 @@ public class SoundManager : MonoBehaviour
 
 
     public void UpdateSound_Volume(float upVolume){
-        volume += upVolume;
+        if(upVolume == -0.1f && volume > 0)
+        {
+            SoundManager.Instance.PlayMenuSound();
+            volume += upVolume;
+        }
+        else if(upVolume == 0.1f && volume < 1)
+        {
+            SoundManager.Instance.PlayMenuSound();
+            volume += upVolume;
+        }
         soundSlider.value = volume;
         PlayerPrefs.SetFloat(PLAYER_PREF_SOUND_VOLUME, volume);
         UpdateAllVolume();

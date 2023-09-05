@@ -83,11 +83,11 @@ public class PauseUI : MonoBehaviour
                 bgmManager.UpdateBGM_Volume(0.1f);
             }
             else if(isMusicOn && keyInputArrow.x == -1){
-                soundManager.PlayMenuSound();
+                
                 bgmManager.UpdateBGM_Volume(-0.1f);
             }
             if(isSoundOn && keyInputArrow.x == 1){
-                soundManager.PlayMenuSound();
+
                 soundManager.UpdateSound_Volume(0.1f);
             }
             else if(isSoundOn && keyInputArrow.x == -1){

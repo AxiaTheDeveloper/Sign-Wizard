@@ -63,7 +63,17 @@ public class BGMManager : MonoBehaviour
     }
 
     public void UpdateBGM_Volume(float upVolume){
-        volume += upVolume;
+        if(upVolume == -0.1f && volume > 0)
+        {
+            SoundManager.Instance.PlayMenuSound();
+            volume += upVolume;
+        }
+        else if(upVolume == 0.1f && volume < 1)
+        {
+            SoundManager.Instance.PlayMenuSound();
+            volume += upVolume;
+        }
+        
         bgmSlider.value = volume;
         BGM.volume = volume;
         PlayerPrefs.SetFloat(PLAYER_PREF_BGM_VOLUME, volume);
