@@ -236,10 +236,12 @@ MonoBehaviour:
     quest.
   dialogueTutorial_StartMaking_EN: Okay, Now time to brew some potions that the quest
     requested.
-  dialogueTutorial_Puzzle_ID: Ini adalah jembatan ajaib yang nenek buat agar kita
-    bisa pergi ke kota. Tapi aku harus memecahkan puzzlenya dulu baru ku bisa menyeberang
-  dialogueTutorial_Puzzle_EN: This is the magical bridge that Grandma created so
-    we can go to the town. But to cross the bridge, I have to solve the puzzle first.
+  dialogueTutorial_Puzzle_ID: Oh, aku tau ini. Aku belajar ini di sekolah. Ini adalah
+    jembatan ajaib yang nenek buat agar kita bisa menyebrang. Aku harus memecahkan
+    puzzlenya dulu.
+  dialogueTutorial_Puzzle_EN: Oh, I know about this. I learned it at the school.
+    This is the magical bridge that Grandma created so we can cross the river. I
+    have to solve the puzzle first.
   dialogueTutorial_StartPuzzle_ID: Saatnya kupecahkan puzzlenya.
   dialogueTutorial_StartPuzzle_EN: Time to solve the puzzle.
   dialogueNerimaGift_1_ID: Wah tumbukan baru!! Sekarang aku bisa membuat potion yang

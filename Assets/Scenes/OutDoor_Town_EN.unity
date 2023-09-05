@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: 6}
+  m_AnchoredPosition: {x: -10, y: 6}
   m_SizeDelta: {x: 52, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6408392
@@ -181,9 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tidak
-
-'
+  m_text: No
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -6309,7 +6307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Apakah aku akan berikan potion ini ?
+  m_text: Is this the one that I should give?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -8115,7 +8113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hmm.. Potion yang mana ya yang akan kuberikan ?
+  m_text: Hmm.. Which potion should I give?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -8250,7 +8248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ya
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -10566,7 +10564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183160401426539664, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
       propertyPath: m_text
-      value: Semoga potionnya bisa berguna untuk pengirim.
+      value: I hope the potion will be usefull.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
@@ -10927,7 +10925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.39737, y: -13}
+  m_AnchoredPosition: {x: -7, y: -13}
   m_SizeDelta: {x: 170.7948, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103120619
@@ -10950,7 +10948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tidak
+  m_text: No
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -13401,7 +13399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183160401426539664, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
       propertyPath: m_text
-      value: Sudah sore hari. Sebaiknya aku cepat pulang ke rumah sebelum malam tiba.
+      value: It's already afternoon. I'd better hurry home before night falls.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
@@ -18939,8 +18937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4183160401426539664, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
       propertyPath: m_text
-      value: "Aku siap untuk menerbangkanmu pulang. \nApakah kamu mau pulang sekarang
-        ?"
+      value: "\rI'm ready to fly you home.\r\nDo you want to go home now?"
       objectReference: {fileID: 0}
     - target: {fileID: 4183160401426539664, guid: 26c4a4f95a8f51b4da8e0724f93f5749, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -20353,7 +20350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 604, y: -403}
+  m_AnchoredPosition: {x: 677, y: -403}
   m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1512105709
@@ -25048,7 +25045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ya
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
   m_sharedMaterial: {fileID: -3983306231822718020, guid: 71c0efbb93a1d744eadbb1d9d51852a2, type: 2}
@@ -27763,6 +27760,11 @@ PrefabInstance:
       propertyPath: imagePosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7401244902489465324, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
+      propertyPath: m_text
+      value: Pardon me sweety, could you move back a bit, my cat eyes can't really
+        see something in front of them...
+      objectReference: {fileID: 0}
     - target: {fileID: 8506804223383133082, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
       propertyPath: m_Name
       value: Dialogues_NgobrolAmaTravelingMerchant1
@@ -27850,6 +27852,19 @@ PrefabInstance:
     - target: {fileID: 8506804223383133083, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667028046707652894, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
+      propertyPath: m_text
+      value: '*looks confused* Oh..? Um.. *squints eyes*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667028047553179205, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
+      propertyPath: m_text
+      value: Excuse me ma'am, Nice to meet you, my name is Axia, Is it true that
+        you are Vii the famous cat merchant?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996734760753832726, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
+      propertyPath: m_text
+      value: Oh okay. Sorry Ma'am.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43ef13ccee6fbe94885c488bc81531c7, type: 3}
@@ -28234,16 +28249,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8118918029327527851, guid: 5a33c7d154e7d93419592f8fb5ba2824, type: 3}
       propertyPath: m_text
-      value: Oh, potionnya sudah jadi. Terima kasih banyak ya nak!
+      value: Oh, the potions are already done. Thank you very much, dear!
       objectReference: {fileID: 0}
     - target: {fileID: 8118918029648941360, guid: 5a33c7d154e7d93419592f8fb5ba2824, type: 3}
       propertyPath: m_text
-      value: Sama-sama. Semoga ibu bisa bersemangat lagi. Jika ada perlu ramuan lagi,
-        bilang saja!
+      value: You're welcome. Hopefully you can be enthusiastic again. If you need
+        more potions, just say so!
       objectReference: {fileID: 0}
     - target: {fileID: 8118918031195185787, guid: 5a33c7d154e7d93419592f8fb5ba2824, type: 3}
       propertyPath: m_text
-      value: Permisi bu, Ini pesanannya!
+      value: Excuse me Ma'am, these are your orders.
       objectReference: {fileID: 0}
     - target: {fileID: 9143843977056545267, guid: 5a33c7d154e7d93419592f8fb5ba2824, type: 3}
       propertyPath: BGVii
@@ -28446,6 +28461,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7702859084841835368, guid: cbc2854ea5f241e43a27071362e2171b, type: 3}
+      propertyPath: m_text
+      value: '"Vii the Cat Merchant"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702859085961490577, guid: cbc2854ea5f241e43a27071362e2171b, type: 3}
+      propertyPath: m_text
+      value: "\rAh, this is the shop owned by Vii, the famous cat merchant. This
+        seems to be the merchant my parents often mentioned."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbc2854ea5f241e43a27071362e2171b, type: 3}
 --- !u!1001 &5860122616009519820
@@ -28455,6 +28479,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1704590199}
     m_Modifications:
+    - target: {fileID: 83568941346180425, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: OHH!! You are Axia, granddaughter of that legendary grandma. Nice to
+        meet you!
+      objectReference: {fileID: 0}
     - target: {fileID: 791458953653647384, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -28482,6 +28511,65 @@ PrefabInstance:
     - target: {fileID: 4347633865275290825, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
       propertyPath: imagePosition
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168374597996031, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: No need to pay. I really want to help you get back to home.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168374901057260, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: "\rA child with good manners like you deserved to be helped. After all,
+        I know the owner of the house."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168374969820061, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Ah.. I see. Well then, thank you ma'am.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168375068645790, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: "\rAh, what about that flying broomstick?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168375169672522, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Ah! You know my Grandma?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168375392808585, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Of course, she's my loyal customer Hohohoho.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168375661226972, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: "\rHmm... Okay then. I will take you home using the flying broomstick."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168375805581338, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Wait dear. What do you need a flying broomstick for?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168376204173545, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Oh, I'm sorry dear, that one is not for sale.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168376355357934, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: Ehh.. Thank you so much Ma'am!! How much do I have to pay you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168376431465587, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: So here's the thing Ma'am, my house is across the river but the bridge
+        is broken so I can't cross using that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168376488970334, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: 'Then, it turned out that the magical bridge that I used to cross will
+        disappeared if I come from the town. That''s why I need the flying broomstick
+        to get home.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993168376496169906, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
+      propertyPath: m_text
+      value: "\rOh yes, if you go to town and need help to go home again, you just
+        need to tell me."
       objectReference: {fileID: 0}
     - target: {fileID: 5404892838781184292, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
       propertyPath: m_Name
@@ -28573,8 +28661,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5480387918112672076, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
       propertyPath: m_text
-      value: Benar, Saya, Vii si pedagang kucing yang terkenal itu. Sebutkan saja
-        apapun yang kamu cari dan saya akan memberikan harganya.
+      value: That's right, I am Vii, the famous cat merchant. Just name whatever
+        you're looking for and I'll give you the price.
       objectReference: {fileID: 0}
     - target: {fileID: 8174947787384959180, guid: b327568d7f40d184daaf2e30263b8b45, type: 3}
       propertyPath: spriteBG

@@ -32,4 +32,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutDoor_Town_ID.unity
     guid: acb055b4c6b298c4f9bc989a9d3be206
+  - enabled: 1
+    path: Assets/Scenes/InDoor_EN.unity
+    guid: bb6d7abb829f55c4992505d72c3f158a
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_BrokenBridgeGraveyard_EN.unity
+    guid: e107806ab212ebf4cbdf9087b059ba33
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_BrokenBridgeTown_EN.unity
+    guid: 0e53d8e66d397db439cd16361cbf2f9c
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_Forest_EN.unity
+    guid: a8fbe064ca252334281b35fb9e0cb820
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_Graveyard_EN.unity
+    guid: 8c5d93d4cd45c7c4692db5de1c20917f
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_InFrontHouse_EN.unity
+    guid: ef0714bd556df214e94f90ad84eb50e3
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_MagicalBridge_EN.unity
+    guid: dbc16fadb023ff446a01b805dceebdb6
+  - enabled: 1
+    path: Assets/Scenes/OutDoor_Town_EN.unity
+    guid: da8522e156fc02b4e872755546817e0e
   m_configObjects: {}
