@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DialogueSystem.DialogueBase" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAgAAAAAAEAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogue\DialogueBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueSystem.DialogueHolder" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACEAAAAAFgAAAAAAQAAlAABAgAAgAAAAAAIAAAAGA=</HashCode>
+      <FileName>Dialogue\DialogueHolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueSystem.DialogueLine" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEIGAAAIAAAAAECAADAIAYAAAgAAgAIQIAAAGAAEA=</HashCode>
+      <FileName>Dialogue\DialogueLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArrowPositionChecker" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACEAAAAAIAAAAAAAAAIAAAgAQAAAAAAIAAQ=</HashCode>
+      <FileName>ArrowPositionChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColliderVisualVii" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAECAABBAAAAAAAAAAIAAAFAAAAARAAAIAAAAEEA=</HashCode>
+      <FileName>ColliderVisualVii.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bed" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMBCAAAQICEAAIAAAAAQAEAAAAAAAhACAAIAICEIACA=</HashCode>
+      <FileName>InteractObject\Bed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cauldron" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkQBECAMACDAAgVAgICDEIMAAIBAARAAAABBAaQgCic=</HashCode>
+      <FileName>InteractObject\Cauldron.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CauldronItem" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAgIAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\CauldronItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chest" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkABAgAEAiAAAAACABAAADIAAiAAEBAEAAAACCQAAEQ=</HashCode>
+      <FileName>InteractObject\Chest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door_Outside" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBKgAAQIKEIAAAAAAQAAECQAAAAAxACFBAAKCEIECg=</HashCode>
+      <FileName>InteractObject\Door_Outside.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheCauldron" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThePenumbuk" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheChest" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheSubmit" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheDictionary" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheBed" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheDoor" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheQuestBox" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractObject" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBCACAgQAADgCCAAgIkoAABBBIAAAAyCQAAIAE=</HashCode>
+      <FileName>InteractObject\InteractObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Penumbuk" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CkQBgAAEACAAIQAAAAEAEFISAICAAhAAABAgACCAACQ=</HashCode>
+      <FileName>InteractObject\Penumbuk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PopUpInteractUI" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAACIACEAABAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>InteractObject\PopUpInteractUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestBox" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkACgAABACiAEAKAAKAAARIQAYAGAGAAAIAACiAAEAA=</HashCode>
+      <FileName>InteractObject\QuestBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SubmitPotion" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGCQAAAFACAAAAEAhAQBAQIUQAAAAIACCACgADAAAAg=</HashCode>
+      <FileName>InteractObject\SubmitPotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TravelingMerchant" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBCAAQQACEAAAAAAAAAAEAAAAAAARADAAGAIGEIADE=</HashCode>
+      <FileName>InteractObject\TravelingMerchant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BGMManager" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQCAACAACAAAQACgCUAAAQAAgAAAgAAQAAAAAACAEA=</HashCode>
+      <FileName>Manager\BGMManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameInput" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCwAgAQKSQCgAQjEACCgAAAFIAAABAISAAABUCEIEA=</HashCode>
+      <FileName>Manager\GameInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerData" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAAAAAAAAABAAAAABAAAAAABEAAAAAAAIAARFAAAA=</HashCode>
+      <FileName>Manager\GameSaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAACAAAIAA=</HashCode>
+      <FileName>Manager\GameSaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameSaveManager" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manager\GameSaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestManager" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACQAICAhhAEAACAAAAAAAAIAAAAAQwAAQBgAgWA=</HashCode>
+      <FileName>Manager\QuestManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBGQAUiBCBQACACAAgIBJEAAEAwAAAA2AiAAAoiAEQ=</HashCode>
+      <FileName>Manager\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimelineManager" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAAgEhEIKgRAAAEgAAAgAIBABABCAAAUAAAAMAAIEA=</HashCode>
+      <FileName>Manager\TimelineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WitchGameManager" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAZBCAgAgCCAAAAABCEBAABAAIAEQAAERAiAAAQAgEA=</HashCode>
+      <FileName>Manager\WitchGameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerInteraction" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAADAAAAAAAAgAMQAJAAAAAEAQAAQAAAAEAAAEA=</HashCode>
+      <FileName>Player\PlayerInteraction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerInventory" Collapsed="true">
+    <Position X="14.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BFxFEAUgEiAgAAQAkAJcBgARMgElIAEGRADCSIgAAEQ=</HashCode>
+      <FileName>Player\PlayerInventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovement" Collapsed="true">
+    <Position X="16.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQYAKAACiAQAAEMEAAAAAKAAhAhCAAAAoAABABAEgA=</HashCode>
+      <FileName>Player\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerSaveManager" Collapsed="true">
+    <Position X="7.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEIACAIAYCQAIIAAAABAIEQADBQRAAJIUAAUQUBAgWA=</HashCode>
+      <FileName>Player\PlayerSaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PembatasEnding" Collapsed="true">
+    <Position X="11" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>PuzzleToTown\PembatasEnding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PuzzleToTown_Pembatas" Collapsed="true">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAIABIABAAAAAABFAACABNAAAAAAAAAAA=</HashCode>
+      <FileName>PuzzleToTown\PuzzleToTown_Pembatas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileControl" Collapsed="true">
+    <Position X="7.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAASCBCAACEQEAAgCEACAB0AACAEABoHAAAHAQcQ=</HashCode>
+      <FileName>PuzzleToTown\TileControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileControlManager" Collapsed="true">
+    <Position X="9.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAIEBKBEDIBAAIEgEACAFAChIiQ0DAEQAAhCACAkUA=</HashCode>
+      <FileName>PuzzleToTown\TileControlManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueListScriptableObject" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>PX9XL+Ov3WHI5TXn4+6GCAaYdNoWxrNsjTKKy5VPnfs=</HashCode>
+      <FileName>ScriptableObject\DialogueListScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryScriptableObject" Collapsed="true">
+    <Position X="18" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAiAAAABAIAAgIAACCABAAAAAAAACAAAAAA=</HashCode>
+      <FileName>ScriptableObject\InventoryScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventorySlot" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAQABAAAAACAAAAAAAAAYAA=</HashCode>
+      <FileName>ScriptableObject\InventoryScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemScriptableObject" Collapsed="true">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAgJAEAACDAAAAACAAQAAAAAA=</HashCode>
+      <FileName>ScriptableObject\ItemScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerSave" Collapsed="true">
+    <Position X="18" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAAAAAAAAABAAAAABAAAAABBEAAAAAAAIAARFAAAA=</HashCode>
+      <FileName>ScriptableObject\PlayerSave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PotionRecipeScriptableObject" Collapsed="true">
+    <Position X="9.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAQAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>ScriptableObject\PotionRecipeScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestScriptableObject" Collapsed="true">
+    <Position X="14.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIISEAAgEAEEIAEAAAAAAAJAAAQCAEABACApSAAAA=</HashCode>
+      <FileName>ScriptableObject\QuestScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TumbukRecipeScriptableObject" Collapsed="true">
+    <Position X="11" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScriptableObject\TumbukRecipeScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FadeMainMenu" Collapsed="true">
+    <Position X="18" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAgAQgAAAAAAAAAAAAAAACEEAAAAAAAggAQAFA=</HashCode>
+      <FileName>UI\Scene Effect\FadeMainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FadeNight_StartEnd" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEwAAAAAAAgAAAAAAACAACoBAAwAQAAAAFAACgAAIBA=</HashCode>
+      <FileName>UI\Scene Effect\FadeNight_StartEnd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Announcement_SuccesfullGetItem" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAgAKAAAAAAFAgAAAEAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\Announcement_SuccesfullGetItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CauldronUI" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAEAAAAgBAAAAEAAQAAAAAAAAAgAAABIAA=</HashCode>
+      <FileName>UI\CauldronUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogueManager" Collapsed="true">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IFBowExI4O0EYEwTxLkCBQAFQFhAAOIhZAIBAECAi0I=</HashCode>
+      <FileName>UI\DialogueManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DictionaryUI" Collapsed="true">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEQAAAgAQCgAQABACEDABAAAAgIQAAAABEAQCkAQAAA=</HashCode>
+      <FileName>UI\DictionaryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameControlUI" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAAQAIAgCIAQCAAAAAAACABEBKRBQIIAAAgAAAIABA=</HashCode>
+      <FileName>UI\GameControlUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameControlUIMainMenu" Collapsed="true">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAAAAIAABAAAAAEAAAEAAAAAAAAIAAAAA=</HashCode>
+      <FileName>UI\GameControlUIMainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryItemUI" Collapsed="true">
+    <Position X="16.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCGBBgBAgAAAAEAAAAAgACAAAMAAAAgAQAQABAIMM=</HashCode>
+      <FileName>UI\InventoryItemUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryOnly" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAoABAAAgABgACAAIAAgAAAAAACAAAQAgAIAAIAAAA=</HashCode>
+      <FileName>UI\InventoryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryWithDesc" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAQBAgAAAAAAAAAAABAABAAAAAAACAA=</HashCode>
+      <FileName>UI\InventoryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryCauldron" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAgAAAAIAAEAAAAAEAgAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>UI\InventoryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryPenumbuk" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAAAAAIAAAAQCAAAAAAAAAAAAAAIAABAAAAAE=</HashCode>
+      <FileName>UI\InventoryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryUI" Collapsed="true">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UkRy4AhFgiAAggAGAAAAAjCQ4KICABAQAkAAIyAAGkQ=</HashCode>
+      <FileName>UI\InventoryUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryUIDesc" Collapsed="true">
+    <Position X="9.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACwAAEEAAAAAEAQAAAAAAAAAJAAAABAQIAkIIAAAAEA=</HashCode>
+      <FileName>UI\InventoryUIDesc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuUI" Collapsed="true">
+    <Position X="16.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIwgBYjJEaAACghEQDOYghAoAiQLAQgKIRBATCB6AUg=</HashCode>
+      <FileName>UI\MainMenuUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapUI" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EGQBAQIAgCwAAIAAQAIAAAgAAgAAgAACRhAJRgQAAMA=</HashCode>
+      <FileName>UI\MapUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseUI" Collapsed="true">
+    <Position X="9.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMYAAQBAECgAAAEAABaQoAAwAoUIAAAAQQAAFiAQAUA=</HashCode>
+      <FileName>UI\PauseUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PenumbukUI" Collapsed="true">
+    <Position X="12.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAAAgQgBAAEAEgAQBAAAEAACBEAEAAEEA=</HashCode>
+      <FileName>UI\PenumbukUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestLogUI" Collapsed="true">
+    <Position X="12.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAABACgAAAAAAAAAAAAAAoAAACAAAAAACgAAAAg=</HashCode>
+      <FileName>UI\QuestLogUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RuneinPuzzleUI" Collapsed="true">
+    <Position X="16.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEQAAAAAACgAAAAAAAAAAAAAIoAAAAAAAAAAAiAABAg=</HashCode>
+      <FileName>UI\RuneinPuzzleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SubmitPotionUI" Collapsed="true">
+    <Position X="18" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIgAQCAAAAAAAAAAAEQAAAAwAAACAAgQAAEIAAA=</HashCode>
+      <FileName>UI\SubmitPotionUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialUI" Collapsed="true">
+    <Position X="12.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IlQAAAIAAAAAgiAABgCEBAIAAgAAAAAAAAhAAAAIAEA=</HashCode>
+      <FileName>UI\TutorialUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="14.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WantToResetPuzzle" Collapsed="true">
+    <Position X="16.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADQAAAIAAgAAAAAAAgAAAAAwAAAQAAAAAABAAAAAAEA=</HashCode>
+      <FileName>UI\WantToResetPuzzle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WantToSeeTutorialUI" Collapsed="true">
+    <Position X="18" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAACYAAAAgAAAAAgAAAACwAAQQAAAgAAAAAAAAAEA=</HashCode>
+      <FileName>UI\WantToSeeTutorialUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="word_Animator" Collapsed="true">
+    <Position X="9.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>UI\word_Animator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinishWordDoFunction" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQACAAACAAAAAAAAAAAAAgBAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Word\FinishWordDoFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Word" Collapsed="true">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAABAAAAAACAAAAAAAAAAAMABAAAKAAJAAAAAAQ=</HashCode>
+      <FileName>Word\Word.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordGenerator" Collapsed="true">
+    <Position X="11" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAIUAEAAABAAAAAAEAAIAAAAgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Word\WordGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordInput" Collapsed="true">
+    <Position X="12.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkQAkAAAACACAAAECAIAAgCIEgAAAIAAQAAEAAgAAEA=</HashCode>
+      <FileName>Word\WordInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordManager" Collapsed="true">
+    <Position X="14.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgdAQAECAAAEAAIgCAAgAAgIAABEAAACABAABCoQA=</HashCode>
+      <FileName>Word\WordManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordSpawner" Collapsed="true">
+    <Position X="16.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAQAAAAAAAACgACAAAAAAAAAAAAAAAAAAAAICAQAEA=</HashCode>
+      <FileName>Word\WordSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordUI" Collapsed="true">
+    <Position X="18" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAEAAAAAAAAABABAQQAAAAAAQAgAAAAAAIAAAA=</HashCode>
+      <FileName>Word\WordUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnvironmentInsideControl" Collapsed="true">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAABAEA=</HashCode>
+      <FileName>EnvironmentInsideControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoingToOtherPlace" Collapsed="true">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAAAAAAAAAgAIAAAAABAEAAgDQQAAAg=</HashCode>
+      <FileName>GoingToOtherPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelLoader" Collapsed="true">
+    <Position X="12.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAACAAAAAAAAAgAQAAAAAAAAEA=</HashCode>
+      <FileName>LevelLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lighting" Collapsed="true">
+    <Position X="14.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAAIAAACAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lighting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapChecker" Collapsed="true">
+    <Position X="18" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAgAAAAAAAAAIAEAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MapChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PlayerDirection" Collapsed="true">
+    <Position X="12.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>PuzzleToTown\PuzzleToTown_Pembatas.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PuzzleTileType" Collapsed="true">
+    <Position X="14.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PuzzleToTown\TileControl.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TileWordPosition" Collapsed="true">
+    <Position X="16.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>PuzzleToTown\TileControl.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ItemType" Collapsed="true">
+    <Position X="9.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScriptableObject\ItemScriptableObject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="levelMode" Collapsed="true">
+    <Position X="11" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ScriptableObject\PlayerSave.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Destination_Outside" Collapsed="true">
+    <Position X="7.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAIEAAAIABAIAgAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>GoingToOtherPlace.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
