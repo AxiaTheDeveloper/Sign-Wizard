@@ -50,10 +50,13 @@ public class PlayerMovement : MonoBehaviour
                     keyInput = gameInput.GetInputMovement();
                     if(gameInput.GetInputRun())
                     {
+                        if(rb.velocity != Vector2.zero)
+                            playerAnimator.animator.speed = 1.6f;
                         speedMovement = speedMovementRun;
                     }
                     else{
                         speedMovement = speedMovementNormal;
+                        playerAnimator.animator.speed = 1f;
                     }
                     if(keyInputPuzzle != Vector2.zero)
                     {
