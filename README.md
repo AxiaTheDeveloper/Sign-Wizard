@@ -1,4 +1,4 @@
-# Gemastik2023
+# Sign Wizard
  
 2nd Place Pengembangan Aplikasi Permainan Gemastik 2023 & Winner of GameXcellence 2023 Technical Excellence Award.
 
