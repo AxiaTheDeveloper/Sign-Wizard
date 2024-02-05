@@ -43,9 +43,9 @@ MonoBehaviour:
     the map.
 
     - Give the potion to Ma''am Vii. '
-  QuestinMail_ID: "Pagi nak Axia ! \rKamu bisa membuat ramuan kan ya ?\n\r\nSaya
+  QuestinMail_ID: "Pagi nak Axia ! Kamu bisa membuat ramuan kan ya ?\r\n\r\nSaya
     mau pesan ramuan <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b>
-    karena belakangan ini saya sedang butuh dorongan tambahan, haha. \n\nTerimakasih
+    karena belakangan ini saya sedang butuh dorongan tambahan, haha. \r\n\r\nTerimakasih
     ya!"
   QuestinMail_EN: "Morning sweety ! I heard you can brew a potion. \n\nI would like
     <b><color=#A46443>Soothing Root Infusion & Golden Energy Brew</color></b> potions

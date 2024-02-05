@@ -19,8 +19,6 @@ namespace DialogueSystem{
         private TextMeshProUGUI textHolder;
         [SerializeField]private bool isInputText_FromOtherCode = false;
         
-        // [SerializeField]private Color textColor;
-        // [SerializeField]private Font textFont;
         [Header("Time Delay ")]
         [SerializeField]private float delayTypeText;
         [SerializeField]private float delayBetweenLines;
