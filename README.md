@@ -12,10 +12,11 @@ For my 2nd project at my internship, we developed this game for Gemastik Game de
 
 For this project I implemented SRP of SOLID principle. 
 
-For optimization: I used pooling for spawning the obstacles, used Comparetag for comparing collider.
+For optimization: used Comparetag for comparing collider.
 For game programming pattern: I used singleton for managers and state pattern for the game state control.
 For design pattern: I still only used model view pattern.
 
+It's a rpg game where you make potions by using sign language.
 
 It's my 2nd time creating the dialogue system (I took from my 1st project) and using the timeline system. The dialogue system is still really messy because even if I tried to use SO for storing the dialogue. I still need to make a separate game object because each code saves the characters data (character dialogue sprite.
 
